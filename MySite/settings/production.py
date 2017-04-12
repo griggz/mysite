@@ -78,6 +78,7 @@ ROOT_URLCONF = 'MySite.urls'
 ROOT_HOSTCONF = 'MySite.hosts'
 DEFAULT_HOST = 'www'
 DEFAULT_REDIRECT_URL = 'http://www.vvayne.co'
+PARENT_HOST = 'vvayne.co'
 
 TEMPLATES = [
     {
