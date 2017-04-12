@@ -1,11 +1,13 @@
-.DS_Store
-venv
-staticfiles
+# Created by .ignore support plugin (hsz.mobi)
 
+venv
+*.pyc
+staticfiles
 MySite/settings/local.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
 *$py.class
 
 # C extensions

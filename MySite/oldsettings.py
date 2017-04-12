@@ -14,7 +14,7 @@ import os
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = '(h((2_19pv6tq$d5s@g5dbgroos^ii!c0d-tzm!$lk6qjx71)n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.vvayne.co', 'vvayne.co']
+ALLOWED_HOSTS = ['www.smrt.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'smrtmann.contact@gmail.com'
@@ -77,7 +77,7 @@ LOGIN_EXEMPT_URLS = [
 ROOT_URLCONF = 'MySite.urls'
 ROOT_HOSTCONF = 'MySite.hosts'
 DEFAULT_HOST = 'www'
-DEFAULT_REDIRECT_URL = "http://www.vvayne.co:5000"
+DEFAULT_REDIRECT_URL = "http://www.smrt.com:8000"
 
 TEMPLATES = [
     {
