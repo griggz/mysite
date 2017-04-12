@@ -1,0 +1,17 @@
+appdirs==1.4.3
+cycler==0.10.0
+Django==1.11
+django-crispy-forms==1.6.1
+django-hosts==2.0
+forex-python==0.3.2
+gunicorn==19.7.1
+matplotlib==2.0.0
+numpy==1.12.1
+packaging==16.8
+pandas==0.19.2
+pyparsing==2.2.0
+python-dateutil==2.6.0
+pytz==2017.2
+requests==2.13.0
+simplejson==3.10.0
+six==1.10.0

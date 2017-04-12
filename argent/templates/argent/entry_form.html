@@ -1,0 +1,28 @@
+{% extends "home/header.html" %}
+{% load crispy_forms_tags %}
+{% block header %}
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent Marker|Kalam">
+{% endblock %}
+{% block title %}
+<div class="row" style="margin-left: 20px; margin-right: 20px;font-family: 'Lato', serif; color: white;">
+    <div class="col-sm-6 col-md-6">
+        <h1>New Entry</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+        <div class="row" style="margin-left: 20px; margin-right: 20px; font-family: 'Lato', serif; color: white;">
+            <div class="col-sm-6 col-md-6">
+
+                <h1>{{ title }}</h1>
+                <form method="post" class="uniForm">
+                    {% csrf_token %}
+                    {% include 'argent/includes/form-template.html' %}
+
+                    <input class='btn btn-primary' type="Submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+{#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
+{% endblock %}

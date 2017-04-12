@@ -1,0 +1,90 @@
+{% extends "home/header.html" %}
+{%  load staticfiles %}
+{% block header %}
+<link rel="stylesheet" href='{% static 'argent/css/argent.css' %}'/>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent Marker|Kalam">
+
+{% endblock %}
+
+
+{% block title %}
+
+<div class="container container-fluid" style="margin-left: 20px; font-family: 'Lato', serif">
+    <a href="{% url 'argent:entry-add' %}">
+                    <button type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; New Entry
+                    </button>
+    </a>
+</div>
+<div class="container container-fluid" style="margin-left: 20px; margin-right: 20px; font-family: 'Lato', serif; color: white; font-size: xx-large;">
+    <div class="col-sm-6 col-md-6">
+        <h1 style="text-decoration: underline">Details</h1>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container container-fluid" style="margin-left: 30px; margin-right: 30px; font-family: 'Lato', serif; color: white; font-size: larger">
+        <div class=row>
+            <div class="col-xs-12 col-md-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2" style="font-size: x-large">{{ object.date }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td align="left">Receipts:</td>
+                        <td> {{ object.euros }} </td>
+                    </tr>
+                    <tr>
+                        <td align="left">Total Euros Spent:</td>
+                        <td>€{{object.euros_sum}}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">Total Dollars Spent:</td>
+                        <td>${{object.dollars_sum}}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">Exchange Rate:</td>
+                        <td>{{ object.xrate }}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">Daily Savings:</td>
+
+                        <td>
+                            {% if object.daily_savings_dollars > 0 %}
+                            <div class="NegativeSavings" style="font-weight: bold">-
+                            {% else %}
+                            <div class="PositiveSavings" style="font-weight: bold">+
+                            {% endif %}
+                            ${{ object.daily_savings_display }}
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            <a href="{% url 'argent:entry-list' current_month %}">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-list"></span>&nbsp; Month
+                    </button>
+    </a>
+            &nbsp
+
+            <a href="{% url 'argent:index'  %}">
+                        <button type="button" class="btn btn-primary">Home
+                    </button>
+            </a>
+
+            </div>
+                    <!-- the rest of the fields.. -->
+
+        </div>
+    </div>
+
+{#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
+{% endblock %}

@@ -1,0 +1,352 @@
+{% extends "home/header.html" %}
+{% load staticfiles %}
+{% load humanize %}
+{% block header %}
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent Marker|Kalam">
+<link rel="stylesheet" href='{% static 'argent/css/argent.css' %}'/>
+{% endblock %}
+
+{% block title %}
+&nbsp;
+<div class="container container-fluid" style="font-family: 'Kalam', serif;">
+    <div class="jumbotron" style="background: #ebebeb; padding: 2%; margin-bottom: 0">
+        {% if entry_qs %}
+        {% for ctx in entry_qs %}
+        <div style="padding: 0; font-family: 'Kalam', serif; margin-bottom: 0" align="right">
+        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; Update
+                    </button></a>
+
+        </div>
+        <h1 style="margin-top: 0; color: #FF5A09;"><b>Today's Spending</b></h1>
+        <div class=col-lg" style="font-family: 'Kalam', serif; color: white;">
+            <div class="container">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th colspan="2" style="font-size: xx-large; color: #337ab7; font-weight: bold;"><u>{{ ctx.date }}</u></th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: x-large">
+                        <tr>
+                            <td align="left" style="color: #337ab7; font-weight: bold">Receipts:</td>
+                            <td style="color: #FF5A09;" align="left"> {{ ctx.euros }} </td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="color: #337ab7; font-weight: bold">Total Euros Spent:</td>
+                            <td style="color: #FF5A09;" align="left">€{{ctx.euros_sum}}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="color: #337ab7; font-weight: bold">Total Dollars Spent:</td>
+                            <td style="color: #FF5A09;" align="left">${{ctx.dollars_sum}}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="color: #337ab7; font-weight: bold">Exchange Rate:</td>
+                            <td style="color: #FF5A09;" align="left">{{ ctx.xrate }}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="color: #337ab7; font-weight: bold">Daily Savings:</td>
+
+                            <td align="left">
+                                {% if ctx.daily_savings_dollars > 0 %}
+                                <div class="NegativeSavings" style="font-weight: bold">-
+                                {% else %}
+                                <div class="PositiveSavings" style="font-weight: bold">+
+                                {% endif %}
+                                ${{ ctx.daily_savings_display }}
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+            <div class="container" style="font-family: 'Kalam', serif">
+                {% if savings_qs %}
+                {% for ctx in savings_qs %}
+                <table class="table table-condensed">
+                    <tbody style="font-size: 23px" align="center">
+                        <tr>
+                            <td width="33.3%" style="color: #b48c36; font-weight: bold">Total Euros Spent</td>
+                            <td width="33.3%" style="color: #b48c36; font-weight: bold">Total Dollars Spent</td>
+                            <td width="33.3%" style="color: #b48c36; font-weight: bold">Total Savings</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #c1432e;"> €{{ctx.total_spent_euros|intcomma}} </td>
+                            <td style="color: #c1432e;"> ${{ctx.total_spent_dollars|intcomma }} </td>
+                            <td style="color: #2c3e50;">
+                                {% if ctx.total_savings  > 0 %}
+                                        <div class="NegativeSavings" style="font-weight: bold">-
+                                        {% else %}
+                                        <div class="PositiveSavings" style="font-weight: bold">+
+                                        {% endif %}
+                                ${{ctx.total_savings_display|intcomma}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+        {% endfor %}
+        {% endif %}
+            </div>
+        {% endfor %}
+        {% else %}
+            <h1 align="center">No entries for today yet...</h1>
+        {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div>
+    &nbsp
+</div>
+<div class="container container-fluid" style="font-family:'Kalam', serif">
+
+    <a href="{% url 'argent:entry-add' %}">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; New Entry
+                    </button>
+    </a>
+    <!-- Entry List By Month-->
+    <div class="row" align="center">
+        <div>
+            &nbsp
+        </div>
+
+{#        NOVEMBER 16#}
+        {% if November16_qs %}
+        {% for ctx in November16_qs %}
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="thumbnail" style="background: #ebebeb" >
+                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                    <div class="caption">
+                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                            <tr>
+                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                   Spent
+                                </td>
+                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                    Saved
+                                </td>
+                            </tr>
+                            <tr>
+                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            {% if ctx.total_savings  > 0 %}
+                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% else %}
+                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% endif %}
+                            </tr>
+                        </table>
+                                <h3>
+                                    <!-- View Details -->
+                                    <a href="{% url 'argent:entry-list' 'November' %}">
+                                        <button type="button" class="btn btn-Default">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        </button>
+                                    </a>
+                                </h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+
+{#        DECEMBER 16#}
+        {% if December16_qs %}
+        {% for ctx in December16_qs %}
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="thumbnail" style="background: #ebebeb" >
+                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                    <div class="caption">
+                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                            <tr>
+                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                   Spent
+                                </td>
+                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                    Saved
+                                </td>
+                            </tr>
+                            <tr>
+                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            {% if ctx.total_savings  > 0 %}
+                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% else %}
+                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% endif %}
+                            </tr>
+                                </table>
+                                <h3>
+                                    <!-- View Details -->
+                                    <a href="{% url 'argent:entry-list' 'December' %}">
+                                        <button type="button" class="btn btn-Default">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        </button>
+                                    </a>
+                                </h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+
+{#        JANUARY#}
+        {% if January17_qs %}
+        {% for ctx in January17_qs %}
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="thumbnail" style="background: #ebebeb" >
+                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                    <div class="caption">
+                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                            <tr>
+                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                   Spent
+                                </td>
+                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                    Saved
+                                </td>
+                            </tr>
+                            <tr>
+                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            {% if ctx.total_savings  > 0 %}
+                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% else %}
+                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% endif %}
+                            </tr>
+                               </table>
+                                <h3>
+                                    <!-- View Details -->
+                                    <a href="{% url 'argent:entry-list' 'January' %}">
+                                        <button type="button" class="btn btn-Default">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        </button>
+                                    </a>
+                                </h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+
+{#        FEBRUARY#}
+        {% if February17_qs %}
+        {% for ctx in February17_qs %}
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="thumbnail" style="background: #ebebeb" >
+                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                    <div class="caption">
+                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                            <tr>
+                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                   Spent
+                                </td>
+                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                    Saved
+                                </td>
+                            </tr>
+                            <tr>
+                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            {% if ctx.total_savings  > 0 %}
+                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% else %}
+                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% endif %}
+                            </tr>
+                                </table>
+                                <h3>
+                                    <!-- View Details -->
+                                    <a href="{% url 'argent:entry-list' 'February' %}">
+                                        <button type="button" class="btn btn-Default">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        </button>
+                                    </a>
+                                </h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+
+{#        MARCH#}
+        {% if March17_qs %}
+        {% for ctx in March17_qs %}
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="thumbnail" style="background: #ebebeb" >
+                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                    <div class="caption">
+                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                            <tr>
+                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                   Spent
+                                </td>
+                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                    Saved
+                                </td>
+                            </tr>
+                            <tr>
+                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            {% if ctx.total_savings  > 0 %}
+                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% else %}
+                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% endif %}
+                            </tr>
+                                </table>
+                                <h3>
+                                    <!-- View Details -->
+                                    <a href="{% url 'argent:entry-list' 'March' %}">
+                                        <button type="button" class="btn btn-Default">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        </button>
+                                    </a>
+                                </h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+
+{#     April#}
+        {% if April17_qs %}
+        {% for ctx in April17_qs %}
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="thumbnail" style="background: #ebebeb" >
+                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                    <div class="caption">
+                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                            <tr>
+                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                   Spent
+                                </td>
+                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                    Saved
+                                </td>
+                            </tr>
+                            <tr>
+                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            {% if ctx.total_savings  > 0 %}
+                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% else %}
+                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% endif %}
+                            </tr>
+                                </table>
+                                <h3>
+                                    <!-- View Details -->
+                                    <a href="{% url 'argent:entry-list' 'April' %}">
+                                        <button type="button" class="btn btn-Default">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        </button>
+                                    </a>
+                                </h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+</div>
+
+{#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
+
+{% endblock %}
