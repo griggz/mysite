@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '(h((2_19pv6tq$d5s@g5dbgroos^ii!c0d-tzm!$lk6qjx71)n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.vvayne.co', 'vvayne.co', 'wgsite.herokuapp.com']
 
