@@ -5,6 +5,8 @@ venv
 staticfiles
 MySite/settings/local.py
 
+MySite/oldsettings.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
