@@ -25,7 +25,7 @@ SECRET_KEY = '(h((2_19pv6tq$d5s@g5dbgroos^ii!c0d-tzm!$lk6qjx71)n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.vvayne.co', 'vvayne.co']
+ALLOWED_HOSTS = ['www.vvayne.co', 'vvayne.co', 'wgsite.herokuapp.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'smrtmann.contact@gmail.com'
