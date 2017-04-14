@@ -16,9 +16,9 @@ class Entry(models.Model):
     def get_absolute_url(self):
         return reverse('argent:detail', kwargs={'pk': self.pk})
 
-    # def item_date(self):
-    #     row_title = self.date
-    #     return row_title
+    def item_date(self):
+        row_title = self.date
+        return row_title
 
     # class Meta:
     #
