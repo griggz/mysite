@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36bbeaa5-5600-40c2-bf22-126be5ea35e0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MySite/settings/production.py" afterPath="$PROJECT_DIR$/MySite/settings/production.py" />
-    </list>
+    <list default="true" id="36bbeaa5-5600-40c2-bf22-126be5ea35e0" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +18,8 @@
       <file leaf-file-name="production.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="19" column="56" lean-forward="false" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+            <state relative-caret-position="1909">
+              <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -151,6 +149,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MySite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MySite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -815,8 +831,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="19" column="56" lean-forward="false" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+        <state relative-caret-position="1909">
+          <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding />
         </state>
       </provider>
