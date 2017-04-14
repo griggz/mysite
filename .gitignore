@@ -2,7 +2,6 @@
 
 venv
 *.pyc
-staticfiles
 MySite/settings/local.py
 
 MySite/oldsettings.py
