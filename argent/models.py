@@ -20,9 +20,9 @@ class Entry(models.Model):
         row_title = self.date
         return row_title
 
-    # class Meta:
-    #
-    #     ordering = ['date']
+    class Meta:
+
+        ordering = ['date']
 
 
 class Savings(models.Model):
