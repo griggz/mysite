@@ -3,7 +3,7 @@
 venv
 *.pyc
 MySite/settings/local.py
-
+db.sqlite3
 MySite/oldsettings.py
 
 # Byte-compiled / optimized / DLL files
