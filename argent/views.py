@@ -32,7 +32,7 @@ class IndexView(generic.ListView):
         ctx['entry_qs'] = Entry.objects.filter(date=today_date)
 
         # CURRENT SAVINGS TOTALS
-        ctx['savings_qs'] = Savings.objects.filter(id=1)
+        ctx['savings_qs'] = Savings.objects.filter(id=2)
 
         # MONTHLY TOTALS
 

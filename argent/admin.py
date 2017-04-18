@@ -21,7 +21,7 @@ admin.site.register(Entry, EntryFormAdmin)
 
 
 class SavingsFormAdmin(admin.ModelAdmin):
-    list_display = ["total_spent_euros", "total_spent_dollars", "total_savings", "total_savings_display"]
+    list_display = ["id", "total_spent_euros", "total_spent_dollars", "total_savings", "total_savings_display"]
     form = SavingsForm
 
 
