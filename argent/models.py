@@ -17,12 +17,12 @@ class Entry(models.Model):
         return reverse('argent:detail', kwargs={'pk': self.pk})
 
     def item_date(self):
-        row_title = self.date
+        row_title = self.date2
         return row_title
 
     class Meta:
 
-        ordering = ['date']
+        ordering = ['date2']
 
 
 class Savings(models.Model):
