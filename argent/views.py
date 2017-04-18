@@ -146,7 +146,7 @@ class EntryCreate(CreateView):
             absolute = abs(sum_abs_savings)
             sum_abs = "{0:.2f}".format(absolute)
 
-            Savings.objects.filter(id=1).update(total_savings=sum_format, total_savings_display=sum_abs,
+            Savings.objects.filter(id=2).update(total_savings=sum_format, total_savings_display=sum_abs,
                                                 total_spent_dollars=sum_dollars_f, total_spent_euros=sum_euros_f)
 
             return super(EntryCreate, self).form_valid(form)
@@ -191,7 +191,7 @@ class EntryCreate(CreateView):
             absolute = abs(sum_abs_savings)
             sum_abs = "{0:.2f}".format(absolute)
 
-            Savings.objects.filter(id=1).update(total_savings=sum_format, total_savings_display=sum_abs,
+            Savings.objects.filter(id=2).update(total_savings=sum_format, total_savings_display=sum_abs,
                                                 total_spent_dollars=sum_dollars_f, total_spent_euros=sum_euros_f)
 
             return super(EntryCreate, self).form_valid(form)
@@ -275,7 +275,7 @@ class EntryUpdate(UpdateView):
             absolute = abs(sum_abs_savings)
             sum_abs = "{0:.2f}".format(absolute)
 
-            Savings.objects.filter(id=1).update(total_savings=sum_format, total_savings_display=sum_abs,
+            Savings.objects.filter(id=2).update(total_savings=sum_format, total_savings_display=sum_abs,
                                                 total_spent_dollars=sum_dollars_f, total_spent_euros=sum_euros_f)
 
             return super(EntryUpdate, self).form_valid(form)
@@ -320,7 +320,7 @@ class EntryUpdate(UpdateView):
             absolute = abs(sum_abs_savings)
             sum_abs = "{0:.2f}".format(absolute)
 
-            Savings.objects.filter(id=1).update(total_savings=sum_format, total_savings_display=sum_abs,
+            Savings.objects.filter(id=2).update(total_savings=sum_format, total_savings_display=sum_abs,
                                                 total_spent_dollars=sum_dollars_f, total_spent_euros=sum_euros_f)
 
             return super(EntryUpdate, self).form_valid(form)
