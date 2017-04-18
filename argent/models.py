@@ -26,7 +26,6 @@ class Entry(models.Model):
 
 
 class Savings(models.Model):
-    date = models.ForeignKey(Entry, on_delete=models.CASCADE, blank=True, null=True)
     total_spent_euros = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     total_spent_dollars = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     total_savings = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
