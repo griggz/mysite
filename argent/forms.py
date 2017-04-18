@@ -210,30 +210,30 @@ class SavingsForm(ModelForm):
         labels = {'total_spent_euros': 'Total €€€ Spending', 'total_spent_dollars': 'Total $$$ Spending', 'total_savings': 'Total $$$ Savings', 'total_savings_display': 'Total $$$ Savings(ABS)'}
         # help_texts = {'date': 'Enter a date using the following format mm/dd/yyyy.', 'euros': 'Enter the total amount of euros spent.', }
 
-    # def clean_total_spent_euros(self):
-    #     sum_euros = Entry.objects.aggregate(s=Sum('euros_sum')).get('s')
-    #     sum_format = "{0:.2f}".format(sum_euros)
-    #
-    #     return sum_format
-    #
-    # def clean_total_spent_dollars(self):
-    #     sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get('s')
-    #     sum_formats = "{0:.2f}".format(sum_dollars)
-    #
-    #     return sum_formats
-    #
-    # def clean_total_savings(self):
-    #     sum_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
-    #     sum_format = "{0:.2f}".format(sum_savings)
-    #
-    #     return sum_format
-    #
-    # def clean_total_savings_display(self):
-    #     sum_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
-    #     absolute = abs(sum_savings)
-    #     sum_format = "{0:.2f}".format(absolute)
-    #
-    #     return sum_format
+    def clean_total_spent_euros(self):
+        sum_euros = Entry.objects.aggregate(s=Sum('euros_sum')).get('s')
+        sum_format = "{0:.2f}".format(sum_euros)
+
+        return sum_format
+
+    def clean_total_spent_dollars(self):
+        sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get('s')
+        sum_formats = "{0:.2f}".format(sum_dollars)
+
+        return sum_formats
+
+    def clean_total_savings(self):
+        sum_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+        sum_format = "{0:.2f}".format(sum_savings)
+
+        return sum_format
+
+    def clean_total_savings_display(self):
+        sum_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+        absolute = abs(sum_savings)
+        sum_format = "{0:.2f}".format(absolute)
+
+        return sum_format
 
 
 class MonthYearForm(ModelForm):
