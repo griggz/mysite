@@ -2,7 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36bbeaa5-5600-40c2-bf22-126be5ea35e0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/models.py" afterPath="$PROJECT_DIR$/argent/models.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0002_entry_comments.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0003_entry_euros_sum.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0004_remove_entry_euros_sum.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0005_entry_euros_sum.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0006_remove_entry_euros_sum.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0007_entry_euros_sum.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0008_auto_20170309_1242.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0009_auto_20170309_1244.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0010_auto_20170309_1352.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0011_entry_xrate.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0012_auto_20170309_1424.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0013_auto_20170309_1432.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0014_entry_dollars_sum.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0015_auto_20170310_1107.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0016_auto_20170310_1118.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0017_auto_20170313_1018.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0018_auto_20170314_1307.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0019_auto_20170314_1310.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0020_auto_20170314_1533.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0021_auto_20170314_1540.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0022_auto_20170314_1616.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0023_auto_20170315_1028.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0024_auto_20170315_1033.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0025_auto_20170315_1034.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0026_auto_20170315_1258.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0027_auto_20170315_1258.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0028_auto_20170315_1301.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0029_auto_20170315_1320.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0030_auto_20170320_1104.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0031_auto_20170320_1355.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0032_remove_savings_date.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0033_auto_20170320_1550.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0034_auto_20170320_1554.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0035_remove_savings_total_savings_euros.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0036_entry_daily_savings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0037_savings_date.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0038_remove_savings_date.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0039_auto_20170321_2055.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0040_auto_20170321_2055.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0041_savings_total_savings_display.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0042_savings_date.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0043_auto_20170322_1629.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0044_auto_20170323_1335.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0045_auto_20170323_1441.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0046_auto_20170323_1536.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0047_auto_20170323_1538.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0048_months_years.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0049_auto_20170324_0927.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0050_auto_20170324_0928.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/migrations/0051_auto_20170414_1248.py" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +72,7 @@
       <file leaf-file-name="production.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1756">
+            <state relative-caret-position="1785">
               <caret line="119" column="21" lean-forward="false" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="21" />
               <folding>
                 <element signature="e#310#319#0" expanded="true" />
@@ -35,22 +84,10 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/argent/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/argent/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,8 +105,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>date_id</find>
       <find>date</find>
+      <find>date_id</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,7 +187,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="MySite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="argent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="argent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -409,13 +478,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1129" height="954" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18859246" sideWeight="0.7934028" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18859246" sideWeight="0.7934028" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908458" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908458" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -464,13 +532,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/home/templates/home/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/Home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -747,16 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1756">
-          <caret line="119" column="21" lean-forward="false" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="21" />
-          <folding>
-            <element signature="e#310#319#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/argent/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -779,9 +830,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#73#112#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -827,20 +876,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/argent/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/argent/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="223">
+          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="119" column="21" lean-forward="false" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="21" />
+          <folding>
+            <element signature="e#310#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/argent/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="390">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
