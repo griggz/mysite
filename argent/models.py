@@ -1,12 +1,10 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-
-
 # Create your models here.
 
 
 class Entry(models.Model):
-    date = models.DateField(blank=True, null=True)
+    date = models.DateField(blank=True, null=True,)
     euros = models.CharField(max_length=500, blank=True, null=True)
     comments = models.CharField(max_length=900, blank=True, null=True)
     euros_sum = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
@@ -23,10 +21,12 @@ class Entry(models.Model):
         return row_title
 
     class Meta:
+
         ordering = ['date']
 
 
 class Savings(models.Model):
+    date = models.ForeignKey(Entry, on_delete=models.CASCADE, blank=True, null=True)
     total_spent_euros = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     total_spent_dollars = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     total_savings = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
