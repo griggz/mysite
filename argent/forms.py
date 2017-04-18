@@ -236,293 +236,293 @@ class SavingsForm(ModelForm):
         return sum_format
 
 
-class MonthYearForm(ModelForm):
-    class Meta:
-        model = MonthYear
-        fields = ['month', 'year', 'total_spent_euros', 'total_spent_dollars', 'total_savings', 'total_savings_display']
-        # exclude =
-        labels = {'month': 'Month', 'year': 'Year', 'total_spent_euros': 'Total €€€ Spending', 'total_spent_dollars': 'Total $$$ Spending', 'total_savings': 'Total $$$ Savings', 'total_savings_display': 'Total $$$ Savings(ABS)'}
-        # help_texts =
-
-    def clean_year(self):
-        # 2016
-        # edate = datetime.strptime('1/1/2016', '%m/%d/%Y')
-
-        # 2017
-        edate = datetime.strptime('1/1/2017', '%m/%d/%Y')
-
-        year = edate.year
-
-        return year
-
-    def clean_month(self):
-        # January
-        # jan = datetime.strptime('1/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[jan.month]
-
-        # February
-        # feb = datetime.strptime('2/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[feb.month]
-
-        # March
-        mar = datetime.strptime('3/1/2016', '%m/%d/%Y')
-        month = calendar.month_name[mar.month]
-
-        # April
-        # apr = datetime.strptime('4/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[apr.month]
-
-        # May
-        # may = datetime.strptime('5/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[may.month]
-
-        # June
-        # june = datetime.strptime('6/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[june.month]
-
-        # July
-        # july = datetime.strptime('7/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[july.month]
-
-        # August
-        # aug = datetime.strptime('8/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[aug.month]
-
-        # September
-        # sept = datetime.strptime('9/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[sept.month]
-
-        # October
-        # oct = datetime.strptime('10/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[oct.month]
-
-        # November
-        # nov = datetime.strptime('11/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[nov.month]
-
-        # December
-        # dec = datetime.strptime('12/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[dec.month]
-
-        return month
-
-    def clean_total_spent_euros(self):
-
-        # January
-        # sum_euros = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # February17
-        # sum_euros = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # March
-        sum_euros = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('euros_sum')).get('s')
-        sum_format = "{0:.2f}".format(sum_euros)
-
-        # April
-        # sum_euros = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # May
-        # sum_euros = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # June
-        # sum_euros = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # July
-        # sum_euros = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # August
-        # sum_euros = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # September
-        # sum_euros = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # October
-        # sum_euros = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # November
-        # sum_euros = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        # December
-        # sum_euros = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('euros_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_euros)
-
-        return sum_format
-
-    def clean_total_spent_dollars(self):
-
-        # January
-        # sum_dollars = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # February17
-        # sum_dollars = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # March
-        sum_dollars = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        sum_format = "{0:.2f}".format(sum_dollars)
-
-        # April
-        # sum_dollars = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # May
-        # sum_dollars = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # June
-        # sum_dollars = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # July
-        # sum_dollars = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # August
-        # sum_dollars = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # September
-        # sum_dollars = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # October
-        # sum_dollars = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # November
-        # sum_dollars = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        # December
-        # sum_dollars = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
-
-        return sum_format
-
-    def clean_total_savings(self):
-
-        # January
-        # sum_savings = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # February17
-        # sum_savings = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # March
-        sum_savings = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        sum_format = "{0:.2f}".format(sum_savings)
-
-        # April
-        # sum_savings = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # May
-        # sum_savings = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # June
-        # sum_savings = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # July
-        # sum_savings = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # August
-        # sum_savings = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # September
-        # sum_savings = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # October
-        # sum_savings = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # November
-        # sum_savings = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        # December
-        # sum_savings = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
-
-        return sum_format
-
-    def clean_total_savings_display(self):
-
-        # January
-        # sum_savings = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # February17
-        # sum_savings = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # March
-        # sum_savings = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # April
-        # sum_savings = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # May
-        # sum_savings = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # June
-        # sum_savings = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # July
-        # sum_savings = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # August
-        # sum_savings = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # September
-        # sum_savings = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # October
-        # sum_savings = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # November
-        # sum_savings = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        # December
-        # sum_savings = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
-
-        return sum_format
+# class MonthYearForm(ModelForm):
+#     class Meta:
+#         model = MonthYear
+#         fields = ['month', 'year', 'total_spent_euros', 'total_spent_dollars', 'total_savings', 'total_savings_display']
+#         # exclude =
+#         labels = {'month': 'Month', 'year': 'Year', 'total_spent_euros': 'Total €€€ Spending', 'total_spent_dollars': 'Total $$$ Spending', 'total_savings': 'Total $$$ Savings', 'total_savings_display': 'Total $$$ Savings(ABS)'}
+#         # help_texts =
+#
+#     def clean_year(self):
+#         # 2016
+#         # edate = datetime.strptime('1/1/2016', '%m/%d/%Y')
+#
+#         # 2017
+#         edate = datetime.strptime('1/1/2017', '%m/%d/%Y')
+#
+#         year = edate.year
+#
+#         return year
+#
+#     def clean_month(self):
+#         # January
+#         # jan = datetime.strptime('1/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[jan.month]
+#
+#         # February
+#         # feb = datetime.strptime('2/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[feb.month]
+#
+#         # March
+#         mar = datetime.strptime('3/1/2016', '%m/%d/%Y')
+#         month = calendar.month_name[mar.month]
+#
+#         # April
+#         # apr = datetime.strptime('4/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[apr.month]
+#
+#         # May
+#         # may = datetime.strptime('5/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[may.month]
+#
+#         # June
+#         # june = datetime.strptime('6/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[june.month]
+#
+#         # July
+#         # july = datetime.strptime('7/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[july.month]
+#
+#         # August
+#         # aug = datetime.strptime('8/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[aug.month]
+#
+#         # September
+#         # sept = datetime.strptime('9/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[sept.month]
+#
+#         # October
+#         # oct = datetime.strptime('10/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[oct.month]
+#
+#         # November
+#         # nov = datetime.strptime('11/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[nov.month]
+#
+#         # December
+#         # dec = datetime.strptime('12/1/2016', '%m/%d/%Y')
+#         # month = calendar.month_name[dec.month]
+#
+#         return month
+#
+#     def clean_total_spent_euros(self):
+#
+#         # January
+#         # sum_euros = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # February17
+#         # sum_euros = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # March
+#         sum_euros = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('euros_sum')).get('s')
+#         sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # April
+#         # sum_euros = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # May
+#         # sum_euros = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # June
+#         # sum_euros = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # July
+#         # sum_euros = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # August
+#         # sum_euros = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # September
+#         # sum_euros = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # October
+#         # sum_euros = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # November
+#         # sum_euros = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         # December
+#         # sum_euros = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('euros_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_euros)
+#
+#         return sum_format
+#
+#     def clean_total_spent_dollars(self):
+#
+#         # January
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # February17
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # March
+#         sum_dollars = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('dollars_sum')).get('s')
+#         sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # April
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # May
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # June
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # July
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # August
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # September
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # October
+#         # sum_dollars = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # November
+#         # sum_dollars = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         # December
+#         # sum_dollars = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('dollars_sum')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_dollars)
+#
+#         return sum_format
+#
+#     def clean_total_savings(self):
+#
+#         # January
+#         # sum_savings = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # February17
+#         # sum_savings = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # March
+#         sum_savings = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # April
+#         # sum_savings = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # May
+#         # sum_savings = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # June
+#         # sum_savings = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # July
+#         # sum_savings = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # August
+#         # sum_savings = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # September
+#         # sum_savings = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # October
+#         # sum_savings = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # November
+#         # sum_savings = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         # December
+#         # sum_savings = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # sum_format = "{0:.2f}".format(sum_savings)
+#
+#         return sum_format
+#
+#     def clean_total_savings_display(self):
+#
+#         # January
+#         # sum_savings = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # February17
+#         # sum_savings = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # March
+#         # sum_savings = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # April
+#         # sum_savings = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # May
+#         # sum_savings = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # June
+#         # sum_savings = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # July
+#         # sum_savings = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # August
+#         # sum_savings = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # September
+#         # sum_savings = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # October
+#         # sum_savings = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # November
+#         # sum_savings = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         # December
+#         # sum_savings = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+#         # absolute = abs(sum_savings)
+#         # sum_format = "{0:.2f}".format(absolute)
+#
+#         return sum_format
 

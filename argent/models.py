@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 
 
 class Entry(models.Model):
-    date = models.CharField(max_length=500, blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
     euros = models.CharField(max_length=500, blank=True, null=True)
     comments = models.CharField(max_length=900, blank=True, null=True)
     euros_sum = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
