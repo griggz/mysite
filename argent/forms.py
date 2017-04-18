@@ -475,9 +475,9 @@ class MonthYearForm(ModelForm):
         # sum_format = "{0:.2f}".format(absolute)
 
         # March
-        # sum_savings = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # absolute = abs(sum_savings)
-        # sum_format = "{0:.2f}".format(absolute)
+        sum_savings = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+        absolute = abs(sum_savings)
+        sum_format = "{0:.2f}".format(absolute)
 
         # April
         # sum_savings = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('daily_savings_dollars')).get('s')
