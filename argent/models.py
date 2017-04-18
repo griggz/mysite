@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 
 
 class Entry(models.Model):
-    date2 = models.DateField(blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
     euros = models.CharField(max_length=500, blank=True, null=True)
     comments = models.CharField(max_length=900, blank=True, null=True)
     euros_sum = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
@@ -17,12 +17,12 @@ class Entry(models.Model):
         return reverse('argent:detail', kwargs={'pk': self.pk})
 
     def item_date(self):
-        row_title = self.date2
+        row_title = self.date
         return row_title
 
     class Meta:
 
-        ordering = ['date2']
+        ordering = ['date']
 
 
 class Savings(models.Model):
