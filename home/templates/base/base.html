@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#css#}
+    {% include 'base/css.html' %}
+    {% include 'base/bootstrap_defaults.html' %}
+    {#js#}
+    {% include 'base/js.html' %}
+    {#staticfiles#}
+    <link rel="stylesheet" href='{% static 'base/css/header.css' %}'/>
+
+    {% block header %}{% endblock %}
+
+    <title>VVAYNE</title>
+</head>
+
+<body>
+    <!-- Top Nav Bar -->
+    <nav class="navbar navbar-default" style="font-family: 'Lato', serif">
+        <div class="container-fluid">
+
+            <!-- Logo -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class= "navbar-brand" href="#" style="padding: 0">
+                    <img src="{% static 'base/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>
+
+                <a class="nav navbar-brand" style="font-family:'Permanent Marker', serif">VVAYNE</a>
+
+
+            </div>
+
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
+                    <li><a href="#">About</a> </li>
+                    <li><a href="#">Blog</a></li>
+
+                    <!-- DropDownMenu -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'argent:index' %}">Finance Tracker</a> </li>
+                            <li><a href="#">SNEK</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- right aligned menu -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+    </nav>
+    <div>
+        {% block title %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
+

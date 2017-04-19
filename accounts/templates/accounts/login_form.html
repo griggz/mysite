@@ -6,15 +6,16 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#css#}
+    {% include 'base/css.html' %}
+    {% include 'base/bootstrap_defaults.html' %}
     <link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent Marker|Kalam">
+    {#js#}
+    {% include 'base/js.html' %}
+    {#staticfiles#}
+    <link rel="stylesheet" href='{% static 'base/css/header.css' %}'/>
 
     {% block header %}
     {% endblock %}
@@ -29,16 +30,16 @@
 
         <div class="cover-container">
 
-          <div class="inner cover"></div>
-            <h1 class="cover-heading"><img src="{% static 'home/sigil_icon_blue.png' %}" alt="sigil" width="200" height="200"></h1>
+          <div class="inner cover">
+            <h1 class="cover-heading"><img src="{% static 'base/sigil_icon_blue.png' %}" alt="sigil" width="200" height="200"></h1>
             <h1 class="cover-heading">{{ title }}</h1>
-                <div class="row" style="font-family: 'Lato', serif; color: white;">
-                    <div>
-                        <form method="post" class="uniForm">
+                <div class="row" style="font-family: 'Lato', serif; color: white" >
+                        <form method="post">
                             {% csrf_token %}
-                            {% include 'accounts/includes/login.html' %}
+                            {% include 'includes/login.html' %}
 
                             <input class='btn btn-default' type="Submit" value="{{ title }}"/>
+
 
                             &nbsp&nbsp
 
@@ -47,12 +48,8 @@
 {#                                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; Register#}
 {#                                    </button></a>#}
                         </form>
+                </div>
 
-
-
-                    </div>
-</div>
-            </p>
           </div>
 
         </div>
@@ -60,7 +57,6 @@
       </div>
 
     </div>
-
 
 {% endblock %}
 </body>
