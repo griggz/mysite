@@ -28,7 +28,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login_form.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/login_form.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="215">
@@ -38,10 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="production.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+            <state relative-caret-position="15">
               <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
               <folding />
             </state>
@@ -120,11 +120,11 @@
         <option value="$PROJECT_DIR$/accounts/templates/includes/login.html" />
         <option value="$PROJECT_DIR$/templates/400.html" />
         <option value="$PROJECT_DIR$/templates/500.html" />
-        <option value="$PROJECT_DIR$/MySite/settings/production.py" />
         <option value="$PROJECT_DIR$/MySite/settings/local.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/login_form.html" />
         <option value="$PROJECT_DIR$/home/templates/base/base.html" />
+        <option value="$PROJECT_DIR$/MySite/settings/production.py" />
       </list>
     </option>
   </component>
@@ -796,22 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/base/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -824,6 +808,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
           <folding />
         </state>
       </provider>
