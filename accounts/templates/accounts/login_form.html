@@ -1,6 +1,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
     {% include 'base/js.html' %}
     {#staticfiles#}
     <link rel="stylesheet" href='{% static 'base/css/header.css' %}'/>
-
+    <link rel="shortcut icon" href="{% static 'base/favicon.ico' %}" />
     {% block header %}
     {% endblock %}
 </head>
