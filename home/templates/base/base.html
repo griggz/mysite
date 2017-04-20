@@ -13,16 +13,16 @@
     <link rel="stylesheet" href='{% static 'base/css/header.css' %}'/>
     <link rel="shortcut icon" href="{% static 'base/favicon.ico' %}" />
 
-    {% block header %}{% endblock %}
+    {% block head %}
+
+    {% endblock %}
 
     <title>VVAYNE</title>
 </head>
 
 <body>
-    <!-- Top Nav Bar -->
     <nav class="navbar navbar-default" style="font-family: 'Lato', serif">
         <div class="container-fluid">
-
             <!-- Logo -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
@@ -36,9 +36,7 @@
 
                 <a class="nav navbar-brand" style="font-family:'Permanent Marker', serif">VVAYNE</a>
 
-
             </div>
-
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="mainNavBar">
                 <ul class="nav navbar-nav">
@@ -55,7 +53,6 @@
                         </ul>
                     </li>
                 </ul>
-
                 <!-- right aligned menu -->
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
@@ -63,23 +60,12 @@
 
             </div>
 
-
         </div>
-
-
     </nav>
-    <div>
-        {% block title %}
-        {% endblock %}
-        {% block content %}
-        {% endblock %}
-    </div>
-
-
-
-
-
-
+    {% block title %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
 </body>
 
 </html>

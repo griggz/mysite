@@ -7,6 +7,7 @@ django-crispy-forms==1.6.1
 django-hosts==2.0
 forex-python==0.3.2
 gunicorn==19.7.1
+humanize==0.5.1
 matplotlib==2.0.0
 numpy==1.12.1
 olefile==0.44
