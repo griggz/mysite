@@ -5,8 +5,6 @@ from django.views.generic import View
 
 # Create your views here.
 
-# def index(request):
-#     return render(request, 'base/Home.html')
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):

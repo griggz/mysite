@@ -10,14 +10,14 @@
         <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {#css#}
-    {% include 'base/css.html' %}
-    {% include 'base/bootstrap_defaults.html' %}
+    {% include 'home/css.html' %}
+    {% include 'home/bootstrap_defaults.html' %}
     <link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
     {#js#}
-    {% include 'base/js.html' %}
+    {% include 'home/js.html' %}
     {#staticfiles#}
-    <link rel="stylesheet" href='{% static 'base/css/header.css' %}'/>
-    <link rel="shortcut icon" href="{% static 'base/favicon.ico' %}" />
+    <link rel="stylesheet" href='{% static 'css/main.css' %}'/>
+    <link rel="shortcut icon" href="{% static 'home/favicon.ico' %}" />
     {% block header %}
     {% endblock %}
 </head>
@@ -32,7 +32,7 @@
         <div class="cover-container">
 
           <div class="inner cover">
-            <h1 class="cover-heading"><img src="{% static 'base/sigil_icon_blue.png' %}" alt="sigil" width="200" height="200"></h1>
+            <h1 class="cover-heading"><img src="{% static 'home/sigil_icon_blue.png' %}" alt="sigil" width="200" height="200"></h1>
             <h1 class="cover-heading">{{ title }}</h1>
                 <div class="row" style="font-family: 'Lato', serif; color: white" >
                         <form method="post">
