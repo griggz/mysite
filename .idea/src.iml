@@ -22,7 +22,10 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
+        <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/home/templates" />
+        <option value="$MODULE_DIR$/argent/templates" />
+        <option value="$MODULE_DIR$/accounts/templates" />
       </list>
     </option>
   </component>

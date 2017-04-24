@@ -2,6 +2,7 @@
 
 venv
 *.pyc
+base.py
 MySite/settings/local.py
 MySite/oldsettings.py
 db.sqlite3
