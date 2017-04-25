@@ -14,7 +14,6 @@
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
 
     {% block head %}
-
     {% endblock %}
 
     <title>VVAYNE</title>
@@ -62,10 +61,19 @@
 
         </div>
     </nav>
+
     {% block title %}
     {% endblock %}
     {% block content %}
     {% endblock %}
+
+    <script>
+        $(document).ready(function(){
+            {% block jquery %}
+            {% endblock %}
+        })
+    </script>
+
 </body>
 
 </html>

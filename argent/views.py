@@ -4,7 +4,6 @@ from .forms import EntryForm
 from django.db.models import Sum
 import datetime
 from .models import Entry, Savings, MonthYear
-from django.contrib.auth.decorators import login_required
 # from django.core.paginator import Paginator
 # from django.shortcuts import render, redirect
 

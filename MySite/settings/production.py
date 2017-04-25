@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django.contrib.humanize',
     'django_hosts',
+    'rest_framework',
     # My Apps
     'argent',
     'home',

@@ -1,61 +1,49 @@
-# import random
-# import django
-# import datetime
-# from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-# from matplotlib.figure import Figure
-# from matplotlib.dates import DateFormatter
-# import matplotlib.pyplot
-# import matplotlib.pyplot as plt
-# import numpy as np
-# from .models import Entry, Savings, MonthYear
-# from django.db.models import Sum
-#
-#
-# def november16(request):
-#     sum_euros = Entry.objects.filter(date__month=11).filter(date__year=2016).aggregate(s=Sum('euros_sum')).get('s')
-#     sum_euros_f = "{0:.2f}".format(sum_euros)
-#     fig = Figure()
-#     ax = fig.add_subplot(111)
-#     x = []
-#     y = []
-#     for i in range(10):
-#         x.append(sum_euros_f)
-#         y.append(random.randint(0, 1000))
-#     ax.plot_date(x, y, '-')
-#     ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
-#     fig.autofmt_xdate()
-#     canvas = FigureCanvas(fig)
-#     response = django.http.HttpResponse(content_type='image/png')
-#     canvas.print_png(response)
-#     return response
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.views.generic import View
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from django.contrib.auth import get_user_model
+from .models import MonthYear, Entry
+from django.db.models import Sum
 
 
+# API Method "RESTFRAMEWORK"
 
-# ORIGINAL CODE
-#
-# def simple(request):
-#     import random
-#     import django
-#     import datetime
-#
-#     from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-#     from matplotlib.figure import Figure
-#     from matplotlib.dates import DateFormatter
-#
-#     fig = Figure()
-#     ax = fig.add_subplot(111)
-#     x = []
-#     y = []
-#     now = datetime.datetime.now()
-#     delta = datetime.timedelta(days=1)
-#     for i in range(10):
-#         x.append(now)
-#         now += delta
-#         y.append(random.randint(0, 1000))
-#     ax.plot_date(x, y, '-')
-#     ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
-#     fig.autofmt_xdate()
-#     canvas = FigureCanvas(fig)
-#     response = django.http.HttpResponse(content_type='image/png')
-#     canvas.print_png(response)
-#     return response
+
+class ChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+
+        qs_November16 = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('euros_sum')).get('s')
+        qs_December16 = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('euros_sum')).get('s')
+        qs_January17 = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('euros_sum')).get('s')
+        qs_February17 = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('euros_sum')).get('s')
+        qs_March17 = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('euros_sum')).get('s')
+        qs_April17 = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('euros_sum')).get('s')
+        labels = ["November16", "December16", "January17", "February17", "March17", "April17"]
+        default_items = [qs_November16, qs_December16, qs_January17, qs_February17, qs_March17, qs_April17]
+        data = {
+            "labels": labels,
+            "default": default_items
+        }
+
+        return Response(data)
+
+User = get_user_model()
+
+
+# Alternate method | Works with url(r'^api/data/$', get_data, name='api-data')
+class ChartsView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'argent/charts.html', {})
+
+
+def get_data(request, *args, **kwargs):
+    data = {
+        "sales": MonthYear.objects.filter(month='December'),
+        "customers": 10,
+    }
+    return JsonResponse(data)
