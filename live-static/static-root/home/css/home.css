@@ -29,6 +29,11 @@ body a{
     font-family: 'Nunito', sans-serif;
 }
 
+body a.nav {
+
+    font-family: 'Nova Flat', serif;
+}
+
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -53,6 +58,11 @@ body a{
 }
 .navbar-wrapper .navbar .container {
   width: auto;
+}
+
+.mainNavBar {
+
+    font-family: 'Nova Flat', serif;
 }
 
 
@@ -174,6 +184,8 @@ img.third-slide {
     margin-top: 120px;
   }
 }
+
+
 
 
 

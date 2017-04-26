@@ -20,7 +20,7 @@
     <!-- NAVIGATION MENU -->
     <div class="navbar-wrapper">
       <div class="container">
-        <nav class="navbar navbar-default navbar-static-top" style="font-family: 'Lato', serif">
+        <nav class="navbar navbar-default navbar-static-top">
           <div class="container">
             <!-- Logo -->
             <div class="navbar-header">
@@ -33,28 +33,28 @@
                 <a class= "navbar-brand" href="#" style="padding: 0">
                     <img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>
 
-                <a class="nav navbar-brand" style="font-family:'Permanent Marker', serif; color: #333">VVAYNE</a>
+                <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE</a>
 
             </div>
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="mainNavBar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
-                    <li><a href="#">About</a> </li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a class="nav" href="#">About</a></li>
+                    <li><a class="nav" href="#">Blog</a></li>
 
                     <!-- DropDownMenu -->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: 'Nova Flat',serif">My Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'argent:index' %}">SAVE</a> </li>
-                            <li><a href="#">SNEK</a> </li>
+                            <li><a class="nav" href="{% url 'argent:index' %}">SAVE</a> </li>
+                            <li><a class="nav" href="#">SNEK</a> </li>
                         </ul>
                     </li>
                 </ul>
                 <!-- right aligned menu -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'logout' %}"><b>{% if request.user.is_authenticated %}{{ request.user.username }}</b> {% endif %}<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+                    <li><a class="nav" href="{% url 'logout' %}"><b>{% if request.user.is_authenticated %}{{ request.user.username }}</b> {% endif %}<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                 </ul>
             </div>
           </div>
