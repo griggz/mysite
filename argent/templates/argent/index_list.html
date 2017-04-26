@@ -2,13 +2,12 @@
 {% load static %}
 {% load humanize %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent Marker|Kalam">
-<link rel="stylesheet" href='{% static 'argent/css/argent.css' %}'/>
+{#<link rel="stylesheet" href='{% static 'argent/css/argent.css' %}'/>#}
 {% endblock %}
 
 {% block content %}
 
-<div class="container container-fluid" style="font-family:'Lato', serif">
+<div class="container container-fluid" style="font-family:'Raleway', serif">
 
 {#    <a href="{% url 'argent:entry-add' %}">#}
 {#                    <button type="button" class="btn btn-primary">#}
@@ -17,10 +16,11 @@
 {#    </a>#}
 
     <!-- Entry List -->
-   <a href="{% url 'argent:index' %}">
-                        <button type="button" class="btn btn-primary">Dash
+    <a href="{% url 'argent:index' %}">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-dashboard"></span>&nbsp; DASH
                     </button>
-            </a>
+    </a>
     <div class="row" align="center">
         <div>
             &nbsp

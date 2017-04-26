@@ -2,56 +2,56 @@
 {% load static %}
 {% load humanize %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent Marker|Kalam">
+
 <link rel="stylesheet" href='{% static 'argent/css/argent.css' %}'/>
 {% endblock %}
 
 {% block title %}
 &nbsp;
-<div class="container container-fluid" style="font-family: 'Kalam', serif;">
-    <div class="jumbotron" style="background: #ebebeb; padding: 2%; margin-bottom: 0">
+<div class="container container-fluid">
+    <div class="jumbotron">
         {% if entry_qs %}
         {% for ctx in entry_qs %}
-        <div style="padding: 0; font-family: 'Kalam', serif; margin-bottom: 0" align="right">
+        <div class="jumbo-button">
         <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; Update
+                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; UPDATE
                     </button></a>
 
         </div>
-        <h1 style="margin-top: 0; color: #FF5A09;"><b>Today's Spending</b></h1>
-        <div class=col-lg" style="font-family: 'Kalam', serif; color: white;">
+        <h1 class="h1-jumbo">Today's Spending</h1>
+        <div class="col-lg">
             <div class="container">
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th colspan="2" style="font-size: xx-large; color: #337ab7; font-weight: bold;"><u>{{ ctx.date }}</u></th>
+                                <th class="th-date" colspan="2">{{ ctx.date }}</th>
                             </tr>
                         </thead>
-                        <tbody style="font-size: x-large">
+                        <tbody>
                         <tr>
-                            <td align="left" style="color: #337ab7; font-weight: bold">Receipts:</td>
-                            <td style="color: #FF5A09;" align="left"> {{ ctx.euros }} </td>
+                            <th class="th-jumbo">Receipts:</th>
+                            <td class="td-jumbo"> {{ ctx.euros }} </td>
                         </tr>
                         <tr>
-                            <td align="left" style="color: #337ab7; font-weight: bold">Total Euros Spent:</td>
-                            <td style="color: #FF5A09;" align="left">€{{ctx.euros_sum}}</td>
+                            <th class="th-jumbo">Total Euros Spent:</th>
+                            <td class="td-jumbo">€{{ctx.euros_sum}}</td>
                         </tr>
                         <tr>
-                            <td align="left" style="color: #337ab7; font-weight: bold">Total Dollars Spent:</td>
-                            <td style="color: #FF5A09;" align="left">${{ctx.dollars_sum}}</td>
+                            <th class="th-jumbo">Total Dollars Spent:</th>
+                            <td class="td-jumbo">${{ctx.dollars_sum}}</td>
                         </tr>
                         <tr>
-                            <td align="left" style="color: #337ab7; font-weight: bold">Exchange Rate:</td>
-                            <td style="color: #FF5A09;" align="left">{{ ctx.xrate }}</td>
+                            <th class="th-jumbo">Exchange Rate:</th>
+                            <td class="td-jumbo">{{ ctx.xrate }}</td>
                         </tr>
                         <tr>
-                            <td align="left" style="color: #337ab7; font-weight: bold">Daily Savings:</td>
+                            <th class="th-jumbo">Daily Savings:</th>
 
-                            <td align="left">
+                            <td class="td-jumbo">
                                 {% if ctx.daily_savings_dollars > 0 %}
-                                <div class="NegativeSavings" style="font-weight: bold">-
+                                <div class="NegativeSavings">-
                                 {% else %}
-                                <div class="PositiveSavings" style="font-weight: bold">+
+                                <div class="PositiveSavings">+
                                 {% endif %}
                                 ${{ ctx.daily_savings_display }}
                                 </div>
@@ -61,20 +61,20 @@
                     </table>
             </div>
         </div>
-            <div class="container" style="font-family: 'Kalam', serif">
+            <div class="container">
                 {% if savings_qs %}
                 {% for ctx in savings_qs %}
                 <table class="table table-condensed">
-                    <tbody style="font-size: 23px" align="center">
+                    <tbody align="center">
                         <tr>
-                            <td width="33.3%" style="color: #b48c36; font-weight: bold">Total Euros Spent</td>
-                            <td width="33.3%" style="color: #b48c36; font-weight: bold">Total Dollars Spent</td>
-                            <td width="33.3%" style="color: #b48c36; font-weight: bold">Total Savings</td>
+                            <th class="th-jumbo-foot">Total Euros Spent</th>
+                            <th class="th-jumbo-foot">Total Dollars Spent</th>
+                            <th class="th-jumbo-foot">Total Savings</th>
                         </tr>
                         <tr>
-                            <td style="color: #c1432e;"> €{{ctx.total_spent_euros|intcomma}} </td>
-                            <td style="color: #c1432e;"> ${{ctx.total_spent_dollars|intcomma }} </td>
-                            <td style="color: #2c3e50;">
+                            <td class="td-jumbo-foot"> €{{ctx.total_spent_euros|intcomma}} </td>
+                            <td class="td-jumbo-foot"> ${{ctx.total_spent_dollars|intcomma }} </td>
+                            <td class="td-jumbo-foot">
                                 {% if ctx.total_savings  > 0 %}
                                         <div class="NegativeSavings" style="font-weight: bold">-
                                         {% else %}
@@ -95,90 +95,114 @@
 </div>
 {% endblock %}
 
-<script>
-{% block jquery %}
-var endpoint = 'api/chart/data/';
-var defaultData = [];
-var labels = [];
-
-$.ajax({
-    method: "GET",
-    url: endpoint,
-    success: function(data){
-        labels = data.labels;
-        defaultData = data.default;
-        setChart()
-
-    },
-
-        error: function(error_data) {
-            console.log("error");
-            console.log(error_data)
-    }
-});
-
-function setChart(){
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Monthly Total',
-                data: defaultData,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.5)',
-                    'rgba(54, 162, 235, 0.5)',
-                    'rgba(255, 206, 86, 0.5)',
-                    'rgba(75, 192, 192, 0.5)',
-                    'rgba(153, 102, 255, 0.5)',
-                    'rgba(255, 159, 64, 0.5)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-
-                    }
-                }]
-            }
-        }
-    })
-}
-
-
-{% endblock %}
-</script>
-
 {% block content %}
 
-<div class='container'>
-    <div class="row">
-        <canvas id="myChart" width="100%" height="25%"></canvas>
-    </div>
-</div>
 <div>
     &nbsp
 </div>
-<div class="container container-fluid" style="font-family:'Kalam', serif">
+<div class="container">
+    <div>
+        <canvas id="myChart" width="100%" height="25%"></canvas>
+    </div>
+    <script>
+    {% block jquery %}
+    var endpoint = 'api/chart/data/';
+    var defaultData = [];
+    var labels = [];
 
-    <a href="{% url 'argent:entry-add' %}">
-                    <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-plus"></span>&nbsp; New Entry
-                    </button>
-    </a>
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function(data){
+            labels = data.labels;
+            defaultData = data.default;
+            setChart()
+
+        },
+
+            error: function(error_data) {
+                console.log("error");
+                console.log(error_data)
+        }
+    });
+
+    function setChart(){
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Total Euros Spent',
+                    data: defaultData,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+            legend: {labels:{fontColor:"white", fontSize: 14}},
+            title: {
+                display: true,
+                text: 'Monthly Totals',
+                fontColor: 'white',
+                fontFamily: 'Indie Flower',
+                fontSize:25},
+
+                scales: {
+                    xAxes: [{
+                    gridLines: {
+                    display: false
+                  },
+                        ticks: {
+                            {#fontFamily: "Indie Flower",#}
+                            fontColor: 'white',
+                            fontSize:15}
+                        }],
+                    yAxes: [{
+                        ticks: {
+                            {#fontFamily: "Indie Flower",#}
+                            fontColor: "White",
+                            fontSize: 15,
+                            beginAtZero: true
+
+                        }
+                    }]
+                }
+            }
+        })
+    }
+
+    {% endblock %}
+    </script>
+</div>
+
+
+
+<div class="container container-fluid">
+    <div>
+        &nbsp
+    </div>
+    <div class="card-button"><a href="{% url 'argent:entry-add' %}">
+                        <button type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
+                        </button></a>
+    </div>
+
     <!-- Entry List By Month-->
     <div class="row" align="center">
         <div>
@@ -189,32 +213,32 @@ function setChart(){
         {% if November16_qs %}
         {% for ctx in November16_qs %}
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                <div class="thumbnail">
+                    <h2>{{ ctx.month }} {{ ctx.year }}</h2>
                     <div class="caption">
-                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                        <table class="table">
                             <tr>
-                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                <th class="th-card">
                                    Spent
-                                </td>
-                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                </th>
+                                <th class="th-card">
                                     Saved
-                                </td>
+                                </th>
                             </tr>
                             <tr>
-                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
-                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
-                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% endif %}
                             </tr>
                         </table>
-                                <h3>
+                                <h3 class="card-button">
                                     <!-- View Details -->
                                     <a href="{% url 'argent:entry-list' 'November' %}">
-                                        <button type="button" class="btn btn-Default">
-                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        <button type="button" class="btn btn-default" style="color: #337ab7">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; VIEW ALL
                                         </button>
                                     </a>
                                 </h3>
@@ -228,32 +252,32 @@ function setChart(){
         {% if December16_qs %}
         {% for ctx in December16_qs %}
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                <div class="thumbnail">
+                    <h2>{{ ctx.month }} {{ ctx.year }}</h2>
                     <div class="caption">
-                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                        <table class="table">
                             <tr>
-                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                <th class="th-card">
                                    Spent
-                                </td>
-                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                </th>
+                                <th class="th-card">
                                     Saved
-                                </td>
+                                </th>
                             </tr>
                             <tr>
-                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
-                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
-                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% endif %}
                             </tr>
                                 </table>
-                                <h3>
+                                <h3 class="card-button">
                                     <!-- View Details -->
                                     <a href="{% url 'argent:entry-list' 'December' %}">
-                                        <button type="button" class="btn btn-Default">
-                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        <button type="button" class="btn btn-default" style="color: #337ab7">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; VIEW ALL
                                         </button>
                                     </a>
                                 </h3>
@@ -267,32 +291,32 @@ function setChart(){
         {% if January17_qs %}
         {% for ctx in January17_qs %}
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                <div class="thumbnail">
+                    <h2>{{ ctx.month }} {{ ctx.year }}</h2>
                     <div class="caption">
-                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                        <table class="table">
                             <tr>
-                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                <th class="th-card">
                                    Spent
-                                </td>
-                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                </th>
+                                <th class="th-card">
                                     Saved
-                                </td>
+                                </th>
                             </tr>
                             <tr>
-                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
-                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
-                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% endif %}
                             </tr>
                                </table>
-                                <h3>
+                                <h3 class="card-button">
                                     <!-- View Details -->
                                     <a href="{% url 'argent:entry-list' 'January' %}">
-                                        <button type="button" class="btn btn-Default">
-                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        <button type="button" class="btn btn-default" style="color: #337ab7">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; VIEW ALL
                                         </button>
                                     </a>
                                 </h3>
@@ -306,32 +330,32 @@ function setChart(){
         {% if February17_qs %}
         {% for ctx in February17_qs %}
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                <div class="thumbnail">
+                    <h2>{{ ctx.month }} {{ ctx.year }}</h2>
                     <div class="caption">
-                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                        <table class="table">
                             <tr>
-                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                <th class="th-card">
                                    Spent
-                                </td>
-                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                </th>
+                                <th class="th-card">
                                     Saved
-                                </td>
+                                </th>
                             </tr>
                             <tr>
-                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
-                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
-                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% endif %}
                             </tr>
                                 </table>
-                                <h3>
+                                <h3 class="card-button">
                                     <!-- View Details -->
                                     <a href="{% url 'argent:entry-list' 'February' %}">
-                                        <button type="button" class="btn btn-Default">
-                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        <button type="button" class="btn btn-default" style="color: #337ab7">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; VIEW ALL
                                         </button>
                                     </a>
                                 </h3>
@@ -345,32 +369,32 @@ function setChart(){
         {% if March17_qs %}
         {% for ctx in March17_qs %}
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                <div class="thumbnail">
+                    <h2>{{ ctx.month }} {{ ctx.year }}</h2>
                     <div class="caption">
-                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                        <table class="table">
                             <tr>
-                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                <th class="th-card">
                                    Spent
-                                </td>
-                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                </th>
+                                <th class="th-card">
                                     Saved
-                                </td>
+                                </th>
                             </tr>
                             <tr>
-                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
-                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
-                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% endif %}
                             </tr>
                                 </table>
-                                <h3>
+                                <h3 class="card-button">
                                     <!-- View Details -->
                                     <a href="{% url 'argent:entry-list' 'March' %}">
-                                        <button type="button" class="btn btn-Default">
-                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        <button type="button" class="btn btn-default" style="color: #337ab7">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; VIEW ALL
                                         </button>
                                     </a>
                                 </h3>
@@ -384,32 +408,32 @@ function setChart(){
         {% if April17_qs %}
         {% for ctx in April17_qs %}
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.month }} {{ ctx.year }}</h3>
+                <div class="thumbnail">
+                    <h2>{{ ctx.month }} {{ ctx.year }}</h2>
                     <div class="caption">
-                        <table class="table table-condensed" align="center" style="color: #FF5A09; margin-bottom: 0">
+                        <table class="table">
                             <tr>
-                                <td align="center" style="font-weight: bold; color: #337ab7; font-size: large;">
+                                <th class="th-card">
                                    Spent
-                                </td>
-                                <td align="center" style="font-weight: bold; font-size: large; color: #337ab7;" >
+                                </th>
+                                <th class="th-card">
                                     Saved
-                                </td>
+                                </th>
                             </tr>
                             <tr>
-                            <td align="center" style="font-size: large; font-weight: bold;">€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
-                                <td class="NegativeSavings" align="center" style="font-weight: bold; font-size: large">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
-                                <td class="PositiveSavings" align="center" style="font-weight: bold; font-size: large">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% endif %}
                             </tr>
                                 </table>
-                                <h3>
+                                <h3 class="card-button">
                                     <!-- View Details -->
                                     <a href="{% url 'argent:entry-list' 'April' %}">
-                                        <button type="button" class="btn btn-Default">
-                                            <span class="glyphicon glyphicon-list"></span>&nbsp; View All
+                                        <button type="button" class="btn btn-default" style="color: #337ab7">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; VIEW ALL
                                         </button>
                                     </a>
                                 </h3>
