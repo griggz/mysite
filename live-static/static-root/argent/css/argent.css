@@ -38,6 +38,9 @@
     td {
         font-size: 25px;
     }
+
+
+
 }
 
 @media screen and (max-width: 992px) {
@@ -77,6 +80,10 @@
     td {
         font-size: 25px;
     }
+
+
+
+
 }
 
 @media screen and (max-width: 768px) {
@@ -117,6 +124,9 @@
         font-size: 25px;
     }
 
+
+
+
 }
 
 @media screen and (max-width: 568px) {
@@ -139,6 +149,8 @@
     td.td-jumbo-foot {
         font-size: 16px;
     }
+
+
 }
 
 /*Savings Color Change */
@@ -236,4 +248,6 @@
         text-align:center;
         color: #337ab7;
     }
+
+    /*chart css*/
 
