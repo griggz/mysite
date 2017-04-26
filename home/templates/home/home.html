@@ -54,7 +54,7 @@
                 </ul>
                 <!-- right aligned menu -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+                    <li><a href="{% url 'logout' %}"><b>{% if request.user.is_authenticated %}{{ request.user.username }}</b> {% endif %}<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                 </ul>
             </div>
           </div>
