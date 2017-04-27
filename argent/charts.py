@@ -17,12 +17,12 @@ class ChartData(APIView):
 
     def get(self, request, format=None):
 
-        qs_November16 = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('euros_sum')).get('s')
-        qs_December16 = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('euros_sum')).get('s')
-        qs_January17 = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('euros_sum')).get('s')
-        qs_February17 = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('euros_sum')).get('s')
-        qs_March17 = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('euros_sum')).get('s')
-        qs_April17 = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('euros_sum')).get('s')
+        qs_November16 = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('spending_sum')).get('s')
+        qs_December16 = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31')).aggregate(s=Sum('spending_sum')).get('s')
+        qs_January17 = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31')).aggregate(s=Sum('spending_sum')).get('s')
+        qs_February17 = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('spending_sum')).get('s')
+        qs_March17 = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('spending_sum')).get('s')
+        qs_April17 = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('spending_sum')).get('s')
         labels = ["November16", "December16", "January17", "February17", "March17", "April17"]
         default_items = [qs_November16, qs_December16, qs_January17, qs_February17, qs_March17, qs_April17]
         data = {

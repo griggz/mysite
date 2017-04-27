@@ -32,7 +32,22 @@
                 <div class="thumbnail" style="background: #ebebeb" >
                     <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
                     <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">€{{ ctx.euros_sum }}
+                        <h4 align="center" style="color: #FF5A09">
+                        {% if ctx.currency == 'USD' %}
+                            ${{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
+                            €{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                            £{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                            Kč{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                            Ft{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
@@ -57,7 +72,22 @@
                 <div class="thumbnail" style="background: #ebebeb" >
                     <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
                     <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">€{{ ctx.euros_sum }}
+                        <h4 align="center" style="color: #FF5A09">
+                        {% if ctx.currency == 'USD' %}
+                            ${{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
+                            €{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                            £{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                            Kč{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                            Ft{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
@@ -82,7 +112,22 @@
                 <div class="thumbnail" style="background: #ebebeb" >
                     <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
                     <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">€{{ ctx.euros_sum }}
+                        <h4 align="center" style="color: #FF5A09">
+                        {% if ctx.currency == 'USD' %}
+                            ${{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
+                            €{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                            £{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                            Kč{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                            Ft{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
@@ -107,7 +152,22 @@
                 <div class="thumbnail" style="background: #ebebeb" >
                     <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
                     <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">€{{ ctx.euros_sum }}
+                        <h4 align="center" style="color: #FF5A09">
+                        {% if ctx.currency == 'USD' %}
+                            ${{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
+                            €{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                            £{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                            Kč{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                            Ft{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
@@ -132,7 +192,22 @@
                 <div class="thumbnail" style="background: #ebebeb" >
                     <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
                     <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">€{{ ctx.euros_sum }}
+                        <h4 align="center" style="color: #FF5A09">
+                        {% if ctx.currency == 'USD' %}
+                            ${{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
+                            €{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                            £{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                            Kč{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                            Ft{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
@@ -157,7 +232,22 @@
                 <div class="thumbnail" style="background: #ebebeb" >
                     <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
                     <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">€{{ ctx.euros_sum }}
+                        <h4 align="center" style="color: #FF5A09">
+                        {% if ctx.currency == 'USD' %}
+                            ${{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
+                            €{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                            £{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                            Kč{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                            Ft{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">

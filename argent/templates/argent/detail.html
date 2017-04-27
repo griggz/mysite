@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block head %}
-{#<link rel="stylesheet" href='{% static 'argent/css/argent.css' %}'/>#}
+<link rel="stylesheet" href='{% static 'argent/css/argent_detail.css' %}'/>
 
 {% endblock %}
 
@@ -37,12 +37,38 @@
                     <tbody>
                     <tr>
                         <td align="left">Receipts:</td>
-                        <td> {{ object.euros }} </td>
+                        <td> {{ object.spending }} </td>
                     </tr>
+                    {% if ctx.currency == 'USD' %}
                     <tr>
-                        <td align="left">Total Euros Spent:</td>
-                        <td>€{{object.euros_sum}}</td>
+                        <th class="th-jumbo">Total Dollars Spent:</th>
+                        <td class="td-jumbo">${{ctx.spending_sum}}</td>
                     </tr>
+                    {% endif %}
+                    {% if ctx.currency == 'EUR' %}
+                    <tr>
+                        <th class="th-jumbo">Total Euros Spent:</th>
+                        <td class="td-jumbo">€{{ctx.spending_sum}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if ctx.currency == 'GBP' %}
+                    <tr>
+                        <th class="th-jumbo">Total Pounds Spent:</th>
+                        <td class="td-jumbo">£{{ctx.spending_sum}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if ctx.currency == 'CZK' %}
+                    <tr>
+                        <th class="th-jumbo">Total Krona Spent:</th>
+                        <td class="td-jumbo">Kč{{ctx.spending_sum}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if ctx.currency == 'HUF' %}
+                    <tr>
+                        <th class="th-jumbo">Total Forint Spent:</th>
+                        <td class="td-jumbo">Ft{{ctx.spending_sum}}</td>
+                    </tr>
+                    {% endif %}
                     <tr>
                         <td align="left">Total Dollars Spent:</td>
                         <td>${{object.dollars_sum}}</td>

@@ -3,7 +3,7 @@
 {% load humanize %}
 {% block head %}
 
-<link rel="stylesheet" href='{% static 'argent/css/argent.css' %}'/>
+<link rel="stylesheet" href='{% static 'argent/css/argent_index.css' %}'/>
 {% endblock %}
 
 {% block title %}
@@ -12,6 +12,7 @@
     <div class="jumbotron">
         {% if entry_qs %}
         {% for ctx in entry_qs %}
+
         <div class="jumbo-button">
         <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-pencil"></span>&nbsp; UPDATE
@@ -30,12 +31,38 @@
                         <tbody>
                         <tr>
                             <th class="th-jumbo">Receipts:</th>
-                            <td class="td-jumbo"> {{ ctx.euros }} </td>
+                            <td class="td-jumbo"> {{ ctx.spending }} </td>
                         </tr>
+                        {% if ctx.currency == 'USD' %}
+                        <tr>
+                            <th class="th-jumbo">Total Dolalrs Spent:</th>
+                            <td class="td-jumbo">${{ctx.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
                         <tr>
                             <th class="th-jumbo">Total Euros Spent:</th>
-                            <td class="td-jumbo">€{{ctx.euros_sum}}</td>
+                            <td class="td-jumbo">€{{ctx.spending_sum}}</td>
                         </tr>
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                        <tr>
+                            <th class="th-jumbo">Total Pounds Spent:</th>
+                            <td class="td-jumbo">£{{ctx.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                        <tr>
+                            <th class="th-jumbo">Total Krona Spent:</th>
+                            <td class="td-jumbo">Kč{{ctx.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                        <tr>
+                            <th class="th-jumbo">Total Forint Spent:</th>
+                            <td class="td-jumbo">Ft{{ctx.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
                         <tr>
                             <th class="th-jumbo">Total Dollars Spent:</th>
                             <td class="td-jumbo">${{ctx.dollars_sum}}</td>
@@ -67,12 +94,12 @@
                 <table class="table table-condensed">
                     <tbody align="center">
                         <tr>
-                            <th class="th-jumbo-foot">Total Euros Spent</th>
+                            <th class="th-jumbo-foot">Total spending Spent</th>
                             <th class="th-jumbo-foot">Total Dollars Spent</th>
                             <th class="th-jumbo-foot">Total Savings</th>
                         </tr>
                         <tr>
-                            <td class="td-jumbo-foot"> €{{ctx.total_spent_euros|intcomma}} </td>
+                            <td class="td-jumbo-foot"> €{{ctx.total_spent|intcomma}} </td>
                             <td class="td-jumbo-foot"> ${{ctx.total_spent_dollars|intcomma }} </td>
                             <td class="td-jumbo-foot">
                                 {% if ctx.total_savings  > 0 %}
@@ -135,7 +162,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Total Euros Spent',
+                    label: 'Total spending Spent',
                     data: defaultData,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.5)',
@@ -229,7 +256,7 @@
                                 </th>
                             </tr>
                             <tr>
-                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
                                 <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
@@ -268,7 +295,7 @@
                                 </th>
                             </tr>
                             <tr>
-                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
                                 <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
@@ -307,7 +334,7 @@
                                 </th>
                             </tr>
                             <tr>
-                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
                                 <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
@@ -346,7 +373,7 @@
                                 </th>
                             </tr>
                             <tr>
-                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
                                 <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
@@ -385,7 +412,7 @@
                                 </th>
                             </tr>
                             <tr>
-                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
                                 <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
@@ -424,7 +451,7 @@
                                 </th>
                             </tr>
                             <tr>
-                            <td>€{{ ctx.total_spent_euros|intcomma}}</td>
+                            <td>€{{ ctx.total_spent|intcomma}}</td>
                             {% if ctx.total_savings  > 0 %}
                                 <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
                                     {% else %}
