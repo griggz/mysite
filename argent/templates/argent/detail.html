@@ -39,36 +39,36 @@
                         <td align="left">Receipts:</td>
                         <td> {{ object.spending }} </td>
                     </tr>
-                    {% if ctx.currency == 'USD' %}
-                    <tr>
-                        <th class="th-jumbo">Total Dollars Spent:</th>
-                        <td class="td-jumbo">${{ctx.spending_sum}}</td>
-                    </tr>
-                    {% endif %}
-                    {% if ctx.currency == 'EUR' %}
-                    <tr>
-                        <th class="th-jumbo">Total Euros Spent:</th>
-                        <td class="td-jumbo">€{{ctx.spending_sum}}</td>
-                    </tr>
-                    {% endif %}
-                    {% if ctx.currency == 'GBP' %}
-                    <tr>
-                        <th class="th-jumbo">Total Pounds Spent:</th>
-                        <td class="td-jumbo">£{{ctx.spending_sum}}</td>
-                    </tr>
-                    {% endif %}
-                    {% if ctx.currency == 'CZK' %}
-                    <tr>
-                        <th class="th-jumbo">Total Krona Spent:</th>
-                        <td class="td-jumbo">Kč{{ctx.spending_sum}}</td>
-                    </tr>
-                    {% endif %}
-                    {% if ctx.currency == 'HUF' %}
-                    <tr>
-                        <th class="th-jumbo">Total Forint Spent:</th>
-                        <td class="td-jumbo">Ft{{ctx.spending_sum}}</td>
-                    </tr>
-                    {% endif %}
+                        {% if object.currency == 'USD' %}
+                        <tr>
+                            <th class="th-jumbo">Total Dolalrs Spent:</th>
+                            <td class="td-jumbo">${{object.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.currency == 'EUR' %}
+                        <tr>
+                            <th class="th-jumbo">Total Euros Spent:</th>
+                            <td class="td-jumbo">€{{object.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.currency == 'GBP' %}
+                        <tr>
+                            <th class="th-jumbo">Total Pounds Spent:</th>
+                            <td class="td-jumbo">£{{object.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.currency == 'CZK' %}
+                        <tr>
+                            <th class="th-jumbo">Total Krona Spent:</th>
+                            <td class="td-jumbo">Kč{{object.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.currency == 'HUF' %}
+                        <tr>
+                            <th class="th-jumbo">Total Forint Spent:</th>
+                            <td class="td-jumbo">Ft{{object.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
                     <tr>
                         <td align="left">Total Dollars Spent:</td>
                         <td>${{object.dollars_sum}}</td>
