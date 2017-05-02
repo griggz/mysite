@@ -10,6 +10,7 @@ class Entry(models.Model):
         ('GBP', '(GBP) United Kingdom Pound'),
         ('CZK', '(CZK) Czech Republic Koruna'),
         ('HUF', '(HUF) Hungary Forint'),
+        ('CHF', '(CHF) Swiss Franc'),
     )
     date = models.DateField(blank=True, null=True)
     spending = models.CharField(max_length=500, blank=True, null=True)

@@ -63,6 +63,12 @@
                             <td class="td-jumbo">Ft{{ctx.spending_sum}}</td>
                         </tr>
                         {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                        <tr>
+                            <th class="th-jumbo">Total Forint Spent:</th>
+                            <td class="td-jumbo">Ft{{ctx.ending_sum}}</td>
+                        </tr>
+                        {% endif %}
                         <tr>
                             <th class="th-jumbo">Total Dollars Spent:</th>
                             <td class="td-jumbo">${{ctx.dollars_sum}}</td>

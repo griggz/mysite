@@ -69,6 +69,12 @@
                             <td class="td-jumbo">Ft{{object.spending_sum}}</td>
                         </tr>
                         {% endif %}
+                     {% if object.currency == 'CHF' %}
+                        <tr>
+                            <th class="th-jumbo">Total Forint Spent:</th>
+                            <td class="td-jumbo">CHF{{object.spending_sum}}</td>
+                        </tr>
+                        {% endif %}
                     <tr>
                         <td align="left">Total Dollars Spent:</td>
                         <td>${{object.dollars_sum}}</td>

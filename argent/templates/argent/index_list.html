@@ -48,6 +48,9 @@
                         {% if ctx.currency == 'HUF' %}
                             Ft{{ ctx.spending_sum }}
                         {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                            CHF{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
@@ -87,6 +90,9 @@
                         {% endif %}
                         {% if ctx.currency == 'HUF' %}
                             Ft{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                            CHF{{ ctx.spending_sum }}
                         {% endif %}
 
                         <!-- View Details -->
@@ -128,6 +134,9 @@
                         {% if ctx.currency == 'HUF' %}
                             Ft{{ ctx.spending_sum }}
                         {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                            CHF{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
@@ -167,6 +176,9 @@
                         {% endif %}
                         {% if ctx.currency == 'HUF' %}
                             Ft{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                            CHF{{ ctx.spending_sum }}
                         {% endif %}
 
                         <!-- View Details -->
@@ -208,6 +220,9 @@
                         {% if ctx.currency == 'HUF' %}
                             Ft{{ ctx.spending_sum }}
                         {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                            CHF{{ ctx.spending_sum }}
+                        {% endif %}
 
                         <!-- View Details -->
                         <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
@@ -247,6 +262,9 @@
                         {% endif %}
                         {% if ctx.currency == 'HUF' %}
                             Ft{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                            CHF{{ ctx.spending_sum }}
                         {% endif %}
 
                         <!-- View Details -->
