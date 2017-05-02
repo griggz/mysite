@@ -483,6 +483,45 @@
             </div>
         {% endfor %}
         {% endif %}
+
+        {#May#}
+        {% if May17_qs %}
+        {% for ctx in May17_qs %}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <h2>{{ ctx.month }} {{ ctx.year }}</h2>
+                    <div class="caption">
+                        <table class="table">
+                            <tr>
+                                <th class="th-card">
+                                   Spent
+                                </th>
+                                <th class="th-card">
+                                    Saved
+                                </th>
+                            </tr>
+                            <tr>
+                            <td class="td-month">${{ ctx.total_spent_dollars|intcomma}}</td>
+                            {% if ctx.total_savings  > 0 %}
+                                <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% else %}
+                                <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                                    {% endif %}
+                            </tr>
+                                </table>
+                                <h3 class="card-button">
+                                    <!-- View Details -->
+                                    <a href="{% url 'argent:entry-list' 'April' %}">
+                                        <button type="button" class="btn btn-default" style="color: #337ab7">
+                                            <span class="glyphicon glyphicon-list"></span>&nbsp; VIEW ALL
+                                        </button>
+                                    </a>
+                                </h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
 </div>
 
 {#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
