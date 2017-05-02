@@ -48,7 +48,9 @@ class IndexView(generic.ListView):
         # April
         ctx['April17_qs'] = MonthYear.objects.filter(month='April')
         # # May
-        # ctx['May_qs'] = MonthYear.objects.filter(month='May')
+        ctx['May17_qs'] = MonthYear.objects.filter(month='May')
+        # # June
+        # ctx['June17_qs'] = MonthYear.objects.filter(month='May')
 
         return ctx
 
