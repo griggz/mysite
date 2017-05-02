@@ -277,6 +277,49 @@
             </div>
         {% endfor %}
         {% endif %}
+
+        {% if May17_qs %}
+        {% for ctx in May17_qs %}
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="thumbnail" style="background: #ebebeb" >
+                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
+                    <div class="caption">
+                        <h4 align="center" style="color: #FF5A09">
+                        {% if ctx.currency == 'USD' %}
+                            ${{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
+                            €{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                            £{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                            Kč{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                            Ft{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                            CHF{{ ctx.spending_sum }}
+                        {% endif %}
+
+                        <!-- View Details -->
+                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                        </button></a>
+
+                        <!-- Update -->
+                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        </button>
+                        </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
     </div>
     <a href="{% url 'argent:entry-add' %}">
                     <button type="button" class="btn btn-primary">
