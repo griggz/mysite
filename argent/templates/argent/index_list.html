@@ -9,12 +9,6 @@
 
 <div class="container container-fluid" style="font-family:'Raleway', serif">
 
-{#    <a href="{% url 'argent:entry-add' %}">#}
-{#                    <button type="button" class="btn btn-primary">#}
-{#                        <span class="glyphicon glyphicon-plus"></span>&nbsp; New Entry#}
-{#                    </button>#}
-{#    </a>#}
-
     <!-- Entry List -->
     <a href="{% url 'argent:index' %}">
                     <button type="button" class="btn btn-primary">
@@ -283,6 +277,14 @@
             </div>
         {% endfor %}
         {% endif %}
+    </div>
+    <a href="{% url 'argent:entry-add' %}">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
+                    </button>
+    </a>
+    <div>
+        &nbsp
     </div>
 </div>
 {#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
