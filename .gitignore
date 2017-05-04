@@ -1,14 +1,13 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 venv
-*.pyc
 base.py
 MySite/settings/local.py
-MySite/oldsettings.py
 db.sqlite3
+resume
+posts
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
 *$py.class
 
 # C extensions

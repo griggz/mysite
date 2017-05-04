@@ -3,13 +3,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
+# from django.contrib.auth import views as auth_views
 from accounts.views import (login_view, register_view, logout_view)
 from home.views import HomeView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^argent/', include('argent.urls'), name='argent'),
+    url(r'^posts/', include('posts.urls'), name='posts'),
     url(r'^login/$', login_view, name='login'),
     url(r'^logout/$', logout_view, name='logout'),
     url(r'^$', HomeView.as_view(), name='home'),
