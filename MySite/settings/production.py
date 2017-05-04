@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'argent',
     'home',
     'accounts',
+    'posts',
 
 ]
 

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1 style="color: white">{{ title }} is working
+
+    <br>Title: {{ instance.title }}
+    <br>Body: {{ instance.content }}
+    <br>Created: {{ instance.timestamp }}
+    <br>Updated {{ instance.updated }}
+    <br>ID: {{ instance.id }}
+
+</h1>
+{% endblock %}

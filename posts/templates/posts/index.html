@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1 style="color: white">{{ title }} is working
+{% for obj in object_list %}
+    <br><a href="{% url "posts:detail" obj.id %}">Title: {{ obj.title }}</a>
+    <br>Body: {{ obj.content }}
+    <br>Created: {{ obj.timestamp }}
+    <br>Updated {{ obj.updated }}
+    <br>ID: {{ obj.id }}
+
+{% endfor %}
+</h1>
+{% endblock %}
