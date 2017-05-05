@@ -14,7 +14,7 @@ class Entry(models.Model):
     )
     date = models.DateField(blank=True, null=True)
     spending = models.CharField(max_length=500, blank=True, null=True)
-    comments = models.CharField(max_length=900, blank=True, null=True)
+    comments = models.TextField(blank=True, null=True)
     spending_sum = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     currency = models.CharField(max_length=900, blank=True, null=True, choices=CURRENCY_CHOICES)
     xrate = models.DecimalField(max_digits=6, decimal_places=4, blank=True, null=True,)
