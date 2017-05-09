@@ -1,4 +1,11 @@
  /*responsive text queries*/
+
+ body {
+
+    background-color: #333;
+
+}
+
  @media screen and (max-width: 2560px) {
     p,.btn,input,span,h4,.jumbo-button {
         font-size: 100%;

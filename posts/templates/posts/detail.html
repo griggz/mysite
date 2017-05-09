@@ -1,15 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}
+    {{ instance.title }} | {% if request.user.is_authenticated %}{{ request.user.username }}{% endif %}
+{% endblock %}
+
 {% block content %}
+<div class="col-sm-6 col-sm-offset-3">
+{% include "posts/messages_display.html" %}
+    {% if instance.image %}
+        <img src="{{ instance.image.url }}" class="img-responsive" />
+    {% endif %}
+<h1>{{ title }} <small>{{ instance.timestamp }}</small></h1>
 
-<h1 style="color: white">{{ title }} is working
+{{ instance.content|linebreaks }}<br/>
+<br/>
+{{ instance.update }}<br/>
+{{ instance.id }}<br/>
 
-    <br>Title: {{ instance.title }}
-    <br>Body: {{ instance.content }}
-    <br>Created: {{ instance.timestamp }}
-    <br>Updated {{ instance.updated }}
-    <br>ID: {{ instance.id }}
+</div>
 
-</h1>
 {% endblock %}
