@@ -1,23 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}
-    {{ instance.title }} | {% if request.user.is_authenticated %}{{ request.user.username }}{% endif %}
+{% block head %}
+<link rel="stylesheet" href='{% static 'posts/css/post.css' %}' />
 {% endblock %}
 
 {% block content %}
-<div class="col-sm-6 col-sm-offset-3">
-{% include "posts/messages_display.html" %}
-    {% if instance.image %}
-        <img src="{{ instance.image.url }}" class="img-responsive" />
-    {% endif %}
-<h1>{{ title }} <small>{{ instance.timestamp }}</small></h1>
-
-{{ instance.content|linebreaks }}<br/>
 <br/>
-{{ instance.update }}<br/>
-{{ instance.id }}<br/>
 
+<div class="row">
+    <div class="col-sm-12">
+        <div class="thumbnail">
+            {% if instance.image %}
+                <img src="{{ instance.image.url }}" class="img-responsive" />
+            {% endif %}
+          <div class="caption">
+            <h3>{{ instance.title }}<small> Published: {{ instance.timestamp|timesince }} ago</small></h3>
+              <p><small><b>{% if instance.user %}Author: {{ instance.user }}{% endif %}</b></small></p>
+            <p>{{ instance.content|linebreaks }}{% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'posts:update' instance.slug %}"></a>{% endif %}</p>
+            <p style="font-weight: bold">Share this post:<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+            Facebook
+            </a>
+            <a href="https://twitter.com/home?status={{ request.build_absolute_uri }}">
+            Twitter
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ instance.title }}&summary={{ share_string }}&source={{ request.build_absolute_uri }}">
+            Linkedin
+            </a>
+            <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a></p>
+          </div>
+        </div>
+    </div>
+<br/>
 </div>
+
+
+
+
+
+
 
 {% endblock %}

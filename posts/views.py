@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from .models import Post
 from .forms import PostForm
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
 # Create your views here.
 
 
@@ -22,7 +24,7 @@ def posts_list(request):
         queryset = paginator.page(paginator.num_pages)
     context = {
             "object_list": queryset,
-            "title": "List",
+            "title": "",
             "page_request_var": page_request_var,
         }
 
@@ -30,29 +32,35 @@ def posts_list(request):
 
 
 def posts_create(request):
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
+        instance.user = request.user
         instance.save()
         messages.success(request, "Your Post has been created!")
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
+        "title": "New Post",
         "form": form,
     }
     return render(request, "posts/post_form.html", context)
 
 
-def posts_detail(request, id=None):
-    instance = get_object_or_404(Post, id=id)
+def posts_detail(request, slug=None):
+    instance = get_object_or_404(Post, slug=slug)
     context = {
         "title": instance.title,
-        "instance": instance
+        "instance": instance,
     }
     return render(request, 'posts/detail.html', context)
 
 
-def posts_update(request, id=None):
-    instance = get_object_or_404(Post, id=id)
+def posts_update(request, slug=None):
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
+    instance = get_object_or_404(Post, slug=slug)
     form = PostForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -60,7 +68,7 @@ def posts_update(request, id=None):
         messages.success(request, "Your changes have been saved!")
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
-        "title": instance.title,
+        "title": "Edit Post",
         "instance": instance,
         "form": form,
     }
@@ -68,6 +76,8 @@ def posts_update(request, id=None):
 
 
 def posts_delete(request, id=None):
+    if not request.user.is_staff or request.user.is_superuser:
+        raise Http404
     instance = get_object_or_404(Post, id=id)
     instance.delete()
     messages.success(request, "Post Successfully Deleted")
