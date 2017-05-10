@@ -2,6 +2,45 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+@media screen and (max-width: 2560px) {
+    body p {
+        font-size: 100%;
+    }
+    body p{
+        font-size: 24px;
+    }
+
+    h1{
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    body p, h2, h3, .btn {
+        font-size: 97%;
+    }
+    h1 {
+        font-size: 28px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    body p, h2, h3, .btn {
+        font-size: 95%;
+    }
+
+}
+
+@media screen and (max-width: 568px) {
+    body p, h2, h3, .btn {
+        font-size: 90%;
+    }
+    h1 {
+        font-size: 26px;
+    }
+
+}
 
 body {
 

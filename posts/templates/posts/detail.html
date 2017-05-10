@@ -9,25 +9,25 @@
 <br/>
 
 <div class="row">
-    <div class="col-sm-12">
+   <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 col-xs-offset-0">
         <div class="thumbnail">
             {% if instance.image %}
                 <img src="{{ instance.image.url }}" class="img-responsive" />
             {% endif %}
           <div class="caption">
-            <h3>{{ instance.title }}<small> Published: {{ instance.timestamp|timesince }} ago</small></h3>
+            <h1>{{ instance.title }}<small> Published: {{ instance.timestamp|timesince }} ago</small></h1>
               <p><small><b>{% if instance.user %}Author: {{ instance.user }}{% endif %}</b></small></p>
             <p>{{ instance.content|linebreaks }}{% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'posts:update' instance.slug %}"></a>{% endif %}</p>
-            <p style="font-weight: bold">Share this post:<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+            <h3>Share this post:<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
             Facebook
-            </a>
+            </a>|
             <a href="https://twitter.com/home?status={{ request.build_absolute_uri }}">
             Twitter
-            </a>
+            </a>|
             <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ instance.title }}&summary={{ share_string }}&source={{ request.build_absolute_uri }}">
             Linkedin
-            </a>
-            <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a></p>
+            </a>|
+            <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a></h3>
           </div>
         </div>
     </div>
