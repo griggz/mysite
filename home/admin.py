@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Feedback
+from .models import Feedback, About
 
 
 class FeedbackAdmin(admin.ModelAdmin):
@@ -12,3 +12,13 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Feedback, FeedbackAdmin)
+
+
+class AboutMeAdmin(admin.ModelAdmin):
+    list_display = ["user", "content"]
+
+    class Meta:
+        model = About
+
+
+admin.site.register(About, AboutMeAdmin)

@@ -2,8 +2,10 @@ from django.views.generic import View
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from .models import Feedback
-from .forms import FeedbackForm
+from .forms import FeedbackForm, AboutMeForm
 from django.contrib import messages
+from .models import About
+
 
 # Create your views here.
 
@@ -26,3 +28,18 @@ def feedback(request):
         "form": form,
     }
     return render(request, "home/feedback_form.html", context)
+
+
+def about(request):
+    form = AboutMeForm(request.POST or None, request.FILES or None)
+    qs = About.objects.filter(id=1)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.user = request.user
+        instance.save()
+        return redirect('home:landing')
+    context = {
+        "object_list": qs,
+        "title": "About Me"
+    }
+    return render(request, "home/about_me.html", context)
