@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^posts/', include('posts.urls'), name='posts'),
     url(r'^login/$', login_view, name='login'),
     url(r'^logout/$', logout_view, name='logout'),
-    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^', include('home.urls'), name='home'),
     # url(r'^register/$', register_view, name='register'),
     # url(r'^', include('home.urls')),
 
