@@ -47,7 +47,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: 'Nova Flat',serif">My Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="nav" href="{% url 'argent:index' %}">SAVE</a> </li>
+                            <li><a class="nav" href="{% url 'argent:index' %}">TRAVELSAVE</a> </li>
                         </ul>
                     </li>
                 </ul>
@@ -123,7 +123,7 @@
       <div class="row">
         <div class="col-lg-4">
             <a href="{% url 'argent:index' %}"><img class="img-circle" src="{% static 'images/cash.png' %}" alt="calc" width="140" height="140"></a>
-          <h2>Save</h2>
+          <h2>TravelSave</h2>
           <p>I built this as a way for my wife and I to track our spending while living in Europe for a year. It enables the use of multiple currencies, an accurate depiction of your daily and monthly spending, and more.</p>
           <p><a href="#">
                     <button type="button" class="btn btn-default">
@@ -131,7 +131,7 @@
                     </button></a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="{% static 'images/blog.png' %}" alt="cash" width="140" height="140">
+            <a href="{% url 'posts:list' %}"><img class="img-circle" src="{% static 'images/blog.png' %}" alt="cash" width="140" height="140"></a>
           <h2>Blog</h2>
           <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
           <p><a href="#">
@@ -154,7 +154,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">"Save" Has A New Update! <span class="text-muted">Multiple Currencies Update:</span></h2>
+          <h2 class="featurette-heading">"TRAVELSAVE" Has A New Update! <span class="text-muted">Multiple Currencies Update:</span></h2>
           <p class="lead">Global citizens unite!  While traveling around the globe, it is almost a no-brainer that dollars aren't the main currency everywhere. Whether you're in Prague, Budapest, London, or Paris, having the ability to track your spending in multiple currencies is integral to accurate tracking of your spending. </p>
         </div>
         <div class="col-md-5">
