@@ -15,7 +15,7 @@
                 <img src="{{ instance.image.url }}" class="img-responsive" />
             {% endif %}
           <div class="caption">
-            <h1>{{ instance.title }}<small> Published: {{ instance.timestamp|timesince }} ago</small></h1>
+            <h1>{{ instance.title }}<small>{% if instance.draft %}<span style="color:red">Draft</span>{% endif %} Published: {{ instance.publish }} </small></h1>
               <p><small><b>{% if instance.user %}Author: {{ instance.user }}{% endif %}</b></small></p>
             <p>{{ instance.content|linebreaks }}{% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'posts:update' instance.slug %}"></a>{% endif %}</p>
             <h3>Share this post:<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">

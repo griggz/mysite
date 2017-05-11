@@ -4,13 +4,18 @@ from .models import Post
 from .forms import PostForm
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.utils import timezone
 
 # Create your views here.
 
 
 def posts_list(request):
-    queryset_list = Post.objects.all()
+    today = timezone.now().date()
+    queryset_list = Post.objects.active()
+    if request.user.is_superuser or request.user.is_staff:
+        queryset_list = Post.objects.all()
+    # query = request.GET.get("q")
+
     paginator = Paginator(queryset_list, 3)  # Show 25 posts per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
@@ -26,6 +31,7 @@ def posts_list(request):
             "object_list": queryset,
             "title": "",
             "page_request_var": page_request_var,
+            "today": today,
         }
 
     return render(request, 'posts/post-list.html', context)
@@ -50,6 +56,9 @@ def posts_create(request):
 
 def posts_detail(request, slug=None):
     instance = get_object_or_404(Post, slug=slug)
+    if instance.publish or instance.publish > timezone.now().date() or instance.draft:
+        if not request.user.is_staff or not request.user.is_superuser:
+            raise Http404
     context = {
         "title": instance.title,
         "instance": instance,
