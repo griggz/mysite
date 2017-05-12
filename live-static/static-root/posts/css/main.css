@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 992px) {
-    body p, h2, h3, .btn {
+    body p, h2, h3 {
         font-size: 97%;
     }
     h1 {
@@ -26,14 +26,14 @@
 }
 
 @media screen and (max-width: 768px) {
-    body p, h2, h3, .btn {
+    body p, h2, h3 {
         font-size: 95%;
     }
 
 }
 
 @media screen and (max-width: 568px) {
-    body p, h2, h3, .btn {
+    body p, h2, h3 {
         font-size: 90%;
     }
     h1 {
@@ -93,4 +93,8 @@ a.btn {
 
      font-family: 'Nova Flat', serif;
 
+}
+
+.pager {
+    font-family: 'Nova Flat', serif;
 }

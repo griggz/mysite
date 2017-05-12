@@ -5,6 +5,7 @@ from .forms import PostForm
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
+from django.db.models import Q
 
 # Create your views here.
 
@@ -14,9 +15,16 @@ def posts_list(request):
     queryset_list = Post.objects.active()
     if request.user.is_superuser or request.user.is_staff:
         queryset_list = Post.objects.all()
-    # query = request.GET.get("q")
+    query = request.GET.get("q")
+    if query:
+        queryset_list = queryset_list.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query) |
+            Q(user__first_name__icontains=query) |
+            Q(user__last_name__icontains=query)
+            ).distinct()
 
-    paginator = Paginator(queryset_list, 3)  # Show 25 posts per page
+    paginator = Paginator(queryset_list, 1)  # Show 25 posts per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
