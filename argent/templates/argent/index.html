@@ -139,7 +139,7 @@
     &nbsp
 </div>
 <div class="container">
-    <div class="row" style="height: 300px">
+    <div class="row" style="height: 300px; width:100%">
         <canvas id="myChart" width="100%" height="100%"></canvas>
     </div>
 
@@ -196,7 +196,7 @@
             },
             options: {
             maintainAspectRatio: false,
-            legend: {labels:{fontColor:"white", fontSize: 14}},
+            legend: {labels:{fontColor:"white", fontSize: 18, fontFamily: "Indie Flower"}},
             title: {
                 display: true,
                 text: 'Monthly Totals',
@@ -210,15 +210,15 @@
                     display: false
                   },
                         ticks: {
-                            {#fontFamily: "Indie Flower",#}
+                            fontFamily: "Indie Flower",
                             fontColor: 'white',
-                            fontSize:15}
+                            fontSize:16}
                         }],
                     yAxes: [{
                         ticks: {
-                            {#fontFamily: "Indie Flower",#}
+                            fontFamily: "Indie Flower",
                             fontColor: "White",
-                            fontSize: 15,
+                            fontSize: 16,
                             beginAtZero: true
 
                         }

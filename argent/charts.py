@@ -23,7 +23,7 @@ class ChartData(APIView):
         qs_February17 = Entry.objects.filter(date__range=('2017-2-1', '2017-2-28')).aggregate(s=Sum('dollars_sum')).get('s')
         qs_March17 = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31')).aggregate(s=Sum('dollars_sum')).get('s')
         qs_April17 = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30')).aggregate(s=Sum('dollars_sum')).get('s')
-        labels = ["November16", "December16", "January17", "February17", "March17", "April17"]
+        labels = ["NOV16", "DEC16", "JAN17", "FEB17", "MAR17", "APR17"]
         default_items = [qs_November16, qs_December16, qs_January17, qs_February17, qs_March17, qs_April17]
         data = {
             "labels": labels,
