@@ -10,6 +10,8 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+
 <script>
     $(document).ready(function(){
       var date_input=$('input[name="date"]'); //our date input has the name "date"
@@ -34,4 +36,22 @@
       };
       date_input.datepicker(options);
     })
+</script>
+
+<script>
+    $(document).ready(function(){
+        $(".content-markdown").each(function(){
+            var content = $(this).text();
+            console.log(content);
+            var markedContent = marked(content);
+            console.log(content);
+            $(this).html(markedContent)
+        });
+        $(".content-markdown img").each(function(){
+            $(this).addClass("img-responsive");
+
+        })
+
+    })
+
 </script>

@@ -16,7 +16,7 @@
 
 <div class="row">
     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-       {% if request.user.is_staff or request.user.is_superuser %} <a class="post" href="{% url 'posts:create' %}">
+       {% if request.user.is_staff or request.user.is_superuser %} <a class="post" href="{% url 'admin:posts_post_add' %}">
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW POST
                     </button>
@@ -39,17 +39,13 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="thumbnail">
-            {% if obj.image%}
-                <img src="{{ obj.image.url }}" class="img-responsive" />
+            {% if obj.unsplash_url %}
+                <img src="{{ obj.unsplash_url }}" class="img-responsive" />
             {% endif %}
           <div class="caption">
               <h3 style="margin-top: 10px"><a class="post" href="{% url "posts:detail" obj.slug %}">{{ obj.title }}</a>{% if obj.draft %}<small><span style="color:red">Draft</span></small>{% endif %}{% if obj.publish > today %}<small><span style="color:darkgoldenrod"> (Future Post)</span></small>{% endif %}<small> Published: {{ obj.publish }}</small></h3>
             <p><small><b>{% if obj.user %}Author: {{ obj.user }}{% endif %}</b></small></p>
-            <p>{{ obj.content|linebreaks|truncatechars:200 }}{% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'posts:update' obj.slug %}">
-                <button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>{% endif %}</p>
+            <p class="content-markdown">{{ obj.content|truncatechars:200 }}</p>
             <p align="right"><a href="{% url "posts:detail" obj.slug %}" class="btn btn-default" role="button">READ MORE</a>
           </div>
         </div>

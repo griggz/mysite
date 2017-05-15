@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django_hosts',
     'rest_framework',
+    'pagedown',
     # My Apps
     'argent',
     'home',
