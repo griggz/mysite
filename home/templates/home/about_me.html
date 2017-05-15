@@ -17,7 +17,7 @@
               <div class="caption">
                 <h1>{{ title }}</h1>
 {#                  <p></p>#}
-                <p>{{ obj.content|linebreaks }}</p>
+                {{ obj.get_markdown }}
                   <p align="right"><small>Published: {{ obj.timestamp|timesince }} ago</small></p>
               </div>
             </div>
@@ -26,6 +26,3 @@
     </div>
 {% endfor %}
 {% endblock %}
-
-
-<

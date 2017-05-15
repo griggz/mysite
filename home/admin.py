@@ -1,5 +1,8 @@
 from django.contrib import admin
 from .models import Feedback, About
+from pagedown.widgets import AdminPagedownWidget
+from django.db import models
+from .forms import AboutMeForm
 
 
 class FeedbackAdmin(admin.ModelAdmin):
@@ -15,7 +18,11 @@ admin.site.register(Feedback, FeedbackAdmin)
 
 
 class AboutMeAdmin(admin.ModelAdmin):
-    list_display = ["user", "content"]
+    formfield_overrides = {
+        models.TextField: {'widget': AdminPagedownWidget},
+    }
+    list_display = ["user"]
+    form = AboutMeForm
 
     class Meta:
         model = About

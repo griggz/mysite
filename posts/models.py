@@ -7,6 +7,7 @@ from django.utils import timezone
 from markdown_deux import markdown
 from django.utils.safestring import mark_safe
 
+
 class PostManager(models.Manager):
     def active(self, *args, **kwargs):
         return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
