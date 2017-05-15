@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django_hosts',
     'rest_framework',
     'pagedown',
+    'markdown_deux',
     # My Apps
     'argent',
     'home',

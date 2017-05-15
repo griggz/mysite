@@ -8,21 +8,12 @@
     body p {
         font-size: 100%;
     }
-    body p{
-        font-size: 24px;
-    }
 
-    h1{
-        font-size: 32px;
-    }
 }
 
 @media screen and (max-width: 992px) {
     body p, h2, h3 {
         font-size: 97%;
-    }
-    h1 {
-        font-size: 28px;
     }
 
 }
@@ -37,9 +28,6 @@
 @media screen and (max-width: 568px) {
     body p, h2, h3 {
         font-size: 80%;
-    }
-    h1 {
-        font-size: 26px;
     }
 
 }
@@ -68,14 +56,14 @@ body h2 {
 
 body h3 {
 
-    font-size: small;
     font-family: 'Nova Flat', sans-serif;
 
 }
 
-body small {
+body h4 {
 
-    font-size: small;
+    font-family: 'Nova Flat', sans-serif;
+
 }
 
 body a.post {
@@ -97,4 +85,8 @@ a.btn {
 
 .thumbnail {
     background-color: white;
+}
+
+.small {
+    font-family: 'Nova Flat', serif;
 }

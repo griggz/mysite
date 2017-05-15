@@ -42,10 +42,10 @@
             {% if obj.unsplash_url %}
                 <img src="{{ obj.unsplash_url }}" class="img-responsive" />
             {% endif %}
-          <div class="caption">
+          <div class="caption post-detail-item">
               <h3 style="margin-top: 10px"><a class="post" href="{% url "posts:detail" obj.slug %}">{{ obj.title }}</a>{% if obj.draft %}<small><span style="color:red">Draft</span></small>{% endif %}{% if obj.publish > today %}<small><span style="color:darkgoldenrod"> (Future Post)</span></small>{% endif %}<small> Published: {{ obj.publish }}</small></h3>
             <p><small><b>{% if obj.user %}Author: {{ obj.user }}{% endif %}</b></small></p>
-            <p class="content-markdown">{{ obj.content|truncatechars:200 }}</p>
+            {{ obj.get_markdown|truncatechars_html:120 }}
             <p align="right"><a href="{% url "posts:detail" obj.slug %}" class="btn btn-default" role="button">READ MORE</a>
           </div>
         </div>

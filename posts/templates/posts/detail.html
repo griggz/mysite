@@ -9,21 +9,22 @@
 {% include "posts/messages_display.html" %}
 <br/>
 
+
 <div class="row">
    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 col-xs-offset-0">
         <div class="thumbnail">
             {% if instance.unsplash_url %}
                 <img src="{{ instance.unsplash_url }}" class="img-responsive" />
             {% endif %}
-          <div class="caption" >
+          <div class="caption post-detail-item">
             <h1>{{ instance.title }}<small>{% if instance.draft %}<span style="color:red">Draft</span>{% endif %} Published: {{ instance.publish }} </small></h1>
               <p><small><b>{% if instance.user %}Author: {{ instance.user }}{% endif %}</b></small></p>
-              <p class="content-markdown">{{ instance.content }}</p>
+              {{ instance.get_markdown }}
             <h3>{% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'admin:posts_post_change' instance.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                         </button>
                         </a>{% endif %}</h3>
-            <h3>Share this post:<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+            <h4>Share this post:<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
             Facebook
             </a>|
             <a href="https://twitter.com/home?status={{ request.build_absolute_uri }}">
@@ -32,7 +33,7 @@
             <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ instance.title }}&summary={{ share_string }}&source={{ request.build_absolute_uri }}">
             Linkedin
             </a>|
-            <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a></h3>
+                <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a></h4>
           </div>
         </div>
     </div>
