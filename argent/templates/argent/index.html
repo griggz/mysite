@@ -100,13 +100,11 @@
                 <table class="table table-condensed">
                     <tbody align="center">
                         <tr>
-                            <th class="th-jumbo-foot">Total Spent</th>
-                            <th class="th-jumbo-foot">Total Dollars Spent</th>
+                            <th class="th-jumbo-foot">Total Spending</th>
                             <th class="th-jumbo-foot">Total Savings</th>
                         </tr>
                         <tr>
-                            <td class="td-jumbo-foot"> €{{ctx.total_spent|intcomma}} </td>
-                            <td class="td-jumbo-foot"> ${{ctx.total_spent_dollars|intcomma }} </td>
+                            <td class="td-jumbo-foot"> - ${{ctx.total_spent_dollars|intcomma }} </td>
                             <td class="td-jumbo-foot">
                                 {% if ctx.total_savings  > 0 %}
                                         <div class="NegativeSavings" style="font-weight: bold">-
