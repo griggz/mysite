@@ -53,7 +53,8 @@
                 </ul>
                 <!-- right aligned menu -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="nav" href="{% url 'logout' %}"><b>{% if request.user.is_authenticated %}{{ request.user.username }}</b> {% endif %}<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+                    <li class="username">{% if request.user.is_authenticated %}{{ request.user.username }} {% endif %}</li>
+                    <li ><a style="padding-left: 5px" href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                 </ul>
             </div>
           </div>
@@ -75,8 +76,8 @@
           <img class="first-slide" src="">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Welcome!</h1>
-              <p>Everything on this site is live and fully operational. If you're curious about the code check out my <a href="https://github.com/griggz/MySite" TARGET="_blank" >Git Repository</a>. Otherwise, shoot me a message with your comments.</p>
+              <h1 class="carousel-title">Welcome!</h1>
+              <p>Everything on this site is live and fully operational. If you're curious about the code check out my <a class="emphasis" href="https://github.com/griggz/MySite" TARGET="_blank" >Git Repository</a>. Otherwise, shoot me a message with your comments.</p>
               <p><a class="btn btn-lg btn-primary" href="{% url "home:feedback" %}" role="button">Submit Feedback</a></p>
             </div>
           </div>
@@ -85,8 +86,8 @@
           <img class="second-slide" src="">
           <div class="container">
             <div class="carousel-caption">
-              <h1>App Release</h1>
-              <p>My latest app is "TravelSave". It gives you an overall picture of your daily spending while on travel.</p>
+              <h1 class="carousel-title">App Release</h1>
+                <p>My latest app is <a class="emphasis" href="{% url 'argent:index' %}">"TravelSave"</a>. It gives you an overall picture of your daily spending while on travel.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
             </div>
           </div>
@@ -95,7 +96,7 @@
           <img class="third-slide" src="">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Rèsumè</h1>
+              <h1 class="carousel-title">Rèsumè</h1>
               <p>If you're interested in learning more about my background, have a look at my rèsumè.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse Rèsumè</a></p>
             </div>

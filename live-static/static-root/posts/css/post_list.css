@@ -2,51 +2,49 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
-
 @media screen and (max-width: 2560px) {
-    body p {
+    body p, h2, h3, .btn {
         font-size: 100%;
     }
-
 }
 
 @media screen and (max-width: 992px) {
-    body p, h2, h3 {
+    body p, h2, h3, .btn {
         font-size: 97%;
     }
-
 }
 
 @media screen and (max-width: 768px) {
-    body p, h2, h3 {
+    body p, h2, h3, .btn {
         font-size: 95%;
     }
 
 }
 
 @media screen and (max-width: 568px) {
-    body p, h2, h3 {
-        font-size: 80%;
+    body p, h2, h3, .btn {
+        font-size: 90%;
     }
 
 }
 
-
 body {
 
-  padding-bottom: 40px;
-  background-color: #333;
 
+  background-color: #333;
 
 }
 
 body h1 {
 
     font-family: 'Nova Flat', sans-serif;
-
 }
 
+body p {
+
+    font-family: 'Nunito', sans-serif;
+
+}
 
 body h2 {
 
@@ -60,10 +58,9 @@ body h3 {
 
 }
 
-body h4 {
+body small {
 
-    font-family: 'Nova Flat', sans-serif;
-
+    font-size: small;
 }
 
 body a.post {
@@ -83,10 +80,6 @@ a.btn {
 
 }
 
-.thumbnail {
-    background-color: white;
-}
-
-.small {
+.pager {
     font-family: 'Nova Flat', serif;
 }

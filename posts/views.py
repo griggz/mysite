@@ -6,7 +6,10 @@ from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.db.models import Q
-
+from comments.forms import CommentForm
+from comments.models import Comment
+from django.contrib.contenttypes.models import ContentType
+from .utils import get_read_time
 # Create your views here.
 
 
@@ -24,7 +27,7 @@ def posts_list(request):
             Q(user__last_name__icontains=query)
             ).distinct()
 
-    paginator = Paginator(queryset_list, 1)  # Show 25 posts per page
+    paginator = Paginator(queryset_list, 2)  # Show 25 posts per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
@@ -64,12 +67,47 @@ def posts_create(request):
 
 def posts_detail(request, slug=None):
     instance = get_object_or_404(Post, slug=slug)
-    if instance.publish or instance.publish > timezone.now().date() or instance.draft:
+    if instance.publish > timezone.now().date() or instance.draft:
         if not request.user.is_staff or not request.user.is_superuser:
             raise Http404
+    initial_data = {
+        "content_type": instance.get_content_type,
+        "object_id": instance.id
+    }
+
+    form = CommentForm(request.POST or None, initial=initial_data)
+    if form.is_valid() and request.user.is_authenticated():
+        c_type = form.cleaned_data.get('content_type')
+        content_type = ContentType.objects.get(model=c_type)
+        obj_id = form.cleaned_data.get('object_id')
+        content_data = form.cleaned_data.get("content")
+        parent_obj = None
+        try:
+            parent_id = int(request.POST.get("parent_id"))
+        except:
+            parent_id = None
+
+        if parent_id:
+            parent_qs = Comment.objects.filter(id=parent_id)
+            if parent_qs.exists() and parent_qs.count() == 1:
+                parent_obj = parent_qs.first()
+
+        new_comment, created = Comment.objects.get_or_create(
+            user=request.user,
+            content_type=content_type,
+            object_id=obj_id,
+            content=content_data,
+            parent=parent_obj,
+        )
+
+        return HttpResponseRedirect(new_comment.content_object.get_absolute_url())
+
+    comments = instance.comments
     context = {
         "title": instance.title,
         "instance": instance,
+        "comments": comments,
+        "comment_form": form,
     }
     return render(request, 'posts/detail.html', context)
 

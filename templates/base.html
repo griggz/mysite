@@ -53,7 +53,8 @@
                 </ul>
                 <!-- right aligned menu -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'logout' %}"><b>{% if request.user.is_authenticated %}{{ request.user.username }}</b> {% endif %}<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+                    <li class="username">{% if request.user.is_authenticated %}{{ request.user.username }} {% endif %}</li>
+                    <li ><a style="padding-left: 5px" href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                 </ul>
 
             </div>

@@ -29,10 +29,13 @@ body a{
     font-family: 'Nunito', sans-serif;
 }
 
-body a.nav {
+body a {
 
     font-family: 'Nova Flat', serif;
     color: #333
+}
+.username {
+    padding: 15px 0 15px 15px;
 }
 
 
@@ -78,6 +81,7 @@ body a.nav {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
+  margin-top: 0;
 }
 
 /* Declare heights because of positioning of img element */
@@ -93,6 +97,14 @@ body a.nav {
   height: 400px;
   background-color: #333;
 
+}
+
+.carousel-title {
+    margin-top: 0;
+}
+
+a.emphasis {
+    color: springgreen;
 }
 
 img.first-slide {

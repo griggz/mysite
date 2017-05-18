@@ -11,14 +11,19 @@ class UserLoginForm(forms.Form):
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get("username")
         password = self.cleaned_data.get("password")
-        if username and password:
+        user_qs = User.objects.filter(username=username)
+        if user_qs.count() == 0:
+            raise forms.ValidationError("This user does not exist")
+
+        else:
+            user_status = User.objects.get(username=username)
+            if user_status.is_active == False:
+                raise forms.ValidationError("This user is either pending approval or no longer active.")
+
             user = authenticate(username=username, password=password)
             if not user:
-                raise forms.ValidationError("This user does not exist -w")
-            if not user.check_password(password):
-                raise forms.ValidationError("Incorrect Password -w")
-            if not user.is_active:
-                raise forms.ValidationError("This user is no longer active -w")
+                raise forms.ValidationError("Incorrect Password")
+
         return super(UserLoginForm, self).clean(*args, **kwargs)
 
 

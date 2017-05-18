@@ -30,9 +30,10 @@
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
+            {% if messages %}<h1>{% include "posts/messages_display.html" %}</h1>{% endif %}
 
           <div class="inner cover">
-            <h1 class="cover-heading"><img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="200" height="200"></h1>
+            <h3 class="cover-heading"><img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="200" height="200"></h3>
             <h1 class="cover-heading">{{ title }}</h1>
                 <div class="row" style="font-family: 'Lato', serif; color: white" >
                         <form method="post">
@@ -44,10 +45,10 @@
 
                             &nbsp&nbsp
 
-{#                            <a href="{% url 'register' %}">#}
-{#                                    <button type="button" class="btn btn-default">#}
-{#                                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; Register#}
-{#                                    </button></a>#}
+                            <a href="{% url 'register' %}">
+                                    <button type="button" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-pencil"></span>&nbsp; Register
+                                    </button></a>
                         </form>
                 </div>
 
