@@ -218,5 +218,9 @@ small {
 .author {
     font-family: 'Nova Flat', serif;
     margin-top: 10px
+}
 
+.image_source {
+    float: right;
+    margin-right: 5px;
 }
