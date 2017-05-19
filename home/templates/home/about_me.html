@@ -2,27 +2,30 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href='{% static 'posts/css/post.css' %}' />
+<link rel="stylesheet" href='{% static 'posts/css/posts.css' %}' />
 {% endblock %}
 
 {% block content %}
 <br/>
-{% for obj in object_list %}
+<div class="container container-fluid">
+    {% for obj in object_list %}
     <div class="row">
-       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 col-xs-offset-0">
+        <div class="col-lg-10 col-lg-offset-1">
             <div class="thumbnail">
-    {#            {% if instance.image %}#}
-    {#                <img src="{{ instance.image.url }}" class="img-responsive" />#}
-    {#            {% endif %}#}
-              <div class="caption">
+            {#            {% if instance.image %}#}
+            {#                <img src="{{ instance.image.url }}" class="img-responsive" />#}
+            {#            {% endif %}#}
+                <div class="caption">
                 <h1>{{ title }}</h1>
-{#                  <p></p>#}
+                {#                  <p></p>#}
                 {{ obj.get_markdown }}
                   <p align="right"><small>Published: {{ obj.timestamp|timesince }} ago</small></p>
-              </div>
+                </div>
             </div>
         </div>
     <br/>
     </div>
-{% endfor %}
+    {% endfor %}
+</div>
+
 {% endblock %}
