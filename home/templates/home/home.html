@@ -77,7 +77,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1 class="carousel-title">Welcome!</h1>
-              <p>Everything on this site is live and fully operational. If you're curious about the code check out my <a class="emphasis" href="https://github.com/griggz/MySite" TARGET="_blank" >Git Repository</a>. Otherwise, shoot me a message with your comments.</p>
+              <p>Everything on this site is live and fully operational. If you're curious about the code check out my <a class="emphasis" href="https://github.com/griggz/MySite" TARGET="_blank" >Git Repository</a>. Otherwise, take a look around and shoot me a message with any comments you may have.</p>
               <p><a class="btn btn-lg btn-primary" href="{% url "home:feedback" %}" role="button">Submit Feedback</a></p>
             </div>
           </div>
@@ -87,7 +87,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1 class="carousel-title">App Release</h1>
-                <p>My latest app is <a class="emphasis" href="{% url 'argent:index' %}">"TravelSave"</a>. It gives you an overall picture of your daily spending while on travel in multiple currencies.</p>
+                <p>My latest app is <a class="emphasis" href="{% url 'argent:index' %}">"TravelSave"</a>. It gives you an overall picture of your spending while traveling abroad. An easy and intuitive way to track how much you don't spend!</p>
               <p><a class="btn btn-lg btn-primary" href="{% url 'posts:detail' 'travel-save' %}" role="button">Learn more</a></p>
             </div>
           </div>
@@ -134,7 +134,7 @@
         <div class="col-lg-4">
             <a href="{% url 'posts:list' %}"><img class="img-circle" src="{% static 'images/blog.png' %}" alt="cash" width="140" height="140"></a>
           <h2>Blog</h2>
-          <p class="app_showcase">This project began as a simple way to practice django web development. It has subsequently turned into a fun way to incorporate beautiful photos with topics that I find noteworthy and interesting enough to write about.</p>
+          <p class="app_showcase">This project began as a simple way to practice django web development. It has subsequently turned into a fun way to incorporate beautiful photos with topics I find noteworthy and interesting enough to write about.</p>
           <p><a href="#">
                     <button type="button" class="btn btn-default">
                         &nbsp;Learn More <span class="glyphicon glyphicon-chevron-right"></span>
@@ -153,43 +153,43 @@
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
+            <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">"TRAVELSAVE" Has A New Update! <span class="text-muted">Multiple Currencies Update:</span></h2>
-          <p class="lead">Global citizens unite!  While traveling around the globe, it is almost a no-brainer that dollars aren't the main currency everywhere. Whether you're in Prague, Budapest, London, or Paris, having the ability to track your spending in multiple currencies is integral to accurate tracking of your spending. </p>
+          <h2 class="featurette-heading">UNSPLASH connectivity added to new Blog posts!  <span class="text-muted">Beautiful photos can make all the difference.</span></h2>
+            <p class="lead">We already use <a href="https://unsplash.com" TARGET="_blank">Unsplash.com</a> photos throughout our website. Now, however, we've made it easier than ever to pull images directly from Unsplash.com's vast library of beautiful photos.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/3OiYMgDKJ6k" alt="travel">
-            <a class="image_source_right" href="https://unsplash.com/search/traveler?photo=3OiYMgDKJ6k" TARGET="_blank">Image Source</a>
+           <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/3U-L7ftH0rU" alt="writing">
+            <a class="image_source_right" href="https://unsplash.com/search/traveler?photo=3U-L7ftH0rU" TARGET="_blank">Image Source</a>
         </div>
       </div>
-
       <hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">My Blog is up and running! <a class="text-muted" href="{% url 'posts:list' %}">See for yourself.</a></h2>
-          <p class="lead">I know it may be hard to believe, but I have a ton of thoughts. So many thoughts...I really have the best thoughts.</p>
+          <h2 class="featurette-heading">"TRAVELSAVE" Has A New Update! <span class="text-muted">Multiple Currencies Update:</span></h2>
+          <p class="lead">Global citizens unite!  While traveling around the globe, it is almost a no-brainer that dollars aren't the main currency everywhere. Whether you're in Prague, Budapest, London, or Paris, having the ability to track your spending in multiple currencies is integral to accurate tracking of your spending. </p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-           <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/E0Spm6XXn2Y" alt="writing">
-            <a class="image_source_left" href="https://unsplash.com/search/traveler?photo=E0Spm6XXn2Y" TARGET="_blank">Image Source</a>
+          <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/3OiYMgDKJ6k" alt="travel">
+            <a class="image_source_left" href="https://unsplash.com/search/traveler?photo=3OiYMgDKJ6k" TARGET="_blank">Image Source</a>
         </div>
       </div>
 
       <hr class="featurette-divider">
-{##}
-{#      <div class="row featurette">#}
-{#        <div class="col-md-7">#}
-{#          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>#}
-{#          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>#}
-{#        </div>#}
-{#        <div class="col-md-5">#}
-{#          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">#}
-{#        </div>#}
-{#      </div>#}
 
-{#      <hr class="featurette-divider">#}
+      <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">My Blog is up and running! <a class="text-muted" href="{% url 'posts:list' %}">See for yourself.</a></h2>
+          <p class="lead">I know it may be hard to believe, but I have a ton of thoughts. So many thoughts...I really have the best thoughts.</p>
+        </div>
+        <div class="col-md-5">
+           <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/E0Spm6XXn2Y" alt="writing">
+            <a class="image_source_right" href="https://unsplash.com/search/traveler?photo=E0Spm6XXn2Y" TARGET="_blank">Image Source</a>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
 
