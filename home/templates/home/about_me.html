@@ -17,9 +17,11 @@
             {#            {% endif %}#}
                 <div class="caption">
                 <h1>{{ title }}</h1>
+                <hr/>
                 {#                  <p></p>#}
                 {{ obj.get_markdown }}
-                  <p align="right"><small>Published: {{ obj.timestamp|timesince }} ago</small></p>
+                <hr/>
+                <p align="right"><small>Published: {{ obj.timestamp|timesince }} ago</small></p>
                 </div>
             </div>
         </div>
