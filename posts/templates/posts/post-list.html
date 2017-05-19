@@ -9,69 +9,69 @@
 
 {% block content %}
 {% include "posts/messages_display.html" %}
-<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">
-<h1 style="color: white; margin-top: 0">{{ title }}</h1>
 
 
 
-<div class="row">
-    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-       {% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'admin:posts_post_add' %}">
-                    <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW POST
-                    </button>
-        </a>
-        {% endif %}
+
+<div class="container container-fluid">
+    <h1 style="color: white; margin-top: 0">{{ title }}</h1>
+    <div class="row" align="center">
+{#        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">#}
+{#           {% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'admin:posts_post_add' %}">#}
+{#                        <button type="button" class="btn btn-primary">#}
+{#                            <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW POST#}
+{#                        </button>#}
+{#            </a>#}
+{#            {% endif %}#}
+{#        </div>#}
+        <div class="col-lg-12">
+            <div class="input-group">
+              <form method='GET' action="">
+                    <input type="text" name='q' class="form-control" placeholder="Search for..." value="{{ request.GET.q }}">
+                </form>
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+                </span>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+    <br/>
+    <div class="row" align="center">
+    {% for obj in object_list %}
+        <div class="col-lg-6 col-md-6 col-lg-offset-0">
+            <div class="thumbnail">
+                {% if obj.unsplash_url %}
+                    <img src="{{ obj.unsplash_url }}" class="img-responsive" />
+                    <small class="image_source"><a href="https://unsplash.com/photos/{{ obj.post_image }}" TARGET="_blank">Image Source</a></small>
+                {% endif %}
+                <div class="caption post-detail-item">
+                    <h1 class="title"><a href="{% url "posts:detail" obj.slug %}">{{ obj.title }}</a>{% if obj.draft %}<small class="draft"> Draft</small>{% endif %}{% if obj.publish > today %}<small class="future_post"> (Future Post)</small>{% endif %}<small class="publish_date"> Published: {{ obj.publish }}</small></h1>
+                    <h4>{% if obj.user %}Author: {{ obj.user }}{% endif %} | Read time: {% if obj.read_time <= 1 %} < 1 min {% else %}{{ obj.read_time }} min{% endif %}</h4><hr/>
+                    {{ obj.get_markdown|truncatechars_html:250 }}
+                    <p align="right"><a href="{% url "posts:detail" obj.slug %}" class="btn btn-default" role="button">READ MORE</a>
+                </div>
+            </div>
+        </div>
+    {% cycle "" "<div class='col-sm-12'><hr/></div></div><div class='row'><br/>" %}
+    {% endfor %}
     </div>
-  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 col-sm-offset-3 col-xs-offset-4">
-    <div class="input-group">
-      <form method='GET' action="">
-            <input type="text" name='q' class="form-control" placeholder="Search for..." value="{{ request.GET.q }}">
-        </form>
-        <span class="input-group-btn">
-        <button class="btn btn-default" type="submit">Go!</button>
-        </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
-<br/>
-{% for obj in object_list %}
-<div class="row">
-    <div class="col-sm-12">
 
-        <div class="thumbnail">
-            {% if obj.unsplash_url %}
-                <img src="{{ obj.unsplash_url }}" class="img-responsive" />
-                <small class="image_source"><a href="https://unsplash.com/photos/{{ obj.post_image }}" TARGET="_blank">Image Source</a></small>
-            {% endif %}
-          <div class="caption post-detail-item">
-                <h1 class="title"><a href="{% url "posts:detail" obj.slug %}">{{ obj.title }}</a>{% if obj.draft %}<small class="draft"> Draft</small>{% endif %}{% if obj.publish > today %}<small class="future_post"> (Future Post)</small>{% endif %}<small class="publish_date"> Published: {{ obj.publish }}</small></h1>
-                <h4>{% if obj.user %}Author: {{ obj.user }}{% endif %} | Read time: {% if obj.read_time <= 1 %} < 1 min {% else %}{{ obj.read_time }} min{% endif %}</h4><hr/>
-                {{ obj.get_markdown|truncatechars_html:250 }}
-                <p align="right"><a href="{% url "posts:detail" obj.slug %}" class="btn btn-default" role="button">READ MORE</a>
-          </div>
+    <div class="row" align="center">
+        <div class="pagination" style="color: white">
+            <ul class="pager">
+                {% if object_list.has_previous %}
+                    <li><a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a></li>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+                </span>
+
+                {% if object_list.has_next %}
+                    <li><a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a></li>
+                {% endif %}
+            </ul>
         </div>
     </div>
-<hr/>
-</div>
-
-{% endfor %}
-<div class="row" align="center">
-    <div class="pagination" style="color: white">
-        <ul class="pager">
-            {% if object_list.has_previous %}
-                <li><a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a></li>
-            {% endif %}
-
-            <span class="current">
-                Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-            </span>
-
-            {% if object_list.has_next %}
-                <li><a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a></li>
-            {% endif %}
-        </ul>
-    </div>
-</div>
 </div>
 {% endblock %}

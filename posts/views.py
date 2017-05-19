@@ -27,7 +27,7 @@ def posts_list(request):
             Q(user__last_name__icontains=query)
             ).distinct()
 
-    paginator = Paginator(queryset_list, 2)  # Show 25 posts per page
+    paginator = Paginator(queryset_list, 4)  # Show 25 posts per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:

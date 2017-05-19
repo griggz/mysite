@@ -88,7 +88,7 @@
             <div class="carousel-caption">
               <h1 class="carousel-title">App Release</h1>
                 <p>My latest app is <a class="emphasis" href="{% url 'argent:index' %}">"TravelSave"</a>. It gives you an overall picture of your daily spending while on travel in multiple currencies.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'posts:detail' 'travel-save' %}" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@
             <a href="{% url 'argent:index' %}"><img class="img-circle" src="{% static 'images/cash.png' %}" alt="calc" width="140" height="140"></a>
           <h2>TravelSave</h2>
           <p class="app_showcase">I built this as a way for my wife and I to track our spending while living in Europe for a year. It enables the use of multiple currencies, an accurate depiction of your daily and monthly spending, and more.</p>
-          <p><a href="#">
+          <p><a href="{% url 'posts:detail' 'travel-save' %}">
                     <button type="button" class="btn btn-default">
                         &nbsp;Learn More <span class="glyphicon glyphicon-chevron-right"></span>
                     </button></a></p>
