@@ -87,7 +87,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1 class="carousel-title">App Release</h1>
-                <p>My latest app is <a class="emphasis" href="{% url 'argent:index' %}">"TravelSave"</a>. It gives you an overall picture of your daily spending while on travel.</p>
+                <p>My latest app is <a class="emphasis" href="{% url 'argent:index' %}">"TravelSave"</a>. It gives you an overall picture of your daily spending while on travel in multiple currencies.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
             </div>
           </div>
@@ -125,7 +125,7 @@
         <div class="col-lg-4">
             <a href="{% url 'argent:index' %}"><img class="img-circle" src="{% static 'images/cash.png' %}" alt="calc" width="140" height="140"></a>
           <h2>TravelSave</h2>
-          <p>I built this as a way for my wife and I to track our spending while living in Europe for a year. It enables the use of multiple currencies, an accurate depiction of your daily and monthly spending, and more.</p>
+          <p class="app_showcase">I built this as a way for my wife and I to track our spending while living in Europe for a year. It enables the use of multiple currencies, an accurate depiction of your daily and monthly spending, and more.</p>
           <p><a href="#">
                     <button type="button" class="btn btn-default">
                         &nbsp;Learn More <span class="glyphicon glyphicon-chevron-right"></span>
@@ -134,7 +134,7 @@
         <div class="col-lg-4">
             <a href="{% url 'posts:list' %}"><img class="img-circle" src="{% static 'images/blog.png' %}" alt="cash" width="140" height="140"></a>
           <h2>Blog</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          <p class="app_showcase">This project began as a simple way to practice django web development. It has subsequently turned into a fun way to incorporate beautiful photos with topics that I find noteworthy and interesting enough to write about.</p>
           <p><a href="#">
                     <button type="button" class="btn btn-default">
                         &nbsp;Learn More <span class="glyphicon glyphicon-chevron-right"></span>
@@ -143,7 +143,7 @@
         <div class="col-lg-4">
           <img class="img-circle" src="{% static 'images/idea.png' %}" alt="Generic placeholder image" width="140" height="140">
           <h2>More On The Way!</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p class="app_showcase">I'm always thinking of new things to build! Check out my blog to see where my ideas are these days.</p>
 {#          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
@@ -159,24 +159,25 @@
           <p class="lead">Global citizens unite!  While traveling around the globe, it is almost a no-brainer that dollars aren't the main currency everywhere. Whether you're in Prague, Budapest, London, or Paris, having the ability to track your spending in multiple currencies is integral to accurate tracking of your spending. </p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="https://source.unsplash.com/3OiYMgDKJ6k" alt="travel">
-            <a class="image_source" href="https://unsplash.com/search/traveler?photo=3OiYMgDKJ6k">Image Source</a>
+          <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/3OiYMgDKJ6k" alt="travel">
+            <a class="image_source_right" href="https://unsplash.com/search/traveler?photo=3OiYMgDKJ6k" TARGET="_blank">Image Source</a>
         </div>
       </div>
 
       <hr class="featurette-divider">
 
-{#      <div class="row featurette">#}
-{#        <div class="col-md-7 col-md-push-5">#}
-{#          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>#}
-{#          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>#}
-{#        </div>#}
-{#        <div class="col-md-5 col-md-pull-7">#}
-{#          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">#}
-{#        </div>#}
-{#      </div>#}
-{##}
-{#      <hr class="featurette-divider">#}
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+            <h2 class="featurette-heading">My Blog is up and running! <a class="text-muted" href="{% url 'posts:list' %}">See for yourself.</a></h2>
+          <p class="lead">I know it may be hard to believe, but I have a ton of thoughts. So many thoughts...I really have the best thoughts.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+           <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/E0Spm6XXn2Y" alt="writing">
+            <a class="image_source_left" href="https://unsplash.com/search/traveler?photo=E0Spm6XXn2Y" TARGET="_blank">Image Source</a>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
 {##}
 {#      <div class="row featurette">#}
 {#        <div class="col-md-7">#}
@@ -194,6 +195,7 @@
 
 
       <!-- FOOTER -->
+      <br/>
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>

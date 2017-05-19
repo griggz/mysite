@@ -29,10 +29,13 @@
         font-size: 20px;
     }
     h4 {
-        font-size: 16px;
+        font-size: 18px;
     }
     p {
-        font-size: 16px;
+        font-size: 18px;
+    }
+    li {
+        font-size: 18px;
     }
 
 }
@@ -64,10 +67,13 @@
         font-size: 18px;
     }
     h4 {
-        font-size: 16px;
+        font-size: 18px;
     }
     p {
-        font-size: 16px;
+        font-size: 18px;
+    }
+    li {
+        font-size: 18px;
     }
 }
 
@@ -101,6 +107,9 @@
         font-size: 14px;
     }
     p {
+        font-size: 14px;
+    }
+    li {
         font-size: 14px;
     }
 
@@ -138,11 +147,13 @@
     p {
         font-size: 12px;
     }
+    li {
+        font-size: 12px;
+    }
 
 }
 
 body {
-
 
   background-color: #333;
 
@@ -176,12 +187,14 @@ h4 {
 small {
     font-family: 'Nova Flat', sans-serif;
 }
+li {
+    font-family: 'Nunito', sans-serif;
+}
 
 
 .btn {
 
      font-family: 'Nova Flat', serif;
-
 }
 
 .pager {
@@ -223,4 +236,8 @@ small {
 .image_source {
     float: right;
     margin-right: 5px;
+}
+
+.img {
+
 }

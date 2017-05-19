@@ -9,39 +9,56 @@ body {
   color: #333;
 }
 
-body h1 {
+h1 {
 
     font-family: 'Nova Flat', sans-serif;
 }
 
-body p{
+p{
 
     font-family: 'Nunito', sans-serif;
 }
 
-body h2{
+h2{
     font-family: 'Nova Flat', sans-serif;
 
 }
 
-body a{
-
-    font-family: 'Nunito', sans-serif;
-}
 
 body a {
 
     font-family: 'Nova Flat', serif;
     color: #333
 }
+
+
+p.app_showcase {
+  font-size: medium;
+}
+
 .username {
     padding: 15px 0 15px 15px;
 }
 
-.image_source {
+.image_source_right {
   float: right;
   margin-right: 5px;
 }
+
+.image_source_left {
+  float: left;
+  margin-left: 5px;
+}
+
+/*Default button settings for ref*/
+/*.btn-primary:hover,*/
+/*.btn-primary:focus,*/
+/*.btn-primary:active,*/
+/*.btn-primary.active  {*/
+  /*color: #ffffff;*/
+  /*background-color: #3276b1;*/
+  /*border-color: #285e8e;*/
+/*}*/
 
 
 /* CUSTOMIZE THE NAVBAR
@@ -107,9 +124,11 @@ body a {
 .carousel-title {
     margin-top: 0;
 }
-
+a.emphasis:hover {
+  color: dodgerblue;
+}
 a.emphasis {
-    color: springgreen;
+    color: #3276b1;
 }
 
 img.first-slide {
@@ -152,7 +171,7 @@ img.third-slide {
 ------------------------- */
 
 .featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  margin: 40px 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */

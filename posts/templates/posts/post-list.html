@@ -47,7 +47,7 @@
           <div class="caption post-detail-item">
                 <h1 class="title"><a href="{% url "posts:detail" obj.slug %}">{{ obj.title }}</a>{% if obj.draft %}<small class="draft"> Draft</small>{% endif %}{% if obj.publish > today %}<small class="future_post"> (Future Post)</small>{% endif %}<small class="publish_date"> Published: {{ obj.publish }}</small></h1>
                 <h4>{% if obj.user %}Author: {{ obj.user }}{% endif %} | Read time: {% if obj.read_time <= 1 %} < 1 min {% else %}{{ obj.read_time }} min{% endif %}</h4><hr/>
-                {{ obj.get_markdown|truncatechars_html:120 }}
+                {{ obj.get_markdown|truncatechars_html:250 }}
                 <p align="right"><a href="{% url "posts:detail" obj.slug %}" class="btn btn-default" role="button">READ MORE</a>
           </div>
         </div>
