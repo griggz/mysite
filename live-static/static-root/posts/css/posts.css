@@ -34,7 +34,7 @@
     p {
         font-size: 18px;
     }
-    li {
+    li.post {
         font-size: 18px;
     }
 
@@ -72,7 +72,7 @@
     p {
         font-size: 18px;
     }
-    li {
+    li.post {
         font-size: 18px;
     }
 }
@@ -109,7 +109,7 @@
     p {
         font-size: 14px;
     }
-    li {
+    li.post {
         font-size: 14px;
     }
 
@@ -147,7 +147,7 @@
     p {
         font-size: 12px;
     }
-    li {
+    li.post {
         font-size: 12px;
     }
 
@@ -187,7 +187,8 @@ h4 {
 small {
     font-family: 'Nova Flat', sans-serif;
 }
-li {
+
+li.post {
     font-family: 'Nunito', sans-serif;
 }
 
