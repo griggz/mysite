@@ -37,6 +37,9 @@
     li.post {
         font-size: 18px;
     }
+    pre {
+        font-size: 16px;
+    }
 
 }
 
@@ -75,6 +78,9 @@
     li.post {
         font-size: 18px;
     }
+    pre {
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -111,6 +117,9 @@
     }
     li.post {
         font-size: 14px;
+    }
+    pre {
+        font-size: 12px;
     }
 
 }
@@ -149,6 +158,9 @@
     }
     li.post {
         font-size: 12px;
+    }
+    pre {
+        font-size: 8px;
     }
 
 }
