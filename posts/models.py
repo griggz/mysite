@@ -9,6 +9,7 @@ from django.utils.safestring import mark_safe
 from comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 from .utils import get_read_time
+import datetime
 
 
 class PostManager(models.Manager):
@@ -84,5 +85,17 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
         html_string = instance.get_markdown()
         read_time = get_read_time(html_string)
         instance.read_time = read_time
+
+
+def new_posts():
+    latest = Post.objects.latest('publish')
+    pub_date = latest.publish
+    today = datetime.date.today()
+    last_7 = datetime.timedelta(days=7)
+    recent = today - last_7
+    exists = pub_date > recent
+
+    return exists
+
 
 pre_save.connect(pre_save_post_receiver, sender=Post)

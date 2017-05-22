@@ -9,7 +9,7 @@ class PostAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},
     }
-    list_display = ["title", "updated", "timestamp", "id"]
+    list_display = ["title", "publish", "updated", "timestamp", "id"]
     list_filter = ["timestamp"]
     search_fields = ["title", "content"]
     form = PostForm

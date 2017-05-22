@@ -9,7 +9,7 @@ from django.db.models import Q
 from comments.forms import CommentForm
 from comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
-from .utils import get_read_time
+# from .utils import get_read_time
 # Create your views here.
 
 

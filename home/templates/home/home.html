@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,7 +42,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
                     <li><a class="nav" href="{% url 'home:about' %}">About</a></li>
-                    <li><a href="{% url 'posts:list' %}">Blog</a></li>
+                    <li><a href="{% url 'posts:list' %}">Blog {% if new_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
 
                     <!-- DropDownMenu -->
                     <li class="dropdown">

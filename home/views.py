@@ -5,14 +5,20 @@ from .models import Feedback
 from .forms import FeedbackForm, AboutMeForm
 from django.contrib import messages
 from .models import About
-
-
+from posts.models import Post
+import datetime
+from django.utils import timezone
+from posts.models import new_posts
 # Create your views here.
 
 
 class HomeView(View):
+
     def get(self, request, *args, **kwargs):
-        return render(request, "home/home.html", {})
+        context = {
+            "new_posts": new_posts()
+        }
+        return render(request, "home/home.html", context)
 
 
 def feedback(request):
