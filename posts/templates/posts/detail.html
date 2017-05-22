@@ -16,6 +16,7 @@
             <div class="thumbnail">
                 {% if instance.unsplash_url %}
                     <img src="{{ instance.unsplash_url }}" class="img-responsive" />
+                    <small class="image_source"><a href="https://unsplash.com/photos/{{ instance.post_image }}" TARGET="_blank">Image Source</a></small>
                 {% endif %}
               <div class="caption post-detail-item">
                 <h1 class="title">{{ instance.title }}{% if instance.draft %}<small class="draft"> Draft</small>{% endif %}{% if instance.publish > today %}<small class="future_post"> (Future Post)</small>{% endif %}<small class="publish_date"> Published: {{ instance.publish }}</small>
