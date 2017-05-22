@@ -21,7 +21,7 @@ class AboutMeAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},
     }
-    list_display = ["user"]
+    list_display = ["user", "updated"]
     form = AboutMeForm
 
     class Meta:

@@ -87,7 +87,7 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
         instance.read_time = read_time
 
 
-def new_posts():
+def new_posts():  # This function determines if a blog post has been published in the last 7 days and is used on the front page of the site.
     latest = Post.objects.latest('publish')
     pub_date = latest.publish
     today = datetime.date.today()

@@ -17,6 +17,7 @@ class About(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     content = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 
     def get_markdown(self):
         content = self.content
