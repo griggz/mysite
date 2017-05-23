@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+
+<link rel="stylesheet" href='{% static 'argent/css/argent_index.css' %}'/>
+{% endblock %}
+
+{% block title %}
+&nbsp;
+<div class="container container-fluid">
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<br/>
+
+<div class="container">
+    <div class="row" style="height: 300px; width:100%">
+        <canvas id="myChart" width="100%" height="100%"></canvas>
+    </div>
+
+    <script>
+
+    {% block jquery %}
+    var endpoint = 'api/data/';
+    var defaultData = [];
+    var defaultData2 = [];
+    var labels = [];
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function(data){
+            labels = data.labels;
+            defaultData = data.spending;
+            defaultData2 = data.savings;
+
+            setChart()
+
+        },
+
+            error: function(error_data) {
+                console.log("error");
+                console.log(error_data)
+        }
+    });
+
+    function setChart(){
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    type: 'line',
+                    label: 'Total Spent',
+                    data: defaultData,
+                    borderWidth: 4,
+                    borderColor: 'crimson'
+                    },
+                    {
+                    type: 'line',
+                    label: 'Total Saved',
+                    data: defaultData2,
+                    borderWidth: 4,
+                    borderColor: 'green'
+
+                }]
+            },
+
+            options: {
+            maintainAspectRatio: false,
+            legend: {labels:{fontColor:"white", fontSize: 18, fontFamily: "Indie Flower"}},
+            title: {
+                display: true,
+                text: 'Monthly Totals',
+                fontColor: 'white',
+                fontFamily: 'Indie Flower',
+                fontSize:25},
+
+                scales: {
+                    xAxes: [{
+                    gridLines: {
+                    display: false
+                  },
+                        ticks: {
+                            fontFamily: "Indie Flower",
+                            fontColor: 'white',
+                            fontSize:16}
+                        }],
+                    yAxes: [{
+                        ticks: {
+                            fontFamily: "Indie Flower",
+                            fontColor: "White",
+                            fontSize: 16,
+                            beginAtZero: true
+
+                        }
+                    }]
+                }
+            }
+        })
+    }
+
+    {% endblock %}
+    </script>
+</div>
+
+<div class="container container-fluid">
+
+<br/>
+
+    <div class="row" align="center">
+
+    </div>
+
+</div>
+
+{#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
+
+{% endblock %}
