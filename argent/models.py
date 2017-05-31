@@ -15,12 +15,12 @@ class Entry(models.Model):
     date = models.DateField(blank=True, null=True)
     spending = models.CharField(max_length=500, blank=True, null=True)
     comments = models.TextField(blank=True, null=True)
-    spending_sum = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+    spending_sum = models.DecimalField(max_digits=9, decimal_places=2, blank=True, null=True)
     currency = models.CharField(max_length=900, blank=True, null=True, choices=CURRENCY_CHOICES)
-    xrate = models.DecimalField(max_digits=6, decimal_places=4, blank=True, null=True,)
+    xrate = models.DecimalField(max_digits=9, decimal_places=4, blank=True, null=True,)
     dollars_sum = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
-    daily_savings_dollars = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
-    daily_savings_display = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+    daily_savings_dollars = models.DecimalField(max_digits=9, decimal_places=2, blank=True, null=True)
+    daily_savings_display = models.DecimalField(max_digits=9, decimal_places=2, blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('argent:detail', kwargs={'pk': self.pk})
