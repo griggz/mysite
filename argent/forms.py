@@ -319,12 +319,12 @@ class MonthYearForm(ModelForm):
         # month = calendar.month_name[apr.month]
 
         # May
-        may = datetime.strptime('5/1/2016', '%m/%d/%Y')
-        month = calendar.month_name[may.month]
+        # may = datetime.strptime('5/1/2016', '%m/%d/%Y')
+        # month = calendar.month_name[may.month]
 
         # June
-        # june = datetime.strptime('6/1/2016', '%m/%d/%Y')
-        # month = calendar.month_name[june.month]
+        june = datetime.strptime('6/1/2016', '%m/%d/%Y')
+        month = calendar.month_name[june.month]
 
         # July
         # july = datetime.strptime('7/1/2016', '%m/%d/%Y')
@@ -371,12 +371,12 @@ class MonthYearForm(ModelForm):
         # sum_format = "{0:.2f}".format(sum_spending)
 
         # May
-        sum_spending = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('spending_sum')).get('s')
-        sum_format = "{0:.2f}".format(sum_spending)
+        # sum_spending = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('spending_sum')).get('s')
+        # sum_format = "{0:.2f}".format(sum_spending)
 
         # June
-        # sum_spending = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('spending_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_spending)
+        sum_spending = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('spending_sum')).get('s')
+        sum_format = "{0:.2f}".format(sum_spending)
 
         # July
         # sum_spending = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('spending_sum')).get('s')
@@ -423,12 +423,12 @@ class MonthYearForm(ModelForm):
         # sum_format = "{0:.2f}".format(sum_dollars)
 
         # May
-        sum_dollars = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        sum_format = "{0:.2f}".format(sum_dollars)
+        # sum_dollars = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('dollars_sum')).get('s')
+        # sum_format = "{0:.2f}".format(sum_dollars)
 
         # June
-        # sum_dollars = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('dollars_sum')).get('s')
-        # sum_format = "{0:.2f}".format(sum_dollars)
+        sum_dollars = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('dollars_sum')).get('s')
+        sum_format = "{0:.2f}".format(sum_dollars)
 
         # July
         # sum_dollars = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('dollars_sum')).get('s')
@@ -475,12 +475,12 @@ class MonthYearForm(ModelForm):
         # sum_format = "{0:.2f}".format(sum_savings)
 
         # May
-        sum_savings = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        sum_format = "{0:.2f}".format(sum_savings)
+        # sum_savings = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+        # sum_format = "{0:.2f}".format(sum_savings)
 
         # June
-        # sum_savings = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        # sum_format = "{0:.2f}".format(sum_savings)
+        sum_savings = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+        sum_format = "{0:.2f}".format(sum_savings)
 
         # July
         # sum_savings = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
@@ -531,14 +531,14 @@ class MonthYearForm(ModelForm):
         # sum_format = "{0:.2f}".format(absolute)
 
         # May
-        sum_savings = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
-        absolute = abs(sum_savings)
-        sum_format = "{0:.2f}".format(absolute)
-
-        # June
-        # sum_savings = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+        # sum_savings = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
         # absolute = abs(sum_savings)
         # sum_format = "{0:.2f}".format(absolute)
+
+        # June
+        sum_savings = Entry.objects.filter(date__range=('2017-6-1', '2017-6-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')
+        absolute = abs(sum_savings)
+        sum_format = "{0:.2f}".format(absolute)
 
         # July
         # sum_savings = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31')).aggregate(s=Sum('daily_savings_dollars')).get('s')

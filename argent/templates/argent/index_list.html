@@ -63,7 +63,7 @@
         {% endfor %}
         {% endif %}
 
-    {% if December16_qs %}
+        {% if December16_qs %}
         {% for ctx in December16_qs %}
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="thumbnail" style="background: #ebebeb" >
@@ -235,7 +235,7 @@
         {% endfor %}
         {% endif %}
 
-    {% if April17_qs %}
+        {% if April17_qs %}
         {% for ctx in April17_qs %}
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="thumbnail" style="background: #ebebeb" >
@@ -278,7 +278,7 @@
         {% endfor %}
         {% endif %}
 
-    {% if May17_qs %}
+        {% if May17_qs %}
         {% for ctx in May17_qs %}
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="thumbnail" style="background: #ebebeb" >
@@ -321,6 +321,51 @@
 {#        {% cycle "" "<div class='col-sm-12'><hr/></div></div><div class='row'>" %}#}
         {% endfor %}
         {% endif %}
+
+{#        June#}
+        {% if June17_qs %}
+        {% for ctx in June17_qs %}
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="thumbnail" style="background: #ebebeb" >
+                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
+                    <div class="caption">
+                        <h4 align="center" style="color: #FF5A09">
+                        {% if ctx.currency == 'USD' %}
+                            ${{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'EUR' %}
+                            €{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'GBP' %}
+                            £{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CZK' %}
+                            Kč{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'HUF' %}
+                            Ft{{ ctx.spending_sum }}
+                        {% endif %}
+                        {% if ctx.currency == 'CHF' %}
+                            CHF{{ ctx.spending_sum }}
+                        {% endif %}
+
+                        <!-- View Details -->
+                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                        </button></a>
+
+                        <!-- Update -->
+                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        </button>
+                        </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+        {% cycle "" "<div class='col-sm-12'><hr/></div></div><div class='row'>" %}
     </div>
     <a href="{% url 'argent:entry-add' %}">
                     <button type="button" class="btn btn-primary">
