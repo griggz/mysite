@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36bbeaa5-5600-40c2-bf22-126be5ea35e0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/static/argent/css/argent_index.css" afterPath="$PROJECT_DIR$/argent/static/argent/css/argent_index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/templates/argent/index.html" afterPath="$PROJECT_DIR$/argent/templates/argent/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,41 +27,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/argent/templates/argent/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="380" column="29" lean-forward="true" selection-start-line="380" selection-start-column="29" selection-end-line="380" selection-end-column="29" />
+            <state relative-caret-position="450">
+              <caret line="391" column="14" lean-forward="true" selection-start-line="391" selection-start-column="14" selection-end-line="391" selection-end-column="14" />
               <folding>
-                <element signature="e#15395#15420#0#HTML" expanded="true" />
-                <element signature="e#15547#15572#0#HTML" expanded="true" />
-                <marker date="1496671119000" expanded="false" signature="17779:17793" ph="..." />
-                <marker date="1496671119000" expanded="false" signature="17890:17896" ph=" " />
-                <marker date="1496671119000" expanded="false" signature="19832:19846" ph="..." />
-                <marker date="1496671119000" expanded="false" signature="19943:19949" ph=" " />
-                <marker date="1496671119000" expanded="false" signature="21877:21891" ph="..." />
-                <marker date="1496671119000" expanded="false" signature="21988:21994" ph=" " />
-                <marker date="1496671119000" expanded="false" signature="23927:23941" ph="..." />
-                <marker date="1496671119000" expanded="false" signature="24038:24044" ph=" " />
-                <marker date="1496671119000" expanded="false" signature="25965:25979" ph="..." />
-                <marker date="1496671119000" expanded="false" signature="26076:26082" ph=" " />
-                <marker date="1496671119000" expanded="false" signature="28000:28014" ph="..." />
-                <marker date="1496671119000" expanded="false" signature="28111:28117" ph=" " />
-                <marker date="1496671119000" expanded="false" signature="30030:30044" ph="..." />
-                <marker date="1496671119000" expanded="false" signature="30141:30147" ph=" " />
-                <marker date="1496671119000" expanded="false" signature="32069:32083" ph="..." />
-                <marker date="1496671119000" expanded="false" signature="32180:32186" ph=" " />
+                <element signature="e#15376#15401#0#HTML" expanded="true" />
+                <element signature="e#15528#15553#0#HTML" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="argent_index.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/argent/static/argent/css/argent_index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="333" column="7" lean-forward="true" selection-start-line="333" selection-start-column="7" selection-end-line="333" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -157,8 +129,8 @@
         <option value="$PROJECT_DIR$/argent/forms.py" />
         <option value="$PROJECT_DIR$/argent/templates/argent/index_list.html" />
         <option value="$PROJECT_DIR$/argent/charts.py" />
-        <option value="$PROJECT_DIR$/argent/templates/argent/index.html" />
         <option value="$PROJECT_DIR$/argent/static/argent/css/argent_index.css" />
+        <option value="$PROJECT_DIR$/argent/templates/argent/index.html" />
       </list>
     </option>
   </component>
@@ -200,42 +172,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="argent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="argent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="argent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -572,11 +508,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.504" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946634" sideWeight="0.496" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.496" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32830626" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32830626" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3810651" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33410674" sideWeight="0.49257144" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33410674" sideWeight="0.49257144" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39907193" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15530904" sideWeight="0.20659722" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -986,38 +922,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/argent/templates/argent/index.html">
+    <entry file="file://$PROJECT_DIR$/argent/static/argent/css/argent_index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="380" column="29" lean-forward="true" selection-start-line="380" selection-start-column="29" selection-end-line="380" selection-end-column="29" />
-          <folding>
-            <element signature="e#15395#15420#0#HTML" expanded="true" />
-            <element signature="e#15547#15572#0#HTML" expanded="true" />
-            <marker date="1496671119000" expanded="false" signature="17779:17793" ph="..." />
-            <marker date="1496671119000" expanded="false" signature="17890:17896" ph=" " />
-            <marker date="1496671119000" expanded="false" signature="19832:19846" ph="..." />
-            <marker date="1496671119000" expanded="false" signature="19943:19949" ph=" " />
-            <marker date="1496671119000" expanded="false" signature="21877:21891" ph="..." />
-            <marker date="1496671119000" expanded="false" signature="21988:21994" ph=" " />
-            <marker date="1496671119000" expanded="false" signature="23927:23941" ph="..." />
-            <marker date="1496671119000" expanded="false" signature="24038:24044" ph=" " />
-            <marker date="1496671119000" expanded="false" signature="25965:25979" ph="..." />
-            <marker date="1496671119000" expanded="false" signature="26076:26082" ph=" " />
-            <marker date="1496671119000" expanded="false" signature="28000:28014" ph="..." />
-            <marker date="1496671119000" expanded="false" signature="28111:28117" ph=" " />
-            <marker date="1496671119000" expanded="false" signature="30030:30044" ph="..." />
-            <marker date="1496671119000" expanded="false" signature="30141:30147" ph=" " />
-            <marker date="1496671119000" expanded="false" signature="32069:32083" ph="..." />
-            <marker date="1496671119000" expanded="false" signature="32180:32186" ph=" " />
-          </folding>
+        <state relative-caret-position="483">
+          <caret line="333" column="7" lean-forward="false" selection-start-line="333" selection-start-column="7" selection-end-line="333" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/argent/static/argent/css/argent_index.css">
+    <entry file="file://$PROJECT_DIR$/argent/templates/argent/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="333" column="7" lean-forward="true" selection-start-line="333" selection-start-column="7" selection-end-line="333" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="450">
+          <caret line="391" column="14" lean-forward="true" selection-start-line="391" selection-start-column="14" selection-end-line="391" selection-end-column="14" />
+          <folding>
+            <element signature="e#15376#15401#0#HTML" expanded="true" />
+            <element signature="e#15528#15553#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
