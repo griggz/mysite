@@ -46,6 +46,19 @@
         font-size: 25px;
     }
 
+    td.dash {
+        font-size: 24px;
+    }
+    th.dash {
+        font-size: 26px;
+    }
+    .PositiveSavings {
+        font-size: 24px;
+    }
+    .NegativeSavings {
+        font-size: 24px;
+    }
+
 
 
 }
@@ -86,6 +99,18 @@
     }
     td {
         font-size: 25px;
+    }
+    td.dash {
+        font-size: 22px;
+    }
+    th.dash {
+        font-size: 26px;
+    }
+    .PositiveSavings {
+        font-size: 22px;
+    }
+    .NegativeSavings {
+        font-size: 22px;
     }
 
 
@@ -130,7 +155,18 @@
     td {
         font-size: 25px;
     }
-
+    td.dash {
+        font-size: 20px;
+    }
+    th.dash {
+        font-size: 24px;
+    }
+    .PositiveSavings {
+        font-size: 20px;
+    }
+    .NegativeSavings {
+        font-size: 20px;
+    }
 
 
 
@@ -154,6 +190,18 @@
         font-size: 12px;
     }
     td.td-jumbo-foot {
+        font-size: 16px;
+    }
+    td.dash {
+        font-size: 16px;
+    }
+    th.dash {
+        font-size: 20px;
+    }
+    .PositiveSavings {
+        font-size: 16px;
+    }
+    .NegativeSavings {
         font-size: 16px;
     }
 
@@ -256,9 +304,8 @@
         color: #337ab7;
     }
 
-        td.td-month {
-
-            color: #DC143C
+    td.td-month {
+        color: #DC143C
         }
 
     h4 {
@@ -268,3 +315,35 @@
         font-family: 'Indie Flower', serif;
 
     }
+
+    td.dash {
+        color: white;
+    }
+
+    th.dash {
+        color: white;
+        font-weight: bolder;
+        text-align: center;
+        background-color: #262626;
+    }
+    tr.foot {
+        background-color: #262626;
+    }
+
+
+    a.dash {
+        color: white;
+    }
+
+    a.dash:hover {
+        color: #337ab7;
+    }
+
+    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+        background-color: #262626;
+}
+
+
+
+
+
