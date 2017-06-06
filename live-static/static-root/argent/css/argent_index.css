@@ -112,6 +112,12 @@
     .NegativeSavings {
         font-size: 22px;
     }
+    #chart {
+        display: none;
+    }
+    #chart2 {
+        display: none;
+    }
 
 
 
@@ -168,8 +174,13 @@
         font-size: 20px;
     }
 
+    #chart {
+        display: none;
+    }
 
-
+    #chart2 {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 568px) {
@@ -203,6 +214,13 @@
     }
     .NegativeSavings {
         font-size: 16px;
+    }
+    #chart {
+        display: none;
+    }
+
+    #chart2 {
+        display: none;
     }
 
 
@@ -324,10 +342,9 @@
         color: white;
         font-weight: bolder;
         text-align: center;
-        background-color: #262626;
     }
     tr.foot {
-        background-color: #262626;
+
     }
 
 
