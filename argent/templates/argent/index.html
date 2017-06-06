@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 {% load humanize %}
-{% block head %}
 
+{% block head %}
 <link rel="stylesheet" href='{% static 'argent/css/argent_index.css' %}'/>
 {% endblock %}
 
 {% block title %}
-&nbsp;
+<br/>
 <div class="container container-fluid">
     <div class="jumbotron">
         {% if entry_qs %}
@@ -22,48 +22,43 @@
         <h1 class="h1-jumbo">Today's Spending</h1>
         <div class="col-lg">
             <div class="container">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th class="th-date" colspan="2">{{ ctx.date }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th class="th-date" colspan="2">{{ ctx.date }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <th class="th-jumbo">Receipts:</th>
                             <td class="td-jumbo"> {{ ctx.spending }} </td>
                         </tr>
                         {% if ctx.currency == 'USD' %}
                         <tr>
-                            <th class="th-jumbo">Total Dolalrs Spent:</th>
+                            <th class="th-jumbo">Total Dollars Spent:</th>
                             <td class="td-jumbo">${{ctx.spending_sum}}</td>
                         </tr>
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
+                        {% elif ctx.currency == 'EUR' %}
                         <tr>
                             <th class="th-jumbo">Total Euros Spent:</th>
                             <td class="td-jumbo">€{{ctx.spending_sum}}</td>
                         </tr>
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
+                        {% elif ctx.currency == 'GBP' %}
                         <tr>
                             <th class="th-jumbo">Total Pounds Spent:</th>
                             <td class="td-jumbo">£{{ctx.spending_sum}}</td>
                         </tr>
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
+                        {% elif ctx.currency == 'CZK' %}
                         <tr>
                             <th class="th-jumbo">Total Krona Spent:</th>
                             <td class="td-jumbo">Kč{{ctx.spending_sum}}</td>
                         </tr>
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
+                        {% elif ctx.currency == 'HUF' %}
                         <tr>
                             <th class="th-jumbo">Total Forint Spent:</th>
                             <td class="td-jumbo">Ft{{ctx.spending_sum}}</td>
                         </tr>
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
+                        {% elif ctx.currency == 'CHF' %}
                         <tr>
                             <th class="th-jumbo">Total Francs Spent:</th>
                             <td class="td-jumbo">CHF{{ctx.spending_sum}}</td>
@@ -79,61 +74,75 @@
                         </tr>
                         <tr>
                             <th class="th-jumbo">Daily Savings:</th>
-
-                            <td class="td-jumbo">
-                                {% if ctx.daily_savings_dollars > 0 %}
-                                <div class="NegativeSavings">-
-                                {% else %}
-                                <div class="PositiveSavings">+
-                                {% endif %}
-                                ${{ ctx.daily_savings_display }}
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-            </div>
-        </div>
-            <div class="container">
-                {% if savings_qs %}
-                {% for ctx in savings_qs %}
-                <table class="table table-condensed">
-                    <tbody align="center">
-                        <tr>
-                            <th class="th-jumbo-foot">Total Spending</th>
-                            <th class="th-jumbo-foot">Total Savings</th>
-                        </tr>
-                        <tr>
-                            <td class="td-jumbo-foot"> - ${{ctx.total_spent_dollars|intcomma }}</td>
-                            {% if ctx.total_savings  > 0 %}
-                            <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                            {% if ctx.daily_savings_dollars > 0 %}
+                            <td class="NegativeSavings">-
                             {% else %}
-                            <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                            <td class="PositiveSavings">+
                             {% endif %}
+                            ${{ ctx.daily_savings_display }}
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-    </div>
+            </div>
+        </div>
+
+        {% if savings_qs %}
+        {% for ctx in savings_qs %}
+        <div class="container">
+            <table class="table table-condensed">
+                <tbody align="center">
+                    <tr>
+                        <th class="th-jumbo-foot">Total Spending</th>
+                        <th class="th-jumbo-foot">Total Savings</th>
+                    </tr>
+                    <tr>
+                        <td class="td-jumbo-foot"> - ${{ctx.total_spent_dollars|intcomma }}</td>
+                        {% if ctx.total_savings  > 0 %}
+                        <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                        {% else %}
+                        <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                        {% endif %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         {% endfor %}
         {% endif %}
-            </div>
+
         {% endfor %}
+
         {% else %}
             <h1 align="center" style="font-family: 'Indie Flower', serif">No entries for today yet...</h1>
             <h4 align="center"><a href="{% url 'argent:entry-add' %}">
-                        <button type="button" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
-                        </button></a>
+                <button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
+                </button></a>
             </h4>
         {% endif %}
+    </div>
 </div>
 {% endblock %}
 
 {% block content %}
 <br/>
-<div class="container">
-    <div class="row" style="height: 300px; width:100%">
-        <canvas id="myChart" width="100%" height="100%"></canvas>
+
+<div class="container container-fluid">
+    <br/>
+    <div class="card-button"><a href="{% url 'argent:entry-add' %}">
+                        <button type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
+                        </button></a>
+    </div>
+
+    <br/>
+
+    <div id="chart" class="row" style="height: 250px; width:100%">
+        <canvas id="myChart2" width="100%" height="200px"></canvas>
+        <canvas id="myChart" width="100%" height="200px"></canvas>
+    </div>
+    <div id="chart" class="row" style="height: 250px; width:100%">
+        <canvas id="myChart2" width="100%" height="200px"></canvas>
     </div>
 
     <script>
@@ -141,15 +150,20 @@
     var endpoint = 'api/chart/data/';
     var defaultData = [];
     var defaultData2 = [];
+    var defaultData3 = [];
     var labels = [];
+    var labels2 = [];
+
 
     $.ajax({
         method: "GET",
         url: endpoint,
         success: function(data){
             labels = data.labels;
+            labels2 = data.labels2;
             defaultData = data.spending;
             defaultData2 = data.savings;
+            defaultData3 = data.totals;
 
             setChart()
 
@@ -161,8 +175,9 @@
         }
     });
 
-    function setChart(){
+    function setChart() {
         var ctx = document.getElementById("myChart");
+        var ctx2 = document.getElementById("myChart2");
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -173,37 +188,43 @@
                     data: defaultData,
                     borderWidth: 4,
                     borderColor: 'crimson'
-                    },
+                },
                     {
-                    type: 'line',
-                    label: 'Total Saved',
-                    data: defaultData2,
-                    borderWidth: 4,
-                    borderColor: 'green'
+                        type: 'line',
+                        label: 'Total Saved',
+                        data: defaultData2,
+                        borderWidth: 4,
+                        borderColor: 'green'
 
-                }]
+                    }]
             },
 
             options: {
-            maintainAspectRatio: false,
-            legend: {labels:{fontColor:"white", fontSize: 18, fontFamily: "Indie Flower"}},
-            title: {
-                display: true,
-                text: 'Monthly Totals',
-                fontColor: 'white',
-                fontFamily: 'Indie Flower',
-                fontSize:25},
+                maintainAspectRatio: false,
+                legend: {
+                    labels: {fontColor: "white", fontSize: 18, fontFamily: "Indie Flower"},
+                    display: false
+
+                    },
+                title: {
+                    display: false,
+                    text: 'Monthly Totals',
+                    fontColor: 'white',
+                    fontFamily: 'Indie Flower',
+                    fontSize: 25
+                },
 
                 scales: {
                     xAxes: [{
-                    gridLines: {
-                    display: false
-                  },
+                        gridLines: {
+                            display: false
+                        },
                         ticks: {
                             fontFamily: "Indie Flower",
                             fontColor: 'white',
-                            fontSize:16}
-                        }],
+                            fontSize: 16
+                        }
+                    }],
                     yAxes: [{
                         ticks: {
                             fontFamily: "Indie Flower",
@@ -215,23 +236,67 @@
                     }]
                 }
             }
+        });
+        var myChart2 = new Chart(ctx2, {
+            type: 'horizontalBar',
+            data: {
+                labels: labels2,
+                datasets: [{
+                    label: 'Total Spent',
+                    data: defaultData3,
+                    backgroundColor: [
+                    'crimson',
+                    'green'
+                    ],
+                    borderWidth: 1,
+                    borderColor: [
+                    'crimson',
+                    'green'
+                    ]
+                    }]
+            },
+
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    labels: {fontColor: "white", fontSize: 18, fontFamily: "Indie Flower"},
+                    display: false
+                    },
+                title: {
+                    display: false,
+                    fontColor: 'white',
+                    fontFamily: 'Indie Flower',
+                    fontSize: 25
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        },
+                        ticks: {
+                            fontFamily: "Indie Flower",
+                            fontColor: 'white',
+                            fontSize: 16,
+                            beginAtZero: true
+                        },
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            display: true,
+                            fontFamily: "Indie Flower",
+                            fontColor: "White",
+                            fontSize: 16,
+                            beginAtZero: true
+                        },
+                        stacked: true
+                    }]
+                }
+            }
         })
     }
     {% endblock %}
     </script>
-</div>
-
-
-
-<div class="container container-fluid">
-    <div>
-        &nbsp
-    </div>
-    <div class="card-button"><a href="{% url 'argent:entry-add' %}">
-                        <button type="button" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
-                        </button></a>
-    </div>
 
     <!-- Entry List By Month-->
     <div class="row" align="center">
