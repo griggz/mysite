@@ -46,14 +46,18 @@ class ChartData(APIView):
         qs2_June17 = Entry.objects.filter(date__range=('2017-6-1', '2017-6-30')).aggregate(s=Sum('daily_savings_display')).get('s')
 
         labels = ["DEC16", "JAN17", "FEB17", "MAR17", "APR17", "MAY17", "JUNE17"]
-        labels2 = ["Spent", "Saved"]
-        totals = [qs_spending, qs_savings]
+        spent_labels = ["Spent"]
+        saved_labels = ["Saved"]
+        total_spending = [qs_spending]
+        total_saving = [qs_savings]
         spending = [qs_December16, qs_January17, qs_February17, qs_March17, qs_April17, qs_May17, qs_June17]
         savings = [qs2_December16, qs2_January17, qs2_February17, qs2_March17, qs2_April17, qs2_May17, qs2_June17]
         data = {
             "labels": labels,
-            "labels2": labels2,
-            "totals": totals,
+            "spent_label": spent_labels,
+            "saved_label": saved_labels,
+            "total_spending": total_spending,
+            "total_saving": total_saving,
             "spending": spending,
             "savings": savings
         }

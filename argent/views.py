@@ -2,12 +2,10 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
 from .forms import EntryForm
 from django.db.models import Sum
-import datetime
+from datetime import datetime
 from .models import Entry, Savings, MonthYear
-# from django.core.paginator import Paginator
-# from django.shortcuts import render, redirect
 
-today_date = datetime.date.today()
+today_date = datetime.now()
 
 """DAILY SPENDING TRACKER 1.0: This function accepts your daily financial
 spending, adds it together, converts it from spending to Dollars, and uploads it
@@ -17,8 +15,6 @@ in to its corresponding database."""
 class IndexView(generic.ListView):
 
     template_name = 'argent/index.html'
-
-    # paginate_by = 10
 
     def get_queryset(self):
         return Entry.objects.all()
