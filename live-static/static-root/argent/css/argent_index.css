@@ -120,8 +120,7 @@
         display: none;
     }
     #chart2 {
-        height: 50px;
-        width:100%
+        display: none;
     }
 
 
@@ -184,8 +183,7 @@
     }
 
     #chart2 {
-        height: 45px;
-        width:100%
+        display: none;
     }
 }
 
@@ -354,7 +352,6 @@
 
     }
 
-
     a.dash {
         color: white;
     }
@@ -370,8 +367,4 @@
     #chart2 {
         text-align: center;
     }
-
-
-
-
 
