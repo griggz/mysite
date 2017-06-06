@@ -5,8 +5,6 @@ from django.db.models import Sum
 from datetime import datetime
 from .models import Entry, Savings, MonthYear
 
-today_date = datetime.now()
-
 """DAILY SPENDING TRACKER 1.0: This function accepts your daily financial
 spending, adds it together, converts it from spending to Dollars, and uploads it
 in to its corresponding database."""
@@ -20,6 +18,8 @@ class IndexView(generic.ListView):
         return Entry.objects.all()
 
     def get_context_data(self, **kwargs):
+
+        today_date = datetime.now()
 
         ctx = super(IndexView, self).get_context_data(**kwargs)
 

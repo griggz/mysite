@@ -302,6 +302,7 @@ class MonthYearForm(ModelForm):
         return year
 
     def clean_month(self):
+
         # January
         # jan = datetime.strptime('1/1/2016', '%m/%d/%Y')
         # month = calendar.month_name[jan.month]
