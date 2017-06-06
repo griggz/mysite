@@ -115,12 +115,19 @@
         {% endfor %}
         {% endif %}
 
-        <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ctx.dollars_sum}}%">
-                <span class="sr-only">...</span>
+            {% if ctx.dollars_sum < 87 %}
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ctx.dollars_sum}}%">
+                    <span class="sr-only">...</span>
+                </div>
             </div>
-        </div>
-
+            {% else %}
+            <div class="progress">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: {{ctx.dollars_sum}}%">
+                    <span class="sr-only">...</span>
+                </div>
+            </div>
+            {% endif %}
 
         {% endfor %}
 
