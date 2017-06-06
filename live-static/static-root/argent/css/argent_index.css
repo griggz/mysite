@@ -58,6 +58,10 @@
     .NegativeSavings {
         font-size: 24px;
     }
+    #chart2 {
+        height: 75px;
+        width:100%
+    }
 
 
 
@@ -116,7 +120,8 @@
         display: none;
     }
     #chart2 {
-        display: none;
+        height: 50px;
+        width:100%
     }
 
 
@@ -179,7 +184,8 @@
     }
 
     #chart2 {
-        display: none;
+        height: 45px;
+        width:100%
     }
 }
 
@@ -220,7 +226,8 @@
     }
 
     #chart2 {
-        display: none;
+        height: 40px;
+        width:100%
     }
 
 
@@ -359,6 +366,10 @@
     .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
         background-color: #262626;
 }
+
+    #chart2 {
+        text-align: center;
+    }
 
 
 
