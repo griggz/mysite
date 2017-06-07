@@ -7,7 +7,7 @@ from django.core.validators import ValidationError
 from forex_python.converter import CurrencyRates
 import calendar
 
-today_date = dt.date.today()
+
 cr = CurrencyRates()
 
 
@@ -21,6 +21,7 @@ class EntryForm(ModelForm):
         help_texts = {'date': 'Enter the date of spending.', 'spending': 'Enter your receipts/spending.', 'currency': 'Select the currency used when spending.'}
 
     def clean_date(self):
+        today_date = dt.date.today()
         date_data = self.cleaned_data['date']
         exist_count = Entry.objects.filter(date=date_data).count()
 
@@ -28,7 +29,7 @@ class EntryForm(ModelForm):
             if not date_data:
                 raise ValidationError('Enter a date')
 
-            elif today_date < date_data:
+            elif date_data > today_date:
                 raise ValidationError('Invalid date - entry cannot be in the future')
 
             elif exist_count >= 1:
@@ -37,7 +38,7 @@ class EntryForm(ModelForm):
         elif not date_data:
             raise ValidationError('Enter a date')
 
-        elif today_date < date_data:
+        elif date_data > today_date:
             raise ValidationError('Invalid date - entry cannot be in the future')
 
         return date_data
@@ -125,6 +126,7 @@ class EntryForm(ModelForm):
         return xrate
 
     def clean_daily_savings_dollars(self):
+        today_date = dt.date.today()
         spending_data = self.cleaned_data.get("spending")
         date_data = self.cleaned_data.get('date')
         exist_count = Entry.objects.filter(date=date_data).count()
@@ -185,6 +187,7 @@ class EntryForm(ModelForm):
             return dollars_sum_format
 
     def clean_daily_savings_display(self):
+        today_date = dt.date.today()
         spending_data = self.cleaned_data.get("spending")
         date_data = self.cleaned_data.get('date')
         exist_count = Entry.objects.filter(date=date_data).count()
