@@ -4,10 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" href='{% static 'argent/css/argent_index.css' %}'/>
-<link rel="stylesheet" href='{% static 'argent/css/progress_bar.css' %}'/>
-
 <script>
-
 </script>
 {% endblock %}
 
@@ -116,14 +113,15 @@
         {% endif %}
 
             {% if ctx.dollars_sum < 87 %}
-            <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ctx.dollars_sum}}%">
+            <div class="progress active">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ctx.dollars_sum}}%">
                     <span class="sr-only">...</span>
                 </div>
             </div>
+
             {% else %}
-            <div class="progress">
-                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: {{ctx.dollars_sum}}%">
+            <div class="progress active">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ctx.dollars_sum}}%">
                     <span class="sr-only">...</span>
                 </div>
             </div>
@@ -159,32 +157,46 @@
         <canvas id="myChart" width="100%" height="100%"></canvas>
     </div>
     <div id="chart2" class="row">
-            <canvas id="myChart2" width="100%" height="100%"></canvas>
+            <canvas id="myChart2" width="100%" height="5%"></canvas>
     </div>
 
     <script>
     {% block jquery %}
     var endpoint = 'api/chart/data/';
+    {#LAST 6 MONTHS#}
+    var labels = [];
     var defaultData = [];
     var defaultData2 = [];
+    {#GRAND TOTALS#}
     var total_spending = [];
     var total_saving = [];
-    var labels = [];
     var spent_label = [];
     var saved_label = [];
+    {#ANNUAL TOTALS#}
+    var spent17_label = [];
+    var saved17_label = [];
+    var spending17data = [];
+    var savings17data = [];
 
 
     $.ajax({
         method: "GET",
         url: endpoint,
         success: function(data){
+            {#LAST 6 MONTHS#}
             labels = data.labels;
-            spent_label = data.spent_label;
-            saved_label = data.saved_label;
             defaultData = data.spending;
             defaultData2 = data.savings;
+            {#GRAND TOTALS#}
+            spent_label = data.spent_label;
+            saved_label = data.saved_label;
             total_saving = data.total_saving;
             total_spending = data.total_spending;
+            {#ANNUAL#}
+            spent17_label = data.spent_labels17;
+            saved17_label = data.saved_labels17;
+            spending17data = data.spending17;
+            savings17data = data.savings17;
 
             setChart()
 
@@ -261,19 +273,22 @@
         var myChart2 = new Chart(ctx2, {
             type: 'horizontalBar',
             data: {
-                labels: ['2017'],
+                labels: ['YTD'],
                 datasets: [{
-            data: total_spending,
-            backgroundColor: 'rgba(220, 20, 60, .7)'
+            data: spending17data,
+            backgroundColor: 'rgba(220, 20, 60, .7)',
+            label: ['Spent']
         },{
-            data: total_saving,
-            backgroundColor: 'rgba(0, 128, 0, .7)'
+            data: savings17data,
+            backgroundColor: 'rgba(0, 128, 0, .7)',
+            label: ['Saved']
         }]
             },
 
             options: {
                 tooltips: {
-                enabled: false
+                enabled: true
+
                 },
                 maintainAspectRatio: false,
                 legend: {
