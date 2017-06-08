@@ -14,6 +14,7 @@
                         <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
                     </button>
     </a>
+
 </div>
 <div class="container container-fluid" style="margin-left: 20px; margin-right: 20px; font-family: 'Lato', serif; color: white; font-size: xx-large;">
     <div class="col-sm-6 col-md-6">
@@ -31,7 +32,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th colspan="2" style="font-size: x-large">{{ object.date }}</th>
+                            <th colspan="2" style="font-size: x-large">{{ object.date }} <a href="{% url 'argent:entry-update' object.id %}"><button type="button" class="btn btn-link btn-lg" style="color: #FF5A09; padding: 0">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        </button>
+                        </a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,14 +105,15 @@
 
             <a href="{% url 'argent:entry-list' current_month %}">
                     <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-list"></span>&nbsp; MONTH
+                        <span class="glyphicon glyphicon-list"></span>&nbsp;{{ current_month|upper }}
                     </button>
             </a>
+
             &nbsp
 
             <a href="{% url 'argent:index' %}">
                     <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-dashboard"></span>&nbsp; DASH
+                        <span class="glyphicon glyphicon-dashboard"></span>&nbsp;DASH
                     </button>
             </a>
 

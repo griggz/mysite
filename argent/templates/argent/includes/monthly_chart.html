@@ -1,0 +1,88 @@
+<script>
+var endpoint = 'api/chart/data/';
+    var labels = [];
+    var defaultData = [];
+    var defaultData2 = [];
+
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function(data){
+            labels = data.labels;
+            defaultData = data.spending;
+            defaultData2 = data.savings;
+
+            setChart()
+
+        },
+
+            error: function(error_data) {
+                console.log("error");
+                console.log(error_data)
+        }
+    });
+
+    function setChart() {
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    type: 'line',
+                    label: 'Total Spent',
+                    data: defaultData,
+                    borderWidth: 4,
+                    borderColor: 'crimson'
+                },
+                    {
+                        type: 'line',
+                        label: 'Total Saved',
+                        data: defaultData2,
+                        borderWidth: 4,
+                        borderColor: 'green'
+
+                    }]
+            },
+
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    labels: {fontColor: "white", fontSize: 18, fontFamily: "Indie Flower"},
+                    display: false
+
+                },
+                title: {
+                    display: false,
+                    text: 'Monthly Totals',
+                    fontColor: 'white',
+                    fontFamily: 'Indie Flower',
+                    fontSize: 25
+                },
+
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        },
+                        ticks: {
+                            fontFamily: "Indie Flower",
+                            fontColor: 'white',
+                            fontSize: 16
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontFamily: "Indie Flower",
+                            fontColor: "White",
+                            fontSize: 16,
+                            beginAtZero: true
+
+                        }
+                    }]
+                }
+            }
+        })
+    }
+    </script>

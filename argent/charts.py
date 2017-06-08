@@ -20,6 +20,9 @@ class ChartData(APIView):
 
     def get(self, request, format=None):
 
+        # SPENDING/SAVINGS BY MONTH
+        June17_spending = Entry.objects.filter(date__range=('2017-6-1', '2017-6-30')).values_list('dollars_sum')
+
         # LAST 6 MONTHS SPENDING/SAVINGS
         # SAVINGS
         # qs_November16 = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30')).aggregate(s=Sum('dollars_sum')).get('s')

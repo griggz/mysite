@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36bbeaa5-5600-40c2-bf22-126be5ea35e0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/argent/static/argent/css/progress_bar.css" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/argent/templates/argent/includes/monthly_chart.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/charts.py" afterPath="$PROJECT_DIR$/argent/charts.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/static/argent/css/argent_index.css" afterPath="$PROJECT_DIR$/argent/static/argent/css/argent_index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/templates/argent/detail.html" afterPath="$PROJECT_DIR$/argent/templates/argent/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/templates/argent/entry_form.html" afterPath="$PROJECT_DIR$/argent/templates/argent/entry_form.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/templates/argent/index.html" afterPath="$PROJECT_DIR$/argent/templates/argent/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/templates/argent/index_list.html" afterPath="$PROJECT_DIR$/argent/templates/argent/index_list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,9 +38,13 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/argent/templates/argent/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="289" column="29" lean-forward="true" selection-start-line="289" selection-start-column="29" selection-end-line="289" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="320">
+              <caret line="132" column="18" lean-forward="true" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
+              <folding>
+                <element signature="e#5243#5259#0#HTML" expanded="true" />
+                <element signature="e#5587#5603#0#HTML" expanded="true" />
+                <element signature="e#6835#12039#0#HTML" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,21 +52,9 @@
       <file leaf-file-name="argent_index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/argent/static/argent/css/argent_index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+            <state relative-caret-position="266">
+              <caret line="382" column="20" lean-forward="true" selection-start-line="382" selection-start-column="20" selection-end-line="382" selection-end-column="20" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="charts.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/argent/charts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1218">
-              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -70,8 +65,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -104,8 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/comments/forms.py" />
-        <option value="$PROJECT_DIR$/posts/static/posts/css/post_list.css" />
         <option value="$PROJECT_DIR$/posts/utils.py" />
         <option value="$PROJECT_DIR$/comments/urls.py" />
         <option value="$PROJECT_DIR$/posts/templates/posts/messages_display.html" />
@@ -129,7 +123,6 @@
         <option value="$PROJECT_DIR$/posts/admin.py" />
         <option value="$PROJECT_DIR$/home/templates/home/base.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/argent/templates/argent/detail.html" />
         <option value="$PROJECT_DIR$/comments/templates/comments/comment_thread.html" />
         <option value="$PROJECT_DIR$/comments/templates/comments/confirm_delete.html" />
         <option value="$PROJECT_DIR$/home/templates/home/feedback_form.html" />
@@ -144,15 +137,18 @@
         <option value="$PROJECT_DIR$/accounts/templates/accounts/login_form.html" />
         <option value="$PROJECT_DIR$/posts/templates/posts/post-list.html" />
         <option value="$PROJECT_DIR$/argent/models.py" />
-        <option value="$PROJECT_DIR$/argent/templates/argent/index_list.html" />
-        <option value="$PROJECT_DIR$/argent/templates/argent/entry_form.html" />
         <option value="$PROJECT_DIR$/argent/urls.py" />
-        <option value="$PROJECT_DIR$/argent/views.py" />
         <option value="$PROJECT_DIR$/home/templates/home/home.html" />
         <option value="$PROJECT_DIR$/home/static/home/css/home.css" />
         <option value="$PROJECT_DIR$/argent/static/argent/css/progress_bar.css" />
         <option value="$PROJECT_DIR$/argent/forms.py" />
         <option value="$PROJECT_DIR$/argent/charts.py" />
+        <option value="$PROJECT_DIR$/argent/templates/argent/includes/monthly_chart.js" />
+        <option value="$PROJECT_DIR$/argent/templates/argent/includes/monthly_chart.html" />
+        <option value="$PROJECT_DIR$/argent/templates/argent/index_list.html" />
+        <option value="$PROJECT_DIR$/argent/views.py" />
+        <option value="$PROJECT_DIR$/argent/templates/argent/detail.html" />
+        <option value="$PROJECT_DIR$/argent/templates/argent/entry_form.html" />
         <option value="$PROJECT_DIR$/argent/static/argent/css/argent_index.css" />
         <option value="$PROJECT_DIR$/argent/templates/argent/index.html" />
       </list>
@@ -166,7 +162,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1118" />
+    <option name="width" value="876" />
     <option name="height" value="954" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -587,10 +583,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1118" height="954" extended-state="0" />
+    <frame x="0" y="23" width="876" height="954" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21468401" sideWeight="0.7934028" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2769784" sideWeight="0.7934028" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.504" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -654,25 +650,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/posts/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/argent/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -874,13 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/argent/templates/argent/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1376">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MySite/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -909,20 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/argent/templates/argent/index_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2731">
-          <caret line="17" column="4" lean-forward="false" selection-start-line="358" selection-start-column="23" selection-end-line="358" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/argent/templates/argent/entry_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/argent/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-175">
@@ -935,6 +896,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -946,27 +908,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/argent/static/argent/css/progress_bar.css" />
-    <entry file="file://$PROJECT_DIR$/argent/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/argent/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -992,29 +938,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/argent/static/argent/css/argent_index.css">
+    <entry file="file://$PROJECT_DIR$/argent/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+        <state relative-caret-position="-1662">
+          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argent/templates/argent/includes/monthly_chart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="86" column="5" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="86" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argent/templates/argent/includes/monthly_chart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argent/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="59" column="68" lean-forward="false" selection-start-line="59" selection-start-column="68" selection-end-line="59" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#467#1638#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argent/templates/argent/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="113" column="12" lean-forward="true" selection-start-line="113" selection-start-column="12" selection-end-line="117" selection-end-column="16" />
+          <folding>
+            <element signature="e#861#970#0#HTML" expanded="false" />
+            <element signature="e#1327#1361#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argent/templates/argent/entry_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argent/templates/argent/index_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="355" column="24" lean-forward="false" selection-start-line="355" selection-start-column="24" selection-end-line="358" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/argent/charts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="190">
+          <caret line="32" column="58" lean-forward="true" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/argent/static/argent/css/argent_index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="382" column="20" lean-forward="true" selection-start-line="382" selection-start-column="20" selection-end-line="382" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/argent/templates/argent/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="289" column="29" lean-forward="true" selection-start-line="289" selection-start-column="29" selection-end-line="289" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="320">
+          <caret line="132" column="18" lean-forward="true" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
+          <folding>
+            <element signature="e#5243#5259#0#HTML" expanded="true" />
+            <element signature="e#5587#5603#0#HTML" expanded="true" />
+            <element signature="e#6835#12039#0#HTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

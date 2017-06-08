@@ -16,9 +16,8 @@
                     </button>
     </a>
     <div class="row" align="center">
-        <div>
-            &nbsp
-        </div>
+        <br/>
+
 
         {% if November16_qs %}
         {% for ctx in November16_qs %}
@@ -318,11 +317,10 @@
                     </div>
                 </div>
             </div>
-{#        {% cycle "" "<div class='col-sm-12'><hr/></div></div><div class='row'>" %}#}
         {% endfor %}
         {% endif %}
 
-{#        June#}
+        {#June#}
         {% if June17_qs %}
         {% for ctx in June17_qs %}
             <div class="col-md-3 col-sm-4 col-xs-6">
@@ -372,10 +370,7 @@
                         <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
                     </button>
     </a>
-    <div>
-        &nbsp
-    </div>
+    <br/>
 </div>
-{#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
 
 {% endblock %}

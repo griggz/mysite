@@ -224,8 +224,7 @@
     }
 
     #chart2 {
-        height: 40px;
-        width:100%
+        display: none;
     }
 
 
@@ -368,5 +367,31 @@
     margin-top: 20px;
 }
 
-
-
+.progress {
+    height: 20px;
+    border-radius:20px;
+    margin-bottom: 0;
+}
+.progress .skill .val {
+    float: right;
+    font-style: normal;
+    margin: 0 20px 0 0;
+}
+span.prog {
+    display:block;
+    position: relative;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform:uppercase;
+    color: #888888;
+	line-height: 17px;
+	margin-bottom:5px;
+}
+.progress-bar {
+    text-align: center;
+    font-family: 'Indie Flower', serif;
+    color: white;
+    font-size: medium;
+    border-radius:20px;
+    transition-duration: 3s;
+}
