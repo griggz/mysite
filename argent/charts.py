@@ -71,13 +71,13 @@ class ChartData(APIView):
         data = {
             # LAST 6 MONTH
             "labels": labels,
-            "total_spending": total_spending,
-            "total_saving": total_saving,
+            "spending": spending,
+            "savings": savings,
             # GRAND TOTALS
             "spent_label": spent_labels,
             "saved_label": saved_labels,
-            "spending": spending,
-            "savings": savings,
+            "total_spending": total_spending,
+            "total_saving": total_saving,
             # ANNUAL TOTALS
             "spent_labels17": spent_labels17,
             "saved_labels17": saved_labels17,
