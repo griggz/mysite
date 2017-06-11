@@ -11,7 +11,9 @@
                     return $(this).attr("aria-valuenow") + "%";
                 }
         )
-    });</script>
+    });
+    </script>
+
 {% endblock %}
 
 {% block title %}
@@ -120,14 +122,17 @@
 
             {% if ctx.dollars_sum < 87 %}
             <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ctx.dollars_sum}}" aria-valuemin="0" aria-valuemax="100" style="width: 0">${{ctx.dollars_sum}}
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{% if ctx.spending_sum > 0 %}{{ ctx.daily_savings_display }}{% else %}100{% endif %}" aria-valuemin="0" aria-valuemax="100" style="width: 100%">+${{ ctx.daily_savings_display }}
                     <span class="prog">...</span>
                 </div>
+                <span id="update"></span>
+                <span id="done"></span>
             </div>
+
 
             {% else %}
             <div class="progress">
-                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ctx.dollars_sum}}" aria-valuemin="0" aria-valuemax="100" style="width: 0">${{ctx.dollars_sum}}
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{% if ctx.spending_sum > 87 %}0{% endif %}" aria-valuemin="0" aria-valuemax="87%" style="width: 87%">-${{ ctx.daily_savings_display }}
                     <span class="prog">...</span>
                 </div>
             </div>
