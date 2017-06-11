@@ -91,11 +91,12 @@ def new_posts():  # This function determines if a blog post has been published i
     latest = Post.objects.latest('publish')
     pub_date = latest.publish
     today = datetime.date.today()
-    last_7 = datetime.timedelta(days=7)
-    recent = today - last_7
-    exists = pub_date > recent
+    if not latest.draft and not latest.publish > today:
+        last_7 = datetime.timedelta(days=7)
+        recent = today - last_7
+        exists = pub_date > recent
 
-    return exists
+        return exists
 
 
 pre_save.connect(pre_save_post_receiver, sender=Post)
