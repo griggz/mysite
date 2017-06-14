@@ -134,7 +134,7 @@
             <a href="{% url 'posts:list' %}"><img class="img-circle" src="{% static 'images/blog.png' %}" alt="cash" width="140" height="140"></a>
           <h2>Blog</h2>
           <p class="app_showcase">This project began as a simple way to practice django web development. It has subsequently turned into a fun way to incorporate beautiful photos with topics I find noteworthy and interesting enough to write about.</p>
-          <p><a href="#">
+          <p><a href="{% url 'posts:list' %}">
                     <button type="button" class="btn btn-default">
                         &nbsp;Learn More <span class="glyphicon glyphicon-chevron-right"></span>
                     </button></a></p>
@@ -149,12 +149,24 @@
 
 
       <!-- START THE FEATURETTES -->
+      <hr class="featurette-divider">
+
+            <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Charts!<span class="text-muted"> Seeing is believing.</span></h2>
+            <p class="lead">Data visualization is integral to further understanding your data. Charts.js have given us the ability to do just that. We've added charts to <a href="{% url 'argent:index' %}">TravelSave</a> in order to provide a full picture of spending and savings. <a href="{% url 'posts:detail' 'data-visualizations' %}">Learn more</a> about the update!</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+           <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/hpjSkU2UYSU" alt="writing">
+            <a class="image_source_left" href="https://unsplash.com/search/traveler?photo=hpjSkU2UYSU" TARGET="_blank">Image Source</a>
+        </div>
+      </div>
 
       <hr class="featurette-divider">
 
             <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">UNSPLASH connectivity added to new Blog posts!  <span class="text-muted">Beautiful photos can make all the difference.</span></h2>
+          <h2 class="featurette-heading">UNSPLASH connectivity!<span class="text-muted"> Beautiful photos can make all the difference.</span></h2>
             <p class="lead">We already use <a href="https://unsplash.com" TARGET="_blank">Unsplash.com</a> photos throughout our website. Now, however, we've made it easier than ever to pull images directly from Unsplash.com's vast library of beautiful photos.</p>
         </div>
         <div class="col-md-5">
