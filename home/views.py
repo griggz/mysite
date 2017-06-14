@@ -1,13 +1,10 @@
 from django.views.generic import View
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from .models import Feedback
 from .forms import FeedbackForm, AboutMeForm
 from django.contrib import messages
 from .models import About
-from posts.models import Post
 import datetime
-from django.utils import timezone
 from posts.models import new_posts
 # Create your views here.
 
@@ -49,3 +46,10 @@ def about(request):
         "title": "About Me"
     }
     return render(request, "home/about_me.html", context)
+
+
+def resume(request):
+    pdf = ''
+
+    return render(request, "home/resume.html")
+
