@@ -48,8 +48,5 @@ def about(request):
     return render(request, "home/about_me.html", context)
 
 
-def resume(request):
-    pdf = ''
 
-    return render(request, "home/resume.html")
 
