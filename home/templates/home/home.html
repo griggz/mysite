@@ -43,6 +43,7 @@
                     <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
                     <li><a class="nav" href="{% url 'home:about' %}">About</a></li>
                     <li><a href="{% url 'posts:list' %}">Blog {% if new_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
+                    <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
 
                     <!-- DropDownMenu -->
                     <li class="dropdown">
@@ -96,7 +97,7 @@
             <div class="carousel-caption">
               <h1 class="carousel-title">Rèsumè</h1>
               <p>If you're interested in learning more about me and my background, check out my <a class="emphasis" href="{% url 'home:about' %}">About</a> or have a look at my rèsumè.</p>
-              <p><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/Grigsby_Resume_Gov.pdf' %}" TARGET="_blank" role="button">Browse Rèsumè</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank" role="button">Browse Rèsumè</a></p>
             </div>
           </div>
         </div>

@@ -42,6 +42,7 @@
                     <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
                     <li><a href="{% url 'home:about' %}">About</a> </li>
                     <li><a href="{% url 'posts:list' %}">Blog {% if Pnew_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
+                    <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
 
                     <!-- DropDownMenu -->
                     <li class="dropdown">
