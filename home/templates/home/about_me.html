@@ -20,7 +20,9 @@
                 <hr/>
                 {#                  <p></p>#}
                 {{ obj.get_markdown }}
+                <h1 align="center"><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank" role="button">Browse Rèsumè</a></h1>
                 <hr/>
+
                 <p align="right"><small>Updated: {{ obj.updated|timesince }} ago</small></p>
                 </div>
             </div>
