@@ -1,14 +1,16 @@
 from .models import Post
 from django.forms import ModelForm, HiddenInput
 from django.core.validators import ValidationError
+import datetime
+from django.utils import timezone
 
 
 class PostForm(ModelForm):
 
     class Meta:
         model = Post
-        widgets = {'unsplash_url': HiddenInput()}
-        fields = ['user', 'title', 'content', 'post_image', 'width_field', 'height_field', 'unsplash_url', 'draft', 'publish', 'read_time']
+        widgets = {'unsplash_url': HiddenInput(), 'new': HiddenInput()}
+        fields = ['user', 'title', 'content', 'post_image', 'width_field', 'height_field', 'unsplash_url', 'draft', 'publish', 'read_time', 'new']
         # exclude = ('field1',)
         labels = {'user': 'Author', 'title': 'Title', 'slug': 'Slug', 'content': 'Content', 'post_image': 'Post Image', 'height_field': 'Image Height', 'width_field': 'Image Width', 'draft': "Draft", 'publish': 'Publish Date'}
         help_texts = {'post_image': 'Get your photo ID from <a href="https://unsplash.com" target="_blank">Unsplash.com</a>. Use this <a href="http://quick.as/x3vycpgog" target="_blank">guide</a> if you need help. Or, if you want a random image, copy/paste this url "https://source.unsplash.com/random" to pull random images from unsplash.',
@@ -31,3 +33,15 @@ class PostForm(ModelForm):
             compile_url = '/'.join(join_fields)
 
         return compile_url
+
+    def clean_new(self):
+        today = timezone.now().date()
+        pub = self.cleaned_data.get("publish")
+        draft = self.cleaned_data.get("draft")
+        if not draft and not pub > today:
+            today = datetime.date.today()
+            last_7 = datetime.timedelta(days=7)
+            recent = today - last_7
+            exists = pub > recent
+
+            return exists

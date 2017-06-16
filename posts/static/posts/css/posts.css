@@ -10,6 +10,9 @@
     .draft {
         font-size: medium;
     }
+    .new_post {
+        font-size: medium;
+    }
     .publish_date {
         font-size: large;
     }
@@ -49,6 +52,9 @@
     font-size: medium;
     }
     .draft {
+        font-size: medium;
+    }
+    .new_post {
         font-size: medium;
     }
     .publish_date {
@@ -91,6 +97,9 @@
     .draft {
         font-size: small;
     }
+    .new_post {
+        font-size: small;
+    }
     .publish_date {
         font-size: medium;
     }
@@ -130,6 +139,9 @@
         font-size: x-small;
     }
     .draft {
+        font-size: x-small;
+    }
+    .new_post {
         font-size: x-small;
     }
     .publish_date {
@@ -253,4 +265,8 @@ li.post {
 
 .img {
 
+}
+
+.new_post {
+    color: #FF5A09;
 }

@@ -16,14 +16,6 @@
 <div class="container container-fluid">
     <h1 style="color: white; margin-top: 0">{{ title }}</h1>
     <div class="row" align="center">
-{#        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">#}
-{#           {% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'admin:posts_post_add' %}">#}
-{#                        <button type="button" class="btn btn-primary">#}
-{#                            <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW POST#}
-{#                        </button>#}
-{#            </a>#}
-{#            {% endif %}#}
-{#        </div>#}
         <div class="col-lg-12">
             <div class="input-group">
               <form method='GET' action="">
@@ -45,7 +37,7 @@
                     <small class="image_source"><a href="https://unsplash.com/photos/{{ obj.post_image }}" TARGET="_blank">Image Source</a></small>
                 {% endif %}
                 <div class="caption post-detail-item">
-                    <h1 class="title"><a href="{% url "posts:detail" obj.slug %}">{{ obj.title }}</a>{% if obj.draft %}<small class="draft"> Draft</small>{% endif %}{% if obj.publish > today %}<small class="future_post"> (Future Post)</small>{% endif %}</h1>
+                    <h1 class="title"><a href="{% url "posts:detail" obj.slug %}">{{ obj.title }}</a>{% if obj.new == True %}<small class="new_post"> NEW</small>{% endif %}{% if obj.draft %}<small class="draft"> Draft</small>{% endif %}{% if obj.publish > today %}<small class="future_post"> (Future Post)</small>{% endif %}</h1>
                     <h4><small class="publish_date"> Published: {{ obj.publish }}</small></h4>
                     <h4>{% if obj.user %}Author: {{ obj.user }}{% endif %} | Read time: {% if obj.read_time <= 1 %} < 1 min {% else %}{{ obj.read_time }} min{% endif %}</h4><hr/>
                     {{ obj.get_markdown|truncatechars_html:250 }}
