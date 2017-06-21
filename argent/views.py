@@ -24,7 +24,8 @@ class IndexView(generic.ListView):
         ctx = super(IndexView, self).get_context_data(**kwargs)
 
         # TODAY'S ENTRY
-        ctx['entry_qs'] = Entry.objects.filter(date=today_date)
+        # ctx['entry_qs'] = Entry.objects.filter(date=today_date) --> This displays today's entry
+        ctx['entry_qs'] = Entry.objects.filter(date='2017-06-16')
 
         # CURRENT SAVINGS TOTALS
         ctx['savings_qs'] = Savings.objects.filter(id=2)

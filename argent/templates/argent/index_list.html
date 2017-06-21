@@ -365,13 +365,11 @@
         {% endif %}
         {% cycle "" "<div class='col-sm-12'><hr/></div></div><div class='row'>" %}
     </div>
-    {% if request.user.is_staff or request.user.is_superuser %}
         <a href="{% url 'argent:entry-add' %}">
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
                     </button>
         </a>
-    {% endif %}
     <br/>
 </div>
 

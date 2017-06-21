@@ -330,7 +330,7 @@
         color: #DC143C
         }
 
-    h4 {
+    h4, h3 {
         padding: 0;
         margin-bottom: 0;
         text-align:center;

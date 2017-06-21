@@ -23,6 +23,7 @@ class EntryForm(ModelForm):
     def clean_date(self):
         today_date = dt.date.today()
         date_data = self.cleaned_data['date']
+        print(date_data)
         exist_count = Entry.objects.filter(date=date_data).count()
 
         if not self.instance.pk:

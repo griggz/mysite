@@ -17,18 +17,20 @@
 {% endblock %}
 
 {% block title %}
-<br/>
 <div class="container container-fluid">
+    <div class="row" align="center">
+        <div class="alert alert-info" role="alert">
+            <h3>This is a <b>DEMO</b> of TravelSave. All features are available and fully functional. To learn more about this webapp <a href="{% url 'posts:detail' 'travel-save' %}" class="alert-link">click here</a></h3></div>
+    </div>
+
     <div class="jumbotron">
         {% if entry_qs %}
         {% for ctx in entry_qs %}
 
         <div class="jumbo-button">
-        {% if request.user.is_staff or request.user.is_superuser %}
             <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-pencil"></span>&nbsp; UPDATE
                     </button></a>
-        {% endif %}
         </div>
         <h1 class="h1-jumbo">Today's Spending</h1>
         <div class="col-lg">
@@ -168,9 +170,8 @@
         </div>
     {% endif %}
 
-    <br/>
-
     <div id="chart" class="row" style="height: 250px; width:100%">
+        <br/>
         <canvas id="myChart" width="100%" height="100%"></canvas>
     </div>
     <div id="chart2" class="row">
