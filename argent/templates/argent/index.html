@@ -20,7 +20,7 @@
 <div class="container container-fluid">
     <div class="row" align="center">
         <div class="alert alert-info" role="alert">
-            <h3>This is a <b>DEMO</b> of TravelSave. All features are available and fully functional. To learn more about this webapp <a href="{% url 'posts:detail' 'travel-save' %}" class="alert-link">click here</a></h3></div>
+            <h3>This is a <b>DEMO</b> of TravelSave. All features are available and fully functional. To learn more about this webapp <a href="{% url 'posts:detail' 'travel-save' %}" class="alert-link">click here.</a></h3></div>
     </div>
 
     <div class="jumbotron">
@@ -161,14 +161,12 @@
 {% block content %}
 
 <div class="container container-fluid">
-    {% if request.user.is_staff or request.user.is_superuser %}
         <br/>
         <div class="card-button"><a href="{% url 'argent:entry-add' %}">
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
                     </button></a>
         </div>
-    {% endif %}
 
     <div id="chart" class="row" style="height: 250px; width:100%">
         <br/>
