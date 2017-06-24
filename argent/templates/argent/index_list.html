@@ -2,375 +2,193 @@
 {% load static %}
 {% load humanize %}
 {% block head %}
-<link rel="stylesheet" href='{% static 'argent/css/argent_base.css' %}'/>
+<link rel="stylesheet" href='{% static 'argent/css/argent_index.css' %}'/>
 {% endblock %}
 
 {% block content %}
 
-<div class="container container-fluid" style="font-family:'Raleway', serif">
+<div class="container container-fluid">
+    <div class="row" align="center">
+        <div class="alert alert-info" role="alert">
+            <h3 style="margin: 2px">This is a <b>DEMO</b> of TravelSave. All features are available and fully functional. To learn more about this webapp <a href="{% url 'posts:detail' 'travel-save' %}" class="alert-link">click here.</a></h3>
+        </div>
+    </div>
 
-    <!-- Entry List -->
-    <a href="{% url 'argent:index' %}">
+
+    <a class="card-button" href="{% url 'argent:index' %}">
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-dashboard"></span>&nbsp; DASH
                     </button>
     </a>
+
+    <!-- Entry List -->
+    <br/>
     <div class="row" align="center">
-        <br/>
+        <div class="col-md-12 col-sm-12 col-xs-12" >
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="dash"><span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: white; padding: 0"></span></th>
+                        <th class="dash">Date</th>
+                        <th class="dash">Total Spending</th>
+                        <th class="dash">Total Savings</th>
+                    </tr>
+                </thead>
+                {% if June17_qs %}
+                {% for ctx in June17_qs %}
+                <tr>
+                    <td class="dash"><a href="{% url 'argent:entry-update' ctx.id %}">
+                        <span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: #FF5A09; padding: 0"></span>
+                        </a></td>
+                    <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
+                    </td>
+                    <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
+                    {% if ctx.total_savings  > 0 %}
+                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% else %}
+                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endif %}
 
+                {% if May17_qs %}
+                {% for ctx in May17_qs %}
+                <tr>
+                    <td class="dash"><a href="{% url 'argent:entry-update' ctx.id %}">
+                        <span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: #FF5A09; padding: 0"></span>
+                        </a></td>
+                    <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
+                    </td>
+                    <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
+                    {% if ctx.total_savings  > 0 %}
+                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% else %}
+                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endif %}
 
-        {% if November16_qs %}
-        {% for ctx in November16_qs %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
-                    <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">
-                        {% if ctx.currency == 'USD' %}
-                            ${{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
-                            €{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
-                            £{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
-                            Kč{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
-                            Ft{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
-                            CHF{{ ctx.spending_sum }}
-                        {% endif %}
+                {% if April17_qs %}
+                {% for ctx in April17_qs %}
+                <tr>
+                    <td class="dash"><a href="{% url 'argent:entry-update' ctx.id %}">
+                        <span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: #FF5A09; padding: 0"></span>
+                        </a></td>
+                    <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
+                    </td>
+                    <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
+                    {% if ctx.total_savings  > 0 %}
+                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% else %}
+                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endif %}
 
-                        <!-- View Details -->
-                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        </button></a>
+                {% if March17_qs %}
+                {% for ctx in March17_qs %}
+                <tr>
+                    <td class="dash"><a href="{% url 'argent:entry-update' ctx.id %}">
+                        <span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: #FF5A09; padding: 0"></span>
+                        </a></td>
+                    <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
+                    </td>
+                    <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
+                    {% if ctx.total_savings  > 0 %}
+                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% else %}
+                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endif %}
 
-                        <!-- Update -->
-                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        {% endif %}
+                {% if February17_qs %}
+                {% for ctx in February17_qs %}
+                <tr>
+                    <td class="dash"><a href="{% url 'argent:entry-update' ctx.id %}">
+                        <span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: #FF5A09; padding: 0"></span>
+                        </a></td>
+                    <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
+                    </td>
+                    <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
+                    {% if ctx.total_savings  > 0 %}
+                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% else %}
+                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endif %}
 
-        {% if December16_qs %}
-        {% for ctx in December16_qs %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
-                    <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">
-                        {% if ctx.currency == 'USD' %}
-                            ${{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
-                            €{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
-                            £{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
-                            Kč{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
-                            Ft{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
-                            CHF{{ ctx.spending_sum }}
-                        {% endif %}
+                {% if January17_qs %}
+                {% for ctx in January17_qs %}
+                <tr>
+                    <td class="dash"><a href="{% url 'argent:entry-update' ctx.id %}">
+                        <span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: #FF5A09; padding: 0"></span>
+                        </a></td>
+                    <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
+                    </td>
+                    <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
+                    {% if ctx.total_savings  > 0 %}
+                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% else %}
+                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endif %}
 
-                        <!-- View Details -->
-                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        </button></a>
+                {% if December16_qs %}
+                {% for ctx in December16_qs %}
+                <tr>
+                    <td class="dash"><a href="{% url 'argent:entry-update' ctx.id %}">
+                        <span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: #FF5A09; padding: 0"></span>
+                        </a></td>
+                    <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
+                    </td>
+                    <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
+                    {% if ctx.total_savings  > 0 %}
+                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% else %}
+                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endif %}
 
-                        <!-- Update -->
-                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        {% endif %}
+                {% if November16_qs %}
+                {% for ctx in November16_qs %}
+                <tr>
+                    <td class="dash"><a href="{% url 'argent:entry-update' ctx.id %}">
+                        <span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: #FF5A09; padding: 0"></span>
+                        </a></td>
+                    <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
+                    </td>
+                    <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
+                    {% if ctx.total_savings  > 0 %}
+                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% else %}
+                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endif %}
 
-        {% if January17_qs %}
-        {% for ctx in January17_qs %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
-                    <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">
-                        {% if ctx.currency == 'USD' %}
-                            ${{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
-                            €{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
-                            £{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
-                            Kč{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
-                            Ft{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
-                            CHF{{ ctx.spending_sum }}
-                        {% endif %}
+            </table>
 
-                        <!-- View Details -->
-                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        </button></a>
-
-                        <!-- Update -->
-                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        {% endif %}
-
-        {% if February17_qs %}
-        {% for ctx in February17_qs %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
-                    <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">
-                        {% if ctx.currency == 'USD' %}
-                            ${{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
-                            €{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
-                            £{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
-                            Kč{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
-                            Ft{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
-                            CHF{{ ctx.spending_sum }}
-                        {% endif %}
-
-                        <!-- View Details -->
-                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        </button></a>
-
-                        <!-- Update -->
-                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        {% endif %}
-
-        {% if March17_qs %}
-        {% for ctx in March17_qs %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
-                    <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">
-                        {% if ctx.currency == 'USD' %}
-                            ${{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
-                            €{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
-                            £{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
-                            Kč{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
-                            Ft{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
-                            CHF{{ ctx.spending_sum }}
-                        {% endif %}
-
-                        <!-- View Details -->
-                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        </button></a>
-
-                        <!-- Update -->
-                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        {% endif %}
-
-        {% if April17_qs %}
-        {% for ctx in April17_qs %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
-                    <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">
-                        {% if ctx.currency == 'USD' %}
-                            ${{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
-                            €{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
-                            £{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
-                            Kč{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
-                            Ft{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
-                            CHF{{ ctx.spending_sum }}
-                        {% endif %}
-
-                        <!-- View Details -->
-                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        </button></a>
-
-                        <!-- Update -->
-                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        {% endif %}
-
-        {% if May17_qs %}
-        {% for ctx in May17_qs %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
-                    <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">
-                        {% if ctx.currency == 'USD' %}
-                            ${{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
-                            €{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
-                            £{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
-                            Kč{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
-                            Ft{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
-                            CHF{{ ctx.spending_sum }}
-                        {% endif %}
-
-                        <!-- View Details -->
-                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        </button></a>
-
-                        <!-- Update -->
-                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        {% endif %}
-
-        {#June#}
-        {% if June17_qs %}
-        {% for ctx in June17_qs %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail" style="background: #ebebeb" >
-                    <h3 align="center" style="font-weight: bold; color: #337ab7;">{{ ctx.date }}</h3>
-                    <div class="caption">
-                        <h4 align="center" style="color: #FF5A09">
-                        {% if ctx.currency == 'USD' %}
-                            ${{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'EUR' %}
-                            €{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'GBP' %}
-                            £{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CZK' %}
-                            Kč{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'HUF' %}
-                            Ft{{ ctx.spending_sum }}
-                        {% endif %}
-                        {% if ctx.currency == 'CHF' %}
-                            CHF{{ ctx.spending_sum }}
-                        {% endif %}
-
-                        <!-- View Details -->
-                        <a href="{% url 'argent:detail' ctx.id %}"><button type="button" class="btn btn-link btn-lg">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        </button></a>
-
-                        <!-- Update -->
-                        <a href="{% url 'argent:entry-update' ctx.id %}"><button type="button" class="btn btn-link btn-lg" style="padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        {% endif %}
-        {% cycle "" "<div class='col-sm-12'><hr/></div></div><div class='row'>" %}
+        </div>
     </div>
-        <a href="{% url 'argent:entry-add' %}">
+    <br/>
+        <a class ="card-button" href="{% url 'argent:entry-add' %}">
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
                     </button>
         </a>
-    <br/>
 </div>
+<br/>
 
 {% endblock %}

@@ -17,7 +17,7 @@
         font-size: 35px;
     }
     h3 {
-        font-size: 18px;
+        font-size: 24px;
     }
     h1.h1-jumbo {
         font-size:65px;
@@ -78,7 +78,7 @@
         font-size: 30px;
     }
     h3 {
-        font-size: 18px;
+        font-size: 22px;
     }
     h1.h1-jumbo {
         font-size:55px;
@@ -139,7 +139,7 @@
         font-size: 30px;
     }
     h3 {
-        font-size: 16px;
+        font-size: 20px;
     }
     h1.h1-jumbo {
         font-size:45px;
@@ -188,6 +188,11 @@
 }
 
 @media screen and (max-width: 568px) {
+
+    h3 {
+        font-size: 16px;
+    }
+
     h1.h1-jumbo {
         font-size: 35px;
     }
