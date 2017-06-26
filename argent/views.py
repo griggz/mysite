@@ -19,7 +19,7 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, **kwargs):
 
-        today_date = datetime.now()
+        # today_date = datetime.now()
 
         ctx = super(IndexView, self).get_context_data(**kwargs)
 
@@ -334,7 +334,10 @@ class EntryListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         month = self.kwargs.get('month')
+        savings_qs = MonthYear.objects.filter(month=month)
         ctx = super(EntryListView, self).get_context_data(**kwargs)
+        ctx['month'] = month
+        ctx['savings'] = savings_qs
 
         # January
         if month == 'January':
@@ -359,6 +362,7 @@ class EntryListView(generic.ListView):
         # June
         elif month == 'June':
             ctx['June17_qs'] = Entry.objects.filter(date__range=('2017-6-1', '2017-6-30'))
+            ctx['june17_sav'] = MonthYear.objects.filter(month='June')
 
         # July
         elif month == 'July':
@@ -386,7 +390,7 @@ class EntryListView(generic.ListView):
 
         else:
 
-            return self
+            pass
 
         return ctx
 

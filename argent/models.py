@@ -31,7 +31,7 @@ class Entry(models.Model):
 
     class Meta:
 
-        ordering = ['date']
+        ordering = ['-date']
 
 
 class Savings(models.Model):

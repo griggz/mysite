@@ -62,6 +62,19 @@
         height: 85px;
         width:100%;
     }
+    .list_title {
+        font-size: 70px;
+    }
+    .monthly_total_pos {
+        font-size: 40px;
+}
+    .monthly_total_neg {
+        font-size: 40px;
+}
+    .monthly_total {
+        font-size: 60px;
+    }
+
 
 
 
@@ -121,6 +134,18 @@
     }
     #chart2 {
         display: none;
+    }
+    .list_title {
+        font-size: 50px;
+    }
+   .monthly_total_pos {
+        font-size: 28px;
+}
+    .monthly_total_neg {
+        font-size: 28px;
+    }
+    .monthly_total {
+        font-size: 40px;
     }
 
 
@@ -185,6 +210,15 @@
     #chart2 {
         display: none;
     }
+    .list_title {
+        font-size: 36px;
+    }
+    .monthly_total_pos {
+        font-size: 24px;
+}
+    .monthly_total_neg {
+        font-size: 24px;
+    }
 }
 
 @media screen and (max-width: 568px) {
@@ -231,21 +265,28 @@
     #chart2 {
         display: none;
     }
-
-
+    .list_title {
+        font-size: 30px;
+    }
+    .monthly_total_pos {
+        font-size: 20px;
+}
+    .monthly_total_neg {
+        font-size: 20px;
+    }
 }
 
 /*Savings Color Change */
-    .NegativeSavings {
-        color: #DC143C;
-        font-weight: bold
-    }
+.NegativeSavings {
+    color: #DC143C;
+    font-weight: bold
+}
 
-    .PositiveSavings {
-        float: inherit;
-        color: #169C08;
-        font-weight: bold
-    }
+.PositiveSavings {
+    float: inherit;
+    color: #169C08;
+    font-weight: bold
+}
 
 /*Jumbotron style*/
     .jumbotron {
@@ -389,8 +430,8 @@ span.prog {
     font-weight: 600;
     text-transform:uppercase;
     color: #888888;
-	line-height: 17px;
-	margin-bottom:5px;
+    line-height: 17px;
+    margin-bottom:5px;
 }
 .progress-bar {
     text-align: center;
@@ -400,5 +441,44 @@ span.prog {
     border-radius:20px;
     transition-duration: 3s;
 }
+
+/*index_list.html styles*/
+
+.monthly_total {
+    color: white;
+    font-family: 'Indie Flower', serif;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.monthly_total_neg {
+    color: #DC143C;
+    font-weight: bold;
+    font-family: 'Indie Flower', serif;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.monthly_total_pos {
+    color: #169C08;
+    font-weight: bold;
+    font-family: 'Indie Flower', serif;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.list_title {
+
+    color: white;
+    font-family: 'Indie Flower', serif;
+    text-align: center;
+    vertical-align: middle;
+    margin: 2px 15px 0;
+    text-decoration: underline;
+
+}
+
+
+
 
 

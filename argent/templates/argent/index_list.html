@@ -2,27 +2,39 @@
 {% load static %}
 {% load humanize %}
 {% block head %}
-<link rel="stylesheet" href='{% static 'argent/css/argent_index.css' %}'/>
+<link rel="stylesheet" href='{% static 'argent/css/argent_index.css' %}' xmlns="http://www.w3.org/1999/html"/>
 {% endblock %}
 
 {% block content %}
 
 <div class="container container-fluid">
     <div class="row" align="center">
-        <div class="alert alert-info" role="alert">
+        <div class="alert alert-info" role="alert" style="margin-bottom: 10px">
             <h3 style="margin: 2px">This is a <b>DEMO</b> of TravelSave. All features are available and fully functional. To learn more about this webapp <a href="{% url 'posts:detail' 'travel-save' %}" class="alert-link">click here.</a></h3>
+        </div>
+
+    </div>
+    <a class="card-button" href="{% url 'argent:index' %}">
+                        <button type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-dashboard"></span>&nbsp; DASH
+                        </button>
+            </a>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12" >
+            <h1 class="list_title">{{ month }}</h1>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12" >
+            {% if savings %}
+            {% for ctx in savings %}
+                <h1 class="monthly_total"><small class="monthly_total_neg">- ${{ctx.total_spent_dollars|intcomma }}</small> | <small class="monthly_total_pos">+ ${{ctx.total_savings_display|intcomma}}</small></h1>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 
-
-    <a class="card-button" href="{% url 'argent:index' %}">
-                    <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-dashboard"></span>&nbsp; DASH
-                    </button>
-    </a>
-
     <!-- Entry List -->
-    <br/>
+
     <div class="row" align="center">
         <div class="col-md-12 col-sm-12 col-xs-12" >
             <table class="table table-hover">
@@ -30,8 +42,8 @@
                     <tr>
                         <th class="dash"><span class="glyphicon glyphicon-edit btn-lg" aria-hidden="true" style="color: white; padding: 0"></span></th>
                         <th class="dash">Date</th>
-                        <th class="dash">Total Spending</th>
-                        <th class="dash">Total Savings</th>
+                        <th class="dash">Spending</th>
+                        <th class="dash">Savings</th>
                     </tr>
                 </thead>
                 {% if June17_qs %}
