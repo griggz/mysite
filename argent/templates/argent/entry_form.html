@@ -26,10 +26,12 @@
                 <form method="post" class="uniForm">
                     {% csrf_token %}
                     {% include 'argent/includes/form-template.html' %}
+                    {% if entry %}<input class='btn btn-primary' type="Submit" value="SUBMIT" align="right" />{% endif %}
                 </form>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+               {% if not entry.date or entry.date > '2017-06-17' %} <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                     SUBMIT
                 </button>
+                {% endif %}
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -38,7 +40,7 @@
                             <h1 id="demo_modal" class="modal-title">Demo Mode</h1>
                           </div>
                           <div class="modal-body">
-                            <h2 id="demo_modal">Womp Womp. This is only a demo...No new items can be added. Well, they can, I'm just not letting you add new items. Sorry.</h2>
+                            <h2 id="demo_modal">Womp Womp. This is only a demo...No new items can be added. Well, they can, I'm just not letting you add new items. Try editing existing items!.</h2>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
