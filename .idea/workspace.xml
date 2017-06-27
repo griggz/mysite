@@ -4,13 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36bbeaa5-5600-40c2-bf22-126be5ea35e0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/forms.py" afterPath="$PROJECT_DIR$/argent/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/models.py" afterPath="$PROJECT_DIR$/argent/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/static/argent/css/argent_base.css" afterPath="$PROJECT_DIR$/argent/static/argent/css/argent_base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/templates/argent/entry_form.html" afterPath="$PROJECT_DIR$/argent/templates/argent/entry_form.html" />
-    </list>
+    <list default="true" id="36bbeaa5-5600-40c2-bf22-126be5ea35e0" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/argent/templates/argent/index_list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="193" column="0" lean-forward="true" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
               <folding>
                 <element signature="e#357#384#0#HTML" expanded="true" />
                 <element signature="e#866#872#0#HTML" expanded="true" />
@@ -48,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/argent/templates/argent/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="172" column="16" lean-forward="true" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
+              <caret line="172" column="16" lean-forward="false" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
               <folding>
                 <element signature="e#7174#7180#0#HTML" expanded="true" />
               </folding>
@@ -71,8 +65,8 @@
       <file leaf-file-name="argent_base.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/argent/static/argent/css/argent_base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="327">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1021,7 +1015,7 @@
     <entry file="file://$PROJECT_DIR$/argent/templates/argent/index_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="193" column="0" lean-forward="true" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
           <folding>
             <element signature="e#357#384#0#HTML" expanded="true" />
             <element signature="e#866#872#0#HTML" expanded="true" />
@@ -1076,7 +1070,7 @@
     <entry file="file://$PROJECT_DIR$/argent/templates/argent/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="172" column="16" lean-forward="true" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
+          <caret line="172" column="16" lean-forward="false" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
           <folding>
             <element signature="e#7174#7180#0#HTML" expanded="true" />
           </folding>
@@ -1085,8 +1079,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/argent/static/argent/css/argent_base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        <state relative-caret-position="327">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
