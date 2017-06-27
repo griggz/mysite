@@ -19,11 +19,13 @@
                     <small class="image_source"><a href="https://unsplash.com/photos/{{ instance.post_image }}" TARGET="_blank">Image Source</a></small>
                 {% endif %}
               <div class="caption post-detail-item">
-                <h1 class="title">{{ instance.title }}{% if instance.draft %}<small class="draft"> Draft</small>{% endif %}{% if instance.publish > today %}<small class="future_post"> (Future Post)</small>{% endif %}<small class="publish_date"> Published: {{ instance.publish }}</small>
-                    {% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'admin:posts_post_change' instance.id %}"><button style="margin-bottom: 0; padding-bottom: 0; padding-left: 0" type="button" class="btn btn-link btn-lg">
+                  <h1 class="title">{{ instance.title }}{% if instance.draft %}<small class="draft"> Draft</small>{% endif %}{% if instance.publish > today %}<small class="future_post"> (Future Post)</small>{% endif %}
+                  {% if request.user.is_staff or request.user.is_superuser %} <a href="{% url 'admin:posts_post_change' instance.id %}"><button style="margin-bottom: 0; padding-bottom: 0; padding-left: 0" type="button" class="btn btn-link btn-lg">
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </button>
-                            </a>{% endif %}</h1>
+                            </a>
+                  {% endif %}</h1>
+                    <small class="publish_date"> Published: {{ instance.publish }}</small>
                   <h4>{% if instance.user %}Author: {{ instance.user }}{% endif %}</h4>
                   <h4>Read time: {% if instance.read_time <= 1 %} < 1 min {% else %}{{ instance.read_time }} min{% endif %} | Share this post:<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
                     Facebook

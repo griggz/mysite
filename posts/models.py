@@ -30,7 +30,6 @@ class Post(models.Model):
     height_field = models.IntegerField(default=900)
     width_field = models.IntegerField(default=1440)
     content = models.TextField()
-    new = models.BooleanField(default=False)
     draft = models.BooleanField(default=False)
     publish = models.DateField(auto_now=False, auto_now_add=False)
     read_time = models.IntegerField(default=0)

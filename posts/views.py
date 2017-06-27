@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from .models import Post
+from .models import Post, new_posts
 from .forms import PostForm
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -9,6 +9,7 @@ from django.db.models import Q
 from comments.forms import CommentForm
 from comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
+import datetime
 # from .utils import get_read_time
 # Create your views here.
 
@@ -16,6 +17,10 @@ from django.contrib.contenttypes.models import ContentType
 def posts_list(request):
     today = timezone.now().date()
     queryset_list = Post.objects.active()
+
+    last_7 = datetime.timedelta(days=7)
+    recent = today - last_7
+
     if request.user.is_superuser or request.user.is_staff:
         queryset_list = Post.objects.all()
     query = request.GET.get("q")
@@ -43,6 +48,7 @@ def posts_list(request):
             "title": "Posts",
             "page_request_var": page_request_var,
             "today": today,
+            "recent": recent,
         }
 
     return render(request, 'posts/post-list.html', context)
