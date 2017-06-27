@@ -5,8 +5,8 @@ from django.core.urlresolvers import reverse
 
 class Entry(models.Model):
     CURRENCY_CHOICES = (
-        ('EUR', '(EUR) Euro'),
         ('USD', '(USD) US Dollar'),
+        ('EUR', '(EUR) Euro'),
         ('GBP', '(GBP) United Kingdom Pound'),
         ('CZK', '(CZK) Czech Republic Koruna'),
         ('HUF', '(HUF) Hungary Forint'),

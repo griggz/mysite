@@ -33,12 +33,18 @@
     h3 {
         font-size: 20px;
     }
+     #demo_modal {
+        font-size: 26px;
+    }
 }
 
 @media screen and (max-width: 568px) {
 
     h3 {
         font-size: 16px;
+    }
+    #demo_modal {
+        font-size: 18px;
     }
 }
 
@@ -50,3 +56,9 @@ h3 {
         font-family: 'Indie Flower', serif;
 
     }
+
+#demo_modal {
+    color: black;
+    font-family: 'Indie Flower', serif;
+    text-align: center;
+}

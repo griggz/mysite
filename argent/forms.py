@@ -1,4 +1,4 @@
-from django.forms import ModelForm, HiddenInput
+from django.forms import ModelForm, HiddenInput, TextInput
 from .models import Entry, Savings, MonthYear
 from django.db.models import Sum
 from datetime import datetime
@@ -14,7 +14,8 @@ cr = CurrencyRates()
 class EntryForm(ModelForm):
     class Meta:
         model = Entry
-        widgets = {'dollars_sum': HiddenInput(), 'xrate': HiddenInput, 'daily_savings_dollars': HiddenInput, 'daily_savings_display': HiddenInput, 'spending_sum': HiddenInput}
+        widgets = {'dollars_sum': HiddenInput(), 'xrate': HiddenInput, 'daily_savings_dollars': HiddenInput, 'daily_savings_display': HiddenInput, 'spending_sum': HiddenInput,
+                   'spending': TextInput(attrs={'placeholder': '32.12, 43.22, 22, 1.36'})}
         fields = ['date', 'spending', 'currency', 'comments', 'spending_sum', 'xrate', 'dollars_sum', 'daily_savings_dollars', 'daily_savings_display']
         # exclude = ('spending_sum',)
         labels = {'date': 'Date', 'spending': 'Spending', 'xrate': 'Exchange Rate', 'daily_savings_dollars': 'Daily Savings', 'daily_savings_display': 'Convert Savings'}
