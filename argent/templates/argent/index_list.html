@@ -55,10 +55,10 @@
                     <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
                     </td>
                     <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
-                    {% if ctx.total_savings  > 0 %}
-                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% if ctx.daily_savings_dollars  > 0 %}
+                    <td class="NegativeSavings">-${{ ctx.daily_savings_display|intcomma }}</td>
                     {% else %}
-                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    <td class="PositiveSavings">+ ${{ ctx.daily_savings_display|intcomma }}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
@@ -73,10 +73,10 @@
                     <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
                     </td>
                     <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
-                    {% if ctx.total_savings  > 0 %}
-                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% if ctx.daily_savings_dollars  > 0 %}
+                    <td class="NegativeSavings">-${{ ctx.daily_savings_display|intcomma }}</td>
                     {% else %}
-                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    <td class="PositiveSavings">+ ${{ ctx.daily_savings_display|intcomma }}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
@@ -91,10 +91,10 @@
                     <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
                     </td>
                     <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
-                    {% if ctx.total_savings  > 0 %}
-                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% if ctx.daily_savings_dollars  > 0 %}
+                    <td class="NegativeSavings">-${{ ctx.daily_savings_display|intcomma }}</td>
                     {% else %}
-                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    <td class="PositiveSavings">+ ${{ ctx.daily_savings_display|intcomma }}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
@@ -109,10 +109,10 @@
                     <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
                     </td>
                     <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
-                    {% if ctx.total_savings  > 0 %}
-                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% if ctx.daily_savings_dollars  > 0 %}
+                    <td class="NegativeSavings">-${{ ctx.daily_savings_display|intcomma }}</td>
                     {% else %}
-                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    <td class="PositiveSavings">+ ${{ ctx.daily_savings_display|intcomma }}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
@@ -127,10 +127,10 @@
                     <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
                     </td>
                     <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
-                    {% if ctx.total_savings  > 0 %}
-                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% if ctx.daily_savings_dollars  > 0 %}
+                    <td class="NegativeSavings">-${{ ctx.daily_savings_display|intcomma }}</td>
                     {% else %}
-                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    <td class="PositiveSavings">+ ${{ ctx.daily_savings_display|intcomma }}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
@@ -145,10 +145,10 @@
                     <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
                     </td>
                     <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
-                    {% if ctx.total_savings  > 0 %}
-                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% if ctx.daily_savings_dollars  > 0 %}
+                    <td class="NegativeSavings">-${{ ctx.daily_savings_display|intcomma }}</td>
                     {% else %}
-                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    <td class="PositiveSavings">+ ${{ ctx.daily_savings_display|intcomma }}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
@@ -163,10 +163,10 @@
                     <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
                     </td>
                     <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
-                    {% if ctx.total_savings  > 0 %}
-                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% if ctx.daily_savings_dollars  > 0 %}
+                    <td class="NegativeSavings">-${{ ctx.daily_savings_display|intcomma }}</td>
                     {% else %}
-                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    <td class="PositiveSavings">+ ${{ ctx.daily_savings_display|intcomma }}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
@@ -181,10 +181,10 @@
                     <td class="dash"><a class="dash" href="{% url 'argent:detail' ctx.id %}">{{ ctx.date }}</a>
                     </td>
                     <td class="td-jumbo-foot"> - ${{ctx.dollars_sum|intcomma }}</td>
-                    {% if ctx.total_savings  > 0 %}
-                    <td class="NegativeSavings">- ${{ ctx.daily_savings_display|intcomma }}</td>
+                    {% if ctx.daily_savings_dollars  > 0 %}
+                    <td class="NegativeSavings">-${{ ctx.daily_savings_display|intcomma }}</td>
                     {% else %}
-                    <td class="PositiveSavings">+${{ ctx.daily_savings_display|intcomma }}</td>
+                    <td class="PositiveSavings">+ ${{ ctx.daily_savings_display|intcomma }}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
