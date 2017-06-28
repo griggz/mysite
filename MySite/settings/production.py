@@ -28,9 +28,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.vvayne.co', 'vvayne.co', 'wgsite.herokuapp.com']
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'smrtmann.contact@gmail.com'
-EMAIL_HOST_PASSWORD = 'WCg7G007'
+EMAIL_HOST = 'mail.name.com'
+EMAIL_HOST_USER = 'hello@vvayne.co'
+EMAIL_HOST_PASSWORD = 'WCg7G0707!!'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
