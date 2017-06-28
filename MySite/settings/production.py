@@ -79,6 +79,10 @@ LOGIN_URL = '/login'
 LOGIN_EXEMPT_URLS = [
     '/logout',
     '/register',
+    '/reset-password/',
+    '/reset-password/done/',
+    '/reset-password/confirm/',
+    '/reset-password/complete/',
 ]
 
 ROOT_URLCONF = 'MySite.urls'
