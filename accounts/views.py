@@ -28,9 +28,9 @@ def register_view(request):
         user = form.save(commit=False)
         password = form.cleaned_data.get("password")
         user.set_password(password)
-        user.is_active = False
+        # user.is_active = False
         user.save()
-        messages.success(request, "Thank you for registering! You will receive an email when your request has been approved.")
+        messages.success(request, "Thank you for registering!")
         # new_user = authenticate(username=user.username, password=password)
         # login(request, new_user)
         # if next:

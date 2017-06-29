@@ -55,7 +55,7 @@
                 <!-- right aligned menu -->
                 <ul class="nav navbar-nav navbar-right">
                     {% if request.user.is_staff or request.user.is_superuser %}<li><a style="padding-right:0" href="{% url 'admin:index' %}">{% if request.user.is_authenticated %}{{ request.user.username }}</a></li>{% endif %}{% else %}{% if request.user.is_authenticated %}<li class="username">{{ request.user.username }}</li> {% endif %}{% endif %}
-                    <li><a style="padding-left: 5px" href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+                    <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                 </ul>
 
             </div>

@@ -74,15 +74,16 @@ MIDDLEWARE = [
     'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
-LOGIN_URL = '/login'
+LOGIN_URL = '/account/login'
 
 LOGIN_EXEMPT_URLS = [
-    '/logout',
-    '/register',
-    '/reset-password/',
-    '/reset-password/done/',
-    '/reset-password/confirm/',
-    '/reset-password/complete/',
+    '/account/logout',
+    '/account/register',
+    '/account/reset-password/',
+    '/account/reset-password/done/',
+    '/account/reset-password/confirm/',
+    '/account/reset-password/complete/',
+    '/about',
 ]
 
 ROOT_URLCONF = 'MySite.urls'

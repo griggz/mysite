@@ -1,12 +1,16 @@
 from django import forms
-from django.contrib.auth import (authenticate, get_user_model, login, logout, )
+from django.contrib.auth import (authenticate, get_user_model)
+from django.forms import TextInput
 
 User = get_user_model()
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    # class Meta:
+    #     model = get_user_model()
+    #     widgets = {'username': TextInput(attrs={'placeholder': 'Username'}), 'password': TextInput(attrs={'placeholder': 'Password'}), }
+    username = forms.CharField(widget=TextInput(attrs={'placeholder': 'Username'}), label='')
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), label='',)
 
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get("username")
@@ -28,9 +32,10 @@ class UserLoginForm(forms.Form):
 
 
 class UserRegisterForm(forms.ModelForm):
-    email = forms.EmailField(label='Email Address')
-    email2 = forms.EmailField(label='Confirm Email')
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(widget=TextInput(attrs={'placeholder': 'Username'}), label='', help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.')
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email'}), label='')
+    email2 = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Confirm Email'}), label='')
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), label='')
 
     class Meta:
         model = User
