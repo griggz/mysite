@@ -53,10 +53,16 @@
                     </li>
                 </ul>
                 <!-- right aligned menu -->
+                {% if request.user.is_staff or request.user.is_superuser %}
                 <ul class="nav navbar-nav navbar-right">
-                    {% if request.user.is_staff or request.user.is_superuser %}<li><a style="padding-right:0" href="{% url 'admin:index' %}">{% if request.user.is_authenticated %}{{ request.user.username }}</a></li>{% endif %}{% else %}{% if request.user.is_authenticated %}<li class="username">{{ request.user.username }}</li> {% endif %}{% endif %}
+                    <li><a style="padding-right:0" href="{% url 'admin:index' %}">{% if request.user.is_authenticated %}{{ request.user.username }}</a></li>{% endif %}{% elif request.user.is_authenticated %}<li class="username">{{ request.user.username }}</li>
                     <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                 </ul>
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="padding-left: 5px" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
+                </ul>
+                {% endif %}
 
             </div>
 
