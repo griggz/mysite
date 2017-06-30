@@ -81,6 +81,7 @@
 .footer-options a:hover  {
     font-family: "Righteous", sans-serif;
     text-transform: uppercase;
+    text-decoration: none;
     color: #FF5A09;
     font-size: 35px;
     margin: -50px 0 0 0;
@@ -106,6 +107,7 @@
 .footer-options-extra a:hover  {
     font-family: "Righteous", sans-serif;
     text-transform: uppercase;
+    text-decoration: none;
     color: #FF5A09;
     font-size: 15px;
     margin: 40px 0 0 0;
