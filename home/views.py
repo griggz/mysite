@@ -1,11 +1,11 @@
 from django.views.generic import View
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect, Http404
 from .forms import FeedbackForm, AboutMeForm
 from django.contrib import messages
 from .models import About
-import datetime
 from posts.models import new_posts
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 
@@ -21,13 +21,25 @@ class HomeView(View):
 def feedback(request):
     form = FeedbackForm(request.POST or None, request.FILES or None)
     if form.is_valid():
+        user_feedback = form.cleaned_data.get("comments")
         instance = form.save(commit=False)
         instance.user = request.user
         instance.save()
-        messages.success(request, "Your Feedback has been sent!")
+
+        # Email Admin
+        from_email = settings.EMAIL_HOST_USER
+        send_mail(
+            'Feedback Submitted!',
+            user_feedback,
+            from_email,
+            ['wayne@vvayne.co'],
+            fail_silently=False,
+        )
+
+        messages.success(request, "Your feedback has been submitted!")
         return redirect('home:landing')
     context = {
-        "title": "New Feedback",
+        "title": "Feedback",
         "form": form,
     }
     return render(request, "home/feedback_form.html", context)
