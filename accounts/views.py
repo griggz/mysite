@@ -2,6 +2,8 @@ from django.contrib.auth import (authenticate, get_user_model, login, logout)
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import UserLoginForm, UserRegisterForm
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def login_view(request):
@@ -21,20 +23,43 @@ def login_view(request):
 
 
 def register_view(request):
-    # next = request.GET.get('next')
+    next = request.GET.get('next')
     title = "Register"
     form = UserRegisterForm(request.POST or None)
     if form.is_valid():
         user = form.save(commit=False)
         password = form.cleaned_data.get("password")
+        # username = form.cleaned_data.get("username")
+        user_email = form.cleaned_data.get("email")
         user.set_password(password)
         # user.is_active = False
         user.save()
+
+        # Email User
+        subject = 'VVAYNE.CO Registration'
+        from_email = settings.EMAIL_HOST_USER
+        to_email = user_email
+        message = 'Thank You For Registering!'
+        send_mail(
+            subject,
+            message,
+            from_email,
+            [to_email],
+            fail_silently=False,
+            html_message='<p>Thank you for registering with <a href="https://www.vvayne.co">vvayne.co</a>! Please feel free to contact me anytime at wayne@vvayne.co.</p>'
+        )
+        send_mail(
+            'New Registration',
+            'New user created.',
+            from_email,
+            ['wayne@vvayne.co'],
+            fail_silently=False,
+        )
         messages.success(request, "Thank you for registering!")
-        # new_user = authenticate(username=user.username, password=password)
-        # login(request, new_user)
-        # if next:
-        #     return redirect(next)
+        new_user = authenticate(username=user.username, password=password)
+        login(request, new_user)
+        if next:
+            return redirect(next)
         return redirect('/')
 
     context = {
