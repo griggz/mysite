@@ -27,6 +27,12 @@
     display: inline-block;
 }
 
+.logo {
+    width: 80px;
+    height: 80px;
+}
+
+
 /*.page_sub_header{*/
     /*background: #FF5A09;*/
     /*padding: 20px;*/
