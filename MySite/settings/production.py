@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['www.vvayne.co', 'vvayne.co', 'wgsite.herokuapp.com']
 
 EMAIL_HOST = 'mail.name.com'
 EMAIL_HOST_USER = 'hello@vvayne.co'
+DEFAULT_FROM_EMAIL = 'hello@vvayne.co'
 EMAIL_HOST_PASSWORD = 'WCg7G0707!!'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
