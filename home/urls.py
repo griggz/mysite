@@ -9,6 +9,7 @@ app_name = 'home'
 urlpatterns = [
     url(r'^feedback/$', views.feedback, name='feedback'),
     url(r'^about/$', views.about, name='about'),
+    url(r'^under_construction/$', views.under_construction, name='under_construction'),
     url(r'^$', HomeView.as_view(), name='landing')
 
 ]

@@ -1,0 +1,52 @@
+
+#backend {
+    /*height: 100%;*/
+    /*width: 100%;*/
+    background:
+    linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+    ),
+    url('https://source.unsplash.com/lFpqHAmeLZg') no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+}
+
+header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: "Nova Flat", serif;
+
+}
+h1 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 5rem;
+    white-space: nowrap;
+    font-family: "Nova Flat", serif;
+
+}
+p {
+    margin: 0;
+    font-size: 2rem;
+    font-family: "Nunito", serif;
+}
+
+.navbar {
+    margin: 0;
+}
+
+
+body, html, #backend {
+    height: 100%;
+    width: 100%
+}
+
+

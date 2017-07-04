@@ -17,67 +17,69 @@
     {% endblock %}
 
     <title>VVAYNE</title>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+{#            <a class= "navbar-brand" href="#" style="padding: 0">#}
+{#                <img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>#}
+
+            <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE.CO</a>
+
+        </div>
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="mainNavBar" style="font-family: 'Nova Flat', serif">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
+                <li><a href="{% url 'home:about' %}">About</a> </li>
+                <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
+                <li><a href="{% url 'posts:list' %}">Blog {% if Pnew_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
+
+                <!-- DropDownMenu -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'argent:index' %}">TRAVELSAVE</a> </li>
+                        <li><a href="{% url 'home:under_construction' %}">COIN <span class="glyphicon glyphicon-cog"></span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- right aligned menu -->
+            {% if request.user.is_staff or request.user.is_superuser %}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="padding-right:0" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
+                <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
+            </ul>
+
+            {% elif request.user.is_authenticated %}
+            <ul class="nav navbar-nav navbar-right">
+                <li class="username">{{ request.user.username }}</li>
+                <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
+            </ul>
+
+            {% else %}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="padding-left: 5px" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
+            </ul>
+            {% endif %}
+
+        </div>
+    </div>
+    </nav>
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Logo -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
 
-                <a class= "navbar-brand" href="#" style="padding: 0">
-                    <img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>
-
-                <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE</a>
-
-            </div>
-            <!-- Menu -->
-            <div class="collapse navbar-collapse" id="mainNavBar" style="font-family: 'Nova Flat', serif">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
-                    <li><a href="{% url 'home:about' %}">About</a> </li>
-                    <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
-                    <li><a href="{% url 'posts:list' %}">Blog {% if Pnew_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
-
-                    <!-- DropDownMenu -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{% url 'argent:index' %}">TRAVELSAVE</a> </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- right aligned menu -->
-                {% if request.user.is_staff or request.user.is_superuser %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a style="padding-right:0" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
-                    <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
-                </ul>
-
-                {% elif request.user.is_authenticated %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="username">{{ request.user.username }}</li>
-                    <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
-                </ul>
-
-                {% else %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a style="padding-left: 5px" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
-                </ul>
-                {% endif %}
-
-            </div>
-
-        </div>
-    </nav>
 
     {% block title %}
     {% endblock %}
+
     {% block content %}
     {% endblock %}
 

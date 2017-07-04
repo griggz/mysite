@@ -15,7 +15,12 @@
 {% endblock %}
 
 {% block content %}
+        <div class="row" align="center" style="margin-left: 20px; margin-right: 20px; font-family: 'Lato', serif; color: white;">
+         <img src="{% static 'images/vvaynelogo.png' %}" alt="sigil" height="300">
+        </div>
+        <br/>
         <div class="row" style="margin-left: 20px; margin-right: 20px; font-family: 'Lato', serif; color: white;">
+
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 col-sm-offset-2 col-xs-offset-2">
                 <form method="post" action="" enctype="multipart/form-data">
                     {% csrf_token %}

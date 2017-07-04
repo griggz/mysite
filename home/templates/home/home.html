@@ -31,10 +31,10 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class= "navbar-brand" href="#" style="padding: 0">
-                    <img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>
+{#                <a class= "navbar-brand" href="#" style="padding: 0">#}
+{#                    <img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>#}
 
-                <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE</a>
+                <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE.CO</a>
 
             </div>
             <!-- Menu -->
@@ -49,7 +49,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: 'Nova Flat',serif">My Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="nav" href="{% url 'argent:index' %}">TRAVELSAVE</a> </li>
+                            <li><a class="nav" href="{% url 'argent:index' %}">TRAVELSAVE</a></li>
+                            <li><a href="{% url 'home:under_construction' %}">COIN <span class="glyphicon glyphicon-cog"></span></a></li>
                         </ul>
                     </li>
                 </ul>

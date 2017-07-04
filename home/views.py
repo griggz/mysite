@@ -60,5 +60,7 @@ def about(request):
     return render(request, "home/about_me.html", context)
 
 
+def under_construction(request):
+    return render(request, "home/under_construction.html")
 
 
