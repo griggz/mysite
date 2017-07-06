@@ -2,17 +2,16 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href='{% static 'posts/css/posts.css' %}' />
+<link rel="stylesheet" href='{% static 'home/css/about.css' %}' />
 {% endblock %}
 
 {% block content %}
-<br/>
 <div class="container container-fluid">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
             <ul class="nav nav-tabs" role="tablist" id="myTab">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">VVAYNE.CO</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ABOUT ME</a></li>
+            <li role="presentation" class="active"><a class="tabheader" href="#home" aria-controls="home" role="tab" data-toggle="tab">VVAYNE.CO</a></li>
+            <li role="presentation"><a class="tabheader" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ABOUT ME</a></li>
             </ul>
 
             <!-- Tab panes -->
