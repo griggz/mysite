@@ -18,5 +18,6 @@ class AboutMeForm(forms.ModelForm):
         model = About
         fields = [
             "user",
+            "title",
             "content"
         ]

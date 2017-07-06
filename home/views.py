@@ -47,15 +47,16 @@ def feedback(request):
 
 def about(request):
     form = AboutMeForm(request.POST or None, request.FILES or None)
-    qs = About.objects.filter(id=1)
+    qs1 = About.objects.filter(id=1)
+    qs2 = About.objects.filter(id=2)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.user = request.user
         instance.save()
         return redirect('home:landing')
     context = {
-        "object_list": qs,
-        "title": "About Me"
+        "AboutMe": qs1,
+        "AboutVV": qs2,
     }
     return render(request, "home/about_me.html", context)
 
