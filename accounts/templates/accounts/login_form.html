@@ -27,7 +27,7 @@
 <div class="page-header">
     <h1 class="header_title">VVAYNE.CO</h1>
 </div>
-{#{% if messages %}<h1 style="color: black">{% include "posts/messages_display.html" %}</h1>{% endif %}#}
+{% if messages %}<h1 class="page_message">{% include "home/messages_display.html" %}</h1>{% endif %}
 <div class="login-page">
     <h2 class="login-header">Log in</h2>
     <div class="form">

@@ -26,6 +26,7 @@
                             <h1>{{ obj.title }}</h1>
                             <hr/>
                             {{ obj.get_markdown }}
+                            <h1 align="center"><a class="btn btn-lg btn-primary" href="{% url 'home:feedback' %}" role="button">Send Feedback</a></h1>
                             <hr/>
                             <p align="right"><small>Updated: {{ obj.updated|timesince }} ago</small></p>
                         </div>

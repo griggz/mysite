@@ -37,7 +37,11 @@ def feedback(request):
         )
 
         messages.success(request, "Your feedback has been submitted!")
-        return redirect('home:landing')
+        if not request.user.is_authenticated:
+            return redirect('accounts:login')
+        else:
+            return redirect('home:landing')
+
     context = {
         "title": "Feedback",
         "form": form,
