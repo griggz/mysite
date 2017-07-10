@@ -8,16 +8,15 @@
 
 {% block title %}
 <div class="row" style="margin-left: 20px; margin-right: 20px;">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 col-sm-offset-2 col-xs-offset-2">
-        <h1>{{ title }}</h1>
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
+        <h1>Provide feedback or ask for help</h1>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
         <div class="row" style="margin-left: 20px; margin-right: 20px; font-family: 'Lato', serif; color: white;">
-
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 col-sm-offset-2 col-xs-offset-2">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
                 <form method="post" action="" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy }}

@@ -31,9 +31,6 @@
                     <span class="icon-bar"></span>
                 </button>
 
-{#                <a class= "navbar-brand" href="#" style="padding: 0">#}
-{#                    <img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>#}
-
                 <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE.CO</a>
 
             </div>
@@ -42,7 +39,9 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
                     <li><a class="nav" href="{% url 'home:about' %}">About</a></li>
+                    {% if request.user.is_authenticated %}
                     <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
+                    {% endif %}
                     <li><a href="{% url 'posts:list' %}">Blog {% if new_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
 
                     <!-- DropDownMenu -->
@@ -80,7 +79,7 @@
       <!-- 1ST SECTION AFTER THE NAV -->
       <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

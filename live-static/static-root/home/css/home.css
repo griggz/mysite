@@ -93,40 +93,44 @@ p.app_showcase {
 -------------------------------------------------- */
 
 /* Carousel base class */
-.carousel {
-  height: 400px;
-  margin-bottom: 30px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10;
+.carousel-inner {
   margin-top: 0;
-
 }
 
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 400px;
-  background-color: #333;
-}
-.carousel-inner > .item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
+.carousel-inner .item {
     height: 400px;
+    background-size: cover;
+    background: #333 no-repeat 0% 52%;
+    background-blend-mode: multiply;
+}
+.carousel-inner .item:nth-child(2) {
     background-color: #333;
-
+}
+.carousel-inner .item:nth-child(3) {
+    background-color: #333;
+}
+.carousel-inner .item:nth-child(4) {
+    background-color: #333;
 }
 
-.carousel-title {
-    margin-top: 0;
+.carousel-inner .item h1 {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  top: 60%;
+  left: 0;
+  right: 0;
 }
+.carousel-inner .item:nth-child(4) h1 {
+  text-decoration: underline;
+}
+
 a.emphasis:hover {
   color: dodgerblue;
+    text-decoration: none;
 }
 a.emphasis {
-    color: #3276b1;
+    color: #337ab7;
 }
 
 
