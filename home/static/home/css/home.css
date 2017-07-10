@@ -100,7 +100,7 @@ p.app_showcase {
 .carousel-inner .item {
     height: 400px;
     background-size: cover;
-    background: #333 no-repeat 0% 52%;
+    background: #333 no-repeat 0 52%;
     background-blend-mode: multiply;
 }
 .carousel-inner .item:nth-child(2) {
@@ -114,15 +114,17 @@ p.app_showcase {
 }
 
 .carousel-inner .item h1 {
-  color: white;
-  text-align: center;
-  text-transform: uppercase;
-  top: 60%;
-  left: 0;
-  right: 0;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    top: 60%;
+    left: 0;
+    right: 0;
+    background: #333
 }
 .carousel-inner .item:nth-child(4) h1 {
   text-decoration: underline;
+    background: #333
 }
 
 .left {
