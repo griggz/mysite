@@ -46,11 +46,17 @@ def register_view(request):
             from_email,
             [to_email],
             fail_silently=False,
-            html_message='<p>Thank you for registering with <a href="https://www.vvayne.co">vvayne.co</a>! Please feel free to contact me anytime at wayne@vvayne.co.</p>'
+            html_message='<p>Thank you for registering with <a href="https://www.vvayne.co">vvayne.co</a>! Please feel free to contact me anytime at wayne@vvayne.co. <br/>'
+                         '<br/ >'
+                         'Regards,<br />' 
+                         '<br />'   
+                         'Wayne Grigsby <br />'
+                         'wayne@vvayne.co <br />'
+                         '<a href="https://www.vvayne.co">vvayne.co</a></p>'
         )
         send_mail(
             'New Registration',
-            'New user created.',
+            'New user created!',
             from_email,
             ['wayne@vvayne.co'],
             fail_silently=False,
