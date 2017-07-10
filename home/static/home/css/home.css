@@ -95,6 +95,8 @@ p.app_showcase {
 /* Carousel base class */
 .carousel-inner {
   margin-top: 0;
+    background: #333;
+
 }
 
 .carousel-inner .item {
