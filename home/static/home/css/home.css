@@ -125,6 +125,14 @@ p.app_showcase {
   text-decoration: underline;
 }
 
+.left {
+    background: #333;
+}
+
+.right {
+    background: #333;
+}
+
 a.emphasis:hover {
   color: dodgerblue;
     text-decoration: none;
