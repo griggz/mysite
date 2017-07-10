@@ -4,24 +4,6 @@
 /* Padding below the footer and lighter body text */
 @media screen and (max-width: 2560px) {
 
-    .future_post {
-    font-size: medium;
-    }
-    .draft {
-        font-size: medium;
-    }
-    .new_post {
-        font-size: medium;
-    }
-    .publish_date {
-        font-size: large;
-    }
-    .title {
-        font-size: 36px;
-    }
-    .author {
-        font-size: medium;
-    }
     h1 {
         font-size: 28px;
     }
@@ -37,9 +19,7 @@
     p {
         font-size: 18px;
     }
-    li.post {
-        font-size: 18px;
-    }
+
     pre {
         font-size: 16px;
     }
@@ -48,24 +28,6 @@
 
 @media screen and (max-width: 992px) {
 
-    .future_post {
-    font-size: medium;
-    }
-    .draft {
-        font-size: medium;
-    }
-    .new_post {
-        font-size: medium;
-    }
-    .publish_date {
-        font-size: large;
-    }
-    .title {
-        font-size: 34px;
-    }
-    .author {
-        font-size: medium;
-    }
     h1 {
         font-size: 26px;
     }
@@ -81,9 +43,7 @@
     p {
         font-size: 18px;
     }
-    li.post {
-        font-size: 18px;
-    }
+
     pre {
         font-size: 16px;
     }
@@ -91,24 +51,6 @@
 
 @media screen and (max-width: 768px) {
 
-    .future_post {
-        font-size: small;
-    }
-    .draft {
-        font-size: small;
-    }
-    .new_post {
-        font-size: small;
-    }
-    .publish_date {
-        font-size: medium;
-    }
-    .title {
-        font-size: 32px;
-    }
-    .author {
-        font-size: small;
-    }
     h1 {
         font-size: 24px;
     }
@@ -124,9 +66,7 @@
     p {
         font-size: 14px;
     }
-    li.post {
-        font-size: 14px;
-    }
+
     pre {
         font-size: 12px;
     }
@@ -135,24 +75,6 @@
 
 @media screen and (max-width: 568px) {
 
-    .future_post {
-        font-size: x-small;
-    }
-    .draft {
-        font-size: x-small;
-    }
-    .new_post {
-        font-size: x-small;
-    }
-    .publish_date {
-        font-size: small;
-    }
-    .title {
-        font-size: 30px;
-    }
-    .author {
-        font-size: small;
-    }
     h1 {
         font-size: 24px;
     }
@@ -168,9 +90,7 @@
     p {
         font-size: 12px;
     }
-    li.post {
-        font-size: 12px;
-    }
+
     pre {
         font-size: 8px;
     }
@@ -212,11 +132,6 @@ small {
     font-family: 'Nova Flat', sans-serif;
 }
 
-li.post {
-    font-family: 'Nunito', sans-serif;
-}
-
-
 .btn {
 
      font-family: 'Nova Flat', serif;
@@ -226,17 +141,6 @@ li.post {
     font-family: 'Nova Flat', serif;
 }
 
-.draft {
-    font-family: 'Nova Flat', serif;
-    color: red;
-
-}
-
-.future_post {
-    font-family: 'Nova Flat', serif;
-    color: darkgoldenrod;
-
-}
 
 .publish_date {
     font-family: 'Nova Flat', serif;
@@ -267,11 +171,9 @@ li.post {
 
 }
 
-.new_post {
-    color: #FF5A09;
-}
 
 .tabheader {
     color: white;
+    font-weight: 400;
 
 }
