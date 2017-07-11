@@ -86,6 +86,7 @@ LOGIN_EXEMPT_URLS = [
     '/account/reset-password/complete/',
     '/about',
     '/feedback',
+    '/posts',
 ]
 
 ROOT_URLCONF = 'MySite.urls'
