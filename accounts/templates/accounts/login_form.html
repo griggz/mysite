@@ -16,13 +16,10 @@
     {#staticfiles#}
     <link rel="stylesheet" href='{% static 'accounts/css/login.css' %}'/>
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
-    {% block header %}
-    {% endblock %}
-
 </head>
+
 <body>
 
-{% block content %}
 <div class="page-header">
     <h1 class="header_title">VVAYNE.CO</h1>
 </div>
@@ -52,4 +49,5 @@
     <h1 class="footer-options"><a href="{% url 'home:about' %}">ABOUT</a> | <a href="{% url 'posts:list' %}">BLOG</a></h1>
     <h1 class="footer-options-extra"><a href="{% url "home:feedback" %}" role="button">HELP</a></h1>
 </div>
-{% endblock %}
+</body>
+</html>
