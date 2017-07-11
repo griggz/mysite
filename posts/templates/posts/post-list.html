@@ -11,6 +11,10 @@
 {% include "posts/messages_display.html" %}
 
 
+{% if not request.user.is_authenticated %}
+    <h3 id="register">All features available upon <a href="{% url 'accounts:register' %}">registration</a>.</h3>
+{% endif %}
+
 
 
 <div class="container container-fluid">

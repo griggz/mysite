@@ -270,3 +270,17 @@ li.post {
 .new_post {
     color: #FF5A09;
 }
+
+#register {
+    color: #FF5A09;
+    text-align: center;
+}
+
+#register a {
+    color: white;
+}
+
+#register a:hover{
+    color: #337ab7;
+    text-decoration: none;
+}

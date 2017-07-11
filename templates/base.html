@@ -36,7 +36,9 @@
         <!-- Menu -->
         <div class="collapse navbar-collapse" id="mainNavBar" style="font-family: 'Nova Flat', serif">
             <ul class="nav navbar-nav">
+                {% if request.user.is_authenticated %}
                 <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
+                {% endif %}
                 <li><a href="{% url 'home:about' %}">About</a> </li>
                 {% if request.user.is_authenticated %}
                 <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
@@ -47,6 +49,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        {% if not request.user.is_authenticated %}
+                            <li style="text-align: center"><a href="{% url 'accounts:register' %}"><small style="color: #FF5A09"> Registration Required</small></a></li>
+                        {% endif %}
                         <li><a href="{% url 'argent:index' %}">TRAVELSAVE</a> </li>
                         <li><a href="{% url 'home:under_construction' %}">COIN <span class="glyphicon glyphicon-cog"></span></a></li>
                     </ul>
