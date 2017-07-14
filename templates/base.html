@@ -50,7 +50,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         {% if not request.user.is_authenticated %}
-                            <li style="text-align: center"><a href="{% url 'accounts:register' %}"><small style="color: #FF5A09"> Registration Required</small></a></li>
+                            <li style="text-align: left"><a href="{% url 'accounts:login' %}"><small style="color: #FF5A09"> Login/Register</small></a></li>
                         {% endif %}
                         <li><a href="{% url 'argent:index' %}">TRAVELSAVE</a> </li>
                         <li><a href="{% url 'home:under_construction' %}">COIN <span class="glyphicon glyphicon-cog"></span></a></li>

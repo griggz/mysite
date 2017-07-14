@@ -3,13 +3,16 @@
 {% load crispy_forms_tags %}
 
 {% block head %}
-<link rel="stylesheet" href='{% static 'posts/css/form.css' %}'/>
+<link rel="stylesheet" href='{% static 'home/css/about.css' %}'/>
 {% endblock %}
 
 {% block title %}
 <div class="row" style="margin-left: 20px; margin-right: 20px;">
+    {% if not request.user.is_authenticated %}
+    <h3 id="register"><a href="{% url 'accounts:login' %}">Login</a> or <a href="{% url 'accounts:register' %}">Register</a> for full access!</h3>
+{% endif %}
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
-        <h1>Provide feedback or ask for help</h1>
+        <h1 class="feedback">Provide feedback or ask for help</h1>
     </div>
 </div>
 {% endblock %}
