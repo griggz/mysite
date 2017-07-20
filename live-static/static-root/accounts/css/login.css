@@ -7,6 +7,8 @@
 }
 
 .page-header {
+    display: flex;
+    align-items: left;
     background: #333;
     padding: 25px;
     margin-top: 0;
@@ -19,19 +21,20 @@
 }
 
 .header_title {
+    display: table-cell;
     font-family: "Righteous", sans-serif;
     text-transform: uppercase;
     color: white;
     font-size: 35px;
-    margin: 0;
-    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 5px;
+
 }
 
 .logo {
     width: 80px;
     height: 80px;
 }
-
 
 /*.page_sub_header{*/
     /*background: #FF5A09;*/
@@ -43,7 +46,6 @@
     /*text-transform: uppercase;*/
     /*color: #fff;*/
 /*}*/
-
 
 /*PAGE FOOTER STYLE*/
 
