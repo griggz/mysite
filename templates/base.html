@@ -12,6 +12,7 @@
     {#staticfiles#}
     <link rel="stylesheet" href='{% static 'css/main.css' %}'/>
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
 
     {% block head %}
     {% endblock %}
@@ -34,10 +35,10 @@
 
         </div>
         <!-- Menu -->
-        <div class="collapse navbar-collapse" id="mainNavBar" style="font-family: 'Nova Flat', serif">
+        <div class="collapse navbar-collapse" id="mainNavBar">
             <ul class="nav navbar-nav">
                 {% if request.user.is_authenticated %}
-                <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </li>
+                <li class="active"><a href="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
                 {% endif %}
                 <li><a href="{% url 'home:about' %}">About</a> </li>
                 {% if request.user.is_authenticated %}
@@ -53,7 +54,7 @@
                             <li style="text-align: left"><a href="{% url 'accounts:login' %}"><small style="color: #FF5A09"> Login/Register</small></a></li>
                         {% endif %}
                         <li><a href="{% url 'argent:index' %}">TRAVELSAVE</a> </li>
-                        <li><a href="{% url 'home:under_construction' %}">COIN <span class="glyphicon glyphicon-cog"></span></a></li>
+                        <li><a href="{% url 'home:under_construction' %}">COIN <i class="fa fa-cogs fa-fw" aria-hidden="true"></i></a></li>
                     </ul>
                 </li>
             </ul>

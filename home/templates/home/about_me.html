@@ -9,9 +9,9 @@
 {% if not request.user.is_authenticated %}
     <h3 id="register"><a href="{% url 'accounts:login' %}">Login</a> or <a href="{% url 'accounts:register' %}">Register</a> for full access!</h3>
 {% endif %}
-<div class="container container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-10 col-lg-offset-1">
+
             <ul class="nav nav-tabs" role="tablist" id="myTab">
             <li role="presentation" class="active"><a class="tabheader" href="#home" aria-controls="home" role="tab" data-toggle="tab">VVAYNE.CO</a></li>
             <li role="presentation"><a class="tabheader" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ABOUT ME</a></li>
@@ -60,7 +60,7 @@
 
         </div>
     </div>
-</div>
+
 
 {% endblock %}
 
