@@ -22,9 +22,9 @@
                 <div role="tabpanel" class="tab-pane active" id="home">
                     {% for obj in AboutVV %}
                     <div class="thumbnail">
-            {#            {% if instance.image %}#}
-            {#                <img src="{{ instance.image.url }}" class="img-responsive" />#}
-            {#            {% endif %}#}
+                        {% if obj.image_url %}
+                            <img src="{{ obj.image_url }}" class="img-responsive" />
+                        {% endif %}
                         <div class="caption">
                             <h1>{{ obj.title }}</h1>
                             <hr/>
@@ -39,9 +39,9 @@
                 <div role="tabpanel" class="tab-pane" id="profile">
                     {% for obj in AboutMe %}
                     <div class="thumbnail">
-            {#            {% if instance.image %}#}
-            {#                <img src="{{ instance.image.url }}" class="img-responsive" />#}
-            {#            {% endif %}#}
+                        {% if obj.image %}
+                            <img src="{{ obj.image_url }}" class="img-responsive" />
+                        {% endif %}
                         <div class="caption">
                             <h1>{{ obj.title }}</h1>
                             <hr/>

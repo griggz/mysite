@@ -16,6 +16,7 @@ class Feedback(models.Model):
 class About(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     title = models.CharField(max_length=500, blank=True, null=True)
+    image_url = models.CharField(max_length=120, null=True, blank=True, )
     content = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)

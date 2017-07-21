@@ -19,5 +19,6 @@ class AboutMeForm(forms.ModelForm):
         fields = [
             "user",
             "title",
+            "image_url",
             "content"
         ]
