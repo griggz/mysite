@@ -33,6 +33,8 @@ class UserLoginForm(forms.Form):
 
 class UserRegisterForm(forms.ModelForm):
     username = forms.CharField(widget=TextInput(attrs={'placeholder': 'Username'}), label='', help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.')
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First Name'}), label='')
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last Name'}), label='')
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email'}), label='')
     email2 = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Confirm Email'}), label='')
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), label='')
@@ -41,6 +43,8 @@ class UserRegisterForm(forms.ModelForm):
         model = User
         fields = [
             'username',
+            'first_name',
+            'last_name',
             'email',
             'email2',
             'password'

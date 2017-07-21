@@ -46,7 +46,8 @@ def register_view(request):
             from_email,
             [to_email],
             fail_silently=False,
-            html_message='<p>Thank you for registering with <a href="https://www.vvayne.co">vvayne.co</a>! Please feel free to contact me anytime at wayne@vvayne.co. <br/>'
+            html_message='<p>Thank you for registering with <a href="https://www.vvayne.co">vvayne.co</a>! If you have any questions, wish to know more about my background, or find a bug, <br />'
+                         'contact me anytime at wayne@vvayne.co. <br/>'
                          '<br/ >'
                          'Regards,<br />' 
                          '<br />'   
