@@ -13,6 +13,14 @@
     {% include 'home/css.html' %}
     {% include 'home/bootstrap_defaults.html' %}
 
+    <script>
+        $(".hover").mouseleave(
+          function () {
+            $(this).removeClass("hover");
+          }
+        );
+    </script>
+
     <!-- Static -->
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
   </head>
@@ -109,7 +117,7 @@
             <div class="carousel-caption">
               <h1 class="carousel-title">Rèsumè</h1>
               <p>If you're interested in learning more about me and my background, check out my <a class="emphasis" href="{% url 'home:about' %}">About</a> or have a look at my rèsumè.</p>
-              <p><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank" role="button">Browse Rèsumè</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Browse Rèsumè</a></p>
             </div>
           </div>
         </div>
@@ -130,41 +138,43 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
     <div class="app_wrapper">
         <div class="container Mheader"><h1>My Apps</h1></div>
-    </div>
-    <div class="container marketing">
-        <br />
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-            <a href="{% url 'argent:index' %}"><img class="img-circle" src="{% static 'images/cash.png' %}" alt="calc" width="140" height="140"></a>
-          <h2>TravelSave</h2>
-          <p class="app_showcase">I built this as a way for my wife and I to track our spending while living in Europe for a year. It enables the use of multiple currencies, an accurate depiction of your daily and monthly spending, and more.</p>
-          <p><a href="{% url 'posts:detail' 'travel-save' %}">
-                    <button type="button" class="btn btn-default">
-                        &nbsp;Learn More <span class="glyphicon glyphicon-chevron-right"></span>
-                    </button></a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <a href="{% url 'posts:list' %}"><img class="img-circle" src="{% static 'images/blog.png' %}" alt="cash" width="140" height="140"></a>
-          <h2>Blog</h2>
-          <p class="app_showcase">This project began as a simple way to practice django web development. It has subsequently turned into a fun way to incorporate beautiful photos with topics I find noteworthy and interesting enough to write about.</p>
-          <p><a href="{% url 'posts:list' %}">
-                    <button type="button" class="btn btn-default">
-                        &nbsp;Learn More <span class="glyphicon glyphicon-chevron-right"></span>
-                    </button></a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="{% static 'images/idea.png' %}" alt="Generic placeholder image" width="140" height="140">
-          <h2>More On The Way!</h2>
-          <p class="app_showcase">I'm always thinking of new things to build! Check out my blog to see where my ideas are these days.</p>
-{#          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
+            <div class="container marketing">
+                <br />
+              <!-- Three columns of text below the carousel -->
+                <div class="row">
+                    <div class="col-lg-4">
+                    <figure class="snip1566">
+                        <img src="https://source.unsplash.com/JW6r_0CPYec/440x440" alt="money" />
+                        <figcaption><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></figcaption>
+                        <a href="{% url 'argent:index' %}"></a>
+                    </figure>
+                    <h2>TravelSave</h2>
+                    </div>
+                    <div class="col-lg-4">
+                    <figure class="snip1566">
+                        <img src="https://source.unsplash.com/E0Spm6XXn2Y/440x440" alt="blogs" />
+                        <figcaption><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></figcaption>
+                        <a href="{% url 'posts:list' %}"></a>
+                    </figure>
+                    <h2>Blog</h2>
+                    </div>
+
+                    <div class="col-lg-4">
+                    <figure class="snip1566"><img src="https://source.unsplash.com/E4XARZNDjzI/440x440" alt="ideas" />
+                        <figcaption><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i></figcaption>
+                    </figure>
+                    <h2>More On The Way!</h2>
+                    </div>
+                </div>
+            </div>
+        <hr class="app-divider">
+        </div>
+
+    <div class="container marketing">
 
 
       <!-- START THE FEATURETTES -->
-      <hr class="featurette-divider">
 
             <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
@@ -193,7 +203,7 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">"TRAVELSAVE" Has A New Update! <span class="text-muted">Multiple Currencies Update:</span></h2>
+          <h2 class="featurette-heading">"TRAVELSAVE" Has A New Update: <span class="text-muted">More Currencies!</span></h2>
           <p class="lead">Global citizens unite!  While traveling around the globe, it is almost a no-brainer that dollars aren't the main currency everywhere. Whether you're in Prague, Budapest, London, or Paris, having the ability to track your spending in multiple currencies is integral to accurate tracking of your spending. </p>
         </div>
         <div class="col-md-5 col-md-pull-7">
