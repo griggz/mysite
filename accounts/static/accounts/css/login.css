@@ -9,7 +9,7 @@
 .page-header {
     display: flex;
     align-items: left;
-    background: #333;
+    background: #212121;
     padding: 25px;
     margin-top: 0;
     margin-bottom: 75px;
@@ -68,7 +68,7 @@
 .footer-options {
     font-family: "Righteous", sans-serif;
     text-transform: uppercase;
-    color: #333;
+    color: #212121;
     font-size: 35px;
     margin: 0 0 0 0;
 }
@@ -76,7 +76,7 @@
 .footer-options a {
     font-family: "Righteous", sans-serif;
     text-transform: uppercase;
-    color: #333;
+    color: #212121;
     font-size: 35px;
     margin: -50px 0 0 0;
 }
@@ -102,7 +102,7 @@
 .footer-options-extra a {
     font-family: "Righteous", sans-serif;
     text-transform: uppercase;
-    color: #333;
+    color: #212121;
     font-size: 15px;
     margin: 40px 0 0 0;
 }
@@ -143,7 +143,7 @@
 
 .form {
     z-index: 1;
-    background: #333;
+    background: #212121;
     padding: 35px;
     text-align: center;
     max-width: 360px;

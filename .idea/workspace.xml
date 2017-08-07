@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36bbeaa5-5600-40c2-bf22-126be5ea35e0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/static/argent/css/argent_base.css" afterPath="$PROJECT_DIR$/argent/static/argent/css/argent_base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/static/argent/css/argent_detail.css" afterPath="$PROJECT_DIR$/argent/static/argent/css/argent_detail.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/static/argent/css/argent_index.css" afterPath="$PROJECT_DIR$/argent/static/argent/css/argent_index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/templates/argent/index.html" afterPath="$PROJECT_DIR$/argent/templates/argent/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/argent/templates/argent/index_list.html" afterPath="$PROJECT_DIR$/argent/templates/argent/index_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/static/home/css/about.css" afterPath="$PROJECT_DIR$/home/static/home/css/about.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/static/home/css/home.css" afterPath="$PROJECT_DIR$/home/static/home/css/home.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/static/home/css/under_construction.css" afterPath="$PROJECT_DIR$/home/static/home/css/under_construction.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/templates/home/home.html" afterPath="$PROJECT_DIR$/home/templates/home/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/posts/static/posts/css/posts.css" afterPath="$PROJECT_DIR$/posts/static/posts/css/posts.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/static/accounts/css/accounts.css" afterPath="$PROJECT_DIR$/accounts/static/accounts/css/accounts.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/static/accounts/css/login.css" afterPath="$PROJECT_DIR$/accounts/static/accounts/css/login.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,7 +27,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home/templates/home/home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="284">
@@ -51,6 +42,36 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="194">
               <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/accounts/static/accounts/css/login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="accounts.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accounts/static/accounts/css/accounts.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/login_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="24" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -100,7 +121,6 @@
       <list>
         <option value="$PROJECT_DIR$/MySite/urls.py" />
         <option value="$PROJECT_DIR$/argent/urls.py" />
-        <option value="$PROJECT_DIR$/accounts/static/accounts/css/accounts.css" />
         <option value="$PROJECT_DIR$/accounts/templates/includes/login.html" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/reset-password_email.html" />
@@ -121,7 +141,6 @@
         <option value="$PROJECT_DIR$/posts/templates/posts/post-list.html" />
         <option value="$PROJECT_DIR$/home/templates/home/feedback_form.html" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/login_form.html" />
-        <option value="$PROJECT_DIR$/accounts/static/accounts/css/login.css" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/register_form.html" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/reset_password.html" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/reset_password_complete.html" />
@@ -149,6 +168,8 @@
         <option value="$PROJECT_DIR$/argent/templates/argent/index_list.html" />
         <option value="$PROJECT_DIR$/home/static/home/css/under_construction.css" />
         <option value="$PROJECT_DIR$/home/templates/home/home.html" />
+        <option value="$PROJECT_DIR$/accounts/static/accounts/css/accounts.css" />
+        <option value="$PROJECT_DIR$/accounts/static/accounts/css/login.css" />
       </list>
     </option>
   </component>
@@ -185,6 +206,45 @@
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
@@ -602,13 +662,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/home/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -672,13 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/static/accounts/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/reset_password_email.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -718,13 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="29" column="6" lean-forward="false" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/login_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="24" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -963,6 +1002,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="205" column="71" lean-forward="false" selection-start-line="205" selection-start-column="71" selection-end-line="205" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/home/static/home/css/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -971,10 +1018,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/home.html">
+    <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/login_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="205" column="71" lean-forward="false" selection-start-line="205" selection-start-column="71" selection-end-line="205" selection-end-column="71" />
+        <state relative-caret-position="345">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="24" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/static/accounts/css/accounts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/static/accounts/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
           <folding />
         </state>
       </provider>
