@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,233 +15,274 @@
 
     <script>
         $(".hover").mouseleave(
-          function () {
-            $(this).removeClass("hover");
-          }
+            function () {
+                $(this).removeClass("hover");
+            }
         );
     </script>
 
     <!-- Static -->
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
-  </head>
-  <body>
-    <!-- NAVIGATION MENU -->
-    <div class="navbar-wrapper">
-      <div class="container">
+</head>
+<body>
+<!-- NAVIGATION MENU -->
+<div class="navbar-wrapper">
+    <div class="container">
         <nav class="navbar navbar-default navbar-static-top">
-          <div class="container">
-            <!-- Logo -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <div class="container">
+                <!-- Logo -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-                <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE.CO</a>
+                    <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE.CO</a>
 
-            </div>
-            <!-- Menu -->
-            <div class="collapse navbar-collapse" id="mainNavBar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
-                    <li><a class="nav" href="{% url 'home:about' %}">About</a></li>
-                    {% if request.user.is_authenticated %}
-                    <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
-                    {% endif %}
-                    <li><a href="{% url 'posts:list' %}">Blog {% if new_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
+                </div>
+                <!-- Menu -->
+                <div class="collapse navbar-collapse" id="mainNavBar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+                        <li><a class="nav" href="{% url 'home:about' %}">About</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'posts:list' %}">Blog {% if new_posts == True %}
+                            <span class="label label-default">New</span>{% endif %}</a></li>
 
-                    <!-- DropDownMenu -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: 'Nova Flat',serif">My Apps <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="nav" href="{% url 'argent:index' %}">TRAVELSAVE</a></li>
-                            <li><a href="{% url 'home:under_construction' %}">COIN <i class="fa fa-cogs fa-fw" aria-hidden="true"></i></a></li>
+                        <!-- DropDownMenu -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               style="font-family: 'Nova Flat',serif">My Apps <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav" href="{% url 'argent:index' %}">TRAVELSAVE</a></li>
+                                <li><a href="{% url 'home:under_construction' %}">COIN <i class="fa fa-cogs fa-fw"
+                                                                                          aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- right aligned menu -->
+                    {% if request.user.is_staff or request.user.is_superuser %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a style="padding-right:0"
+                                   href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
+                            <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span
+                                    class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
                         </ul>
-                    </li>
-                </ul>
-                <!-- right aligned menu -->
-                {% if request.user.is_staff or request.user.is_superuser %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a style="padding-right:0" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
-                    <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
-                </ul>
 
-                {% elif request.user.is_authenticated %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="username">{{ request.user.username }}</li>
-                    <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
-                </ul>
+                    {% elif request.user.is_authenticated %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="username">{{ request.user.username }}</li>
+                            <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span
+                                    class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
+                        </ul>
 
-                {% else %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a style="padding-left: 5px" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
-                </ul>
-                {% endif %}
+                    {% else %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a style="padding-left: 5px" href="{% url 'accounts:login' %}"><span
+                                    class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
+                        </ul>
+                    {% endif %}
+                </div>
             </div>
-          </div>
         </nav>
-      </div>
     </div>
-      <!-- 1ST SECTION AFTER THE NAV -->
-      <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
+</div>
+<!-- 1ST SECTION AFTER THE NAV -->
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
+    </ol>
+    <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1 class="carousel-title">Bienvenue!</h1>
-              <p>Welcome to VVAYNE.CO! If you're curious about the code check out my <a class="emphasis" href="https://github.com/griggz/MySite" TARGET="_blank" >Git Repository</a>. Otherwise, take a look around and shoot me a message with any comments you may have.</p>
-              <p><a class="btn btn-lg btn-primary" href="{% url "home:feedback" %}" role="button">Submit Feedback</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1 class="carousel-title">App Release</h1>
-                <p>My latest app is <a class="emphasis" href="{% url 'argent:index' %}">"TravelSave"</a>. It gives you an overall picture of your spending while traveling abroad. An easy and intuitive way to track how much you don't spend!</p>
-              <p><a class="btn btn-lg btn-primary" href="{% url 'posts:detail' 'travel-save' %}" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1 class="carousel-title">Rèsumè</h1>
-              <p>If you're interested in learning more about me and my background, check out my <a class="emphasis" href="{% url 'home:about' %}">About</a> or have a look at my rèsumè.</p>
-              <p><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Browse Rèsumè</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
-
-    {% if messages %}<div class="container-fluid">{% include "accounts/messages_display.html" %}</div>{% endif %}
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-    <div class="app_wrapper">
-        <div class="container Mheader"><h1>My Apps</h1></div>
-
-            <div class="container marketing">
-                <br />
-              <!-- Three columns of text below the carousel -->
-                <div class="row">
-                    <div class="col-lg-4">
-                    <figure class="snip1566">
-                        <img src="https://source.unsplash.com/JW6r_0CPYec/440x440" alt="money" />
-                        <figcaption><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></figcaption>
-                        <a href="{% url 'argent:index' %}"></a>
-                    </figure>
-                    <h2>TravelSave</h2>
-                    </div>
-                    <div class="col-lg-4">
-                    <figure class="snip1566">
-                        <img src="https://source.unsplash.com/E0Spm6XXn2Y/440x440" alt="blogs" />
-                        <figcaption><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></figcaption>
-                        <a href="{% url 'posts:list' %}"></a>
-                    </figure>
-                    <h2>Blog</h2>
-                    </div>
-
-                    <div class="col-lg-4">
-                    <figure class="snip1566"><img src="https://source.unsplash.com/E4XARZNDjzI/440x440" alt="ideas" />
-                        <figcaption><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i></figcaption>
-                    </figure>
-                    <h2>More On The Way!</h2>
-                    </div>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1 class="carousel-title">Bienvenue!</h1>
+                    <p>Welcome to VVAYNE.CO! If you're curious about the code check out my <a class="emphasis"
+                                                                                              href="https://github.com/griggz/MySite"
+                                                                                              TARGET="_blank">Git
+                        Repository</a>. Otherwise, take a look around and shoot me a message with any comments you may
+                        have.</p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url "home:feedback" %}" role="button">Submit
+                        Feedback</a></p>
                 </div>
             </div>
-        <hr class="app-divider">
         </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1 class="carousel-title">App Release</h1>
+                    <p>My latest app is <a class="emphasis" href="{% url 'argent:index' %}">"TravelSave"</a>. It gives
+                        you an overall picture of your spending while traveling abroad. An easy and intuitive way to
+                        track how much you don't spend!</p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'posts:detail' 'travel-save' %}" role="button">Learn
+                        more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1 class="carousel-title">Rèsumè</h1>
+                    <p>If you're interested in learning more about me and my background, check out my <a
+                            class="emphasis" href="{% url 'home:about' %}">About</a> or have a look at my rèsumè.</p>
+                    <p><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Browse
+                        Rèsumè</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div><!-- /.carousel -->
+
+{% if messages %}
+    <div class="container-fluid">{% include "accounts/messages_display.html" %}</div>{% endif %}
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="app_wrapper">
+    <div class="container Mheader"><h1>My Apps</h1></div>
 
     <div class="container marketing">
+        <br/>
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <figure class="snip1566">
+                    <img src="https://source.unsplash.com/JW6r_0CPYec/440x440" alt="money"/>
+                    <figcaption><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></figcaption>
+                    <a href="{% url 'argent:index' %}"></a>
+                </figure>
+                <h2>TravelSave</h2>
+            </div>
+            <div class="col-lg-4">
+                <figure class="snip1566">
+                    <img src="https://source.unsplash.com/E0Spm6XXn2Y/440x440" alt="blogs"/>
+                    <figcaption><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></figcaption>
+                    <a href="{% url 'posts:list' %}"></a>
+                </figure>
+                <h2>Blog</h2>
+            </div>
 
+            <div class="col-lg-4">
+                <figure class="snip1566"><img src="https://source.unsplash.com/E4XARZNDjzI/440x440" alt="ideas"/>
+                    <figcaption><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i></figcaption>
+                </figure>
+                <h2>More On The Way!</h2>
+            </div>
+        </div>
+    </div>
+    <hr class="app-divider">
+</div>
 
-      <!-- START THE FEATURETTES -->
+<div class="container marketing">
 
-            <div class="row featurette">
+    <!-- START THE FEATURETTES -->
+
+    <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Charts!<span class="text-muted"> Seeing is believing.</span></h2>
-            <p class="lead">Data visualization is integral to further understanding your data. Charts.js have given us the ability to do just that. We've added charts to <a href="{% url 'argent:index' %}">TravelSave</a> in order to provide a full picture of spending and savings. <a href="{% url 'posts:detail' 'data-visualizations' %}">Learn more</a> about the update!</p>
+            <h2 class="featurette-heading">Analyze Data With Python Filters!<span
+                    class="text-muted"> Get cleaner data.</span></h2>
+            <p class="lead">Like every other human in the modern world, we consume data almost non stop until we shut
+                down for the night and recharge. The amount of effort and time it takes to comprehend and consume data
+                directly impacts the time we want to spend doing other things. In other words, structured data is more
+                important than most people realize.</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-           <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/hpjSkU2UYSU/" alt="writing">
-            <a class="image_source_left" href="https://unsplash.com/search/traveler?photo=hpjSkU2UYSU" TARGET="_blank">Image Source</a>
+            <img class="featurette-image img-responsive center-block img-thumbnail"
+                 src="https://source.unsplash.com/b0iA6OI0Suw" alt="writing">
+            <a class="image_source_left" href="https://unsplash.com/search/traveler?photo=b0iA6OI0Suw" TARGET="_blank">Image
+                Source</a>
         </div>
-      </div>
+    </div>
 
-      <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-            <div class="row featurette">
+    <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">UNSPLASH connectivity!<span class="text-muted"> Beautiful photos can make all the difference.</span></h2>
-            <p class="lead">We already use <a href="https://unsplash.com" TARGET="_blank">Unsplash.com</a> photos throughout our website. Now, however, we've made it easier than ever to pull images directly from Unsplash.com's vast library of beautiful photos.</p>
+            <h2 class="featurette-heading">Charts!<span class="text-muted"> Seeing is believing.</span></h2>
+            <p class="lead">Data visualization is integral to further understanding your data. Charts.js have given us
+                the ability to do just that. We've added charts to <a href="{% url 'argent:index' %}">TravelSave</a> in
+                order to provide a full picture of spending and savings. <a
+                        href="{% url 'posts:detail' 'data-visualizations' %}">Learn more</a> about the update!</p>
         </div>
         <div class="col-md-5">
-           <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/3U-L7ftH0rU" alt="writing">
-            <a class="image_source_right" href="https://unsplash.com/search/traveler?photo=3U-L7ftH0rU" TARGET="_blank">Image Source</a>
+            <img class="featurette-image img-responsive center-block img-thumbnail"
+                 src="https://source.unsplash.com/hpjSkU2UYSU/" alt="writing">
+            <a class="image_source_right" href="https://unsplash.com/search/traveler?photo=hpjSkU2UYSU" TARGET="_blank">Image
+                Source</a>
         </div>
-      </div>
-      <hr class="featurette-divider">
+    </div>
 
-      <div class="row featurette">
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">"TRAVELSAVE" Has A New Update: <span class="text-muted">More Currencies!</span></h2>
-          <p class="lead">Global citizens unite!  While traveling around the globe, it is almost a no-brainer that dollars aren't the main currency everywhere. Whether you're in Prague, Budapest, London, or Paris, having the ability to track your spending in multiple currencies is integral to accurate tracking of your spending. </p>
+            <h2 class="featurette-heading">"TRAVELSAVE" Has A New Update: <span
+                    class="text-muted">More Currencies!</span></h2>
+            <p class="lead">Global citizens unite! While traveling around the globe, it is almost a no-brainer that
+                dollars aren't the main currency everywhere. Whether you're in Prague, Budapest, London, or Paris,
+                having the ability to track your spending in multiple currencies is integral to accurate tracking of
+                your spending. </p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/3OiYMgDKJ6k" alt="travel">
-            <a class="image_source_left" href="https://unsplash.com/search/traveler?photo=3OiYMgDKJ6k" TARGET="_blank">Image Source</a>
+            <img class="featurette-image img-responsive center-block img-thumbnail"
+                 src="https://source.unsplash.com/3OiYMgDKJ6k" alt="travel">
+            <a class="image_source_left" href="https://unsplash.com/search/traveler?photo=3OiYMgDKJ6k" TARGET="_blank">Image
+                Source</a>
         </div>
-      </div>
+    </div>
 
-      <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-      <div class="row featurette">
+    <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">My Blog is up and running! <a class="text-muted" href="{% url 'posts:list' %}">See for yourself.</a></h2>
-          <p class="lead">I know it may be hard to believe, but I have a ton of thoughts. So many thoughts...I really have the best thoughts.</p>
+            <h2 class="featurette-heading">My Blog is up and running! <a class="text-muted"
+                                                                         href="{% url 'posts:list' %}">See for
+                yourself.</a></h2>
+            <p class="lead">I know it may be hard to believe, but I have a ton of thoughts. So many thoughts...I really
+                have the best thoughts.</p>
         </div>
         <div class="col-md-5">
-           <img class="featurette-image img-responsive center-block img-thumbnail" src="https://source.unsplash.com/E0Spm6XXn2Y" alt="writing">
-            <a class="image_source_right" href="https://unsplash.com/search/traveler?photo=E0Spm6XXn2Y" TARGET="_blank">Image Source</a>
+            <img class="featurette-image img-responsive center-block img-thumbnail"
+                 src="https://source.unsplash.com/E0Spm6XXn2Y" alt="writing">
+            <a class="image_source_right" href="https://unsplash.com/search/traveler?photo=E0Spm6XXn2Y" TARGET="_blank">Image
+                Source</a>
         </div>
-      </div>
+    </div>
 
-      <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-      <!-- /END THE FEATURETTES -->
+    <!-- /END THE FEATURETTES -->
 
 
-      <!-- FOOTER -->
-      <br/>
-      <footer>
+    <!-- FOOTER -->
+    <br/>
+    <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+    </footer>
 
-    </div><!-- /.container -->
+</div><!-- /.container -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    {% include 'home/js.html' %}
-  </body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+{% include 'home/js.html' %}
+</body>
 </html>
 
