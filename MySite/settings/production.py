@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import dj_database_url
-
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'check host location'
+SECRET_KEY = 'check root'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'pagedown',
     'markdown_deux',
+    'storages',
     # My Apps
     'argent',
     'home',
@@ -93,7 +94,6 @@ ROOT_URLCONF = 'MySite.urls'
 ROOT_HOSTCONF = 'MySite.hosts'
 DEFAULT_HOST = 'www'
 DEFAULT_REDIRECT_URL = 'http://www.vvayne.co'
-
 
 TEMPLATES = [
     {
@@ -163,15 +163,40 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
+#
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+# )
+#
+# STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
+#
+# MEDIA_URL = "/media/"
+#
+# MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+AWS_ACCESS_KEY_ID = "AKIAJ7ATZNUFF22D4Y7Q"
+AWS_SECRET_ACCESS_KEY = "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"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
+AWS_FILE_EXPIRE = 200
+AWS_PRELOAD_METADATA = True
+AWS_QUERYSTRING_AUTH = True
 
-MEDIA_URL = "/media/"
+DEFAULT_FILE_STORAGE = 'MySite.utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'MySite.utils.StaticRootS3BotoStorage'
+AWS_STORAGE_BUCKET_NAME = 'vvayneco'
+S3DIRECT_REGION = 'us-east'
+S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_ROOT = MEDIA_URL
+STATIC_URL = S3_URL + 'static/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
+two_months = datetime.timedelta(days=61)
+date_two_months_later = datetime.date.today() + two_months
+expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
 
+AWS_HEADERS = {
+    'Expires': expires,
+    'Cache-Control': 'max-age=%d' % (int(two_months.total_seconds()),),
+}
