@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import dj_database_url
 import datetime
-from MySite.settings.sensitive import *
+from MySite.settings.sensitive import AWS_KEY_ID, AWS_ACCESS_KEY
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -66,7 +66,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -177,8 +177,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 #
 # MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
 
-AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
+AWS_ACCESS_KEY_ID = AWS_KEY_ID
+AWS_SECRET_ACCESS_KEY = AWS_ACCESS_KEY
 
 AWS_FILE_EXPIRE = 200
 AWS_PRELOAD_METADATA = True
