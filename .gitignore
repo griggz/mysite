@@ -3,7 +3,7 @@
 venv
 base.py
 MySite/settings/local.py
-MySite/settings/production.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *$py.class
