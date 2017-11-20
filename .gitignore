@@ -1,8 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 venv
-base.py
-MySite/settings/local.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -99,4 +97,10 @@ ENV/
 .ropeproject
 /home/migrations/0006_auto_20170721_1845.py
 /home/migrations/0007_auto_20170721_1845.py
-/MySite/settings/production.py
+
+.idea/dataSources/737805fb-1fdb-4495-8943-6ea9508569f8/_src_/
+.idea/dataSources/737805fb-1fdb-4495-8943-6ea9508569f8/_staging_/
+
+/MySite/settings/sensitive.py
+/MySite/settings/local.py
+/MySite/settings/base.py
