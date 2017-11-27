@@ -1,0 +1,92 @@
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+
+@media screen and (max-width: 2560px) {
+    body p {
+        font-size: 100%;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    body p, h2, h3 {
+        font-size: 97%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    body p, h2, h3 {
+        font-size: 95%;
+    }
+
+}
+
+@media screen and (max-width: 568px) {
+    body p, h2, h3 {
+        font-size: 80%;
+    }
+
+}
+
+
+body {
+
+  padding-bottom: 40px;
+  background-color: #333;
+
+
+}
+
+body h1 {
+
+    font-family: 'Nova Flat', sans-serif;
+
+}
+
+
+body h2 {
+
+    font-family: 'Nova Flat', sans-serif;
+
+}
+
+body h3 {
+
+    font-family: 'Nova Flat', sans-serif;
+
+}
+
+body h4 {
+
+    font-family: 'Nova Flat', sans-serif;
+
+}
+
+body a.post {
+
+    font-family: 'Nova Flat', serif;
+}
+
+body a.btn {
+
+    font-family: 'Nova Flat', serif;
+
+}
+
+a.btn {
+
+     font-family: 'Nova Flat', serif;
+
+}
+
+.thumbnail {
+    background-color: white;
+}
+
+.small {
+    font-family: 'Nova Flat', serif;
+}

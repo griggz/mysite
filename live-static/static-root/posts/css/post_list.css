@@ -1,0 +1,85 @@
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+@media screen and (max-width: 2560px) {
+    body p, h2, h3, .btn {
+        font-size: 100%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    body p, h2, h3, .btn {
+        font-size: 97%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body p, h2, h3, .btn {
+        font-size: 95%;
+    }
+
+}
+
+@media screen and (max-width: 568px) {
+    body p, h2, h3, .btn {
+        font-size: 90%;
+    }
+
+}
+
+body {
+
+
+  background-color: #333;
+
+}
+
+body h1 {
+
+    font-family: 'Nova Flat', sans-serif;
+}
+
+body p {
+
+    font-family: 'Nunito', sans-serif;
+
+}
+
+body h2 {
+
+    font-family: 'Nova Flat', sans-serif;
+
+}
+
+body h3 {
+
+    font-family: 'Nova Flat', sans-serif;
+
+}
+
+body small {
+
+    font-size: small;
+}
+
+body a.post {
+
+    font-family: 'Nova Flat', serif;
+}
+
+body a.btn {
+
+    font-family: 'Nova Flat', serif;
+
+}
+
+a.btn {
+
+     font-family: 'Nova Flat', serif;
+
+}
+
+.pager {
+    font-family: 'Nova Flat', serif;
+}

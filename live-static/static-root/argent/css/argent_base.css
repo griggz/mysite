@@ -1,0 +1,64 @@
+ body {
+
+    background-color: #212121;
+
+}
+
+  @media screen and (max-width: 2560px) {
+    p,.btn,input,span,h4,.jumbo-button {
+        font-size: 100%;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    p,.btn,input,span,h4,.jumbo-button {
+        font-size: 97%;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    p,.btn,input,span,h4,.jumbo-button {
+        font-size: 95%;
+    }
+    h3 {
+        font-size: 20px;
+    }
+     #demo_modal {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+
+    h3 {
+        font-size: 16px;
+    }
+    #demo_modal {
+        font-size: 18px;
+    }
+}
+
+
+h3 {
+        padding: 0;
+        margin-bottom: 0;
+        text-align:center;
+        font-family: 'Indie Flower', serif;
+
+    }
+
+#demo_modal {
+    color: black;
+    font-family: 'Indie Flower', serif;
+    text-align: center;
+}
