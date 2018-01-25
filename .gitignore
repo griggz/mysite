@@ -105,3 +105,4 @@ ENV/
 /MySite/settings/local.py
 /MySite/settings/base.py
 !/MySite/settings/sensitive.py
+/testing/
