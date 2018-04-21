@@ -22,7 +22,7 @@
     </script>
 
     <!-- Font-Awesome-CDN -->
-    <link rel="stylesheet" href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" integrity="sha384-DmABxgPhJN5jlTwituIyzIUk6oqyzf3+XuP7q3VfcWA2unxgim7OSSZKKf0KSsnh" crossorigin="anonymous">
 </head>
 <body>
 <!-- NAVIGATION MENU -->
@@ -44,7 +44,7 @@
                 <!-- Menu -->
                 <div class="collapse navbar-collapse" id="mainNavBar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+                        <li class="active"><a href="/"><i class="fas fa-home fa-lg"></i></a></li>
                         <li><a class="nav" href="{% url 'home:about' %}">About</a></li>
                         {% if request.user.is_authenticated %}
                             <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
@@ -58,8 +58,7 @@
                                style="font-family: 'Nova Flat',serif">My Apps <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="nav" href="{% url 'argent:index' %}">TRAVELSAVE</a></li>
-                                <li><a href="{% url 'home:under_construction' %}">COIN <i class="fa fa-cogs fa-fw"
-                                                                                          aria-hidden="true"></i></a>
+                                <li><a href="{% url 'home:under_construction' %}">COIN <i class="fas fa-cogs" aria-hidden="true"></i></a>
                                 </li>
                             </ul>
                         </li>
