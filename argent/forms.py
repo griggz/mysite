@@ -1,5 +1,5 @@
 from django.forms import ModelForm, HiddenInput, TextInput
-from .models import Entry, Savings, MonthYear
+from .models import Entry, Savings, MonthYear, Country, City
 from django.db.models import Sum
 from datetime import datetime
 import datetime as dt
@@ -11,14 +11,26 @@ import calendar
 cr = CurrencyRates()
 
 
+class CountryForm(ModelForm):
+    class Meta:
+        model = Country
+        fields = ['id', 'country']
+
+
+class CityForm(ModelForm):
+    class Meta:
+        model = City
+        fields = ['id', 'city', 'country']
+
+
 class EntryForm(ModelForm):
     class Meta:
         model = Entry
         widgets = {'dollars_sum': HiddenInput(), 'xrate': HiddenInput, 'daily_savings_dollars': HiddenInput, 'daily_savings_display': HiddenInput, 'spending_sum': HiddenInput,
                    'spending': TextInput(attrs={'placeholder': '32.12, 43.22, 22, 1.36'})}
-        fields = ['date', 'spending', 'currency', 'comments', 'spending_sum', 'xrate', 'dollars_sum', 'daily_savings_dollars', 'daily_savings_display']
+        fields = ['date', 'city', 'spending', 'currency', 'comments', 'spending_sum', 'xrate', 'dollars_sum', 'daily_savings_dollars', 'daily_savings_display']
         # exclude = ('spending_sum',)
-        labels = {'date': 'Date', 'spending': 'Spending', 'xrate': 'Exchange Rate', 'daily_savings_dollars': 'Daily Savings', 'daily_savings_display': 'Convert Savings'}
+        labels = {'date': 'Date', 'city': 'City', 'spending': 'Spending', 'xrate': 'Exchange Rate', 'daily_savings_dollars': 'Daily Savings', 'daily_savings_display': 'Convert Savings'}
         help_texts = {'date': 'Enter the date of spending.', 'spending': 'Enter your receipts/spending.', 'currency': 'Select the currency used when spending.'}
 
     def clean_date(self):

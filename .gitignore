@@ -106,3 +106,4 @@ ENV/
 /MySite/settings/base.py
 !/MySite/settings/sensitive.py
 /testing/
+/coin/

@@ -12,10 +12,10 @@
 <div class="container">
     <div class="row">
 
-            <ul class="nav nav-tabs" role="tablist" id="myTab">
-            <li role="presentation" class="active"><a class="tabheader" href="#home" aria-controls="home" role="tab" data-toggle="tab">VVAYNE.CO</a></li>
-            <li role="presentation"><a class="tabheader" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ABOUT ME</a></li>
-            </ul>
+{#            <ul class="nav nav-tabs" role="tablist" id="myTab">#}
+{#            <li role="presentation" class="active"><a class="tabheader" href="#home" aria-controls="home" role="tab" data-toggle="tab">VVAYNE.CO</a></li>#}
+{#            <li role="presentation"><a class="tabheader" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ABOUT ME</a></li>#}
+{#            </ul>#}
 
             <!-- Tab panes -->
             <div class="tab-content">
@@ -36,25 +36,26 @@
                     </div>
                     {% endfor %}
                 </div>
-                <div role="tabpanel" class="tab-pane" id="profile">
-                    {% for obj in AboutMe %}
-                    <div class="thumbnail">
-                        {% if obj.image %}
-                            <img src="{{ obj.image_url }}" class="img-responsive" />
-                        {% endif %}
-                        <div class="caption">
-                            <h1>{{ obj.title }}</h1>
-                            <hr/>
-                            {{ obj.get_markdown }}
-                            {% if request.user.is_authenticated %}
-                            <h1 align="center"><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank" role="button">Browse Rèsumè</a></h1>
-                            {% endif %}
-                            <hr/>
-                            <p align="right"><small>Updated: {{ obj.updated|timesince }} ago</small></p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
+{#About me removed#}
+{#                <div role="tabpanel" class="tab-pane" id="profile">#}
+{#                    {% for obj in AboutMe %}#}
+{#                    <div class="thumbnail">#}
+{#                        {% if obj.image %}#}
+{#                            <img src="{{ obj.image_url }}" class="img-responsive" />#}
+{#                        {% endif %}#}
+{#                        <div class="caption">#}
+{#                            <h1>{{ obj.title }}</h1>#}
+{#                            <hr/>#}
+{#                            {{ obj.get_markdown }}#}
+{#                            {% if request.user.is_authenticated %}#}
+{#                            <h1 align="center"><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank" role="button">Browse Rèsumè</a></h1>#}
+{#                            {% endif %}#}
+{#                            <hr/>#}
+{#                            <p align="right"><small>Updated: {{ obj.updated|timesince }} ago</small></p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    {% endfor %}#}
+{#                </div>#}
 
             </div>
 
