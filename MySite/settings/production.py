@@ -87,6 +87,8 @@ LOGIN_EXEMPT_URLS = [
     '/about',
     '/feedback',
     '/posts',
+    '/argent',
+    '/'
 ]
 
 ROOT_URLCONF = 'MySite.urls'

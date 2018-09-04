@@ -38,14 +38,10 @@
         <!-- Menu -->
         <div class="collapse navbar-collapse" id="mainNavBar">
             <ul class="nav navbar-nav">
-                {% if request.user.is_authenticated %}
-                    <li class="active"><a href="/"><i class="fas fa-home fa-lg"></i></a></li>
-                {% endif %}
-                <li><a href="{% url 'home:about' %}">About</a> </li>
-                {% if request.user.is_authenticated %}
-                <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
-                {% endif %}
-                <li><a href="{% url 'posts:list' %}">Blog {% if Pnew_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
+              <li class="active"><a href="/"><i class="fas fa-home fa-lg"></i></a></li>
+              <li><a href="{% url 'home:about' %}">About</a> </li>
+              <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
+              <li><a href="{% url 'posts:list' %}">Blog {% if Pnew_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
 
                 <!-- DropDownMenu -->
                 <li class="dropdown">

@@ -26,7 +26,6 @@ Markdown==2.6.8
 markdown2==2.3.4
 matplotlib==2.0.0
 mccabe==0.6.1
-mintapi==1.28
 numpy==1.12.1
 olefile==0.44
 packaging==16.8
@@ -44,7 +43,6 @@ pytz==2017.2
 reportlab==3.4.0
 requests==2.18.4
 s3transfer==0.1.11
-selenium==3.8.1
 simplejson==3.10.0
 six==1.10.0
 urllib3==1.22
