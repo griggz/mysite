@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>VVAYNE</title>
+
+  <!-- Bootstrap -->
+  {% include 'home/css.html' %}
+  {% include 'home/bootstrap_defaults.html' %}
+
+  {% block head %}
+  {% endblock %}
+
+  <script>
+      $(".hover").mouseleave(
+          function () {
+              $(this).removeClass("hover");
+          }
+      );
+  </script>
+
+  <!-- Font-Awesome-CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css"
+        integrity="sha384-DmABxgPhJN5jlTwituIyzIUk6oqyzf3+XuP7q3VfcWA2unxgim7OSSZKKf0KSsnh" crossorigin="anonymous">
+</head>
+<body>
+
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+<!-- /.container -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+{% include 'home/js.html' %}
+</body>
+</html>
+

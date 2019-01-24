@@ -1,70 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block head %}
-<link rel="stylesheet" href='{% static 'home/css/about.css' %}' />
+  <link rel="stylesheet" href='{% static 'home/css/about.css' %}'/>
+  {% if not request.user.is_authenticated %}
+    <h3 id="register"><a href="{% url 'accounts:login' %}">Login</a> or <a
+        href="{% url 'accounts:register' %}">Register</a> for full access!</h3>
+  {% endif %}
 {% endblock %}
 
 {% block content %}
-{% if not request.user.is_authenticated %}
-    <h3 id="register"><a href="{% url 'accounts:login' %}">Login</a> or <a href="{% url 'accounts:register' %}">Register</a> for full access!</h3>
-{% endif %}
-<div class="container">
-    <div class="row">
-
-{#            <ul class="nav nav-tabs" role="tablist" id="myTab">#}
-{#            <li role="presentation" class="active"><a class="tabheader" href="#home" aria-controls="home" role="tab" data-toggle="tab">VVAYNE.CO</a></li>#}
-{#            <li role="presentation"><a class="tabheader" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ABOUT ME</a></li>#}
-{#            </ul>#}
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="home">
-                    {% for obj in AboutVV %}
-                    <div class="thumbnail">
-                        {% if obj.image_url %}
-                            <img src="{{ obj.image_url }}" class="img-responsive" />
-                        {% endif %}
-                        <div class="caption">
-                            <h1>{{ obj.title }}</h1>
-                            <hr/>
-                            {{ obj.get_markdown }}
-                            <h1 align="center"><a class="btn btn-lg btn-primary" href="{% url 'home:feedback' %}" role="button">Send Feedback</a></h1>
-                            <hr/>
-                            <p align="right"><small>Updated: {{ obj.updated|timesince }} ago</small></p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-{#About me removed#}
-{#                <div role="tabpanel" class="tab-pane" id="profile">#}
-{#                    {% for obj in AboutMe %}#}
-{#                    <div class="thumbnail">#}
-{#                        {% if obj.image %}#}
-{#                            <img src="{{ obj.image_url }}" class="img-responsive" />#}
-{#                        {% endif %}#}
-{#                        <div class="caption">#}
-{#                            <h1>{{ obj.title }}</h1>#}
-{#                            <hr/>#}
-{#                            {{ obj.get_markdown }}#}
-{#                            {% if request.user.is_authenticated %}#}
-{#                            <h1 align="center"><a class="btn btn-lg btn-primary" href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank" role="button">Browse Rèsumè</a></h1>#}
-{#                            {% endif %}#}
-{#                            <hr/>#}
-{#                            <p align="right"><small>Updated: {{ obj.updated|timesince }} ago</small></p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    {% endfor %}#}
-{#                </div>#}
-
-            </div>
-
+  {% for obj in AboutVV %}
+    {% include "posts/messages_display.html" %}
+    <br/>
+    <div class="container">
+      <div class="row">
+        <div class="thumbnail">
+          {% if obj.unsplash_url %}
+            <img src="{{ obj.unsplash_url }}" class="img-responsive" alt="img"/>
+            <small class="image_source"><a href="https://unsplash.com/photos/{{ obj.post_image }}" TARGET="_blank">
+              Image Source</a></small>
+          {% endif %}
+          <div class="caption post-detail-item">
+            <h1 class="title">{{ obj.title }}</h1>
+            {{ obj.get_markdown }}
+            <h1 align="center"><a class="btn btn-lg btn-primary" href="{% url 'home:feedback' %}" role="button">Send
+              Feedback</a></h1>
+            <hr/>
+            <p align="right">
+              <small>Updated: {{ obj.updated|timesince }} ago</small>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-
+  {% endfor %}
 
 {% endblock %}
-
 
 
 

@@ -16,7 +16,10 @@ class Feedback(models.Model):
 class About(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     title = models.CharField(max_length=500, blank=True, null=True)
-    image_url = models.CharField(max_length=120, null=True, blank=True, )
+    post_image = models.CharField(max_length=120, null=True, blank=True,)
+    unsplash_url = models.CharField(max_length=120, null=True, blank=True, )
+    height_field = models.IntegerField(default=900)
+    width_field = models.IntegerField(default=1440)
     content = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
