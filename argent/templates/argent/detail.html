@@ -1,127 +1,117 @@
 {% extends "base.html" %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" href='{% static 'argent/css/argent_detail.css' %}'/>
-
+  <link rel="stylesheet" href='{% static 'argent/css/argent_detail.css' %}'/>
 {% endblock %}
 
-
 {% block title %}
-        <div class="container container-fluid" style="margin-left: 20px; font-family: 'Raleway', serif">
-            <a href="{% url 'argent:entry-add' %}">
-                    <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
-                    </button>
-            </a>
-        </div>
-
-<div class="container container-fluid" style="margin-left: 20px; margin-right: 20px; font-family: 'Lato', serif; color: white; font-size: xx-large;">
+  <div class="container container-fluid">
+    <a href="{% url 'argent:entry-add' %}">
+      <button type="button" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
+      </button>
+    </a>
+  </div>
+  <div class="container container-fluid">
     <div class="col-sm-6 col-md-6">
-        <h1 style="text-decoration: underline">Details</h1>
+      <h1>Details</h1>
     </div>
-</div>
-
+  </div>
 {% endblock %}
 
 {% block content %}
+    <div class="container container-fluid">
+      <div class=row>
+        <div class="col-xs-12 align-left col-md-8 align-left">
+          <table class="table">
+            <thead>
+            <tr>
+              <th colspan="2" style="font-size: x-large">{{ object.date }} <a
+                  href="{% url 'argent:entry-update' object.id %}">
+                <button type="button" class="btn btn-link btn-lg" style="color: #FF5A09; padding: 0">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
+              </a></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td align="left">Receipts:</td>
+              <td> {{ object.spending }} </td>
+            </tr>
+            {% if object.currency == 'USD' %}
+              <tr>
+                <th class="th-jumbo">Total Dollars Spent:</th>
+                <td class="td-jumbo">${{ object.spending_sum }}</td>
+              </tr>
+            {% endif %}
+            {% if object.currency == 'EUR' %}
+              <tr id="total_spent">
+                <th class="th-jumbo">Total Euros Spent:</th>
+                <td class="td-jumbo">€{{ object.spending_sum }}</td>
+              </tr>
+            {% endif %}
+            {% if object.currency == 'GBP' %}
+              <tr id="total_spent">
+                <th class="th-jumbo">Total Pounds Spent:</th>
+                <td class="td-jumbo">£{{ object.spending_sum }}</td>
+              </tr>
+            {% endif %}
+            {% if object.currency == 'CZK' %}
+              <tr id="total_spent">
+                <th class="th-jumbo">Total Krona Spent:</th>
+                <td class="td-jumbo">Kč{{ object.spending_sum }}</td>
+              </tr>
+            {% endif %}
+            {% if object.currency == 'HUF' %}
+              <tr id="total_spent">
+                <th class="th-jumbo">Total Forint Spent:</th>
+                <td class="td-jumbo">Ft{{ object.spending_sum }}</td>
+              </tr>
+            {% endif %}
+            {% if object.currency == 'CHF' %}
+              <tr id="total_spent">
+                <th class="th-jumbo">Total Forint Spent:</th>
+                <td class="td-jumbo">CHF{{ object.spending_sum }}</td>
+              </tr>
+            {% endif %}
+            <tr>
+              <td align="left">Total Dollars Spent:</td>
+              <td>${{ object.dollars_sum }}</td>
+            </tr>
+            <tr>
+              <td align="left">Exchange Rate:</td>
+              <td>{{ object.xrate }}</td>
+            </tr>
+            <tr>
+              <td align="left">Daily Savings:</td>
 
-    <div class="container container-fluid" style="margin-left: 30px; margin-right: 30px; font-family: 'Raleway', serif; color: white; font-size: larger">
-        <div class=row>
-            <div class="col-xs-12 col-md-8">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th colspan="2" style="font-size: x-large">{{ object.date }} <a href="{% url 'argent:entry-update' object.id %}"><button type="button" class="btn btn-link btn-lg" style="color: #FF5A09; padding: 0">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                        </a></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td align="left">Receipts:</td>
-                        <td> {{ object.spending }} </td>
-                    </tr>
-                        {% if object.currency == 'USD' %}
-                        <tr>
-                            <th class="th-jumbo">Total Dolalrs Spent:</th>
-                            <td class="td-jumbo">${{object.spending_sum}}</td>
-                        </tr>
-                        {% endif %}
-                        {% if object.currency == 'EUR' %}
-                        <tr>
-                            <th class="th-jumbo">Total Euros Spent:</th>
-                            <td class="td-jumbo">€{{object.spending_sum}}</td>
-                        </tr>
-                        {% endif %}
-                        {% if object.currency == 'GBP' %}
-                        <tr>
-                            <th class="th-jumbo">Total Pounds Spent:</th>
-                            <td class="td-jumbo">£{{object.spending_sum}}</td>
-                        </tr>
-                        {% endif %}
-                        {% if object.currency == 'CZK' %}
-                        <tr>
-                            <th class="th-jumbo">Total Krona Spent:</th>
-                            <td class="td-jumbo">Kč{{object.spending_sum}}</td>
-                        </tr>
-                        {% endif %}
-                        {% if object.currency == 'HUF' %}
-                        <tr>
-                            <th class="th-jumbo">Total Forint Spent:</th>
-                            <td class="td-jumbo">Ft{{object.spending_sum}}</td>
-                        </tr>
-                        {% endif %}
-                     {% if object.currency == 'CHF' %}
-                        <tr>
-                            <th class="th-jumbo">Total Forint Spent:</th>
-                            <td class="td-jumbo">CHF{{object.spending_sum}}</td>
-                        </tr>
-                        {% endif %}
-                    <tr>
-                        <td align="left">Total Dollars Spent:</td>
-                        <td>${{object.dollars_sum}}</td>
-                    </tr>
-                    <tr>
-                        <td align="left">Exchange Rate:</td>
-                        <td>{{ object.xrate }}</td>
-                    </tr>
-                    <tr>
-                        <td align="left">Daily Savings:</td>
-
-                        <td>
-                            {% if object.daily_savings_dollars > 0 %}
-                            <div class="NegativeSavings" style="font-weight: bold">-
-                            {% else %}
-                            <div class="PositiveSavings" style="font-weight: bold">+
-                            {% endif %}
-                            ${{ object.daily_savings_display }}
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
-            <a href="{% url 'argent:entry-list' current_month %}">
-                    <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-list"></span>&nbsp;{{ current_month|upper }}
-                    </button>
-            </a>
-
-            &nbsp
-
-            <a href="{% url 'argent:index' %}">
-                    <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-dashboard"></span>&nbsp;DASH
-                    </button>
-            </a>
-
-            </div>
-                    <!-- the rest of the fields.. -->
-
+              <td>
+                {% if object.daily_savings_dollars > 0 %}
+                  <div class="NegativeSavings" style="font-weight: bold">-
+                {% else %}
+                  <div class="PositiveSavings" style="font-weight: bold">+
+                {% endif %}
+                ${{ object.daily_savings_display }}
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <a href="{% url 'argent:entry-list' current_month %}">
+            <button type="button" class="btn btn-primary">
+              <span class="glyphicon glyphicon-list"></span>&nbsp;{{ current_month|upper }}
+            </button>
+          </a>
+          <a href="{% url 'argent:index' %}">
+            <button type="button" class="btn btn-primary">
+              <span class="glyphicon glyphicon-dashboard"></span>&nbspDASH
+            </button>
+          </a>
         </div>
+        <!-- the rest of the fields.. -->
+      </div>
     </div>
-    <br/>
-
-{#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
+  <br/>
+  {#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
 {% endblock %}

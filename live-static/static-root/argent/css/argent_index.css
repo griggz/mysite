@@ -6,6 +6,10 @@
 
 }
 
+ .container-fluid {
+    font-family: "Railway", serif;
+}
+
  @media screen and (max-width: 2560px) {
     p,.btn,input,span,h4,.jumbo-button {
         font-size: 100%;
@@ -290,14 +294,15 @@
 
 /*Jumbotron style*/
     .jumbotron {
-
+        font-family: Andale Mono, serif;
         background: white;
         padding: 2%;
         margin-bottom: 0
+
     }
 
     h1.h1-jumbo {
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
         margin-top: 0;
         color: #FF5A09;
         size: auto
@@ -305,33 +310,33 @@
 
     th.th-date {
         color: #337ab7;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
         text-decoration: underline;
 
     }
 
     th.th-jumbo {
         color: #337ab7;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
 
     }
 
     td.td-jumbo {
         color: #FF5A09;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
     }
 
     th.th-jumbo-foot {
         width: 33.33%;
         color: #b48c36;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
         text-align: center;
     }
 
     td.td-jumbo-foot {
         width: 33.33%;
         color: #DC143C;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
         text-align: center;
     }
 
@@ -339,7 +344,7 @@
         padding: 0;
         margin-bottom: 0;
         text-align:right;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
     }
 
 /*Monthly Card Style*/
@@ -347,7 +352,7 @@
     .card-button {
         padding: 0;
         margin-bottom: 0;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
     }
     .thumbnail {
         background: white;
@@ -356,7 +361,7 @@
     h2 {
         text-align:center;
         color: #337ab7;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
         text-decoration: underline;
     }
 
@@ -364,7 +369,7 @@
         text-align: center;
         color: #FF5A09;
         margin-bottom: 0;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
     }
 
     th.th-card {
@@ -380,7 +385,7 @@
         padding: 0;
         margin-bottom: 0;
         text-align:center;
-        font-family: 'Indie Flower', serif;
+        font-family: Andale Mono, serif;
 
     }
 
@@ -409,6 +414,11 @@
         background-color: #262626;
 }
 
+
+#chart {
+    font-family: Andale Mono, serif;
+}
+
 #chart2 {
     margin-top: 20px;
 }
@@ -435,7 +445,7 @@ span.prog {
 }
 .progress-bar {
     text-align: center;
-    font-family: 'Indie Flower', serif;
+    font-family: Andale Mono, serif;
     color: white;
     font-size: medium;
     border-radius:20px;
@@ -446,7 +456,7 @@ span.prog {
 
 .monthly_total {
     color: white;
-    font-family: 'Indie Flower', serif;
+    font-family: Andale Mono, serif;
     text-align: center;
     margin-top: 5px;
 }
@@ -454,7 +464,7 @@ span.prog {
 .monthly_total_neg {
     color: #DC143C;
     font-weight: bold;
-    font-family: 'Indie Flower', serif;
+    font-family: Andale Mono, serif;
     vertical-align: middle;
     text-align: center;
 }
@@ -462,7 +472,7 @@ span.prog {
 .monthly_total_pos {
     color: #169C08;
     font-weight: bold;
-    font-family: 'Indie Flower', serif;
+    font-family: Andale Mono, serif;
     vertical-align: middle;
     text-align: center;
 }
@@ -470,7 +480,7 @@ span.prog {
 .list_title {
 
     color: white;
-    font-family: 'Indie Flower', serif;
+    font-family: Andale Mono, serif;
     text-align: center;
     vertical-align: middle;
     margin: 2px 15px 0;

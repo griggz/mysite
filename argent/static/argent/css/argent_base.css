@@ -1,6 +1,7 @@
  body {
 
-    background-color: #212121;
+     background-color: #212121;
+     font-family: "Andale Mono", serif;
 
 }
 
@@ -53,7 +54,7 @@ h3 {
         padding: 0;
         margin-bottom: 0;
         text-align:center;
-        font-family: 'Indie Flower', serif;
+        font-family: 'Nunito', serif;
 
     }
 

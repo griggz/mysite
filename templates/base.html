@@ -2,101 +2,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {#css#}
-    {% include 'css.html' %}
-    {% include 'bootstrap_defaults.html' %}
-    {#js#}
-    {% include 'js.html' %}
-    {#staticfiles#}
-    <link rel="stylesheet" href='{% static 'css/main.css' %}'/>
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
-    <!-- Font-Awesome-CDN -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" integrity="sha384-DmABxgPhJN5jlTwituIyzIUk6oqyzf3+XuP7q3VfcWA2unxgim7OSSZKKf0KSsnh" crossorigin="anonymous">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {#css#}
+  {% include 'css.html' %}
+  {% include 'bootstrap_defaults.html' %}
+  {#js#}
+  {% include 'js.html' %}
+  {#staticfiles#}
+  <link rel="stylesheet" href='{% static 'css/main.css' %}'/>
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
+  <!-- Font-Awesome-CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css"
+        integrity="sha384-DmABxgPhJN5jlTwituIyzIUk6oqyzf3+XuP7q3VfcWA2unxgim7OSSZKKf0KSsnh" crossorigin="anonymous">
+  {% block head %}
+  {% endblock %}
 
-    {% block head %}
-    {% endblock %}
-
-    <title>VVAYNE</title>
-    <nav class="navbar navbar-default">
+  <title>VVAYNE</title>
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <!-- Logo -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+      <!-- Logo -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-{#            <a class= "navbar-brand" href="#" style="padding: 0">#}
-{#                <img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>#}
+        {#            <a class= "navbar-brand" href="#" style="padding: 0">#}
+        {#                <img src="{% static 'images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>#}
 
-            <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE.CO</a>
+        <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE.CO</a>
 
-        </div>
-        <!-- Menu -->
-        <div class="collapse navbar-collapse" id="mainNavBar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="/"><i class="fas fa-home fa-lg"></i></a></li>
-              <li><a href="{% url 'home:about' %}">About</a> </li>
-               {% if request.user.is_authenticated %}
-              <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
-               {% endif %}
-              <li><a href="{% url 'posts:list' %}">Blog {% if Pnew_posts == True %}<span class="label label-default">New</span>{% endif %}</a></li>
+      </div>
+      <!-- Menu -->
+      <div class="collapse navbar-collapse" id="mainNavBar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/"><i class="fas fa-home fa-lg"></i></a></li>
+          <li><a href="{% url 'home:about' %}">About</a></li>
+          {% if request.user.is_authenticated %}
+            <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
+          {% endif %}
+          <li><a href="{% url 'posts:list' %}">Blog {% if Pnew_posts == True %}
+            <span class="label label-default">New</span>{% endif %}</a></li>
 
-                <!-- DropDownMenu -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        {% if not request.user.is_authenticated %}
-                            <li style="text-align: left"><a href="{% url 'accounts:login' %}"><small style="color: #FF5A09"> Login/Register</small></a></li>
-                        {% endif %}
-                        <li><a href="{% url 'argent:index' %}">TRAVELSAVE</a> </li>
-                        <li><a href="{% url 'home:under_construction' %}">COIN <i class="fas fa-cogs" aria-hidden="true"></i></a>
-                    </ul>
-                </li>
+          <!-- DropDownMenu -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              {% if not request.user.is_authenticated %}
+                <li style="text-align: left"><a href="{% url 'accounts:login' %}">
+                  <small style="color: #FF5A09"> Login/Register</small>
+                </a></li>
+              {% endif %}
+              <li><a href="{% url 'argent:index' %}">TRAVELSAVE</a></li>
+              <li><a href="{% url 'home:under_construction' %}">COIN <i class="fas fa-cogs" aria-hidden="true"></i></a>
             </ul>
-            <!-- right aligned menu -->
-            {% if request.user.is_staff or request.user.is_superuser %}
-            <ul class="nav navbar-nav navbar-right">
-                <li><a style="padding-right:0" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
-                <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
-            </ul>
+          </li>
+        </ul>
+        <!-- right aligned menu -->
+        {% if request.user.is_staff or request.user.is_superuser %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a style="padding-right:0" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
+            <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span
+                class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
+          </ul>
 
-            {% elif request.user.is_authenticated %}
-            <ul class="nav navbar-nav navbar-right">
-                <li class="username">{{ request.user.username }}</li>
-                <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
-            </ul>
+        {% elif request.user.is_authenticated %}
+          <ul class="nav navbar-nav navbar-right">
+            <li class="username">{{ request.user.username }}</li>
+            <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span
+                class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
+          </ul>
 
-            {% else %}
-            <ul class="nav navbar-nav navbar-right">
-                <li><a style="padding-left: 5px" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
-            </ul>
-            {% endif %}
+        {% else %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a style="padding-left: 5px" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in"
+                                                                                     aria-hidden="true"></span>
+              Login</a></li>
+          </ul>
+        {% endif %}
 
-        </div>
+      </div>
     </div>
-    </nav>
+  </nav>
 </head>
 
 <body>
+{% block title %}
+{% endblock %}
 
-
-    {% block title %}
-    {% endblock %}
-
-    {% block content %}
-    {% endblock %}
-
-    <script>
-        $(document).ready(function(){
-            {% block jquery %}
-            {% endblock %}
-        })
-    </script>
-
+{% block content %}
+{% endblock %}
+<script>
+    $(document).ready(function () {
+        {% block jquery %}
+        {% endblock %}
+    })
+</script>
 </body>
 
 </html>

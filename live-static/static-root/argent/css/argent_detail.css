@@ -1,17 +1,46 @@
 /*Savings Color Change */
-    .NegativeSavings {
-        color: #DC143C;
-        font-weight: bold
-    }
+.NegativeSavings {
+    color: #DC143C;
+    font-weight: bold
+}
 
-    .PositiveSavings {
-        float: inherit;
-        color: #169C08;
-        font-weight: bold
-    }
+.PositiveSavings {
+    float: inherit;
+    color: #169C08;
+    font-weight: bold
+}
 
 body {
-
     background-color: #212121;
-
 }
+
+h1 {
+    font-family: "Andale Mono", serif;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 0;
+    margin-right: 20px;
+    color: white;
+    font-size: xx-large;
+}
+
+#total_spent {
+    font-weight: bold;
+}
+
+.container-fluid {
+    font-family: "Andale Mono", serif;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: 30px;
+}
+
+.row {
+    font-family: "Andale Mono", serif;
+    margin-left: 0;
+    margin-right: 0;
+    color: white;
+    font-size: large;
+}
+
