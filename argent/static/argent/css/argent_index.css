@@ -221,39 +221,39 @@
 @media screen and (max-width: 568px) {
 
     h3 {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     h1.h1-jumbo {
-        font-size: 35px;
+        font-size: 32px;
     }
 
     th.th-date {
-        font-size: 20px;
+        font-size: 18px;
     }
     th.th-jumbo {
-        font-size: 16px;
+        font-size: 14px;
     }
     td.td-jumbo {
-        font-size: 16px;
+        font-size: 14px;
     }
     th.th-jumbo-foot {
-        font-size: 12px;
+        font-size: 10px;
     }
     td.td-jumbo-foot {
-        font-size: 16px;
+        font-size: 14px;
     }
     td.dash {
-        font-size: 16px;
+        font-size: 14px;
     }
     th.dash {
-        font-size: 20px;
+        font-size: 18px;
     }
     .PositiveSavings {
-        font-size: 16px;
+        font-size: 14px;
     }
     .NegativeSavings {
-        font-size: 16px;
+        font-size: 14px;
     }
     #chart {
         display: none;
@@ -263,13 +263,13 @@
         display: none;
     }
     .list_title {
-        font-size: 30px;
+        font-size: 28px;
     }
     .monthly_total_pos {
-        font-size: 20px;
+        font-size: 18px;
 }
     .monthly_total_neg {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
