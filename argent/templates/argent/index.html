@@ -16,11 +16,12 @@
 {% endblock %}
 
 {% block title %}
-  <div class="container container-fluid">
+  <div class="container" id="content">
     <div class="row" align="center">
       <div class="alert alert-info" role="alert">
         <h3 style="margin: 2px"><a href="{% url 'posts:detail' 'travel-save' %}" class="alert-link"> Click here</a> to
-          learn more about this DEMO.</h3></div>
+          learn more about this DEMO.</h3>
+      </div>
     </div>
     <div class="jumbotron">
       {% if entry_qs %}
