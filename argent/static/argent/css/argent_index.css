@@ -6,6 +6,13 @@
 
 }
 
+ .container-fluid {
+     padding-right: 2px;
+     padding-left: 2px;
+     margin-right: auto;
+     margin-left: auto;
+ }
+
  @media screen and (max-width: 2560px) {
     p,.btn,input,span,h4,.jumbo-button {
         font-size: 100%;
