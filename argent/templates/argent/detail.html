@@ -35,19 +35,19 @@
         {% if object.currency == 'USD' %}
           <tr>
             <th id="category"> Total Dollars Spent:</th>
-            <td class="td-jumbo">${{ object.spending_sum }}</td>
+            <td>${{ object.spending_sum }}</td>
           </tr>
         {% endif %}
         {% if object.currency == 'EUR' %}
           <tr id="total_spent">
             <th id="category">Total Euros Spent:</th>
-            <td class="td-jumbo">€{{ object.spending_sum }}</td>
+            <td>€{{ object.spending_sum }}</td>
           </tr>
         {% endif %}
         {% if object.currency == 'GBP' %}
           <tr id="total_spent">
             <th id="category">Total Pounds Spent:</th>
-            <td class="td-jumbo">£{{ object.spending_sum }}</td>
+            <td>£{{ object.spending_sum }}</td>
           </tr>
         {% endif %}
         {% if object.currency == 'CZK' %}
@@ -59,13 +59,13 @@
         {% if object.currency == 'HUF' %}
           <tr id="total_spent">
             <th id="category">Total Forint Spent:</th>
-            <td class="td-jumbo">Ft{{ object.spending_sum }}</td>
+            <td>Ft{{ object.spending_sum }}</td>
           </tr>
         {% endif %}
         {% if object.currency == 'CHF' %}
           <tr id="total_spent">
             <th id="category">Total Forint Spent:</th>
-            <td class="td-jumbo">CHF{{ object.spending_sum }}</td>
+            <td>CHF{{ object.spending_sum }}</td>
           </tr>
         {% endif %}
         <tr>
