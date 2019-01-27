@@ -107,3 +107,6 @@ ENV/
 !/MySite/settings/sensitive.py
 /testing/
 /coin/
+/server.pass.key
+/server.key
+/server.csr
