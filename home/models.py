@@ -14,7 +14,7 @@ class Feedback(models.Model):
 
 
 class About(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
     title = models.CharField(max_length=500, blank=True, null=True)
     post_image = models.CharField(max_length=120, null=True, blank=True,)
     unsplash_url = models.CharField(max_length=120, null=True, blank=True, )

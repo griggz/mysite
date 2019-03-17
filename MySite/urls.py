@@ -1,15 +1,15 @@
-from django.conf.urls import url, include
+from django.urls import path, re_path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^argent/', include('argent.urls', namespace='argent')),
-    url(r'^posts/', include('posts.urls', namespace='posts')),
-    url(r'^comments/', include('comments.urls'), name='comments'),
-    url(r'^account/', include('accounts.urls', namespace='accounts')),
-    url(r'^', include('home.urls'), name='home'),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^argent/', include('argent.urls')),
+    re_path(r'^posts/', include('posts.urls')),
+    re_path(r'^comments/', include('comments.urls'), name='comments'),
+    re_path(r'^account/', include('accounts.urls')),
+    re_path(r'^', include('home.urls'), name='home'),
 
 ]
 

@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path, re_path, include
 from home.views import HomeView
 from . import views
 # from django.contrib import admin
@@ -7,10 +7,8 @@ from . import views
 app_name = 'home'
 
 urlpatterns = [
-    url(r'^feedback/$', views.feedback, name='feedback'),
-    url(r'^about/$', views.about, name='about'),
-    url(r'^under_construction/$', views.under_construction, name='under_construction'),
-    url(r'^$', HomeView.as_view(), name='landing')
-
+    re_path(r'^feedback/$', views.feedback, name='feedback'),
+    re_path(r'^about/$', views.about, name='about'),
+    re_path(r'^under_construction/$', views.under_construction, name='under_construction'),
+    re_path(r'^$', HomeView.as_view(), name='landing')
 ]
-
