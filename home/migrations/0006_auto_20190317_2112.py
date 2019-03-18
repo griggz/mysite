@@ -12,11 +12,6 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='about',
-            name='height_field',
-            field=models.IntegerField(default=900),
-        ),
-        migrations.AddField(
-            model_name='about',
             name='post_image',
             field=models.CharField(blank=True, max_length=120, null=True),
         ),
