@@ -109,3 +109,4 @@ ENV/
 /server.pass.key
 /server.key
 /server.csr
+/.idea/
