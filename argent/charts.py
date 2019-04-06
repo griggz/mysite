@@ -7,6 +7,7 @@ from django.contrib.auth import get_user_model
 from .models import MonthYear, Entry, Savings
 from django.db.models import Sum
 import datetime
+import pandas as pd
 
 today = datetime.date.today()
 User = get_user_model()
@@ -22,6 +23,10 @@ class ChartData(APIView):
 
         # SPENDING/SAVINGS BY MONTH
         June17_spending = Entry.objects.filter(date__range=('2017-6-1', '2017-6-30')).values_list('dollars_sum')
+
+        # SPENDING BY COUNTRY
+        france = Entry.objects.filter(city__country=2).aggregate(s=Sum('dollars_sum')).get('s')
+        # for i in Entry.objects.filter(city=2)
 
         # LAST 6 MONTHS SPENDING/SAVINGS
         # SAVINGS
@@ -47,11 +52,12 @@ class ChartData(APIView):
         labels = ["DEC16", "JAN17", "FEB17", "MAR17", "APR17", "MAY17", "JUNE17"]
         spending = [qs_December16, qs_January17, qs_February17, qs_March17, qs_April17, qs_May17, qs_June17]
         savings = [qs2_December16, qs2_January17, qs2_February17, qs2_March17, qs2_April17, qs2_May17, qs2_June17]
+        country = [france]
 
         # GRAND TOTAL SPENDING/SAVINGS
-        savobject = Savings.objects.get(id=2)
-        qs_spending = savobject.total_spent_dollars
-        qs_savings = savobject.total_savings_display
+        sav_object = Savings.objects.get(id=2)
+        qs_spending = sav_object.total_spent_dollars
+        qs_savings = sav_object.total_savings_display
 
         spent_labels = ["Spent"]
         saved_labels = ["Saved"]
@@ -73,6 +79,8 @@ class ChartData(APIView):
             "labels": labels,
             "spending": spending,
             "savings": savings,
+            # By Country
+            "France": country,
             # GRAND TOTALS
             "spent_label": spent_labels,
             "saved_label": saved_labels,
