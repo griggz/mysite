@@ -8,9 +8,9 @@ var labels = [];
 $.ajax({
     method: "GET",
     url: endpoint,
-    success: function(data){
-        labels = data.labels;
-        defaultData = data.default;
+    success: function(spending_data){
+        labels = spending_data.labels;
+        defaultData = spending_data.default;
         setChart()
 
     },

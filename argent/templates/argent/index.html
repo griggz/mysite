@@ -13,6 +13,9 @@
       )
   });
   </script>
+  <script type="text/javascript" src= src="https://code.highcharts.com/highcharts.js"></script>
+   <script type="text/javascript" src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script type="text/javascript" src="https://code.highcharts.com/modules/export-data.js"></script>
 {% endblock %}
 
 {% block title %}
@@ -206,7 +209,7 @@
                     total_spending = data.total_spending;
                     {#ANNUAL#}
                     spent17_label = data.spent_labels17;
-                    saved17_label = data.saved_labels17;
+                    saved17_label = data.saved_label17;
                     spending17data = data.spending17;
                     savings17data = data.savings17;
 
@@ -224,26 +227,25 @@
                 var ctx = document.getElementById("myChart");
                 var ctx2 = document.getElementById("myChart2");
                 var myChart = new Chart(ctx, {
-                    type: 'line',
+
+                    type: 'bar',
                     data: {
                         labels: labels,
                         datasets: [{
-                            type: 'line',
                             label: 'Total Spent',
                             data: defaultData,
                             borderWidth: 4,
                             borderColor: 'crimson'
-                        },
-                            {
-                                type: 'line',
-                                label: 'Total Saved',
-                                data: defaultData2,
-                                borderWidth: 4,
-                                borderColor: 'green'
+                        }, {
+                            label: 'Total Saved',
+                            data: defaultData2,
+                            borderWidth: 4,
+                            borderColor: 'green',
 
-                            }]
+                            // Changes this dataset to become a line
+                            type: 'line'
+                        }]
                     },
-
                     options: {
                         maintainAspectRatio: false,
                         legend: {
@@ -281,68 +283,13 @@
                             }]
                         }
                     }
-                });
-                {#var myChart2 = new Chart(ctx2, {#}
-                {#    type: 'horizontalBar',#}
-                {#    data: {#}
-                {#        labels: ['YTD'],#}
-                {#        datasets: [{#}
-                {#    data: spending17data,#}
-                {#    backgroundColor: 'rgba(220, 20, 60, .7)',#}
-                {#    label: ['Spent']#}
-                {# },{#}
-                {#    data: savings17data,#}
-                {#    backgroundColor: 'rgba(0, 128, 0, .7)',#}
-                {#    label: ['Saved']#}
-                {# }]#}
-                {#    },#}
-                {##}
-                {#    options: {#}
-                {#        tooltips: {#}
-                {#        enabled: true#}
-                {##}
-                {#        },#}
-                {#        maintainAspectRatio: false,#}
-                {#        legend: {#}
-                {#            labels: {fontColor: "white", fontSize: 18, fontFamily: "Nunito"},#}
-                {#            display: false#}
-                {#            },#}
-                {#        title: {#}
-                {#            display: false,#}
-                {#            fontColor: 'white',#}
-                {#            fontFamily: 'Nunito',#}
-                {#            fontSize: 25#}
-                {#        },#}
-                {#        scales: {#}
-                {#            xAxes: [{#}
-                {#                display: false,#}
-                {#                gridLines: {#}
-                {#                    display: false#}
-                {#                },#}
-                {#                ticks: {#}
-                {#                    fontFamily: "Nunito",#}
-                {#                    fontColor: 'white',#}
-                {#                    fontSize: 16,#}
-                {#                    beginAtZero: true#}
-                {#                },#}
-                {#                stacked: true#}
-                {#            }],#}
-                {#            yAxes: [{#}
-                {#                ticks: {#}
-                {#                    display: true,#}
-                {#                    fontFamily: "Nunito",#}
-                {#                    fontColor: "white",#}
-                {#                    fontSize: 16,#}
-                {#                    beginAtZero: true#}
-                {#                },#}
-                {#                stacked: true#}
-                {#            }]#}
-                {#        }#}
-                {#    }#}
-                {# })#}
+                })
             }
+
         {% endblock %}
     </script>
+
+{#  {% include "argent/charts2.0.html" %}#}
 
     <!-- Entry List By Month-->
     <div class="row" align="center">
