@@ -2,90 +2,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {#css#}
-  {% include 'css.html' %}
-  {% include 'bootstrap_defaults.html' %}
-  {#js#}
-  {% include 'js.html' %}
-  {#staticfiles#}
-  <link rel="stylesheet" href="{% static '/css/main.css' %}"/>
-  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}"/>
-  <!-- Font-Awesome-CDN -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css"
-        integrity="sha384-DmABxgPhJN5jlTwituIyzIUk6oqyzf3+XuP7q3VfcWA2unxgim7OSSZKKf0KSsnh" crossorigin="anonymous">
-  {% block head %}
-  {% endblock %}
+
+  {% include "css.html" %}
+  {% include "js.html" %}
 
   <title>VVAYNE</title>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Logo -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
 
-        {#            <a class= "navbar-brand" href="#" style="padding: 0">#}
-        {#                <img src="{% static '/images/sigil_icon_blue.png' %}" alt="sigil" width="50" height="50"></a>#}
+  {% block head %}
+    <link rel="stylesheet" href='{% static "css/base.css" %}'/>
+  {% endblock %}
 
-        <a class="nav navbar-brand" style="font-family:'Righteous', serif; color: #333">VVAYNE.CO</a>
+  <script>
+      $(".hover").mouseleave(
+          function () {
+              $(this).removeClass("hover");
+          }
+      );
+  </script>
 
-      </div>
-      <!-- Menu -->
-      <div class="collapse navbar-collapse" id="mainNavBar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/"><i class="fas fa-home fa-lg"></i></a></li>
-          <li><a href="{% url 'home:about' %}">About</a></li>
-          {% if request.user.is_authenticated %}
-            <li><a href="{% static 'docs/resume/resume.pdf' %}" TARGET="_blank">Rèsumè</a></li>
-          {% endif %}
-          <li><a href="{% url 'posts:list' %}">Blog {% if Pnew_posts == True %}
-            <span class="label label-default">New</span>{% endif %}</a></li>
+  <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark">
+  <a class="navbar-brand" href="#">VVAYNE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-          <!-- DropDownMenu -->
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              {% if not request.user.is_authenticated %}
-                <li style="text-align: left"><a href="{% url 'accounts:login' %}">
-                  <small style="color: #FF5A09"> Login/Register</small>
-                </a></li>
-              {% endif %}
-              <li><a href="{% url 'argent:index' %}">TRAVELSAVE</a></li>
-              <li><a href="{% url 'home:under_construction' %}">COIN <i class="fas fa-cogs" aria-hidden="true"></i></a>
-            </ul>
-          </li>
-        </ul>
-        <!-- right aligned menu -->
-        {% if request.user.is_staff or request.user.is_superuser %}
-          <ul class="nav navbar-nav navbar-right">
-            <li><a style="padding-right:0" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
-            <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span
-                class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
-          </ul>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><i class="fas fa-home fa-lg"></i></a>
+      </li>
 
-        {% elif request.user.is_authenticated %}
-          <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home:about' %}">About</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'posts:list' %}">Blog {% if new_posts == True %}
+            <span class="label label-default">New</span>{% endif %}</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Apps
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'scrape:create' %}">SCRAPE</a>
+          <a class="dropdown-item" href="{% url 'argent:index' %}">TRAVELOG</a>
+          <a class="dropdown-item" href="{% url 'home:under_construction' %}">DEV <i class="fas fa-cogs" aria-hidden="true"></i></a>
+{#          <a class="dropdown-item" href="#">Another action</a>#}
+          <div class="dropdown-divider"></div>
+{#          <a class="dropdown-item" href="#">Seriously</a>#}
+        </div>
+      </li>
+    {% if request.user.is_staff or request.user.is_superuser %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i></a></li>
+    {% elif request.user.is_authenticated %}
             <li class="username">{{ request.user.username }}</li>
-            <li><a style="padding-left: 5px" href="{% url 'accounts:logout' %}"><span
-                class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</a></li>
-          </ul>
-
-        {% else %}
-          <ul class="nav navbar-nav navbar-right">
-            <li><a style="padding-left: 5px" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in"
-                                                                                     aria-hidden="true"></span>
-              Login</a></li>
-          </ul>
-        {% endif %}
-
-      </div>
-    </div>
-  </nav>
+            <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i></a></li>
+    {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a></li>
+    {% endif %}
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<br/>
 </head>
 
 <body>
@@ -94,13 +82,6 @@
 
 {% block content %}
 {% endblock %}
-<script>
-    $(document).ready(function () {
-        {% block jquery %}
-        {% endblock %}
-    })
-</script>
+
 </body>
-
 </html>
-

@@ -179,7 +179,7 @@
 
 body {
 
-  background-color: #212121;
+  background-color: #18181E;
 
 }
 
@@ -247,6 +247,7 @@ li.post {
 .title {
     font-family: 'Nova Flat', serif;
     margin-top: 10px;
+    color: white;
 }
 
 .lead {
@@ -285,4 +286,9 @@ li.post {
 #register a:hover{
     color: #337ab7;
     text-decoration: none;
+}
+
+#title {
+    font-family: 'Nova Flat', sans-serif;
+    color: white;
 }

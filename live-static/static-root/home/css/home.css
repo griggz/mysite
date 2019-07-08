@@ -4,7 +4,7 @@
 
 body {
     padding-bottom: 40px;
-    color: #212121;
+    color: #18181E;
 }
 
 h1 {
@@ -25,7 +25,7 @@ h2 {
 body a {
 
     font-family: 'Nova Flat', serif;
-    color: #212121
+    color: #18181E;
 }
 
 .messages {
@@ -92,27 +92,27 @@ p.app_showcase {
 /* Carousel base class */
 .carousel-inner {
     margin-top: 0;
-    background: #212121;
+    background: #18181E;
 
 }
 
 .carousel-inner .item {
     height: 400px;
     background-size: cover;
-    background: #212121 no-repeat 0 52%;
+    background: #18181E no-repeat 0 52%;
     background-blend-mode: multiply;
 }
 
 .carousel-inner .item:nth-child(2) {
-    background-color: #212121;
+    background-color: #18181E;
 }
 
 .carousel-inner .item:nth-child(3) {
-    background-color: #212121;
+    background-color: #18181E;
 }
 
 .carousel-inner .item:nth-child(4) {
-    background-color: #212121;
+    background-color: #18181E;
 }
 
 .carousel-inner .item h1 {
@@ -122,20 +122,20 @@ p.app_showcase {
     top: 60%;
     left: 0;
     right: 0;
-    background: #212121
+    background: #18181E;
 }
 
 .carousel-inner .item:nth-child(4) h1 {
     text-decoration: underline;
-    background: #212121
+    background: #18181E;
 }
 
 .left {
-    background: #212121;
+    background: #18181E;
 }
 
 .right {
-    background: #212121;
+    background: #18181E;
 }
 
 a.emphasis:hover {

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block head %}
+  <link rel="stylesheet" href='{% static "scrape/css/scrape.css" %}'/>
+{% endblock %}
+
+{% block content %}
+    <!-- Entry List -->
+    <div class="container-fluid">
+        <br/>
+        <h1>{{ title }} <a style="float: right" href="{% url 'scrape:create' %}" class="btn btn-success" role="button">New Scrape</a></h1>
+        <div class="row">
+            <div class="col-lg-12">
+                {% for obj in object_list %}
+                    <td class="dash"><b>{{ obj.author }}</b> | </td>
+                    <td class="dash"><b>{{ obj.date }}</b> | </td>
+                    <td class="dash"><b>{{ obj.rating }}</b></td>
+                    <p class="dash">{{ obj.review }}</p>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+        <ul class="pagination">
+                {% if object_list.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+                </li>
+                {% endif %}
+
+                {% if object_list.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+                </li>
+                {% endif %}
+            </ul>
+        <span class="current">Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}</span>
+    </div>
+
+    <br/>
+
+{% endblock %}
