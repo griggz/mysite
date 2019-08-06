@@ -55,3 +55,25 @@ small {
     color: white;
     padding-left: 0;
 }
+
+.btn {
+
+     font-family: 'Nova Flat', serif;
+}
+
+.jumbotron {
+    font-family: 'Nova Flat', serif;
+    color: #18181E;
+}
+
+#enhance {
+    font-weight: bold;
+}
+
+.lead {
+    font-family: 'Nunito', sans-serif;
+}
+
+#react-loader {
+    text-align: center;
+}

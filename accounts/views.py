@@ -36,7 +36,7 @@ def register_view(request):
         user.save()
 
         # Email User
-        subject = 'VVAYNE.CO Registration'
+        subject = 'vvayne.io Registration'
         from_email = settings.EMAIL_HOST_USER
         to_email = user_email
         message = 'Thank You For Registering!'
@@ -46,20 +46,20 @@ def register_view(request):
             from_email,
             [to_email],
             fail_silently=False,
-            html_message='<p>Thank you for registering with <a href="https://www.vvayne.co">vvayne.co</a>! If you have any questions, wish to know more about my background, or find a bug, <br />'
-                         'contact me anytime at wayne@vvayne.co. <br/>'
+            html_message='<p>Thank you for registering with <a href="https://www.vvayne.io">vvayne.io</a>! If you have any questions, wish to know more about my background, or find a bug, <br />'
+                         'contact me anytime at wayne@vvayne.io. <br/>'
                          '<br/ >'
                          'Regards,<br />' 
                          '<br />'   
                          'Wayne Grigsby <br />'
-                         'wayne@vvayne.co <br />'
-                         '<a href="https://www.vvayne.co">vvayne.co</a></p>'
+                         'wayne@vvayne.io <br />'
+                         '<a href="https://www.vvayne.io">vvayne.io</a></p>'
         )
         send_mail(
             'New Registration',
             'New user created!',
             from_email,
-            ['wayne@vvayne.co'],
+            ['wayne@vvayne.io'],
             fail_silently=False,
         )
         messages.success(request, "Thank you for registering!")

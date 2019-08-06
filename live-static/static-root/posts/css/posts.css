@@ -43,7 +43,13 @@
     pre {
         font-size: 16px;
     }
-
+    .card-body {
+        padding: .75rem;
+    }
+    #shareIcons img {
+        width: 35px;
+        height: 35px
+    }
 }
 
 @media screen and (max-width: 992px) {
@@ -87,6 +93,14 @@
     pre {
         font-size: 16px;
     }
+    .card-body {
+        padding: .75rem;
+    }
+    #shareIcons img {
+        width: 25px;
+        height: 25px
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -104,7 +118,7 @@
         font-size: medium;
     }
     .title {
-        font-size: 32px;
+        font-size: 30px;
     }
     .author {
         font-size: small;
@@ -130,6 +144,14 @@
     pre {
         font-size: 12px;
     }
+    .card-body {
+        padding: .50rem;
+    }
+
+    #shareIcons img {
+        width: 25px;
+        height: 25px
+    }
 
 }
 
@@ -148,7 +170,7 @@
         font-size: small;
     }
     .title {
-        font-size: 30px;
+        font-size: 26px;
     }
     .author {
         font-size: small;
@@ -174,6 +196,14 @@
     pre {
         font-size: 8px;
     }
+    .card-body {
+        padding: .25rem;
+    }
+    #shareIcons img{
+        width: 15px;
+        height: 15px;
+
+    }
 
 }
 
@@ -189,9 +219,7 @@ h1 {
 }
 
 p {
-
     font-family: 'Nunito', sans-serif;
-
 }
 
 h2 {
@@ -291,4 +319,24 @@ li.post {
 #title {
     font-family: 'Nova Flat', sans-serif;
     color: white;
+}
+
+#alt {
+    color: white;
+}
+
+pre {
+    color: whitesmoke;
+    font-family: Monaco, serif;
+    background: #23232c;
+}
+
+#posts-lists-sidebar a{
+    /*color: white;*/
+    font-size: 16px;
+}
+
+#shareIconsContainer {
+    float: right;
+    line-height: 50%
 }

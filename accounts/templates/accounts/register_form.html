@@ -4,46 +4,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {#css#}
-    {% include 'css.html' %}
-    {% include 'bootstrap_defaults.html' %}
-{#    <link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">#}
-    {#js#}
-    {% include 'js.html' %}
-    {#staticfiles#}
-    <link rel="stylesheet" href='{% static 'accounts/css/login.css' %}'/>
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
-    {% block header %}
-    {% endblock %}
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {#css#}
+  {% include 'css.html' %}
+  {#js#}
+  {#staticfiles#}
+  <link rel="stylesheet" href='{% static 'accounts/css/login.css' %}'/>
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
+  <title>vvayne.io | Register</title>
 </head>
-<body>
 
-{% block content %}
-<div class="page-header">
-    <img src="{% static 'images/wg_logo2.png' %}" alt="sigil" width="40" height="40" />
-    <h1 class="header_title">VVAYNE.CO</h1>
-</div>
-{% if messages %}<h1 style="color: black">{% include "posts/messages_display.html" %}</h1>{% endif %}
-<div class="login-page">
-    <h2 class="login-header">Register</h2>
-    <div class="form">
-        <form class="login-form" method="post">
-            {% csrf_token %}
-            {{ form|crispy }}
-          <button type="submit"><span class="glyphicon glyphicon-pencil"></span> Register</button>
-          <p class="message">Already registered? <a href="{% url 'accounts:login' %}">Login</a></p>
-          <p class="message">Forgot your password? <a href="{% url 'accounts:reset_password' %}">Reset your password</a></p>
-        </form>
+<body>
+<div class="card rounded-0" style="width: 30rem;">
+  <h1 id="hook">vvayne.io</h1>
+  <div class="card-body d-flex flex-column text-center">
+    <form class="login-form" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-primary btn-lg rounded-0"><i
+          class="fas fa-pencil-alt fa-lg"></i> Sign Up
+      </button>
+    </form>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group d-flex" role="group">
+      <a class="btn-block btn-secondary rounded-0" id="go-back"
+         href="{% url 'home:landing' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12"
+             height="12px" width="6px">
+          <g fill-rule="evenodd" fill="#333333">
+            <polygon points="0 12 0 0 6 6 0 12"></polygon>
+          </g>
+        </svg>
+        Go Back
+      </a>
+      <a class="btn-block btn-secondary rounded-0" id="register"
+         href="{% url 'accounts:login' %}">
+        Already Registered? Log In
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12"
+             height="12px" width="6px">
+          <g fill-rule="evenodd" fill="#333333">
+            <polygon points="0 12 0 0 6 6 0 12"></polygon>
+          </g>
+        </svg>
+      </a>
     </div>
+  </div>
 </div>
-<div class="page-footer">
-    <h1 class="footer-options"><a href="{% url 'home:about' %}">ABOUT</a> | <a href="{% url 'posts:list' %}">BLOG</a></h1>
-    <h1 class="footer-options-extra"><a href="{% url "home:feedback" %}" role="button">HELP</a></h1>
-</div>
-{% endblock %}
+<br/>
+{% include 'js.html' %}
 </body>
+</html>

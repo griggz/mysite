@@ -9,7 +9,7 @@ class YelpAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},
     }
-    list_display = ['id', 'business_name', "scrape_date", "id"]
+    list_display = ['id', 'business_name', "scrape_date", "id", 'slug']
     list_filter = ["scrape_date"]
     search_fields = ["business_name"]
     form = YelpForm
@@ -25,9 +25,9 @@ class ResultsAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},
     }
-    list_display = ['yelp_id', "author", "date", 'rating', 'review']
-    list_filter = ["yelp_id"]
-    search_fields = ["yelp_id"]
+    list_display = ['business', "author", "date", 'rating', 'review']
+    list_filter = ["business"]
+    search_fields = ["business"]
 
     class Meta:
         model = Results

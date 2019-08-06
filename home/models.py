@@ -6,6 +6,9 @@ from django.utils.safestring import mark_safe
 
 # Create your models here.
 class Feedback(models.Model):
+    name = models.CharField(max_length=120, null=True, blank=True)
+    email = models.EmailField(max_length=254, null=True, blank=False)
+    phone_number = models.CharField(max_length=120, null=True, blank=True)
     comments = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 

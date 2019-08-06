@@ -9,16 +9,7 @@ from django.conf import settings
 # Create your views here.
 
 
-class HomeView(View):
-
-    def get(self, request, *args, **kwargs):
-        context = {
-            "new_posts": new_posts()
-        }
-        return render(request, "home/home.html", context)
-
-
-def feedback(request):
+def HomeView(request):
     form = FeedbackForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         user_feedback = form.cleaned_data.get("comments")
@@ -32,13 +23,13 @@ def feedback(request):
             'Feedback Submitted!',
             user_feedback,
             from_email,
-            ['wayne@vvayne.co'],
+            ['wayne@vvayne.io'],
             fail_silently=False,
         )
 
-        messages.success(request, "Your feedback has been submitted!")
+        messages.success(request, "Submitted!")
         if not request.user.is_authenticated:
-            return redirect('accounts:login')
+            return redirect('home:landing')
         else:
             return redirect('home:landing')
 
@@ -46,7 +37,7 @@ def feedback(request):
         "title": "Feedback",
         "form": form,
     }
-    return render(request, "home/feedback_form.html", context)
+    return render(request, "home/home.html", context)
 
 
 def about(request):
@@ -67,5 +58,9 @@ def about(request):
 
 def under_construction(request):
     return render(request, "home/under_construction.html")
+
+
+def under_development(request):
+    return render(request, "home/under_development.html")
 
 

@@ -9,8 +9,11 @@
 {% block content %}
     <!-- Entry List -->
     <div class="container-fluid">
+      <a href="{% url 'scrape-api:create' %}" class="btn btn-success" role="button">New Scrape</a>
+    </div>
+    <div class="container-fluid">
         <br/>
-        <h1>{{ title }} <a style="float: right" href="{% url 'scrape:create' %}" class="btn btn-success" role="button">New Scrape</a></h1>
+        <h1>{{ title }}</h1>
         <div class="row">
             <div class="col-lg-12">
                 {% for obj in object_list %}
@@ -18,7 +21,7 @@
                     <td class="dash"><b>{{ obj.date }}</b> | </td>
                     <td class="dash"><b>{{ obj.rating }}</b></td>
                     <p class="dash">{{ obj.review }}</p>
-                    <hr>
+                    <hr style="border-color: white">
                 {% endfor %}
             </div>
         </div>

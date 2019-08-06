@@ -6,13 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="stylesheet" href='{% static "css/base.css" %}'/>
   {% include "css.html" %}
-  {% include "js.html" %}
 
   <title>VVAYNE</title>
 
   {% block head %}
-    <link rel="stylesheet" href='{% static "css/base.css" %}'/>
   {% endblock %}
 
   <script>
@@ -23,7 +22,7 @@
       );
   </script>
 
-  <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark" style="font-family: 'Nova Flat', 'serif'">
   <a class="navbar-brand" href="#">VVAYNE</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -40,7 +39,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'posts:list' %}">Blog {% if new_posts == True %}
+        <a class="nav-link" href="{% url 'posts-list' %}">Blog {% if new_posts == True %}
             <span class="label label-default">New</span>{% endif %}</a>
       </li>
       <li class="nav-item dropdown">
@@ -48,11 +47,11 @@
           Apps
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'scrape:create' %}">SCRAPE</a>
+          <a class="dropdown-item" href="{% url 'scrape-list' %}">SCRAPE</a>
           <a class="dropdown-item" href="{% url 'argent:index' %}">TRAVELOG</a>
-          <a class="dropdown-item" href="{% url 'home:under_construction' %}">DEV <i class="fas fa-cogs" aria-hidden="true"></i></a>
 {#          <a class="dropdown-item" href="#">Another action</a>#}
           <div class="dropdown-divider"></div>
+           <a class="dropdown-item" href="{% url 'home:under_construction' %}">DEV <i class="fas fa-cogs" aria-hidden="true"></i></a>
 {#          <a class="dropdown-item" href="#">Seriously</a>#}
         </div>
       </li>
@@ -61,7 +60,8 @@
             <a class="nav-link" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
         <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i></a></li>
     {% elif request.user.is_authenticated %}
-            <li class="username">{{ request.user.username }}</li>
+           <li class="nav-item" style="color: white;">
+            <li class="nav-link"> {{ request.user.username }}</li>
             <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i></a></li>
     {% else %}
             <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a></li>
@@ -75,13 +75,12 @@
 </nav>
 <br/>
 </head>
-
 <body>
 {% block title %}
 {% endblock %}
 
 {% block content %}
 {% endblock %}
-
+{% include "js.html" %}
 </body>
 </html>

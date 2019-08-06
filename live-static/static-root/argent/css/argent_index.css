@@ -312,12 +312,14 @@
         color: #337ab7;
         font-family: 'Andale Mono', AndaleMono, monospace ;
         text-decoration: underline;
+        text-align: left
 
     }
 
     th.th-jumbo {
         color: #337ab7;
         font-family: 'Andale Mono', AndaleMono, monospace;
+        text-align: left
 
     }
 

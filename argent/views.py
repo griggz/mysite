@@ -2,7 +2,6 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
 from .forms import EntryForm
 from django.db.models import Sum
-from datetime import datetime
 from .models import Entry, Savings, MonthYear
 
 """DAILY SPENDING TRACKER 1.0: This function accepts your daily financial
@@ -11,14 +10,12 @@ in to its corresponding database."""
 
 
 class IndexView(generic.ListView):
-
     template_name = 'argent/index.html'
 
     def get_queryset(self):
         return Entry.objects.all()
 
     def get_context_data(self, **kwargs):
-
         # today_date = datetime.now()
 
         ctx = super(IndexView, self).get_context_data(**kwargs)
@@ -111,86 +108,114 @@ class EntryCreate(CreateView):
 
             q_month = qsm_list.pop()
 
-            sum_spending = Entry.objects.filter(date__month=q_month).filter(date__year=qsy).aggregate(s=Sum('spending_sum')).get('s')
+            sum_spending = Entry.objects.filter(date__month=q_month).filter(
+                date__year=qsy).aggregate(s=Sum('spending_sum')).get('s')
             sum_spending_f = "{0:.2f}".format(sum_spending)
 
-            sum_dollars = Entry.objects.filter(date__month=q_month).filter(date__year=qsy).aggregate(s=Sum('dollars_sum')).get('s')
+            sum_dollars = Entry.objects.filter(date__month=q_month).filter(
+                date__year=qsy).aggregate(s=Sum('dollars_sum')).get('s')
             sum_dollars_f = "{0:.2f}".format(sum_dollars)
 
-            sum_savings = Entry.objects.filter(date__month=q_month).filter(date__year=qsy).aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_savings = Entry.objects.filter(date__month=q_month).filter(
+                date__year=qsy).aggregate(s=Sum('daily_savings_dollars')).get(
+                's')
             sum_savings_f = "{0:.2f}".format(sum_savings)
 
-            sum_savings = Entry.objects.filter(date__month=q_month).filter(date__year=qsy).aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_savings = Entry.objects.filter(date__month=q_month).filter(
+                date__year=qsy).aggregate(s=Sum('daily_savings_dollars')).get(
+                's')
             absolute = abs(sum_savings)
             sum_abs_savings = "{0:.2f}".format(absolute)
 
-            MonthYear.objects.filter(id=qsv).update(total_spent=sum_spending_f, total_spent_dollars=sum_dollars_f, total_savings=sum_savings_f, total_savings_display=sum_abs_savings)
+            MonthYear.objects.filter(id=qsv).update(total_spent=sum_spending_f,
+                                                    total_spent_dollars=sum_dollars_f,
+                                                    total_savings=sum_savings_f,
+                                                    total_savings_display=sum_abs_savings)
 
             """FIELDS BELOW RELATED TO 'SAVINGS' MODEL AND AGGREGATE GRAND TOTALS"""
             # total_spending_spent
-            sum_spending = Entry.objects.aggregate(s=Sum('spending_sum')).get('s')
+            sum_spending = Entry.objects.aggregate(s=Sum('spending_sum')).get(
+                's')
             sum_spending_f = "{0:.2f}".format(sum_spending)
 
             # total_dollars_spent
-            sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get('s')
+            sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get(
+                's')
             sum_dollars_f = "{0:.2f}".format(sum_dollars)
 
             # total_sum
-            sum_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_savings = Entry.objects.aggregate(
+                s=Sum('daily_savings_dollars')).get('s')
             sum_format = "{0:.2f}".format(sum_savings)
 
             # total_sum_format
-            sum_abs_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_abs_savings = Entry.objects.aggregate(
+                s=Sum('daily_savings_dollars')).get('s')
             absolute = abs(sum_abs_savings)
             sum_abs = "{0:.2f}".format(absolute)
 
-            Savings.objects.filter(id=2).update(total_savings=sum_format, total_savings_display=sum_abs,
-                                                total_spent_dollars=sum_dollars_f, total_spent=sum_spending_f)
+            Savings.objects.filter(id=2).update(total_savings=sum_format,
+                                                total_savings_display=sum_abs,
+                                                total_spent_dollars=sum_dollars_f,
+                                                total_spent=sum_spending_f)
 
             return super(EntryCreate, self).form_valid(form)
 
         else:
 
-            sum_spending = Entry.objects.filter(date__month=e_month_d).filter(date__year=qsy).aggregate(
+            sum_spending = Entry.objects.filter(date__month=e_month_d).filter(
+                date__year=qsy).aggregate(
                 s=Sum('spending_sum')).get('s')
             sum_spending_f = "{0:.2f}".format(sum_spending)
 
-            sum_dollars = Entry.objects.filter(date__month=e_month_d).filter(date__year=qsy).aggregate(
+            sum_dollars = Entry.objects.filter(date__month=e_month_d).filter(
+                date__year=qsy).aggregate(
                 s=Sum('dollars_sum')).get('s')
             sum_dollars_f = "{0:.2f}".format(sum_dollars)
 
-            sum_savings = Entry.objects.filter(date__month=e_month_d).filter(date__year=qsy).aggregate(
+            sum_savings = Entry.objects.filter(date__month=e_month_d).filter(
+                date__year=qsy).aggregate(
                 s=Sum('daily_savings_dollars')).get('s')
             sum_savings_f = "{0:.2f}".format(sum_savings)
 
-            sum_savings = Entry.objects.filter(date__month=e_month_d).filter(date__year=qsy).aggregate(
+            sum_savings = Entry.objects.filter(date__month=e_month_d).filter(
+                date__year=qsy).aggregate(
                 s=Sum('daily_savings_dollars')).get('s')
             absolute = abs(sum_savings)
             sum_abs_savings = "{0:.2f}".format(absolute)
 
-            MonthYear.objects.create(month=qsm, year=qsy, total_spent=sum_spending_f, total_spent_dollars=sum_dollars_f,
-                                     total_savings=sum_savings_f, total_savings_display=sum_abs_savings)
+            MonthYear.objects.create(month=qsm, year=qsy,
+                                     total_spent=sum_spending_f,
+                                     total_spent_dollars=sum_dollars_f,
+                                     total_savings=sum_savings_f,
+                                     total_savings_display=sum_abs_savings)
 
             """FIELDS BELOW RELATED TO 'SAVINGS' MODEL AND AGGREGATE GRAND TOTALS"""
             # total_spending_spent
-            sum_spending = Entry.objects.aggregate(s=Sum('spending_sum')).get('s')
+            sum_spending = Entry.objects.aggregate(s=Sum('spending_sum')).get(
+                's')
             sum_spending_f = "{0:.2f}".format(sum_spending)
 
             # total_dollars_spent
-            sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get('s')
+            sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get(
+                's')
             sum_dollars_f = "{0:.2f}".format(sum_dollars)
 
             # total_sum
-            sum_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_savings = Entry.objects.aggregate(
+                s=Sum('daily_savings_dollars')).get('s')
             sum_format = "{0:.2f}".format(sum_savings)
 
             # total_sum_format
-            sum_abs_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_abs_savings = Entry.objects.aggregate(
+                s=Sum('daily_savings_dollars')).get('s')
             absolute = abs(sum_abs_savings)
             sum_abs = "{0:.2f}".format(absolute)
 
-            Savings.objects.filter(id=2).update(total_savings=sum_format, total_savings_display=sum_abs,
-                                                total_spent_dollars=sum_dollars_f, total_spent=sum_spending_f)
+            Savings.objects.filter(id=2).update(total_savings=sum_format,
+                                                total_savings_display=sum_abs,
+                                                total_spent_dollars=sum_dollars_f,
+                                                total_spent=sum_spending_f)
 
             return super(EntryCreate, self).form_valid(form)
 
@@ -240,86 +265,114 @@ class EntryUpdate(UpdateView):
 
             q_month = qsm_list.pop()
 
-            sum_spending = Entry.objects.filter(date__month=q_month).filter(date__year=qsy).aggregate(s=Sum('spending_sum')).get('s')
+            sum_spending = Entry.objects.filter(date__month=q_month).filter(
+                date__year=qsy).aggregate(s=Sum('spending_sum')).get('s')
             sum_spending_f = "{0:.2f}".format(sum_spending)
 
-            sum_dollars = Entry.objects.filter(date__month=q_month).filter(date__year=qsy).aggregate(s=Sum('dollars_sum')).get('s')
+            sum_dollars = Entry.objects.filter(date__month=q_month).filter(
+                date__year=qsy).aggregate(s=Sum('dollars_sum')).get('s')
             sum_dollars_f = "{0:.2f}".format(sum_dollars)
 
-            sum_savings = Entry.objects.filter(date__month=q_month).filter(date__year=qsy).aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_savings = Entry.objects.filter(date__month=q_month).filter(
+                date__year=qsy).aggregate(s=Sum('daily_savings_dollars')).get(
+                's')
             sum_savings_f = "{0:.2f}".format(sum_savings)
 
-            sum_savings = Entry.objects.filter(date__month=q_month).filter(date__year=qsy).aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_savings = Entry.objects.filter(date__month=q_month).filter(
+                date__year=qsy).aggregate(s=Sum('daily_savings_dollars')).get(
+                's')
             absolute = abs(sum_savings)
             sum_abs_savings = "{0:.2f}".format(absolute)
 
-            MonthYear.objects.filter(id=qsv).update(total_spent=sum_spending_f, total_spent_dollars=sum_dollars_f, total_savings=sum_savings_f, total_savings_display=sum_abs_savings)
+            MonthYear.objects.filter(id=qsv).update(total_spent=sum_spending_f,
+                                                    total_spent_dollars=sum_dollars_f,
+                                                    total_savings=sum_savings_f,
+                                                    total_savings_display=sum_abs_savings)
 
             """FIELDS BELOW RELATED TO 'SAVINGS' MODEL AND AGGREGATE GRAND TOTALS"""
             # total_spending
-            sum_spending = Entry.objects.aggregate(s=Sum('spending_sum')).get('s')
+            sum_spending = Entry.objects.aggregate(s=Sum('spending_sum')).get(
+                's')
             sum_spending_f = "{0:.2f}".format(sum_spending)
 
             # total_dollars_spent
-            sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get('s')
+            sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get(
+                's')
             sum_dollars_f = "{0:.2f}".format(sum_dollars)
 
             # total_sum
-            sum_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_savings = Entry.objects.aggregate(
+                s=Sum('daily_savings_dollars')).get('s')
             sum_format = "{0:.2f}".format(sum_savings)
 
             # total_sum_format
-            sum_abs_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_abs_savings = Entry.objects.aggregate(
+                s=Sum('daily_savings_dollars')).get('s')
             absolute = abs(sum_abs_savings)
             sum_abs = "{0:.2f}".format(absolute)
 
-            Savings.objects.filter(id=2).update(total_savings=sum_format, total_savings_display=sum_abs,
-                                                total_spent_dollars=sum_dollars_f, total_spent=sum_spending_f)
+            Savings.objects.filter(id=2).update(total_savings=sum_format,
+                                                total_savings_display=sum_abs,
+                                                total_spent_dollars=sum_dollars_f,
+                                                total_spent=sum_spending_f)
 
             return super(EntryUpdate, self).form_valid(form)
 
         else:
             """FIELDS BELOW RELATED TO THE MONTH/YEAR MODEL AND AGGREGATE MONTHLY TOTALS"""
-            sum_spending = Entry.objects.filter(date__month=e_month_d).filter(date__year=qsy).aggregate(
+            sum_spending = Entry.objects.filter(date__month=e_month_d).filter(
+                date__year=qsy).aggregate(
                 s=Sum('spending_sum')).get('s')
             sum_spending_f = "{0:.2f}".format(sum_spending)
 
-            sum_dollars = Entry.objects.filter(date__month=e_month_d).filter(date__year=qsy).aggregate(
+            sum_dollars = Entry.objects.filter(date__month=e_month_d).filter(
+                date__year=qsy).aggregate(
                 s=Sum('dollars_sum')).get('s')
             sum_dollars_f = "{0:.2f}".format(sum_dollars)
 
-            sum_savings = Entry.objects.filter(date__month=e_month_d).filter(date__year=qsy).aggregate(
+            sum_savings = Entry.objects.filter(date__month=e_month_d).filter(
+                date__year=qsy).aggregate(
                 s=Sum('daily_savings_dollars')).get('s')
             sum_savings_f = "{0:.2f}".format(sum_savings)
 
-            sum_savings = Entry.objects.filter(date__month=e_month_d).filter(date__year=qsy).aggregate(
+            sum_savings = Entry.objects.filter(date__month=e_month_d).filter(
+                date__year=qsy).aggregate(
                 s=Sum('daily_savings_dollars')).get('s')
             absolute = abs(sum_savings)
             sum_abs_savings = "{0:.2f}".format(absolute)
 
-            MonthYear.objects.create(month=qsm, year=qsy, total_spent=sum_spending_f, total_spent_dollars=sum_dollars_f,
-                                     total_savings=sum_savings_f, total_savings_display=sum_abs_savings)
+            MonthYear.objects.create(month=qsm, year=qsy,
+                                     total_spent=sum_spending_f,
+                                     total_spent_dollars=sum_dollars_f,
+                                     total_savings=sum_savings_f,
+                                     total_savings_display=sum_abs_savings)
 
             """FIELDS BELOW RELATED TO 'SAVINGS' MODEL AND AGGREGATE GRAND TOTALS"""
             # total_spending
-            sum_spending = Entry.objects.aggregate(s=Sum('spending_sum')).get('s')
+            sum_spending = Entry.objects.aggregate(s=Sum('spending_sum')).get(
+                's')
             sum_spending_f = "{0:.2f}".format(sum_spending)
 
             # total_dollars_spent
-            sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get('s')
+            sum_dollars = Entry.objects.aggregate(s=Sum('dollars_sum')).get(
+                's')
             sum_dollars_f = "{0:.2f}".format(sum_dollars)
 
             # total_sum
-            sum_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_savings = Entry.objects.aggregate(
+                s=Sum('daily_savings_dollars')).get('s')
             sum_format = "{0:.2f}".format(sum_savings)
 
             # total_sum_format
-            sum_abs_savings = Entry.objects.aggregate(s=Sum('daily_savings_dollars')).get('s')
+            sum_abs_savings = Entry.objects.aggregate(
+                s=Sum('daily_savings_dollars')).get('s')
             absolute = abs(sum_abs_savings)
             sum_abs = "{0:.2f}".format(absolute)
 
-            Savings.objects.filter(id=2).update(total_savings=sum_format, total_savings_display=sum_abs,
-                                                total_spent_dollars=sum_dollars_f, total_spent=sum_spending_f)
+            Savings.objects.filter(id=2).update(total_savings=sum_format,
+                                                total_savings_display=sum_abs,
+                                                total_spent_dollars=sum_dollars_f,
+                                                total_spent=sum_spending_f)
 
             return super(EntryUpdate, self).form_valid(form)
 
@@ -338,7 +391,6 @@ class EntryListView(generic.ListView):
         ctx = super(EntryListView, self).get_context_data(**kwargs)
         ctx['month'] = month
         ctx['savings'] = savings_qs
-
         # January
         if month == 'January':
             ctx['January17_qs'] = Entry.objects.filter(date__range=('2017-1-1', '2017-1-31'))
@@ -349,52 +401,57 @@ class EntryListView(generic.ListView):
 
         # March
         elif month == 'March':
-            ctx['March17_qs'] = Entry.objects.filter(date__range=('2017-3-1', '2017-3-31'))
+            ctx['March17_qs'] = Entry.objects.filter(
+                date__range=('2017-3-1', '2017-3-31'))
 
         # April
         elif month == 'April':
-            ctx['April17_qs'] = Entry.objects.filter(date__range=('2017-4-1', '2017-4-30'))
+            ctx['April17_qs'] = Entry.objects.filter(
+                date__range=('2017-4-1', '2017-4-30'))
 
         # May
         elif month == 'May':
-            ctx['May17_qs'] = Entry.objects.filter(date__range=('2017-5-1', '2017-5-31'))
+            ctx['May17_qs'] = Entry.objects.filter(
+                date__range=('2017-5-1', '2017-5-31'))
 
         # June
         elif month == 'June':
-            ctx['June17_qs'] = Entry.objects.filter(date__range=('2017-6-1', '2017-6-30'))
+            ctx['June17_qs'] = Entry.objects.filter(
+                date__range=('2017-6-1', '2017-6-30'))
             ctx['june17_sav'] = MonthYear.objects.filter(month='June')
 
         # July
         elif month == 'July':
-            ctx['July17_qs'] = Entry.objects.filter(date__range=('2017-7-1', '2017-7-31'))
+            ctx['July17_qs'] = Entry.objects.filter(
+                date__range=('2017-7-1', '2017-7-31'))
 
         # August
         elif month == 'August':
-            ctx['August17_qs'] = Entry.objects.filter(date__range=('2017-8-1', '2017-8-31'))
+            ctx['August17_qs'] = Entry.objects.filter(
+                date__range=('2017-8-1', '2017-8-31'))
 
         # September
         elif month == 'September':
-            ctx['September17_qs'] = Entry.objects.filter(date__range=('2017-9-1', '2017-9-30'))
+            ctx['September17_qs'] = Entry.objects.filter(
+                date__range=('2017-9-1', '2017-9-30'))
 
         # October
         elif month == 'October':
-            ctx['October17_qs'] = Entry.objects.filter(date__range=('2017-10-1', '2017-10-31'))
+            ctx['October17_qs'] = Entry.objects.filter(
+                date__range=('2017-10-1', '2017-10-31'))
 
         # November
         elif month == 'November':
-            ctx['November16_qs'] = Entry.objects.filter(date__range=('2016-11-1', '2016-11-30'))
+            ctx['November16_qs'] = Entry.objects.filter(
+                date__range=('2016-11-1', '2016-11-30'))
 
         # December
         elif month == 'December':
-            ctx['December16_qs'] = Entry.objects.filter(date__range=('2016-12-1', '2016-12-31'))
+            ctx['December16_qs'] = Entry.objects.filter(
+                date__range=('2016-12-1', '2016-12-31'))
 
         else:
 
             pass
 
         return ctx
-
-    # def get_context_data(self, **kwargs):
-    #     context = super(ArticleListView, self).get_context_data(**kwargs)
-    #     context['now'] = timezone.now()
-    #     return context

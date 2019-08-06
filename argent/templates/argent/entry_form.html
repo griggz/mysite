@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_alt.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
 {% block head %}
@@ -11,7 +11,7 @@
     <div class="col-sm-6 col-md-6">
         <a href="{% url 'argent:index' %}">
             <button type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-dashboard"></span>&nbsp;DASH
+                <i class="fas fa-tachometer-alt"></i> DASH
             </button>
         </a>
         <h1>Entry</h1>
@@ -26,7 +26,7 @@
                 <form method="post" class="uniForm">
                     {% csrf_token %}
                     {% include 'argent/includes/form-template.html' %}
-                    {% if entry %}<input class='btn btn-primary' type="Submit" value="SUBMIT" align="right" />{% endif %}
+                    {% if entry %}<input class='btn btn-primary' type="button" value="SUBMIT" align="right" data-toggle="modal" data-target="#myModal"/>{% endif %}
                 </form>
                {% if not entry.date or entry.date > '2017-06-17' %} <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                     SUBMIT
@@ -40,7 +40,7 @@
                             <h1 id="demo_modal" class="modal-title">Demo Mode</h1>
                           </div>
                           <div class="modal-body">
-                            <h2 id="demo_modal">Womp Womp. This is only a demo...No new items can be added. Well, they can, I'm just not letting you add new items. Try editing existing items!.</h2>
+                            <h2 id="demo_modal">This is only a demo...I need the data to remain intact!</h2>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -52,4 +52,17 @@
         </div>
     <br/>
 {#{% include "spendingtracker/includes/htmlsnippet.html" %}#}
+{% endblock %}
+{% block jquery %}
+  $(document).ready(function () {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        var options = {
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true
+        };
+        date_input.datepicker(options);
+    });
 {% endblock %}

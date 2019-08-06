@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_alt.html" %}
 {% load static %}
 {% load humanize %}
 {% block head %}
@@ -6,15 +6,15 @@
 {% endblock %}
 
 {% block content %}
-
-  <div class="container" id="content">
+<div class="container">
+ <div class="container-fluid">
     <div class="alert alert-info" role="alert" style="margin-bottom: 10px">
-      <h3 style="margin: 2px"><a href="{% url 'posts:detail' 'travel-save' %}" class="alert-link"> Click here</a> to
+      <h3 style="margin: 2px"><a href="/posts/travel-save"  class="alert-link"> Click here</a> to
         learn more about this DEMO.</h3>
     </div>
     <a class="card-button" href="{% url 'argent:index' %}">
       <button type="button" class="btn btn-primary">
-        <span class="glyphicon glyphicon-dashboard"></span>&nbsp; DASH
+       <i class="fas fa-tachometer-alt"></i> DASH
       </button>
     </a>
 
@@ -207,10 +207,11 @@
     <br/>
     <a class="card-button" href="{% url 'argent:entry-add' %}">
       <button type="button" class="btn btn-primary">
-        <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
+        <i class="fas fa-plus"></i> NEW ENTRY
       </button>
     </a>
   </div>
+</div>
   <br/>
 
 {% endblock %}

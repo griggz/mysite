@@ -26,12 +26,12 @@ SECRET_KEY = 'check host location'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.vvayne.co', 'vvayne.co', 'wgsite.herokuapp.com']
+ALLOWED_HOSTS = ['www.vvayne.io', 'vvayne.io', 'wgsite.herokuapp.com']
 
 EMAIL_HOST = 'mail.name.com'
-EMAIL_HOST_USER = 'hello@vvayne.co'
-DEFAULT_FROM_EMAIL = 'hello@vvayne.co'
-EMAIL_HOST_PASSWORD = 'WCg7G0707!!'
+EMAIL_HOST_USER = 'wayne@vvayne.io'
+DEFAULT_FROM_EMAIL = 'wayne@vvayne.io'
+EMAIL_HOST_PASSWORD = 'LBbjH8Z7!7!'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'accounts',
     'posts',
     'comments',
+    'scrape'
 
 ]
 
@@ -94,7 +95,7 @@ LOGIN_EXEMPT_URLS = [
 ROOT_URLCONF = 'MySite.urls'
 ROOT_HOSTCONF = 'MySite.hosts'
 DEFAULT_HOST = 'www'
-DEFAULT_REDIRECT_URL = 'http://www.vvayne.co'
+DEFAULT_REDIRECT_URL = 'http://www.vvayne.io'
 
 
 TEMPLATES = [

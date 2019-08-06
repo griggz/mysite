@@ -2,3 +2,7 @@ button.btn-outline-success {
     border-color: white;
     color: white;
 }
+
+.navbar .navbar-expand-lg .navbar-inverse .navbar-dark {
+    font-family: "Nova Flat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}

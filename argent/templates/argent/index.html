@@ -1,28 +1,30 @@
-{% extends "base.html" %}
+{% extends "base_alt.html" %}
 {% load static %}
 {% load humanize %}
 
 {% block head %}
   <link rel="stylesheet" href='{% static 'argent/css/argent_index.css' %}'/>
-  <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-  <script type="text/javascript" src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script type="text/javascript" src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+  <script type="text/javascript"
+          src="https://code.highcharts.com/highcharts.js"></script>
+  <script type="text/javascript"
+          src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script type="text/javascript"
+          src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
 {% endblock %}
 
 {% block title %}
   <div class="container" id="content">
-      <div class="alert alert-info" role="alert">
-        <h3 style="margin: 2px"><a href="{% url 'posts:detail' 'travel-save' %}" class="alert-link"> Click here</a> to
-          learn more about this DEMO.</h3>
-      </div>
+    <div class="alert alert-info" role="alert">
+      <h3 style="margin: 2px"><a href="/posts/travel-save" class="alert-link"> Click here</a> to
+        learn more about this DEMO.</h3>
+    </div>
     <div class="jumbotron">
       {% if entry_qs %}
         {% for ctx in entry_qs %}
           <div class="jumbo-button" id="content">
             <a href="{% url 'argent:entry-update' ctx.id %}">
               <button type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-pencil"></span>&nbsp; UPDATE
+                <i class="fas fa-edit"></i>UPDATE
               </button>
             </a>
           </div>
@@ -103,11 +105,14 @@
                     <th class="th-jumbo-foot">Total Savings</th>
                   </tr>
                   <tr>
-                    <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                    <td class="td-jumbo-foot"> -
+                      ${{ ctx.total_spent_dollars|intcomma }}</td>
                     {% if ctx.total_savings  > 0 %}
-                      <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                      <td class="NegativeSavings">-
+                        ${{ ctx.total_savings_display|intcomma }}</td>
                     {% else %}
-                      <td class="PositiveSavings">+ ${{ ctx.total_savings_display|intcomma }}</td>
+                      <td class="PositiveSavings">+
+                        ${{ ctx.total_savings_display|intcomma }}</td>
                     {% endif %}
                   </tr>
                   </tbody>
@@ -117,20 +122,14 @@
           {% endif %}
           {% if ctx.dollars_sum < 87 %}
             <div class="progress">
-              <div class="progress-bar progress-bar-success" role="progressbar"
-                   aria-valuenow="{% if ctx.spending_sum > 0 %}{{ ctx.daily_savings_display }}{% else %}100{% endif %}"
-                   aria-valuemin="0" aria-valuemax="100" style="width: 100%">+${{ ctx.daily_savings_display }}
-                <span class="prog">...</span>
+              <div class="progress-bar" style="width:{% if ctx.spending_sum > 0 %}52%{% else %}100%{% endif %}">52%
               </div>
             </div>
-              <span id="update"></span>
-              <span id="done"></span>
+            <span id="update"></span>
+            <span id="done"></span>
           {% else %}
             <div class="progress">
-              <div class="progress-bar progress-bar-danger" role="progressbar"
-                   aria-valuenow="{% if ctx.spending_sum > 87 %}0{% endif %}" aria-valuemin="0" aria-valuemax="87%"
-                   style="width: 87%">-${{ ctx.daily_savings_display }}
-                <span class="prog">...</span>
+              <div class="progress-bar" style="width:100%">
               </div>
             </div>
           {% endif %}
@@ -141,7 +140,7 @@
           <h4 align="center">
             <a href="{% url 'argent:entry-add' %}">
               <button type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY
+                <i class="fas fa-pen-alt"></i>NEW ENTRY
               </button>
             </a>
           </h4>
@@ -155,20 +154,22 @@
     <br/>
     <div class="card-button"><a href="{% url 'argent:entry-add' %}">
       <button type="button" class="btn btn-primary">
-        <span class="glyphicon glyphicon-plus"></span>&nbsp; NEW ENTRY</button></a>
+        <i class="fas fa-edit"></i>NEW ENTRY
+      </button>
+    </a>
     </div>
   </div>
   <div class="container" id="content">
-  <br/>
+    <br/>
     <div id="chart" class="row" style="height: 250px; width:100%">
       <canvas id="myChart" width="100%" height="100%"></canvas>
     </div>
-{#    <div id="chart2" class="row">#}
-{#      <canvas id="myChart2" width="100%" height="5%"></canvas>#}
-{#    </div>#}
+    {#    <div id="chart2" class="row">#}
+    {#      <canvas id="myChart2" width="100%" height="5%"></canvas>#}
+    {#    </div>#}
     <script>
         {% block jquery %}
-            var endpoint = 'api/chart/data/';
+            var endpoint = 'api/';
             {#LAST 6 MONTHS#}
             var labels = [];
             var defaultData = [];
@@ -183,8 +184,6 @@
             var saved17_label = [];
             var spending17data = [];
             var savings17data = [];
-
-
             $.ajax({
                 method: "GET",
                 url: endpoint,
@@ -203,22 +202,17 @@
                     saved17_label = data.saved_label17;
                     spending17data = data.spending17;
                     savings17data = data.savings17;
-
                     setChart()
-
                 },
-
                 error: function (error_data) {
                     console.log("error");
                     console.log(error_data)
                 }
             });
-
             function setChart() {
                 var ctx = document.getElementById("myChart");
                 var ctx2 = document.getElementById("myChart2");
                 var myChart = new Chart(ctx, {
-
                     type: 'bar',
                     data: {
                         labels: labels,
@@ -232,7 +226,6 @@
                             data: defaultData2,
                             borderWidth: 4,
                             borderColor: 'green',
-
                             // Changes this dataset to become a line
                             type: 'line'
                         }]
@@ -240,9 +233,12 @@
                     options: {
                         maintainAspectRatio: false,
                         legend: {
-                            labels: {fontColor: "white", fontSize: 18, fontFamily: "Nunito"},
+                            labels: {
+                                fontColor: "white",
+                                fontSize: 18,
+                                fontFamily: "Nunito"
+                            },
                             display: false
-
                         },
                         title: {
                             display: false,
@@ -251,7 +247,6 @@
                             fontFamily: 'Nunito',
                             fontSize: 25
                         },
-
                         scales: {
                             xAxes: [{
                                 gridLines: {
@@ -269,18 +264,14 @@
                                     fontColor: "White",
                                     fontSize: 16,
                                     beginAtZero: true
-
                                 }
                             }]
                         }
                     }
                 })
             }
-
         {% endblock %}
     </script>
-
-{#  {% include "argent/charts2.0.html" %}#}
 
     <!-- Entry List By Month-->
     <div class="row" align="center">
@@ -298,12 +289,17 @@
             {% for ctx in June17_qs %}
               <tr>
                 <td class="dash">2017</td>
-                <td class="dash"><a class="dash" href="{% url 'argent:entry-list' 'June' %}">June</a></td>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                <td class="dash"><a class="dash"
+                                    href="{% url 'argent:entry-list' 'June' %}">June</a>
+                </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }}</td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -313,12 +309,17 @@
             {% for ctx in May17_qs %}
               <tr>
                 <td class="dash">2017</td>
-                <td class="dash"><a class="dash" href="{% url 'argent:entry-list' 'May' %}">May</a></td>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                <td class="dash"><a class="dash"
+                                    href="{% url 'argent:entry-list' 'May' %}">May</a>
+                </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }}</td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -328,12 +329,17 @@
             {% for ctx in April17_qs %}
               <tr>
                 <td class="dash">2017</td>
-                <td class="dash"><a class="dash" href="{% url 'argent:entry-list' 'April' %}">April</a></td>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                <td class="dash"><a class="dash"
+                                    href="{% url 'argent:entry-list' 'April' %}">April</a>
+                </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }}</td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -343,12 +349,17 @@
             {% for ctx in March17_qs %}
               <tr>
                 <td class="dash">2017</td>
-                <td class="dash"><a class="dash" href="{% url 'argent:entry-list' 'March' %}">March</a></td>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                <td class="dash"><a class="dash"
+                                    href="{% url 'argent:entry-list' 'March' %}">March</a>
+                </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }}</td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -358,12 +369,17 @@
             {% for ctx in February17_qs %}
               <tr>
                 <td class="dash">2017</td>
-                <td class="dash"><a class="dash" href="{% url 'argent:entry-list' 'February' %}">February</a></td>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                <td class="dash"><a class="dash"
+                                    href="{% url 'argent:entry-list' 'February' %}">February</a>
+                </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }}</td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -373,12 +389,17 @@
             {% for ctx in January17_qs %}
               <tr>
                 <td class="dash">2017</td>
-                <td class="dash"><a class="dash" href="{% url 'argent:entry-list' 'January' %}">January</a></td>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                <td class="dash"><a class="dash"
+                                    href="{% url 'argent:entry-list' 'January' %}">January</a>
+                </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }}</td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -388,12 +409,17 @@
             {% for ctx in December16_qs %}
               <tr>
                 <td class="dash">2016</td>
-                <td class="dash"><a class="dash" href="{% url 'argent:entry-list' 'December' %}">December</a></td>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                <td class="dash"><a class="dash"
+                                    href="{% url 'argent:entry-list' 'December' %}">December</a>
+                </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }}</td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -403,12 +429,17 @@
             {% for ctx in November16_qs %}
               <tr>
                 <td class="dash">2016</td>
-                <td class="dash"><a class="dash" href="{% url 'argent:entry-list' 'November' %}">November</a></td>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }}</td>
+                <td class="dash"><a class="dash"
+                                    href="{% url 'argent:entry-list' 'November' %}">November</a>
+                </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }}</td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
@@ -418,11 +449,14 @@
             {% for ctx in savings_qs %}
               <tr class="foot">
                 <th class="dash" colspan="2">TOTAL</th>
-                <td class="td-jumbo-foot"> - ${{ ctx.total_spent_dollars|intcomma }} </td>
+                <td class="td-jumbo-foot"> -
+                  ${{ ctx.total_spent_dollars|intcomma }} </td>
                 {% if ctx.total_savings  > 0 %}
-                  <td class="NegativeSavings" style="font-weight: bold">- ${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="NegativeSavings" style="font-weight: bold">-
+                    ${{ ctx.total_savings_display|intcomma }}</td>
                 {% else %}
-                  <td class="PositiveSavings" style="font-weight: bold">+${{ ctx.total_savings_display|intcomma }}</td>
+                  <td class="PositiveSavings" style="font-weight: bold">
+                    +${{ ctx.total_savings_display|intcomma }}</td>
                 {% endif %}
               </tr>
             {% endfor %}

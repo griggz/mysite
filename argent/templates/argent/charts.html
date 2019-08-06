@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'base_alt.html' %}
 <script>
 {% block jquery %}
-var endpoint = 'api/chart/data/';
-var defaultData = [];
-var labels = [];
+let endpoint = 'api/';
+let defaultData = [];
+let labels = [];
 
 $.ajax({
     method: "GET",
@@ -22,8 +22,8 @@ $.ajax({
 });
 
 function setChart(){
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
+    let ctx = document.getElementById("myChart");
+    let myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels,

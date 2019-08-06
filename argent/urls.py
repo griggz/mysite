@@ -1,6 +1,6 @@
 from django.urls import path, re_path, include
 
-from argent.charts import ChartsView, ChartData, DashData
+from .charts import ChartsView, ChartData, DashData
 
 from . import views
 
@@ -15,7 +15,7 @@ urlpatterns = [
     re_path(r'^entry/detail/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     re_path(r'^entry/add/$', views.EntryCreate.as_view(), name='entry-add'),
     re_path(r'^entry/update/(?P<pk>[0-9]+)/$', views.EntryUpdate.as_view(), name='entry-update'),
-    re_path(r'^api/chart/data/$', ChartData.as_view()),
+    re_path(r'^api/$', ChartData.as_view()),
 
     # re_path(r'api/chart/dash', ChartsView.as_view(), name='dash'),
     #

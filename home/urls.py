@@ -7,8 +7,9 @@ from . import views
 app_name = 'home'
 
 urlpatterns = [
-    re_path(r'^feedback/$', views.feedback, name='feedback'),
+    # re_path(r'^feedback/$', views.feedback, name='feedback'),
     re_path(r'^about/$', views.about, name='about'),
     re_path(r'^under_construction/$', views.under_construction, name='under_construction'),
-    re_path(r'^$', HomeView.as_view(), name='landing')
+    re_path(r'^under_development/$', views.under_development, name='under_development'),
+    re_path(r'^$', views.HomeView, name='landing')
 ]
