@@ -4,16 +4,11 @@
 
 {% block head %}
   <link rel="stylesheet" href='{% static 'home/css/about.css' %}'/>
-  {% if not request.user.is_authenticated %}
-    <h3 id="register"><a href="{% url 'accounts:login' %}">Login</a> or <a
-        href="{% url 'accounts:register' %}">Register</a> for full access!</h3>
-  {% endif %}
 {% endblock %}
 
 {% block content %}
   {% for obj in AboutVV %}
     {% include "posts/messages_display.html" %}
-    <br/>
     <div class="container" id="detail">
       <div class="row">
         <div class="thumbnail">

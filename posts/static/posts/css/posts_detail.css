@@ -264,7 +264,8 @@ li.post {
 }
 
 .img {
-
+    max-width: 200px;
+    height: auto;
 }
 
 .new_post {

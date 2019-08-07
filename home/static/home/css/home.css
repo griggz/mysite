@@ -6966,8 +6966,10 @@ a.close.disabled {
 
 .bg-primary {
   /*background-color:#337ab7; !important;*/
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(51, 122, 183, 0.8)), to(rgba(51, 122, 183, 0.8)));
-  background: linear-gradient(to bottom, rgba(51, 122, 183, 0.8) 0%, rgba(51, 122, 183, 0.8) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(51, 122, 183, 0.8)), to(rgba(248, 250, 255, 0.8)));
+  background: linear-gradient(to bottom, rgba(51, 122, 183, 0.8) 0%, rgba(248, 250, 255, 0.8) 100%);
+  border-bottom: 1px solid #f8faff;
+  box-shadow: 0 15px 10px -15px #f8faff;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -10651,6 +10653,8 @@ hr.light {
 
 #call-to-action {
   background: #18181E;
+  border-bottom: 1px solid #18181e;
+  box-shadow: 0 15px 10px -15px #18181e;
 }
 
 #masthead-photo-credit {
@@ -10738,6 +10742,8 @@ header.masthead {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  border-bottom: 1px solid #337ab7;
+  box-shadow: 0 15px 10px -15px #337ab7;
 }
 
 header.masthead h1 {

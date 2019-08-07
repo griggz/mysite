@@ -63,3 +63,19 @@ h3 {
     font-family: 'Indie Flower', serif;
     text-align: center;
 }
+
+#register {
+    color: #FF5A09;
+    text-align: center;
+    font-family: Raleway, serif;
+    font-size: 16px;
+}
+
+#register a {
+    color: white;
+}
+
+#register a:hover{
+    color: #337ab7;
+    text-decoration: none;
+}

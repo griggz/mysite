@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href='{% static "css/base.css" %}'/>
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}"/>
+
   {% include "css.html" %}
 
   <title>VVAYNE</title>
@@ -14,66 +16,83 @@
   {% block head %}
   {% endblock %}
 
-  <script>
-      $(".hover").mouseleave(
-          function () {
-              $(this).removeClass("hover");
-          }
-      );
-  </script>
+  <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark"
+       style="font-family: 'Nova Flat', 'serif'">
+    <a class="navbar-brand" href="#">VVAYNE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark" style="font-family: 'Nova Flat', 'serif'">
-  <a class="navbar-brand" href="#">VVAYNE</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/"><i class="fas fa-home fa-lg"></i></a>
+        </li>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/"><i class="fas fa-home fa-lg"></i></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home:about' %}">About</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'posts-list' %}">Blog {% if new_posts == True %}
-            <span class="label label-default">New</span>{% endif %}</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Apps
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'scrape-list' %}">SCRAPE</a>
-          <a class="dropdown-item" href="{% url 'argent:index' %}">TRAVELOG</a>
-{#          <a class="dropdown-item" href="#">Another action</a>#}
-          <div class="dropdown-divider"></div>
-           <a class="dropdown-item" href="{% url 'home:under_construction' %}">DEV <i class="fas fa-cogs" aria-hidden="true"></i></a>
-{#          <a class="dropdown-item" href="#">Seriously</a>#}
-        </div>
-      </li>
-    {% if request.user.is_staff or request.user.is_superuser %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'admin:index' %}">{{ request.user.username }}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i></a></li>
-    {% elif request.user.is_authenticated %}
-           <li class="nav-item" style="color: white;">
-            <li class="nav-link"> {{ request.user.username }}</li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i></a></li>
-    {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a></li>
-    {% endif %}
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-<br/>
+          <a class="nav-link" href="{% url 'home:about' %}">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'posts-list' %}">Blog
+            {% if new_posts == True %}
+              <span class="label label-default">New</span>{% endif %}</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+             role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+            Apps
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'scrape-list' %}">SCRAPE</a>
+            <a class="dropdown-item"
+               href="{% url 'argent:index' %}">TRAVELOG</a>
+            {#          <a class="dropdown-item" href="#">Another action</a>#}
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"
+               href="{% url 'home:under_construction' %}">DEV <i
+                class="fas fa-cogs" aria-hidden="true"></i></a>
+            {#          <a class="dropdown-item" href="#">Seriously</a>#}
+          </div>
+        </li>
+        {% if request.user.is_staff or request.user.is_superuser %}
+          <li class="nav-item">
+            <a class="nav-link"
+               href="{% url 'admin:index' %}">{{ request.user.username }}</a>
+          </li>
+          <li class="nav-item"><a class="nav-link"
+                                  href="{% url 'accounts:logout' %}"><i
+              class="fas fa-sign-out-alt fa-lg"></i></a></li>
+        {% elif request.user.is_authenticated %}
+          <li class="nav-item" style="color: white;">
+          <li class="nav-link"> {{ request.user.username }}</li>
+          <li class="nav-item"><a class="nav-link"
+                                  href="{% url 'accounts:logout' %}"><i
+              class="fas fa-sign-out-alt fa-lg"></i></a></li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link"
+                                  href="{% url 'accounts:login' %}"><i
+              class="fas fa-sign-in-alt fa-lg"></i> Login</a></li>
+        {% endif %}
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search"
+               aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </nav>
+  {% if not request.user.is_authenticated %}
+    <h3 id="register"><a href="{% url 'accounts:login' %}">Login</a> or <a
+        href="{% url 'accounts:register' %}">Register</a> for full access!</h3>
+  {% endif %}
+  <br/>
 </head>
 <body>
 {% block title %}
@@ -82,5 +101,16 @@
 {% block content %}
 {% endblock %}
 {% include "js.html" %}
+<script>
+    $(document).ready(function () {
+        {% block jquery %}
+        {% endblock %}
+    });
+    $(".hover").mouseleave(
+        function () {
+            $(this).removeClass("hover");
+        }
+    );
+</script>
 </body>
 </html>
