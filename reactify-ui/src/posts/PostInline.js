@@ -23,7 +23,9 @@ class PostInline extends Component {
                         <Link maintainScrollPosition={false} to={{
                             pathname: `/posts/${post.slug}`,
                             state: {fromDashboard: false}
-                        }}>{post.title}</Link></h1>
+                        }}>{post.title}</Link>
+                        {post.draft === true ?
+                        <small className="draft"> Draft</small>:""}</h1>
                     <h4>
                         <small
                             class="publish_date"> Published: <Moment
@@ -40,18 +42,20 @@ class PostInline extends Component {
                     <hr/>
                     <p className={showContent}>
                         <ReactMarkdown
-                            source={post.content.slice(0,200).trim().concat('...' )} /><Link maintainScrollPosition={false} to={{
-                            pathname: `/posts/${post.slug}`,
-                            state: {fromDashboard: false}
-                        }}>
-                            <button className={`btn btn-primary`}>Read
-                                More
-                            </button></Link>
+                            source={post.content.slice(0, 200).trim().concat('...')}/><Link
+                        maintainScrollPosition={false} to={{
+                        pathname: `/posts/${post.slug}`,
+                        state: {fromDashboard: false}
+                    }}>
+                        <button className={`btn btn-primary`}>Read
+                            More
+                        </button>
+                    </Link>
                     </p>
                 </div>
             </div>
-                );
-                }
-                }
+        );
+    }
+}
 
-                export default PostInline
+export default PostInline

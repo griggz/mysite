@@ -16,13 +16,15 @@ class PostPageNumberPagination(pagination.PageNumberPagination):
     def get_paginated_response(self, data):
         author = False
         user = self.request.user
-        if user.is_authenticated:
-            author = True
+        if user.is_staff:
+            staff = True
+        else:
+            staff = False
         context = {
             'next': self.get_next_link(),
             'previous': self.get_previous_link(),
             'count': self.page.paginator.count,
-            'author': author,
+            'staff': staff,
             'results': data,
         }
         return Response(context)

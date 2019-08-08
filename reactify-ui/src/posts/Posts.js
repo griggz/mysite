@@ -14,10 +14,12 @@ class Posts extends Component {
         this.loadMorePosts = this.loadMorePosts.bind(this);
         this.state = {
             posts: [],
+            postsPublic: [],
             postsListClass: "card",
             next: null,
             previous: null,
             author: false,
+            draft: null,
             count: 0
         }
     }
@@ -52,19 +54,29 @@ class Posts extends Component {
             .then(function (response) {
                 return response.json()
             }).then(function (responseData) {
-            console.log(responseData);
-            let currentPosts = thisComp.state.posts;
-            // let newPosts = currentPosts.concat(responseData.results)
-            // console.log(currentPosts)
-            thisComp.setState({
-                posts: thisComp.state.posts.concat(responseData.results),
-                next: responseData.next,
-                previous: responseData.previous,
-                author: responseData.author,
-                count: responseData.count
-            })
-        }).catch(function (error) {
+                // let currentPosts = thisComp.state.posts;
+                // let allPosts = currentPosts.concat(responseData.results);
+                let postsPublicList = responseData.results.filter(post => post.draft === false);
+
+                thisComp.setState({
+                    posts: thisComp.state.posts.concat(responseData.results),
+                    postsPublic: thisComp.state.postsPublic.concat(postsPublicList),
+                    next: responseData.next,
+                    previous: responseData.previous,
+                    staff: responseData.staff,
+                    draft: responseData.draft,
+                    count: responseData.count
+                })
+            }
+        ).catch(function (error) {
             console.log("error", error)
+        })
+    }
+
+    handlePosts(responseData) {
+        let posts = responseData.filter(post => post.draft === false);
+        this.setState({
+            postsPublic: posts
         })
     }
 
@@ -99,7 +111,7 @@ class Posts extends Component {
             postsListClass: "card",
             next: null,
             previous: null,
-            author: true,
+            // author: true,
             count: 0
         });
         this.loadPosts()
@@ -107,13 +119,15 @@ class Posts extends Component {
 
     render() {
         const {posts} = this.state;
+        const {postsPublic} = this.state;
         const {postsListClass} = this.state;
-        const {author} = this.state;
+        const {staff} = this.state;
+        console.log(staff);
         const {next} = this.state;
         return (
             <div className="container-fluid">
                 {/*<h1>*/}
-                {/*    {author === true ?*/}
+                {/*    {staff === true ?*/}
                 {/*        <Link className='mr-2'*/}
                 {/*              maintainScrollPosition={false}*/}
                 {/*              to={{*/}
@@ -121,20 +135,37 @@ class Posts extends Component {
                 {/*                  state: {fromDashboard: false}*/}
                 {/*              }}>Create Post</Link> : ""} <b/>*/}
 
-                    {/*<Button onClick={this.togglePostListClass}>List View</Button>*/}
+                {/*<Button onClick={this.togglePostListClass}>List View</Button>*/}
                 {/*</h1>*/}
                 <br/>
+                {staff === true ?
                     <div className="card-columns">
                         {posts.length > 0 ? posts.map((postItem, index) => {
                             return (
                                 <PostInline post={postItem}
                                             elClass={postsListClass}/>
-                                            )
-                        }) : <p>No Posts Found</p>}
-                        {next !== null ? <Button onClick={this.loadMorePosts}>Load
-                            more</Button> : ''}
+                            )
+                        }) : <p>No Posts Found</p>
+                        }
                     </div>
+                    :
+                    <div className="card-columns">
+                        {posts.length > 0 ? postsPublic.map((postItem, index) => {
+                            return (
+                                <PostInline post={postItem}
+                                            elClass={postsListClass}/>
+                            )
+                        }) : <p>No Posts Found</p>
+                        }
+                    </div>}
+                <div className="d-flex flex-column text-center">
+                    {next !== null ? <Button
+                        variant="outline-light"
+                        onClick={this.loadMorePosts}>Load
+                        more</Button> : ''}
                 </div>
+                <br/>
+            </div>
         );
     }
 }

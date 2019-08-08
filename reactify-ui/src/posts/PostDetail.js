@@ -9,6 +9,20 @@ import fbookLogo from './facebook.svg'
 import PostForm from './PostForm'
 import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
+import {
+    FacebookIcon,
+    LinkedinIcon,
+    TwitterIcon,
+    RedditIcon,
+    InstapaperIcon,
+    EmailIcon,
+    FacebookShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+    RedditShareButton,
+    InstapaperShareButton,
+    EmailShareButton
+} from 'react-share';
 
 class PostDetail extends Component {
     constructor(props) {
@@ -85,8 +99,8 @@ class PostDetail extends Component {
     buildUrl() {
         const {post} = this.state;
         return (
-         `https://vvayne.io/posts/${post.slug}` )
-         }
+            `https://vvayne.io/posts/${post.slug}`)
+    }
 
     render() {
         const {doneLoading} = this.state;
@@ -122,23 +136,35 @@ class PostDetail extends Component {
                                      class="rounded img-fluid"
                                      alt="sigil"/>
                                 <hr style={hrStyle}/>
+                                 <small id='shareIconsContainer'>
+                                    <EmailShareButton url={this.buildUrl()}>
+                                        <EmailIcon size={32} round={true}/>
+                                    </EmailShareButton>
+                                </small>
                                 <small id='shareIconsContainer'>
-                                    <a href={ `https://www.facebook.com/sharer/sharer.php?u=${this.buildUrl()}`}
-                                       id='shareIcons'><img
-                                        src={fbookLogo} alt="facebook"
-                                    /></a> |&nbsp;
-                                    <a href={ `https://twitter.com/home?status=${this.buildUrl()}`}
-                                       id='shareIcons'><img
-                                        src={twitLogo} alt="twitter"
-                                    /></a> |&nbsp;
-                                    <a href={ `https://www.linkedin.com/shareArticle?mini=true&url=${this.buildUrl()}&title=${post.title}&summary=${post.title}}&source=${this.buildUrl()}&`}
-                                       id='shareIcons'><img
-                                        src={linkdLogo} alt="linkdin"
-                                    /></a> |&nbsp;
-                                    <a href={` http://www.reddit.com/submit?url=${this.buildUrl()}&title=${post.title}&`}
-                                       id='shareIcons'><img
-                                        src={redditLogo} alt="reddit"
-                                    /></a>
+                                    <FacebookShareButton url={this.buildUrl()}>
+                                        <FacebookIcon size={32} round={true}/>
+                                    </FacebookShareButton>
+                                </small>
+                                <small id='shareIconsContainer'>
+                                    <TwitterShareButton url={this.buildUrl()}>
+                                        <TwitterIcon size={32} round={true}/>
+                                    </TwitterShareButton>
+                                </small>
+                                <small id='shareIconsContainer'>
+                                    <LinkedinShareButton url={this.buildUrl()}>
+                                        <LinkedinIcon size={32} round={true}/>
+                                    </LinkedinShareButton>
+                                </small>
+                                <small id='shareIconsContainer'>
+                                    <RedditShareButton url={this.buildUrl()}>
+                                        <RedditIcon size={32} round={true}/>
+                                    </RedditShareButton>
+                                </small>
+                                <small id='shareIconsContainer'>
+                                    <InstapaperShareButton url={this.buildUrl()}>
+                                        <InstapaperIcon size={32} round={true}/>
+                                    </InstapaperShareButton>
                                 </small>
                                 <p id="alt">
                                     <ReactMarkdown

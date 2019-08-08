@@ -385,7 +385,9 @@ img {
 pre {
     color: whitesmoke;
     font-family: "Fira Code Retina", AndaleMono, monospace;
-    background: #23232c;
+    border: .1rem solid white;
+    border-radius: 25px;
+    /*background: #23232c;*/
 }
 
 #posts-lists-sidebar a {
@@ -395,8 +397,20 @@ pre {
 
 #shareIconsContainer {
     float: right;
-    line-height: 50%
+    line-height: 50%;
+    margin-right: .5rem;
+    cursor: pointer;
+    -webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    filter: brightness(100%);
 }
+
+#shareIconsContainer:hover {
+    -webkit-filter: brightness(75%);
+    -moz-filter: brightness(75%);
+    filter:  brightness(75%);
+}
+
 
 blockquote {
     background: ghostwhite;
@@ -422,13 +436,14 @@ blockquote p {
 }
 
 code {
-  font-size: 87.5%;
-  color: #e83e8c;
-  word-break: break-word;
+    font-size: 87.5%;
+    color: #e83e8c;
+    word-break: break-word;
     font-family: "Fira Code Retina", AndaleMono, monospace;
-    background: #23232c;
+    margin-left: .5rem;
+    /*background: #23232c;*/
 }
 
 a > code {
-  color: inherit;
+    color: inherit;
 }
