@@ -5,7 +5,10 @@ from django.db.models.signals import pre_save
 from django.utils import timezone
 from django.conf import settings
 from .utils import unique_slug_generator as slugger
+import pandas as pd
+import datetime
 
+time = datetime.datetime.now()
 
 # class ScrapeManager(models.Manager):
 #     def active(self, *args, **kwargs):
@@ -17,7 +20,7 @@ class Yelp(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
     business_name = models.CharField(max_length=120, blank=True, null=True)
     link = models.CharField(max_length=120)
-    scrape_date = models.DateField(auto_now=True)
+    scrape_date = models.DateTimeField(blank=True, null=True)
     slug = models.SlugField(unique=True, blank=True, null=True)
 
     def get_business_name(self):
@@ -30,6 +33,10 @@ class Yelp(models.Model):
 
         self.business_name = business
 
+    def clean_scrape_date(self):
+
+        self.scrape_date = pd.to_datetime(time)
+
     def get_slug(self):
         self.slug = slugger(self)
 
@@ -40,7 +47,7 @@ class Yelp(models.Model):
     def clean(self):
         self.get_business_name()
         self.get_slug()
-        super(Yelp, self).clean()
+        self.clean_scrape_date()
 
     def get_absolute_url(self):
         return reverse('scrape-api:detail', kwargs={'slug': self.slug})

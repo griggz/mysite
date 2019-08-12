@@ -1,7 +1,4 @@
-from django.contrib.auth import get_user_model, authenticate, login, logout
-from django.db.models import Q
-from django.urls import reverse
-from django.utils import timezone
+from django.contrib.auth import get_user_model
 
 from rest_framework import serializers
 
@@ -37,7 +34,8 @@ class ScrapeSerializer(serializers.ModelSerializer):
         view_name='scrape-api:detail',
         lookup_field='slug'
     )
-    scrape_date = serializers.DateField(default=timezone.now())
+    # scrape_date = serializers.DateTimeField(default=timezone.now())
+    # scrape_date = serializers.DateTimeField(validators=[get_datetime])
     user = UserPublicSerializer(read_only=True)
     reviews = ResultsSerializer(many=True, read_only=True)
     owner = serializers.SerializerMethodField(read_only=True)
@@ -57,15 +55,6 @@ class ScrapeSerializer(serializers.ModelSerializer):
 
         @staticmethod
         def create(validated_data):
-            link = validated_data.pop('link')
-            biz_url = link.rsplit('biz/', 1)
-            if '?' in biz_url[1]:
-                business = biz_url[1].split('?')[0]
-            else:
-                business = biz_url[1]
-
-            instance = Yelp.objects.create(**validated_data)
-            instance.business_name.add(business)
             return Yelp.objects.create(**validated_data)
 
     def get_owner(self, obj):
