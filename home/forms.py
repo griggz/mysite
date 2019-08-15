@@ -8,8 +8,8 @@ from django.core.validators import ValidationError
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        widgets = {'comments': Textarea(attrs={'placeholder': 'Enter additional comments, if you have any.'})}
-        labels = {'comments': 'Additional Comments', 'name': 'Name', 'email': 'Email', 'phone_number': 'Phone Number'}
+        widgets = {'comments': Textarea(attrs={'placeholder': 'Hi!'})}
+        labels = {'comments': 'Message', 'name': 'Name', 'email': 'Email', 'phone_number': 'Phone Number'}
         fields = [
             'name',
             'email',

@@ -122,7 +122,6 @@ class Posts extends Component {
         const {postsPublic} = this.state;
         const {postsListClass} = this.state;
         const {staff} = this.state;
-        console.log(staff);
         const {next} = this.state;
         return (
             <div className="container-fluid">

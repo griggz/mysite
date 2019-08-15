@@ -176,7 +176,8 @@ p {
 @media screen and (max-width: 568px) {
 
     .card {
-        width: 25rem;
+        width: 23rem;
+        font-size: smaller;
 }
     #demo_modal {
         font-size: 18px;
