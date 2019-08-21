@@ -6,6 +6,9 @@ class ScrapeCreate extends Component {
     render() {
         return (
             <div>
+                <h1>Scrape Yelp</h1>
+                <ScrapeForm/>
+                <br/>
                 <div className="jumbotron jumbotron-fluid">
                     <div className="container">
                         <h1 className="display-4">Yelp Scraper Demo</h1>
@@ -15,9 +18,9 @@ class ScrapeCreate extends Component {
                             <ul className="lead" id="enhance">1. Find the business’s yelp page</ul>
 
                             <ul className="lead" id="enhance">2. Copy the url and paste it into the text
-                                box below</ul>
+                                box</ul>
                          <p className="lead">
-                            <i>Note: This demo currently only scrapes two
+                            <i>Note: This demo currently only scrapes three
                                 pages, to minimize database storage. </i>
                          </p>
                          <p className="lead">
@@ -26,8 +29,6 @@ class ScrapeCreate extends Component {
                             and temporary storage of all reviews. </p>
                     </div>
                 </div>
-                <h1>Scrape Yelp</h1>
-                <ScrapeForm/>
             </div>
         )
     }

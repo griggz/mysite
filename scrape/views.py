@@ -2,8 +2,10 @@ from .models import Yelp, Results
 from rest_framework import generics, permissions, pagination
 from rest_framework.response import Response
 from .permissions import IsOwnerOrReadOnly
+from django.contrib.auth.models import User
 from .serializers import ResultsSerializer, ScrapeSerializer
 from .scripts.scrape_run import YelpScrape as Scrape
+from .scripts.text_analysis.analyze_text import ProcessCommon
 
 
 class ScrapePageNumberPagination(pagination.PageNumberPagination):
@@ -41,9 +43,16 @@ class ScrapeDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 class ScrapeListCreateAPIView(generics.ListCreateAPIView):
     queryset            = Yelp.objects.all()
     serializer_class    = ScrapeSerializer
-    permission_classes  = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes  = [permissions.AllowAny]
     pagination_class    = ScrapePageNumberPagination
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-        Scrape(serializer.instance, serializer.instance.id).process_results()
+        anon = User.objects.get(username='scrapeAnon')
+        if self.request.user.is_anonymous is True:
+            serializer.save(user=anon)
+            Scrape(serializer.instance, serializer.instance.id).process_results()
+            # ProcessCommon(serializer.instance, serializer.instance.id).run()
+        else:
+            serializer.save(user=self.request.user)
+            Scrape(serializer.instance, serializer.instance.id).process_results()
+            # ProcessCommon(serializer.instance, serializer.instance.id).run()

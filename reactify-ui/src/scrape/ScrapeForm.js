@@ -41,7 +41,7 @@ class ScrapeForm extends Component {
                     return response.json()
                 }).then(function (responseData) {
                     thisComp.setState({redirectLink: `/scrape/results/${responseData.slug}`, scraping: null});
-                    console.log(`scrape/results/${responseData.slug}`);
+                    // console.log(`scrape/results/${responseData.slug}`);
                 thisComp.clearForm()
             }).catch(function (error) {
                 console.log("error", error);

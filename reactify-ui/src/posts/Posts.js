@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import 'whatwg-fetch'
 import cookie from 'react-cookies'
-import {Link} from 'react-router-dom'
 import PostInline from './PostInline'
 import Button from 'react-bootstrap/Button';
 
@@ -16,7 +15,6 @@ class Posts extends Component {
             posts: [],
             postsPublic: [],
             postsListClass: "card",
-            next: null,
             previous: null,
             author: false,
             draft: null,
@@ -159,9 +157,7 @@ class Posts extends Component {
                     </div>}
                 <div className="d-flex flex-column text-center">
                     {next !== null ? <Button
-                        variant="outline-light"
-                        onClick={this.loadMorePosts}>Load
-                        more</Button> : ''}
+                        variant="outline-light" onClick={this.loadMorePosts}>Load more</Button> : ''}
                 </div>
                 <br/>
             </div>

@@ -3,19 +3,29 @@ import 'whatwg-fetch'
 import cookie from 'react-cookies'
 import {Link} from 'react-router-dom'
 import ScrapeInline from "../scrape/ScrapeInline";
+import ScrapeChart from "../scrape/ScrapeChart";
 import {Redirect} from "react-router-dom";
 import csvDownload from 'json-to-csv-export'
 import Button from 'react-bootstrap/Button';
 
+
 class ScrapeDetail extends Component {
     constructor(props) {
         super(props);
-        this.handlePostItemUpdated = this.handlePostItemUpdated.bind(this);
         this.state = {
             slug: null,
             scrape: null,
             doneLoading: false,
-        }
+            visible: 25,
+            words: null,
+        };
+        this.loadMore = this.loadMore.bind(this);
+    }
+
+    loadMore() {
+        this.setState((prev) => {
+            return {visible: prev.visible + 25};
+        });
     }
 
     handlePostItemUpdated(scrapeItemData) {
@@ -63,7 +73,6 @@ class ScrapeDetail extends Component {
         })
     }
 
-
     componentDidMount() {
         this.setState({
             slug: null
@@ -74,7 +83,7 @@ class ScrapeDetail extends Component {
                 slug: slug,
                 doneLoading: false
             });
-            this.loadReviews(slug)
+            this.loadReviews(slug);
         }
     }
 
@@ -91,7 +100,6 @@ class ScrapeDetail extends Component {
         )
     }
 
-
     static routeChange() {
         let path = `/scrape/create`;
         return (
@@ -99,10 +107,15 @@ class ScrapeDetail extends Component {
         )
     }
 
+    // runTextAnalysis() {
+    //     const {scrape} = this.state;
+    // }
+
+
     render() {
         const {doneLoading} = this.state;
         const {scrape} = this.state;
-        console.log(scrape);
+        // console.log(scrape);
         const hrStyle = {
             display: 'block',
             height: '1px',
@@ -112,13 +125,17 @@ class ScrapeDetail extends Component {
             padding: '0',
             color: 'white'
         };
+
         return (
+
             <p>{(doneLoading === true) ? <div class="Main">
                 {scrape === null ? "No Reviews Found...In order to use this\n" +
                     "scraper you must be a registered user and\n" +
                     "logged in. If you are logged in and receiving\n" +
                     "this error, please confirm that the business\n" +
                     "you are attempting to scrape has reviews." :
+
+
                     <div className="container-fluid">
                         <Link maintainScrollPosition={false} to={{
                             pathname: `/scrape`,
@@ -130,6 +147,7 @@ class ScrapeDetail extends Component {
                             </button>
                         </Link>
                         <br/>
+                        {/*<ScrapeChart words={scrape.analytics}/>*/}
                         <br/>
                         <h1>{scrape.business_name}</h1>
                         <Button variant="secondary"
@@ -137,18 +155,19 @@ class ScrapeDetail extends Component {
                             Download Data
                         </Button>
                         <hr style={hrStyle}/>
-                        <div className="row">
-                            {scrape.reviews.length > 0 ? scrape.reviews.map((scrapeItem, index) => {
-                                return (
-                                    <ScrapeInline reviews={scrapeItem}
-
-                                    />
-                                )
-                            }) : <p>No Reviews Found</p>}
-                            {/*{next !== null ?*/}
-                            {/*    <Button onClick={this.loadMorePosts}>Load*/}
-                            {/*        more</Button> : ''}*/}
+                        {scrape.reviews.length > 0 ? scrape.reviews.slice(0, this.state.visible).map((Item, index) => {
+                            return (
+                                <div className="row" key={index}>
+                                    <ScrapeInline reviews={Item}/>
+                                </div>)
+                        }) : <p>No Reviews Found</p>}
+                        {this.state.visible < scrape.reviews.length &&
+                        <div className="d-flex flex-column text-center">
+                            <Button onClick={this.loadMore}
+                                    variant="outline-light" type="button"
+                                    className="load-more">Load more</Button>
                         </div>
+                        }
                     </div>
                 }
             </div> : <div class="spinner-border" role="status">

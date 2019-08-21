@@ -183,3 +183,8 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
+
+# APP VARIABLES
+
+# SCRAPE
+IGNORE_WORDS_JSON = 'src/scrape/scripts/text_analysis/constants/words_ignore.json'

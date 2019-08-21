@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.db import models
-from .models import Yelp, Results
+from .models import Yelp, Results, Analytics
 from .forms import YelpForm
 from pagedown.widgets import AdminPagedownWidget
 
@@ -34,3 +34,18 @@ class ResultsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Results, ResultsAdmin)
+
+
+class AnalyticsAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': AdminPagedownWidget},
+    }
+    list_display = ['business', "word", "value"]
+    list_filter = ["business"]
+    search_fields = ["business"]
+
+    class Meta:
+        model = Analytics
+
+
+admin.site.register(Analytics, AnalyticsAdmin)
