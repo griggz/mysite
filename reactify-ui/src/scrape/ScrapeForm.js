@@ -41,7 +41,7 @@ class ScrapeForm extends Component {
                     return response.json()
                 }).then(function (responseData) {
                     thisComp.setState({redirectLink: `/scrape/results/${responseData.slug}`, scraping: null});
-                    console.log(`scrape/results/${responseData.slug}`);
+                    // console.log(`scrape/results/${responseData.slug}`);
                 thisComp.clearForm()
             }).catch(function (error) {
                 console.log("error", error);
@@ -126,7 +126,7 @@ class ScrapeForm extends Component {
         const { redirectLink } = this.state;
         const { scraping } = this.state;
         if (scraping) {
-            return <div id="react-loader"><Loader type="Puff" color="#00BFFF" height="200" width="200" /> ...scraping</div>
+            return <div id="react-loader"><Loader type="Puff" color="#00BFFF" height="200" width="200" /> ...scraping {link}</div>
         }
         if (redirect) {
         return <Redirect to={redirectLink}/>;

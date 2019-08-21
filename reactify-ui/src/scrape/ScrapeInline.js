@@ -15,9 +15,9 @@ class ScrapeInline extends Component {
         };
         return (
             <div className="col-lg-12">
-                <td className="dash"><b>{reviews.author}</b> |</td>
-                <td className="dash"><b>{reviews.date}</b> |</td>
-                <td className="dash"><b>{reviews.rating}</b></td>
+                <td className="dash h5"><b>{reviews.author}</b> |</td>
+                <td className="dash h5"><b>{reviews.date}</b> |</td>
+                <td className="dash h5"><b>{reviews.rating}</b></td>
                 <p className="dash">{reviews.review}</p>
                 <hr style={hrStyle}/>
             </div>

@@ -62,6 +62,15 @@ class Results(models.Model):
         return reverse('scrape-api:detail', kwargs={'pk': self.pk})
 
 
+class Analytics(models.Model):
+    business = models.ForeignKey(Yelp, related_name='analytics', on_delete=models.CASCADE, null=True)
+    word = models.CharField(max_length=120, blank=True, null=True)
+    value = models.IntegerField(blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('scrape-api:detail', kwargs={'pk': self.pk})
+
+
 def pre_save_scrape_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         pass

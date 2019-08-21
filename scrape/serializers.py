@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 
 from rest_framework import serializers
 
-from .models import Results, Yelp
+from .models import Results, Yelp, Analytics
 
 User = get_user_model()
 
@@ -16,6 +16,15 @@ class UserPublicSerializer(serializers.ModelSerializer):
         fields = [
             'username'
         ]
+
+
+class AnalyticsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Analytics
+        fields = (
+            'word',
+            'value',
+        )
 
 
 class ResultsSerializer(serializers.ModelSerializer):
@@ -34,10 +43,9 @@ class ScrapeSerializer(serializers.ModelSerializer):
         view_name='scrape-api:detail',
         lookup_field='slug'
     )
-    # scrape_date = serializers.DateTimeField(default=timezone.now())
-    # scrape_date = serializers.DateTimeField(validators=[get_datetime])
     user = UserPublicSerializer(read_only=True)
     reviews = ResultsSerializer(many=True, read_only=True)
+    analytics = AnalyticsSerializer(many=True, read_only=True)
     owner = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
@@ -50,6 +58,7 @@ class ScrapeSerializer(serializers.ModelSerializer):
             'link',
             'scrape_date',
             'slug',
+            'analytics',
             'reviews',
         )
 

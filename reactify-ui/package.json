@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "d3": "^5.10.0",
+    "d3-scale": "latest",
     "json-to-csv-export": "^1.0.2",
     "moment": "^2.24.0",
     "react": "^16.8.6",

@@ -22,7 +22,7 @@ SECRET_KEY = 'check host location'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.vvayne.io', 'vvayne.io', 'wgsite.herokuapp.com']
+ALLOWED_HOSTS = ['www.vvayne.io', 'vvayne.io', 'wgsite.herokuapp.com', 'wgsite-staging.herokuapp.com']
 
 EMAIL_HOST = 'mail.name.com'
 EMAIL_HOST_USER = 'wayne@vvayne.io'
@@ -183,3 +183,8 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
+
+# APP VARIABLES
+
+# SCRAPE
+IGNORE_WORDS_JSON = 'src/scrape/scripts/text_analysis/constants/words_ignore.json'

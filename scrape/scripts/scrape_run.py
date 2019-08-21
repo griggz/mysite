@@ -13,7 +13,7 @@ class YelpScrape:
         self.business_name = None
 
     def scrape_yelp(self):
-        results, biz_name = scrape(self.link, 2)
+        results, biz_name = scrape(self.link, 3)
         results = pd.DataFrame(results)
         self.business_name = biz_name
         return results

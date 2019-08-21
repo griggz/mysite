@@ -77,3 +77,14 @@ small {
 #react-loader {
     text-align: center;
 }
+
+.mainPage {
+    background-color: white;
+    height: 50vh;
+    width: 100%;
+    text-align: center;
+}
+
+#dash-header {
+
+}
