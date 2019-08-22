@@ -22,7 +22,7 @@ SECRET_KEY = 'check host location'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.vvayne.io', 'vvayne.io', 'wgsite.herokuapp.com']
+ALLOWED_HOSTS = ['www.vvayne.io', 'vvayne.io', 'wgsite.herokuapp.com', '0.0.0.0', 'localhost']
 
 EMAIL_HOST = 'mail.name.com'
 EMAIL_HOST_USER = 'wayne@vvayne.io'

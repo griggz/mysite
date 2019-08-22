@@ -1,6 +1,5 @@
 
 import argparse
-
 from django.conf import settings
 import nltk
 from nltk.corpus import stopwords
