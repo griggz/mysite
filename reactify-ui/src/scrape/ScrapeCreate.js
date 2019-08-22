@@ -20,7 +20,7 @@ class ScrapeCreate extends Component {
                             <ul className="lead" id="enhance">2. Copy the url and paste it into the text
                                 box</ul>
                          <p className="lead">
-                            <i>Note: This demo currently only scrapes three
+                            <i>Note: This demo currently only scrapes up to three
                                 pages, to minimize database storage. </i>
                          </p>
                          <p className="lead">
