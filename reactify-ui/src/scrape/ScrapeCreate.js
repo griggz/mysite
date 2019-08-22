@@ -25,7 +25,7 @@ class ScrapeCreate extends Component {
                          </p>
                          <p className="lead">
                             A fully developed standalone web app is currently
-                            under developed and will allow for the retrieval
+                            under development and will allow for the retrieval
                             and temporary storage of all reviews. </p>
                     </div>
                 </div>
