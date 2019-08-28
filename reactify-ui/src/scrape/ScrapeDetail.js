@@ -3,7 +3,6 @@ import 'whatwg-fetch'
 import cookie from 'react-cookies'
 import {Link} from 'react-router-dom'
 import ScrapeInline from "../scrape/ScrapeInline";
-import ScrapeChart from "../scrape/ScrapeChart";
 import {Redirect} from "react-router-dom";
 import csvDownload from 'json-to-csv-export'
 import Button from 'react-bootstrap/Button';

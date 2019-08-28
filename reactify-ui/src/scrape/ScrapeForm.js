@@ -126,7 +126,7 @@ class ScrapeForm extends Component {
         const { redirectLink } = this.state;
         const { scraping } = this.state;
         if (scraping) {
-            return <div id="react-loader"><Loader type="Puff" color="#00BFFF" height="200" width="200" /> ...scraping {link}</div>
+            return <div id="react-loader"><Loader type="Puff" color="#00BFFF" height="200" width="200" /> ......scraping</div>
         }
         if (redirect) {
         return <Redirect to={redirectLink}/>;
