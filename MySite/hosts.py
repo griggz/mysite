@@ -4,5 +4,5 @@ from django_hosts import patterns, host
 host_patterns = patterns('',
     host(r'www', settings.ROOT_URLCONF, name='www'),
     # host(r'argent', settings.ROOT_URLCONF, name='argent'),
-    host(r'(?!www).*', 'MySite.hostsconf.urls', name='wildcard'),
+    # host(r'(?!www).*', 'MySite.hostsconf.urls', name='wildcard'),
 )
