@@ -181,7 +181,7 @@ class PostForm extends Component {
         }
         return (
             <div>
-                <h1>Create Post</h1>
+                <h1 id='alt'>Create Post</h1>
                 <form onSubmit={this.handleSubmit}
                       ref={(el) => this.postCreateForm = el}>
                     <div className='form-group' id='top-row-form'>
