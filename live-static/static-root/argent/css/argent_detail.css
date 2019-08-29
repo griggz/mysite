@@ -87,3 +87,8 @@ h3 {
 h1 {
     color: white;
 }
+
+.dash a:hover {
+   color:  #02feff;
+    text-decoration: none;
+}

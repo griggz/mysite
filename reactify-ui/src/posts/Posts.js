@@ -3,6 +3,7 @@ import 'whatwg-fetch'
 import cookie from 'react-cookies'
 import PostInline from './PostInline'
 import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom'
 
 class Posts extends Component {
 
@@ -123,46 +124,49 @@ class Posts extends Component {
         const {next} = this.state;
         return (
             <div className="container-fluid">
-                {/*<h1>*/}
-                {/*    {staff === true ?*/}
-                {/*        <Link className='mr-2'*/}
-                {/*              maintainScrollPosition={false}*/}
-                {/*              to={{*/}
-                {/*                  pathname: `/posts/create/`,*/}
-                {/*                  state: {fromDashboard: false}*/}
-                {/*              }}>Create Post</Link> : ""} <b/>*/}
+                <h1>
+                    {staff === true ? <Link className='mr-2'
+                              maintainScrollPosition={false}
+                              to={{
+                                  pathname: `/posts/create/`,
+                                  state: {fromDashboard: false}
+                              }}><Button variant="outline-light"
+                                         type="button">Create New Post</Button>
+                    </Link> : ""} </h1>
 
-                {/*<Button onClick={this.togglePostListClass}>List View</Button>*/}
-                {/*</h1>*/}
-                <br/>
-                {staff === true ?
-                    <div className="card-columns">
-                        {posts.length > 0 ? posts.map((postItem, index) => {
-                            return (
-                                <PostInline post={postItem}
-                                            elClass={postsListClass}/>
-                            )
-                        }) : <p>No Posts Found</p>
-                        }
+                    {/*<Button onClick={this.togglePostListClass}>List View</Button>*/}
+                    {/*</h1>*/}
+                    <br/>
+                    {staff === true ?
+                        <div className="card-columns">
+                            {posts.length > 0 ? posts.map((postItem, index) => {
+                                return (
+                                    <PostInline post={postItem}
+                                                elClass={postsListClass}/>
+                                )
+                            }) : <p>No Posts Found</p>
+                            }
+                        </div>
+                        :
+                        <div className="card-columns">
+                            {posts.length > 0 ? postsPublic.map((postItem, index) => {
+                                return (
+                                    <PostInline post={postItem}
+                                                elClass={postsListClass}/>
+                                )
+                            }) : <p>No Posts Found</p>
+                            }
+                        </div>}
+                    <div className="d-flex flex-column text-center">
+                        {next !== null ? <Button
+                            variant="outline-light"
+                            onClick={this.loadMorePosts}>Load
+                            more</Button> : ''}
                     </div>
-                    :
-                    <div className="card-columns">
-                        {posts.length > 0 ? postsPublic.map((postItem, index) => {
-                            return (
-                                <PostInline post={postItem}
-                                            elClass={postsListClass}/>
-                            )
-                        }) : <p>No Posts Found</p>
-                        }
-                    </div>}
-                <div className="d-flex flex-column text-center">
-                    {next !== null ? <Button
-                        variant="outline-light" onClick={this.loadMorePosts}>Load more</Button> : ''}
-                </div>
-                <br/>
+                    <br/>
             </div>
-        );
+    );
     }
-}
+    }
 
-export default Posts;
+    export default Posts;

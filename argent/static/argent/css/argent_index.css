@@ -506,6 +506,10 @@ span.prog {
     text-decoration: none;
 }
 
+.dash a:hover {
+   color:  #02feff;
+    text-decoration: none;
+}
 
 
 

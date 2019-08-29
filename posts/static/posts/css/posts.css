@@ -270,6 +270,7 @@ body {
 h1 {
 
     font-family: 'Nova Flat', sans-serif;
+    color: white
 }
 
 p {
@@ -348,6 +349,17 @@ li.post {
     margin-right: 5px;
 }
 
+.image_source a {
+    color: #18181E;
+
+}
+
+.image_source a:hover {
+    color: #72728f;
+    text-decoration: none;
+
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -386,14 +398,14 @@ pre {
     color: whitesmoke;
     font-family: "Fira Code Retina", AndaleMono, monospace;
     border: .1rem solid white;
-    border-radius: 25px;
-    /*background: #23232c;*/
+    border-radius: 25px;;
 }
 
 pre code {
     margin-left: 2rem;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+    background-color: #18181E;
 }
 
 #posts-lists-sidebar a {
@@ -420,7 +432,7 @@ pre code {
 
 blockquote {
     background: ghostwhite;
-    border-left: 10px solid #e83e8c;;
+    border-left: 10px solid #e83e8c;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
     quotes: "\201C" "\201D" "\2018" "\2019";
@@ -436,6 +448,15 @@ blockquote:before {
     vertical-align: -0.4em;
 }
 
+blockquote a {
+    color: #e83e8c
+}
+
+blockquote a:hover {
+    color: #892453;
+    text-decoration: none;
+}
+
 blockquote p {
     display: inline;
     font-family: 'Andale Mono', AndaleMono, monospace;
@@ -446,9 +467,87 @@ code {
     color: #e83e8c;
     word-break: break-word;
     font-family: "Fira Code Retina", AndaleMono, monospace;
-    /*background: #23232c;*/
+    background: ghostwhite;
 }
 
 a > code {
     color: inherit;
 }
+
+.form-group {
+    color: white
+}
+
+.form-group #content, #title, #draft, #publish {
+    color: black;
+}
+
+#content {
+    height: calc(1.5em + 25rem + 2px)
+}
+
+.preview {
+    border: .1rem solid white;
+    height: calc(1.5em + 25rem + 2px);
+    color: white;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    overflow-wrap: break-word;
+    overflow: scroll;
+}
+
+.preview-text {
+    margin-left: 1rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+#create-submit {
+    float: right;
+    margin-bottom: 1rem;
+}
+
+#edit-button {
+    height: 2rem;
+    line-height: normal;
+}
+
+a {
+    color: #02feff
+}
+
+a:hover {
+   color: #01abac;
+    text-decoration: none;
+}
+
+.title a {
+    color: #18181e;;
+}
+
+.title a:hover {
+    color: rgba(41, 41, 41, 0.99);
+    text-decoration: none;
+}
+
+#top-row-form {
+    float: left;
+    margin-bottom: inherit;
+}
+
+
+#publish {
+    width: min-content;
+    display: inline;
+    margin-right: 1rem;
+    margin-left: .5rem;
+}
+
+#draft .btn{
+    margin-right: 1rem;
+}
+
+label {
+    margin-left: .5rem;
+}
+

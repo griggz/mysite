@@ -5,7 +5,8 @@ import './App.css';
 
 import Posts from './posts/Posts';
 import PostDetail from './posts/PostDetail';
-import PostCreate from './posts/PostCreate'
+import PostCreate from './posts/PostCreate';
+import PostUpdate from './posts/PostUpdate';
 
 import ScrapeDetail from './scrape/ScrapeDetail';
 import ScrapeCreate from './scrape/ScrapeCreate'
@@ -16,6 +17,7 @@ class App extends Component {
       <BrowserRouter>
           <Switch>
             <Route exact path='/posts/create' component={PostCreate}/>
+            <Route exact path='/posts/:slug/edit' component={PostCreate}/>
             <Route exact path='/posts/' component={Posts}/>
             <Route exact path='/posts/:slug' component={PostDetail}/>
             <Route exact path='/scrape/' component={ScrapeCreate}/>

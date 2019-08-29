@@ -79,3 +79,8 @@ h3 {
     color: #337ab7;
     text-decoration: none;
 }
+
+.dash a:hover {
+   color:  #02feff;
+    text-decoration: none;
+}

@@ -5,6 +5,7 @@ from django.utils.html import strip_tags
 import random
 import string
 from django.utils.text import slugify
+from django.core.validators import ValidationError
 
 
 def count_words(html_string):
@@ -45,3 +46,11 @@ def unique_slug_generator(instance, new_slug=None):
                 )
         return unique_slug_generator(instance, new_slug=new_slug)
     return slug
+
+
+def get_unsplash_url(instance):
+    unsplash_api = 'https://source.unsplash.com'
+    api_parts = unsplash_api, str(instance.post_image), 'x'.join((str(instance.width_field), str(instance.height_field)))
+    compiled_url = '/'.join(api_parts)
+
+    return compiled_url

@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import 'whatwg-fetch'
 import cookie from 'react-cookies'
 import moment from 'moment'
+import ReactMarkdown from "react-markdown";
+import {Redirect} from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 class PostForm extends Component {
     constructor(props) {
@@ -12,12 +15,16 @@ class PostForm extends Component {
         this.clearForm = this.clearForm.bind(this);
         this.postTitleRef = React.createRef();
         this.postContentRef = React.createRef();
+        this.postUnsplashRef = React.createRef();
         this.state = {
             draft: false,
             title: null,
             content: null,
             publish: null,
-            errors: {}
+            post_image: null,
+            redirect: false,
+            redirectLink: null,
+            errors: {},
         }
     }
 
@@ -40,15 +47,15 @@ class PostForm extends Component {
                 .then(function (response) {
                     return response.json()
                 }).then(function (responseData) {
-                console.log(responseData);
+                thisComp.setState({redirectLink: `/posts/${responseData.slug}`});
                 if (thisComp.props.newPostItemCreated) {
                     thisComp.props.newPostItemCreated(responseData)
                 }
-                thisComp.clearForm()
+                thisComp.clearForm();
             }).catch(function (error) {
                 console.log("error", error);
-                alert("An error occured, please try again later.")
-            })
+                alert("An error occurred, please try again later.")
+            }).then(() => this.setState({redirect: true}));
         }
 
     }
@@ -73,6 +80,7 @@ class PostForm extends Component {
                 .then(function (response) {
                     return response.json()
                 }).then(function (responseData) {
+                thisComp.setState({redirectLink: `/posts/${responseData.slug}`});
                 // console.log(responseData)
                 if (thisComp.props.postItemUpdated) {
                     thisComp.props.postItemUpdated(responseData)
@@ -80,8 +88,8 @@ class PostForm extends Component {
 
             }).catch(function (error) {
                 console.log("error", error);
-                alert("An error occured, please try again later.")
-            })
+                alert("An error occurred, please try again later.")
+            }).then(() => this.setState({redirect: true}));
         }
 
     }
@@ -130,7 +138,8 @@ class PostForm extends Component {
 
     clearFormRefs() {
         this.postTitleRef.current = '';
-        this.postContentRef.current = ''
+        this.postContentRef.current = '';
+        this.postUnsplashRef.current = ''
     }
 
 
@@ -139,8 +148,9 @@ class PostForm extends Component {
             draft: false,
             title: null,
             content: null,
+            post_image: null,
             publish: moment(new Date()).format('YYYY-MM-DD'),
-        })
+        });
     }
 
     componentDidMount() {
@@ -150,6 +160,7 @@ class PostForm extends Component {
                 draft: post.draft,
                 title: post.title,
                 content: post.content,
+                post_image: post.post_image,
                 publish: moment(post.publish).format('YYYY-MM-DD'),
             })
         } else {
@@ -162,64 +173,99 @@ class PostForm extends Component {
         const {publish} = this.state;
         const {title} = this.state;
         const {content} = this.state;
-        const cancelClass = this.props.post !== undefined ? "d-none" : "";
-        let thisComp = this;
+        const {post_image} = this.state;
+        const {redirect} = this.state;
+        const {redirectLink} = this.state;
+        if (redirect) {
+            return <Redirect to={redirectLink}/>;
+        }
         return (
-            <form onSubmit={this.handleSubmit} ref={(el) => this.postCreateForm = el}>
-                <div className='form-group'>
-                    <label for='title'>Post title</label>
-                    <input
-                        type='text'
-                        id='title'
-                        name='title'
-                        value={title}
-                        className='form-control'
-                        placeholder='Blog post title'
-                        ref={this.postTitleRef}
-                        onChange={this.handleInputChange}
-                        required='required'/>
-                </div>
-                <div className='form-group'>
-                    <label for='content'>Content</label>
-                    <textarea
-                        id='content'
-                        ref={this.postContentRef}
-                        name='content'
-                        value={content}
-                        className='form-control'
-                        placeholder='Post content'
-                        onChange={this.handleInputChange}
-                        required='required'/>
+            <div>
+                <h1>Create Post</h1>
+                <form onSubmit={this.handleSubmit}
+                      ref={(el) => this.postCreateForm = el}>
+                    <div className='form-group' id='top-row-form'>
+                        <label htmlFor='draft'>
+                            <input type='checkbox'
+                                   checked={this.state.draft}
+                                   id='draft'
+                                   name='draft'
+                                   className='mr-2'
+                                   onChange={this.handleDraftChange}/>
+                        </label>
+                        <Button variant="outline-light"
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    this.handleDraftChange()
+                                }}>Draft
+                        </Button>
+                        <label htmlFor='publish'>Publish Date</label>
+                        <input
+                            type='date'
+                            id='publish'
+                            name='publish'
+                            className='form-control'
+                            onChange={this.handleInputChange}
+                            value={publish}
+                            required='required'/>
+                        <button type='submit' className='btn btn-primary'
+                                id='create-submit'>Save
+                        </button>
+                    </div>
+                    <div className='form-group'>
+                        <input
+                            type='text'
+                            id='title'
+                            name='title'
+                            value={title}
+                            className='form-control'
+                            placeholder='Blog post title'
+                            ref={this.postTitleRef}
+                            onChange={this.handleInputChange}
+                            required='required'/>
+                    </div>
+                    <div className='form-group'>
+                        <label for='post_image'>
+                            <small>Get your photo ID from <a
+                                href="https://unsplash.com"
+                                target="_blank">Unsplash.com</a>. Use this <a
+                                href="http://quick.as/x3vycpgog"
+                                target="_blank">guide</a> if you need help. Or,
+                                if you want a random image, enter "random" to
+                                pull random images from unsplash.
+                            </small>
+                        </label>
+                        <input
+                            type='text'
+                            id='post_image'
+                            name='post_image'
+                            value={post_image}
+                            className='form-control'
+                            placeholder='post_image'
+                            ref={this.postUnsplashRef}
+                            onChange={this.handleInputChange}
+                            required='required'/>
+                    </div>
+                    <div className='form-group'>
+                        {/*<label for='content'>Content</label>*/}
+                        <textarea
+                            id='content'
+                            ref={this.postContentRef}
+                            name='content'
+                            value={content}
+                            className='form-control'
+                            placeholder='Post content'
+                            onChange={this.handleInputChange}
+                            required='required'/>
 
-                </div>
-                <div className='form-group'>
-                    <label for='draft'>
-                        <input type='checkbox' checked={this.state.draft}
-                               id='draft' name='draft' className='mr-2'
-                               onChange={this.handleDraftChange}/>
-                        Draft </label>
-                    <button onClick={(event) => {
-                        event.preventDefault();
-                        this.handleDraftChange()
-                    }}>Toggle Draft
-                    </button>
-                </div>
-                <div className='form-group'>
-                    <label for='publish'>Publish Date</label>
-                    <input
-                        type='date'
-                        id='publish'
-                        name='publish'
-                        className='form-control'
-                        onChange={this.handleInputChange}
-                        value={publish}
-                        required='required'/>
-                </div>
-                <button type='submit' className='btn btn-primary'>Save</button>
-                <button className={`btn btn-secondary`}
-                        onClick={this.clearForm}>Clear
-                </button>
-            </form>
+                    </div>
+                    <div className="preview">
+                        <div className="preview-text">
+                            <ReactMarkdown source={content}/>
+                        </div>
+                    </div>
+                </form>
+            </div>
         )
     }
 

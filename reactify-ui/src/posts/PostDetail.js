@@ -1,12 +1,6 @@
 import React, {Component} from 'react'
 import 'whatwg-fetch'
 import cookie from 'react-cookies'
-import {Link} from 'react-router-dom'
-import twitLogo from './twitter.png'
-import linkdLogo from './linkin.png'
-import redditLogo from './reddit.svg'
-import fbookLogo from './facebook.svg'
-import PostForm from './PostForm'
 import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import {
@@ -23,6 +17,8 @@ import {
     InstapaperShareButton,
     EmailShareButton
 } from 'react-share';
+import {Link} from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 class PostDetail extends Component {
     constructor(props) {
@@ -32,6 +28,7 @@ class PostDetail extends Component {
             slug: null,
             post: null,
             doneLoading: false,
+            owner: null
         }
     }
 
@@ -72,8 +69,9 @@ class PostDetail extends Component {
             } else {
                 thisComp.setState({
                     doneLoading: true,
-                    post: responseData
-                })
+                    post: responseData,
+                    owner: responseData.owner,
+                });
             }
         }).catch(function (error) {
             console.log("error", error)
@@ -105,6 +103,9 @@ class PostDetail extends Component {
     render() {
         const {doneLoading} = this.state;
         const {post} = this.state;
+        const {owner} = this.state;
+        console.log(post)
+
         const hrStyle = {
             display: 'block',
             height: '1px',
@@ -117,65 +118,71 @@ class PostDetail extends Component {
         return (
             <p>{(doneLoading === true) ? <div class="Main">
                 {post === null ? "Not Found" :
-                    <div className="container-fluid">
-                        <div className='row'>
-                            <div className='col-md-10'>
-                                <h1 id='alt'>{post.title}</h1>
-                                <h4 id='alt'>By {post.author.username}</h4>
-                                <hr style={hrStyle}/>
-                                <h4>
-                                    <small
-                                        className="publish_date"
-                                        id='alt'> Published: <Moment
-                                        fromNow
-                                        ago>{post.timestamp}</Moment> ago&nbsp;
-                                    </small>
-                                </h4>
-                                <hr style={hrStyle}/>
-                                <img src={post.unsplash_url}
-                                     class="rounded img-fluid"
-                                     alt="sigil"/>
-                                <hr style={hrStyle}/>
-                                 <small id='shareIconsContainer'>
-                                    <EmailShareButton url={this.buildUrl()}>
-                                        <EmailIcon size={32} round={true}/>
-                                    </EmailShareButton>
+                    <div className='row'>
+                        <div className='col-md-10'>
+                            <h1 id='alt'>{post.title}</h1>
+                            <h4 id='alt'>By {post.author.username}&nbsp;
+                                {owner === true ?
+                                    <Link className='mr-2'
+                                          maintainScrollPosition={false}
+                                          to={{pathname: `/posts/${post.slug}/edit`,
+                                              state: {post: post}
+                                          }}><Button variant="outline-light"
+                                                     type="button" id="edit-button">Edit</Button>
+                                    </Link> : ""} </h4>
+                            <hr style={hrStyle}/>
+                            <h4>
+                                <small
+                                    className="publish_date"
+                                    id='alt'> Published: <Moment
+                                    fromNow
+                                    ago>{post.timestamp}</Moment> ago&nbsp;
                                 </small>
-                                <small id='shareIconsContainer'>
-                                    <FacebookShareButton url={this.buildUrl()}>
-                                        <FacebookIcon size={32} round={true}/>
-                                    </FacebookShareButton>
-                                </small>
-                                <small id='shareIconsContainer'>
-                                    <TwitterShareButton url={this.buildUrl()}>
-                                        <TwitterIcon size={32} round={true}/>
-                                    </TwitterShareButton>
-                                </small>
-                                <small id='shareIconsContainer'>
-                                    <LinkedinShareButton url={this.buildUrl()}>
-                                        <LinkedinIcon size={32} round={true}/>
-                                    </LinkedinShareButton>
-                                </small>
-                                <small id='shareIconsContainer'>
-                                    <RedditShareButton url={this.buildUrl()}>
-                                        <RedditIcon size={32} round={true}/>
-                                    </RedditShareButton>
-                                </small>
-                                <small id='shareIconsContainer'>
-                                    <InstapaperShareButton url={this.buildUrl()}>
-                                        <InstapaperIcon size={32} round={true}/>
-                                    </InstapaperShareButton>
-                                </small>
-                                <p id="alt">
-                                    <ReactMarkdown
-                                        source={post.content}/>
-                                </p>
+                            </h4>
+                            <hr style={hrStyle}/>
+                            <img src={post.unsplash_url}
+                                 class="rounded img-fluid"
+                                 alt="sigil"/>
+                            <hr style={hrStyle}/>
+                            <small id='shareIconsContainer'>
+                                <EmailShareButton url={this.buildUrl()}>
+                                    <EmailIcon size={32} round={true}/>
+                                </EmailShareButton>
+                            </small>
+                            <small id='shareIconsContainer'>
+                                <FacebookShareButton url={this.buildUrl()}>
+                                    <FacebookIcon size={32} round={true}/>
+                                </FacebookShareButton>
+                            </small>
+                            <small id='shareIconsContainer'>
+                                <TwitterShareButton url={this.buildUrl()}>
+                                    <TwitterIcon size={32} round={true}/>
+                                </TwitterShareButton>
+                            </small>
+                            <small id='shareIconsContainer'>
+                                <LinkedinShareButton url={this.buildUrl()}>
+                                    <LinkedinIcon size={32} round={true}/>
+                                </LinkedinShareButton>
+                            </small>
+                            <small id='shareIconsContainer'>
+                                <RedditShareButton url={this.buildUrl()}>
+                                    <RedditIcon size={32} round={true}/>
+                                </RedditShareButton>
+                            </small>
+                            <small id='shareIconsContainer'>
+                                <InstapaperShareButton url={this.buildUrl()}>
+                                    <InstapaperIcon size={32} round={true}/>
+                                </InstapaperShareButton>
+                            </small>
+                            <p id="alt">
+                                <ReactMarkdown
+                                    source={post.content}/>
+                            </p>
 
-                            </div>
+                        </div>
 
-                            <div className='col-md-2'>
-                                <br/>
-                            </div>
+                        <div className='col-md-2'>
+                            <br/>
                         </div>
                     </div>
                 }

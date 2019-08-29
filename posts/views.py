@@ -1,9 +1,8 @@
-from .models import Post, new_posts
+from .models import Post
 from rest_framework import generics, permissions, pagination
 from rest_framework.response import Response
 from .permissions import IsOwnerOrReadOnly
 from .serializers import PostSerializer
-# from .utils import get_read_time
 # Create your views here.
 
 
@@ -50,4 +49,5 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
 

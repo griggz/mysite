@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import FeedbackForm, AboutMeForm
 from django.contrib import messages
 from .models import About
-from posts.models import new_posts
+# from posts.models import new_posts
 from django.core.mail import send_mail
 from django.conf import settings
 # Create your views here.

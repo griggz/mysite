@@ -1,24 +1,28 @@
 import React, {Component} from 'react'
-
 import PostForm from './PostForm'
 
 class PostCreate extends Component {
-  render(){
-    return (
-      <div>
-      <h1>Create Post</h1>
-        <PostForm />
-      </div>
-    )
-  }
+        constructor(props) {
+            super(props);
+        }
+
+    render() {
+        const {post} = this.props.location.state;
+        return (
+            <div class="col-md-10" align-items="center">
+                {post !== null ?
+                    <PostForm post={post}/>
+                    : <PostForm />
+                }
+            </div>
+        )
+    }
 
 }
 
 export default PostCreate
 
 // left for reference
-
-
 
 
 // import React, {Component} from 'react'
@@ -72,7 +76,7 @@ export default PostCreate
 //               alert("An error occured, please try again later.")
 //           })
 //       } 
-      
+
 //   }
 
 //     handleSubmit(event){
@@ -145,7 +149,7 @@ export default PostCreate
 //                  <div className='form-group'>
 //                     <label for='content'>Content</label>
 //                     <textarea id='content' ref = {this.postContentRef} name='content' className='form-control' placeholder='Post content' onChange={this.handleInputChange} required='required'/>
-                   
+
 //                 </div>
 //                 <div className='form-group'>
 //                     <label for='draft'>

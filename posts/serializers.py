@@ -2,9 +2,7 @@ from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.db.models import Q
 from django.urls import reverse
 from django.utils import timezone
-
 from rest_framework import serializers
-
 from .models import Post
 
 User = get_user_model()
@@ -46,7 +44,8 @@ class PostSerializer(serializers.ModelSerializer):
             'owner',
             'timestamp',
             'read_time',
-            'unsplash_url'
+            'unsplash_url',
+            'post_image'
         ]
 
     def get_owner(self, obj):

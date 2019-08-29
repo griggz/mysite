@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.db.models.signals import pre_save
-from django.utils.text import slugify
+from .utils import unique_slug_generator, get_unsplash_url
 from django.conf import settings
 from django.utils import timezone
 from markdown_deux import markdown
@@ -10,8 +10,6 @@ from comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 from .utils import get_read_time
 import datetime
-
-from .utils import unique_slug_generator
 
 
 class PostManager(models.Manager):
@@ -26,7 +24,7 @@ def upload_location(instance, filename):
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
     title = models.CharField(max_length=120)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
     post_image = models.CharField(max_length=120, null=True, blank=True,)
     unsplash_url = models.CharField(max_length=120, null=True, blank=True,)
     height_field = models.IntegerField(default=900)
@@ -71,22 +69,25 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
 
+    if instance.post_image:
+        instance.unsplash_url = get_unsplash_url(instance)
+
     if instance.content:
         html_string = instance.get_markdown()
         read_time = get_read_time(html_string)
         instance.read_time = read_time
 
 
-def new_posts():  # This function determines if a blog post has been published in the last 7 days and is used on the front page of the site.
-    latest = Post.objects.latest('publish')
-    pub_date = latest.publish
-    today = datetime.date.today()
-    if not latest.draft and not latest.publish > today:
-        last_7 = datetime.timedelta(days=7)
-        recent = today - last_7
-        exists = pub_date > recent
-
-        return exists
+# def new_posts():  # This function determines if a blog post has been published in the last 7 days and is used on the front page of the site.
+#     latest = Post.objects.latest('publish')
+#     pub_date = latest.publish
+#     today = datetime.date.today()
+#     if not latest.draft and not latest.publish > today:
+#         last_7 = datetime.timedelta(days=7)
+#         recent = today - last_7
+#         exists = pub_date > recent
+#
+#         return exists
 
 
 pre_save.connect(pre_save_post_receiver, sender=Post)

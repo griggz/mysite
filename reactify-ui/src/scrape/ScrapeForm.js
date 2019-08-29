@@ -14,8 +14,8 @@ class ScrapeForm extends Component {
         this.state = {
             link: null,
             redirect: false,
-            slug: null,
             redirectLink: null,
+            slug: null,
             scraping: null,
             errors: {}
         }
