@@ -228,9 +228,9 @@ class PostForm extends Component {
                         <label for='post_image'>
                             <small>Get your photo ID from <a
                                 href="https://unsplash.com"
-                                target="_blank">Unsplash.com</a>. Use this <a
-                                href="http://quick.as/x3vycpgog"
-                                target="_blank">guide</a> if you need help. Or,
+                                target="_blank" rel="noopener noreferrer">Unsplash.com</a>. Use this <a
+                                href="https://unsplash.com/developers"
+                                target="_blank" rel="noopener noreferrer">guide</a> if you need help. Or,
                                 if you want a random image, enter "random" to
                                 pull random images from unsplash.
                             </small>
@@ -247,7 +247,7 @@ class PostForm extends Component {
                             required='required'/>
                     </div>
                     <div className='form-group'>
-                        {/*<label for='content'>Content</label>*/}
+                        <label for='content'><small>Markdown <a href="https://www.markdownguide.org/basic-syntax/" target="_blank" rel="noopener noreferrer">guide</a> For local images use this ex. "/static/images/deploy_process.svg"</small></label>
                         <textarea
                             id='content'
                             ref={this.postContentRef}

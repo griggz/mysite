@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 import ScrapeForm from './ScrapeForm'
 
 class ScrapeCreate extends Component {

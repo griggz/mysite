@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import './App.css';
+
 
 import Posts from './posts/Posts';
 import PostDetail from './posts/PostDetail';
 import PostCreate from './posts/PostCreate';
-import PostUpdate from './posts/PostUpdate';
 
 import ScrapeDetail from './scrape/ScrapeDetail';
 import ScrapeCreate from './scrape/ScrapeCreate'

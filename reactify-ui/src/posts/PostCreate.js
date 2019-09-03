@@ -2,9 +2,6 @@ import React, {Component} from 'react'
 import PostForm from './PostForm'
 
 class PostCreate extends Component {
-        constructor(props) {
-            super(props);
-        }
 
     render() {
         const {post} = this.props.location.state;

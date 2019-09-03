@@ -184,7 +184,8 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
 
-# APP VARIABLES
+# REACT VARIABLES
+BUILD_JSON = 'utils/build.json'
 
 # SCRAPE
 IGNORE_WORDS_JSON = 'src/scrape/scripts/text_analysis/constants/words_ignore.json'

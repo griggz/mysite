@@ -360,8 +360,12 @@ li.post {
 }
 
 img {
+    display: block;
     max-width: 100%;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .new_post {
@@ -487,7 +491,7 @@ a > code {
 
 .preview {
     border: .1rem solid white;
-    height: calc(1.5em + 25rem + 2px);
+    height: calc(1.5em + 50rem + 2px);
     color: white;
     margin-bottom: 1rem;
     border-radius: 5px;
