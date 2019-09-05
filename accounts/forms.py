@@ -13,7 +13,7 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), label='',)
 
     def clean(self, *args, **kwargs):
-        username = self.cleaned_data.get("username")
+        username = self.cleaned_data.get("username").lower()
         password = self.cleaned_data.get("password")
         user_qs = User.objects.filter(username=username)
         if user_qs.count() == 0:
@@ -59,3 +59,7 @@ class UserRegisterForm(forms.ModelForm):
         if email_qs.exists():
             raise forms.ValidationError("This email has already been registered")
         return email
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        return username.lower()

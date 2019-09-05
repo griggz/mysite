@@ -10,3 +10,7 @@
 #mainNavBar {
     font-family: 'Nova Flat', serif;
 }
+
+a:hover {
+   color: #42c6ff;
+}
